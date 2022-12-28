@@ -1,3 +1,4 @@
+
 var animation_service = undefined
 var memory_service = undefined
 var speech_service = undefined
@@ -20,6 +21,7 @@ function fadeOut(el){
         }
     })();
 }
+
 function fadeIn(el, display){
     if (el.classList.contains('is-hidden')){
         el.classList.remove('is-hidden');
@@ -288,7 +290,6 @@ function recordResp(nameStr,isElement) {
     }
     return;
 }
-
 
 function connected(session) {
     if (!session) {
@@ -626,4 +627,16 @@ try {
     }
     console.info('localhost only...')
     document.getElementsByClassName('survey-box')[0].querySelector('button').disabled = false;
+}
+
+// Function to calculate quiz result
+function quizresult(){
+    var quizscore = 0;
+    var correct = document.getElementById('correct');
+    if (correct.checked){
+        quizscore + 10; // 10pts for a right answer
+    } else {
+            quizscore + 0; //0pts for a wrong answer (no extra condition to be added)
+        } 
+    return quizscore;
 }

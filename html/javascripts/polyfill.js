@@ -13,7 +13,6 @@ if (!Element.prototype.closest) {
         return null;
     };
 }
-
 if (!Array.from) {
     Array.from = (function () {
         var toStr = Object.prototype.toString;
@@ -91,7 +90,6 @@ if (!Array.from) {
         };
     }());
 }
-
 if (!Array.prototype.every) {
     Array.prototype.every = function(callbackfn, thisArg) {
         'use strict';
@@ -155,7 +153,6 @@ if (!Array.prototype.every) {
         return true;
     };
 }
-
 if (typeof Object.assign != 'function') {
     // Must be writable: true, enumerable: false, configurable: true
     Object.defineProperty(Object, "assign", {
@@ -185,7 +182,6 @@ if (typeof Object.assign != 'function') {
       configurable: true
     });
 }
-
 if (!String.prototype.startsWith) {
 	String.prototype.startsWith = function(search, pos) {
 		return this.substr(!pos || pos < 0 ? 0 : +pos, search.length) === search;
