@@ -289,30 +289,36 @@
 
               <!-- Conclusion Page (Score provided) -->
                 <!-- Script to calculate final scores: https://www.geeksforgeeks.org/how-to-append-html-code-to-a-div-using-javascript/ -->
-
+                <!-- Display calculated score with Java -->
+                <!--script>
+                    var message = "Your score for the test is " + quizresult() + "pts/100pts";
+                    document.write("<p>" + message + "</p>")
+                </script> -->
 
               <div id="scr" class="survey-box">
                     <!-- Find a better animation for this interaction -->
                     <h1 data-animated class="hidden"> Thank you for taking your time to complete this quiz. Here is what you scored. Would you mind answering a few short questions before you leave? ^run(animations/Stand/Gestures/Explain_1) </h1>
                     <h1 data-ignore> Your quiz is complete. Press the button below to schowcase your score: </h1>
                     <br>
-                    <button style="margin:20px" onclick="calculateScore()">Show Score</button>
+                    <button style="margin:20px" onclick="showScore()">Show Score</button>
                     <script>
-                        function calculateScore() {
+                        function quizresult(){
+                            var score=0;
+                            var qcorrect = document.getElementById('correct');
+                            if (qcorrect.checked){
+                                score+10; // 10 points given
+                            } else {
+                                score+0; // No points given
+                            }
+                            return score;
+                        }
+
+                        var message = "Your score for the test is " + quizresult() + "pts/100pts";
+                        function showScore() {
                             document.getElementById("scr").innerHTML +=
-                            "<h3>Your score is this/h3>";
+                            message;
                         }
                     </script>
-                    <br>
-                    <!-- Display calculated score with Java -->
-                    <!--h2><b> Score/Out of Total </b></h2 -->
-                    <!--script>
-                        var message = "Your score for the test is " + quizresult() + "pts/100pts";
-                        document.write("<p>" + message + "</p>")
-                    </script> 
-                    <br>
-                    <button style="margin:20px" type="button" class="btn-navigate" data-next="ex1">Proceed</button>
-                  </div -->
                     <br>
                     <br>
                     <button style="margin:20px" type="button" class="btn-navigate" data-next="ex1">Proceed</button>
