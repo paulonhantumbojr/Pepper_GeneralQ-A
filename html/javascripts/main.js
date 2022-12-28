@@ -627,15 +627,3 @@ try {
     console.info('localhost only...')
     document.getElementsByClassName('survey-box')[0].querySelector('button').disabled = false;
 }
-
-// Function to calculate quiz result
-//function quizresult(){
-//    var quizscore = 0;
-//    var correct = document.getElementById('correct');
-//    if (correct.checked){
-//        quizscore + 10; // 10pts for a right answer
-//    } else {
-//            quizscore + 0; //0pts for a wrong answer (no extra condition to be added)
-//        } 
-//    return quizscore;
-//} 
