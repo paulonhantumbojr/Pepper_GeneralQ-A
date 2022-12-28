@@ -1,0 +1,402 @@
+<!-- Note for self:
+    - Fix spacing between question and image 
+    - To calculate the score add ID's to label the right and wrong answers
+    - Say question out loud first and then show on screen (or is there a way to perform both actions?)
+    - Optimize questions with buttons on top of each other
+    - When going back through the question after a recommendation, how to ignore the detailing of the question.
+    - Recording data from a text box
+    - Pepper's saying at the start: "Hello, would you be interested in partaking in a quiz? (To make it short for the participants passing by)"
+    - To avoid errors with the Java elements make sure no special characters are used in the html text. Characters such as underscores(_) and quotation marks - single and double ('',"")
+    - Only one class per element (two classes in one break the workflow)
+  -->
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="styles/main.css" />
+        <script src="/libs/qimessaging/2/qimessaging.js"></script>
+        <script src="javascripts/polyfill.js"></script>
+        <!-- Error message when errors are faced -->
+        <script>
+        window.addEventListener("error", handleError, true);
+        function handleError(evt) {
+            if (evt.message) { // Chrome sometimes provides this
+                alert("error: "+evt.message +" at linenumber: "+evt.lineno+" of file: "+evt.filename);
+            } else {
+                alert("error: "+evt.type+" from element: "+(evt.srcElement || evt.target));
+            }
+        }
+        </script>
+    </head>
+    <body>
+    	<meta charset="UTF-8">
+        <div class="content">
+        <form method="post" autocomplete="off" novalidate>
+            <!-- Starting screen -->
+            <div class="survey-group">
+                <div id="start" class="survey-box">
+                    <img src="Monash_Logo.jpg" alt="Monash Logo" height="100">
+                    <br>
+                    <br>
+                    <h1 data-ignore> TEST YOUR KNOWLEDGE </h1>
+                    <h2 data-ignore>Trivia Quiz: Monash Edition </h2>
+                    <br>
+                    <div class="column">
+                    <img src="musicalscore.png" class="center" alt="Musical Score" height="100">
+                    </div>
+                    <div class="column">
+                    <img src="SoccerBall.png" class="center" alt="Soccer Ball" height="100">
+                    </div>
+                    <div class="column">
+                    <img src="Scroll.png" class="center" alt="Scroll" height="100">
+                    </div>
+                    <div class="column">
+                    <img src="kangaroo.png" class="center" alt="Kangaroo" height="100">
+                    </div>
+                    <div class="column">
+                    <img src="Seedling.png" class="center" alt="Seedling" height="100">
+                    </div>
+                    <div class="column">
+                    <img src="GlobeAsiaAustralia.png" class="center" alt="Asia-Australia Globe" height="100">
+                    </div>
+                    <p></p>
+                    <button style="margin:80px" type="button" class="btn-navigate" data-next="q1">Start</button>
+                </div>
+
+                <!--Question 1 -->
+				        <div id="q1" class="survey-box">
+                  <h1 data-animated class="hidden"> Great. Here is your first question. How many campuses does Monash University have across Melbourne? ^run(animations/Stand/BodyTalk/Speaking/BodyTalk_1) </h1>
+                  <h1 data-ignore> How many campuses does Monash University have across Melbourne? </h1>
+				          <img src="MonashCampus.png" alt="Monash Building" height="300">
+                  <br>
+                  <br>
+                  <button style="margin:10px" type="button" class="btn-navigate" onclick="recordResp('3','false');" data-next="q2">3</button>
+				          <button style="margin:10px" type="button" class="btn-navigate" onclick="recordResp('7','false');" data-next="q2">7</button>
+                  <button style="margin:10px" type="button" class="btn-navigate" onclick="recordResp('4','false');" data-next="q2">4</button>
+				          <button style="margin:10px" type="button" class="btn-navigate" onclick="recordResp('6','false');" data-next="q2">6</button>
+                </div>
+
+                <!-- Question 2 -->
+                <div id="q2" class="survey-box">
+                  <h1 data-animated class="hidden"> Ok. Here is your next question. Who was sir John Monash?  ^run(animations/Stand/BodyTalk/Speaking/BodyTalk_1) </h1>
+                  <h1 data-ignore> Who was Sir John Monash? </h1>
+                  <img src="SirJohnMonash.jpg" alt="Sir John Monash" height="300">
+                  <br>
+                  <br>
+                  <br>
+                  <button style="margin:2px; padding-top: 20px; padding-right: 20px; padding-bottom: 20px; padding-left: 20px" id="correct" type="button" class="btn-navigate" onclick="recordResp('A Civil Engineer','false');" data-next="q3">A Civil Engineer</button>
+                  <button style="margin:2px; padding-top: 20px; padding-right: 20px; padding-bottom: 20px; padding-left: 20px" id="incorrect" type="button" class="btn-navigate" onclick="recordResp('A Mechanic','false');" data-next="q3">A Mechanic</button>
+                  <button style="margin:2px; padding-top: 20px; padding-right: 20px; padding-bottom: 20px; padding-left: 20px" id="incorrect" type="button" class="btn-navigate" onclick="recordResp('A Craftsman','false');" data-next="q3">A Craftsman</button>
+                  <button style="margin:2px; padding-top: 20px; padding-right: 20px; padding-bottom: 20px; padding-left: 20px" id="incorrect" type="button" class="btn-navigate" onclick="recordResp('A Painter','false');" data-next="q3">A Painter</button>
+                </div>
+
+                <!-- Question 3 -->
+                <div id="q3" class="survey-box">
+                    <h1 data-animated class="hidden"> Ok. Next question. How many time zones are there in Australia? ^run(animations/Stand/BodyTalk/Speaking/BodyTalk_1) </h1>
+                    <h1 data-ignore> How many time zones are there in Australia? </h1>
+                    <img src="handclock.jpg" alt="Hand Clock" height="300">
+                    <br>
+                    <br>
+                    <br>
+                    <button style="margin:2px" id="correct" type="button" class="btn-navigate" onclick="recordResp('3','false');" data-next="q4">3</button>
+                    <button style="margin:2px" id="incorrect" type="button" class="btn-navigate" onclick="recordResp('4','false');" data-next="q4">4</button>
+                    <button style="margin:2px" id="incorrect" type="button" class="btn-navigate" onclick="recordResp('5','false');" data-next="q4">5</button>
+                    <button style="margin:2px" id="incorrect" type="button" class="btn-navigate" onclick="recordResp('6','false');" data-next="q4">6</button>
+                </div>
+
+                <!-- Question 4 -->
+                <div id="q4" class="survey-box">
+                  <h1 data-animated class="hidden"> Alright. Here is your next question. What colours make up the Australian Aboriginal Flag? ^run(animations/Stand/BodyTalk/Speaking/BodyTalk_1) </h1>
+                  <h1 data-ignore> What colours make up the Australian Aboriginal Flag? </h1>
+                  <img src="AboriginalAustralia.png" alt="Aboriginal Map" height="300">
+                  <br>
+                  <br>
+                  <button style="margin:2px; padding-top: 15px; padding-right: 15px; padding-bottom: 15px; padding-left: 15px" id="incorrect" type="button" class="btn-navigate" onclick="recordResp('Red, Green, and Black','false');" data-next="q5">Red, Green, and Black</button>
+                  <button style="margin:2px; padding-top: 15px; padding-right: 15px; padding-bottom: 15px; padding-left: 15px" id="correct" type="button" class="btn-navigate" onclick="recordResp('Red, Black, and Yellow','false');" data-next="q5">Red, Black, and Yellow</button>
+                  <button style="margin:2px; padding-top: 15px; padding-right: 15px; padding-bottom: 15px; padding-left: 15px" id="incorrect" type="button" class="btn-navigate" onclick="recordResp('Yellow, Green and Black','false');" data-next="q5">Yellow, Green and Black</button>
+                  <button style="margin:2px; padding-top: 15px; padding-right: 15px; padding-bottom: 15px; padding-left: 15px" id="incorrect" type="button" class="btn-navigate" onclick="recordResp('Blue, Green and Black','false');" data-next="q5">Blue, Green and Black</button>
+                </div>
+
+                <!-- Question 5 -->
+                <div id="q5" class="survey-box">
+                  <h1 data-animated class="hidden"> Ok. Here is your next question. How many faculties span the Monash Clayton campus? ^run(animations/Stand/BodyTalk/Speaking/BodyTalk_1) </h1>
+                  <h1 data-ignore> How many faculties span the Monash Clayton campus? </h1>
+                  <img src="MonashEngineering.jpg" alt="Monash Engineering" height="300">
+                  <br>
+                  <br>
+                  <button style="margin:2px" id="incorrect" type="button" class="btn-navigate" onclick="recordResp('6','false');" data-next="q6r">6</button>
+                  <button style="margin:2px" id="incorrect" type="button" class="btn-navigate" onclick="recordResp('7','false');" data-next="q6r">7</button>
+                  <button style="margin:2px" id="correct" type="button" class="btn-navigate" onclick="recordResp('8','false');" data-next="q6r">8</button>
+                  <button style="margin:2px" id="incorrect" type="button" class="btn-navigate" onclick="recordResp('9','false');" data-next="q6r">9</button>
+                </div>
+
+                <!-- Question 6 with Recommendation -->
+                <div id="q6r" class="survey-box">
+                  <h1 data-animated class="hidden"> Ok. Next question. Where does the Australian economy rank compared to the rest of the world? ^run(animations/Stand/BodyTalk/Speaking/BodyTalk_1) </h1>
+                  <h1 data-ignore> Where does the Australian economy rank compared to the rest of the world? </h1>
+                  <img src="AustralianBill.jpg" alt="Australian Bill" height="300">
+                  <br>
+                  <br>
+                  <button style="margin:2px" id="incorrect" type="button" class="btn-navigate" onclick="recordResp('9th','false');" data-next="r1">9th</button>
+                  <button style="margin:2px" id="incorrect" type="button" class="btn-navigate" onclick="recordResp('11th','false');" data-next="r1">11th</button>
+                  <button style="margin:2px" id="correct" type="button" class="btn-navigate" onclick="recordResp('14th','false');" data-next="r1">14th</button>
+                  <button style="margin:2px" id="incorrect" type="button" class="btn-navigate" onclick="recordResp('18th','false');" data-next="r1">18th</button>
+                </div> 
+
+              <!-- Recommendation for Question 6 -->
+              <div id="r1" class="survey-box"> 
+                  <h1 data-animated class="hidden"> Are you sure? I think the correct answer might be the fourteenth. ^run(animations/Stand/Gestures/Thinking_1) </h1>
+                  <h1 data-ignore> Do you want to change your answer? </h1>
+                  <img src="ThinkingFace.gif" alt="Thinking Face" height="300">
+                  <br>
+                  <br>
+                  <button style="margin:20px" type="button" class="btn-navigate" onclick="recordResp('Yes','false');" data-next="q6">Yes</button>
+                  <button style="margin:20px" type="button" class="btn-navigate" onclick="recordResp('No','false');" data-next="q7">No</button>
+              </div>
+
+              <!-- Question 6 Post-Recommendation without Pepper's speech -->
+              <div id="q6" class="survey-box">
+                  <h1 data-ignore> Where does the Australian economy rank compared to the rest of the world? </h1>
+                  <img src="AustralianBill.jpg" alt="Australian Bill" height="300">
+                  <br>
+                  <br>
+                  <button style="margin:2px" id="incorrect" type="button" class="btn-navigate" onclick="recordResp('9th','false');" data-next="q7">9th</button>
+                  <button style="margin:2px" id="incorrect" type="button" class="btn-navigate" onclick="recordResp('11th','false');" data-next="q7">11th</button>
+                  <button style="margin:2px" id="correct" type="button" class="btn-navigate" onclick="recordResp('14th','false');" data-next="q7">14th</button>
+                  <button style="margin:2px" id="incorrect" type="button" class="btn-navigate" onclick="recordResp('18th','false');" data-next="q7">18th</button>
+              </div> 
+
+                <!-- Question 7 -->
+                <div id="q7" class="survey-box">
+                  <h1 data-animated class="hidden"> Alright. Here is your next question. What is a group of koalas called? ^run(animations/Stand/BodyTalk/Speaking/BodyTalk_1) </h1>
+                  <h1 data-ignore> What is a group of koalas called? </h1>
+                  <img src="Koalas.jpg" alt="Koalas" height="300">
+                  <br>
+                  <br>
+                  <br>
+                  <button style="margin:2px" id="correct" type="button" class="btn-navigate" onclick="recordResp('A cling','false');" data-next="q8r">A cling</button>
+                  <button style="margin:2px" id="incorrect" type="button" class="btn-navigate" onclick="recordResp('A herd','false');" data-next="q8r">A herd</button>
+                  <button style="margin:2px" id="incorrect" type="button" class="btn-navigate" onclick="recordResp('A mob','false');" data-next="q8r">A mob</button>
+                  <button style="margin:2px" id="incorrect" type="button" class="btn-navigate" onclick="recordResp('A troop','false');" data-next="q8r">A troop</button>
+              </div> 
+              
+                <!-- Question 8 with Recommendation -->
+              <div id="q8r" class="survey-box">
+                  <h1 data-animated class="hidden"> Ok. Next question. Which constellation is depicted on the Australian Flag? ^run(animations/Stand/BodyTalk/Speaking/BodyTalk_1) </h1>
+                  <h1 data-ignore> Which constellation is depicted on the Australian Flag? </h1>
+                  <img src="AustraliaFlag.png" alt="Australian Flag" height="300">
+                  <br>
+                  <br>
+                  <button style="margin:2px; padding-top: 10px; padding-right: 10px; padding-bottom: 10px; padding-left: 10px" id="correct" type="button" class="btn-navigate" onclick="recordResp('The Southern Cross','false');" data-next="r2">The Southern Cross</button>
+                  <button style="margin:2px; padding-top: 10px; padding-right: 10px; padding-bottom: 10px; padding-left: 10px" id="incorrect" type="button" class="btn-navigate" onclick="recordResp('The Northern Crown','false');" data-next="r2">The Northern Crown</button>
+                  <button style="margin:2px; padding-top: 10px; padding-right: 10px; padding-bottom: 10px; padding-left: 10px" id="incorrect" type="button" class="btn-navigate" onclick="recordResp('The Southern Crown','false');" data-next="r2">The Southern Crown</button>
+                  <button style="margin:2px; padding-top: 10px; padding-right: 10px; padding-bottom: 10px; padding-left: 10px" id="incorrect" type="button" class="btn-navigate" onclick="recordResp('The Swan','false');" data-next="r2">The Swan</button>
+              </div>
+
+              <!-- Recommendation for Question 8 -->
+              <div id="r2" class="survey-box">
+                  <h1 data-animated class="hidden"> Are you sure? My guess on the correct answer is the Southern Cross. ^run(animations/Stand/Gestures/Thinking_1) </h1>
+                  <h1 data-ignore> Do you want to change your answer? </h1>
+                  <img src="ThinkingFace.gif" alt="Thinking Face" height="300">
+                  <br>
+                  <br>
+                  <button style="margin:20px" type="button" class="btn-navigate" onclick="recordResp('Yes','false');" data-next="q8">Yes</button>
+                  <button style="margin:20px" type="button" class="btn-navigate" onclick="recordResp('No','false');" data-next="q9r">No</button>
+              </div>
+
+              <!-- Question 8 Post-Recommendation without Pepper's speech -->
+              <div id="q8" class="survey-box">
+                  <h1 data-ignore> Which constellation is depicted on the Australian Flag? </h1>
+                  <img src="AustraliaFlag.png" alt="Australian Flag" height="300">
+                  <br>
+                  <br>
+                  <button style="margin:2px; padding-top: 10px; padding-right: 10px; padding-bottom: 10px; padding-left: 10px" id="correct" type="button" class="btn-navigate" onclick="recordResp('The Southern Cross','false');" data-next="q9r">The Southern Cross</button>
+                  <button style="margin:2px; padding-top: 10px; padding-right: 10px; padding-bottom: 10px; padding-left: 10px" id="incorrect" type="button" class="btn-navigate" onclick="recordResp('The Northern Crown','false');" data-next="q9r">The Northern Crown</button>
+                  <button style="margin:2px; padding-top: 10px; padding-right: 10px; padding-bottom: 10px; padding-left: 10px" id="incorrect" type="button" class="btn-navigate" onclick="recordResp('The Southern Crown','false');" data-next="q9r">The Southern Crown</button>
+                  <button style="margin:2px; padding-top: 10px; padding-right: 10px; padding-bottom: 10px; padding-left: 10px" id="incorrect" type="button" class="btn-navigate" onclick="recordResp('The Swan','false');" data-next="q9r">The Swan</button>
+              </div>              
+            
+              <!-- Question 9 with Recommendation -->
+              <div id="q9r" class="survey-box">
+                  <h1 data-animated class="hidden"> Ok. Here is your next question. How many eyes do Huntsman Spiders have? ^run(animations/Stand/BodyTalk/Speaking/BodyTalk_1) </h1>
+                  <h1 data-ignore> How many eyes do Huntsman Spiders have? </h1>
+                  <img src="HuntsmanSpider.jpg" alt="Huntsman Spider" height="300">
+                  <br>
+                  <br>
+                  <br>
+                  <button style="margin:2px" id="incorrect" type="button" class="btn-navigate" onclick="recordResp('6','false');" data-next="r3">6</button>
+                  <button style="margin:2px" id="incorrect" type="button" class="btn-navigate" onclick="recordResp('4','false');" data-next="r3">4</button>
+                  <button style="margin:2px" id="incorrect" type="button" class="btn-navigate" onclick="recordResp('10','false');" data-next="r3">10</button>
+                  <button style="margin:2px" id="correct" type="button" class="btn-navigate" onclick="recordResp('8','false');" data-next="r3">8</button>
+              </div>
+
+              <!-- Recommendation for Question 9 -->
+              <div id="r3" class="survey-box">
+                  <h1 data-animated class="hidden"> Are you sure? I think the correct answer might be eight. ^run(animations/Stand/Gestures/Thinking_1) </h1>
+                  <h1 data-ignore> Do you want to change your answer? </h1>
+                  <img src="ThinkingFace.gif" alt="Thinking Face" height="300">
+                  <br>
+                  <br>
+                  <button style="margin:20px" type="button" class="btn-navigate" onclick="recordResp('Yes','false');" data-next="q9">Yes</button>
+                  <button style="margin:20px" type="button" class="btn-navigate" onclick="recordResp('No','false');" data-next="q10r">No</button>
+              </div>
+
+              <!-- Question 9 Post-Recommendation without Pepper's speech -->
+              <div id="q9" class="survey-box">
+                  <h1 data-ignore> How many eyes do Huntsman Spiders have? </h1>
+                  <img src="HuntsmanSpider.jpg" alt="Huntsman Spider" height="300">
+                  <br>
+                  <br>
+                  <button style="margin:2px" id="incorrect" type="button" class="btn-navigate" onclick="recordResp('6','false');" data-next="q10r">6</button>
+                  <button style="margin:2px" id="incorrect" type="button" class="btn-navigate" onclick="recordResp('4','false');" data-next="q10r">4</button>
+                  <button style="margin:2px" id="incorrect" type="button" class="btn-navigate" onclick="recordResp('10','false');" data-next="q10r">10</button>
+                  <button style="margin:2px" id="correct" type="button" class="btn-navigate" onclick="recordResp('8','false');" data-next="q10r">8</button>
+              </div>
+
+              <!-- Question 10 with Recommendation -->
+              <div id="q10r" class="survey-box">
+                  <h1 data-animated class="hidden"> Ok. Here is the final question. What is the national flower of Australia? ^run(animations/Stand/BodyTalk/Speaking/BodyTalk_1) </h1>
+                  <h1 data-ignore> What is the national flower of Australia? </h1>
+                  <img src="GoldenWattleFlower.jpg" alt="Golden Wattle" height="300">
+                  <br>
+                  <br>
+                  <button style="margin:2px" id="incorrect" type="button" class="btn-navigate" onclick="recordResp('The Yellow Gum','false');" data-next="r4">The Yellow Gum</button>
+                  <button style="margin:2px" id="correct" type="button" class="btn-navigate" onclick="recordResp('The Golden Wattle','false');" data-next="r4">The Golden Wattle</button>
+                  <button style="margin:2px" id="incorrect" type="button" class="btn-navigate" onclick="recordResp('The Waratah','false');" data-next="r4">The Waratah</button>
+                  <button style="margin:2px" id="incorrect" type="button" class="btn-navigate" onclick="recordResp('The Banksia','false');" data-next="r4">The Banksia</button>
+              </div>
+
+              <!-- Recommendation for Question 10 -->
+              <div id="r4" class="survey-box">
+                  <h1 data-animated class="hidden"> Are you sure? I think the correct answer might be the Golden Wattle. ^run(animations/Stand/Gestures/Thinking_1) </h1>
+                  <h1 data-ignore> Do you want to change your answer? </h1>
+                  <img src="ThinkingFace.gif" alt="Thinking Face" height="300">
+                  <br>
+                  <br>
+                  <button style="margin:20px" type="button" class="btn-navigate" onclick="recordResp('Yes','false');" data-next="q10">Yes</button>
+                  <button style="margin:20px" type="button" class="btn-navigate" onclick="recordResp('No','false');" data-next="scr">No</button>
+              </div>
+
+              <!-- Question 10 Post-Recommendation without Pepper's speech -->
+              <div id="q10" class="survey-box">
+                  <h1 data-ignore> What is the national flower of Australia? </h1>
+                  <img src="GoldenWattleFlower.jpg" alt="Golden Wattle" height="300">
+                  <br>
+                  <br>
+                  <button style="margin:2px" id="incorrect" type="button" class="btn-navigate" onclick="recordResp('The Yellow Gum','false');" data-next="scr">The Yellow Gum</button>
+                  <button style="margin:2px" id="correct" type="button" class="btn-navigate" onclick="recordResp('The Golden Wattle','false');" data-next="scr">The Golden Wattle</button>
+                  <button style="margin:2px" id="incorrect" type="button" class="btn-navigate" onclick="recordResp('The Waratah','false');" data-next="scr">The Waratah</button>
+                  <button style="margin:2px" id="incorrect" type="button" class="btn-navigate" onclick="recordResp('The Banksia','false');" data-next="scr">The Banksia</button>
+              </div>
+
+              <!-- Conclusion Page (Score) -->
+              <div id="scr" class="survey-box">
+                    <!-- Find a better animation for this interaction -->
+                    <h1 data-animated class="hidden"> Thank you for taking your time to complete this quiz. Here is what you scored. Would you mind answering a few short questions before you leave? ^run(animations/Stand/Gestures/Explain_1) </h1>
+                    <h1 data-ignore> Your quiz is complete. Your score is displayed below: </h1>
+                    <br>
+                    <br>
+                    <!-- Display calculated score with Java -->
+                    <h2><b> Score/Out of Total </b></h2>
+                    <br>
+                    <br>
+                    <button style="margin:20px" type="button" class="btn-navigate" data-next="ex1">Proceed</button>
+              </div>
+
+              <!-- Exit Question 1: 0-10 Rating (Radio Buttons) -->
+              <div id="ex1" class="survey-box">
+                    <h1 data-animated class="hidden"> Great, it will be quick. How would you rate your knowledge related to the quiz questions? Choose a rating from a scale of 0 to 10. 0 being unaware of most and 10 being very knowledgeable. ^run(animations/Stand/BodyTalk/Speaking/BodyTalk_1) </h1>
+                    <h1 data-ignore> How would you rate your knowledge related to the quiz questions? </h1> 
+                    <br>
+                    <br>
+                    <p class="button_centre">
+                        <label class="radio-container"><input type="radio" name="likert_ux" value="0" data-replace="x:0">0<span class="checkmark"></span></label>
+                        <label class="radio-container"><input type="radio" name="likert_ux" value="1" data-replace="x:1">1<span class="checkmark"></span></label>
+                        <label class="radio-container"><input type="radio" name="likert_ux" value="2" data-replace="x:2">2<span class="checkmark"></span></label>
+                        <label class="radio-container"><input type="radio" name="likert_ux" value="3" data-replace="x:3">3<span class="checkmark"></span></label>
+                        <label class="radio-container"><input type="radio" name="likert_ux" value="4" data-replace="x:4">4<span class="checkmark"></span></label>
+                        <label class="radio-container"><input type="radio" name="likert_ux" value="5" data-replace="x:5">5<span class="checkmark"></span></label>
+                        <label class="radio-container"><input type="radio" name="likert_ux" value="6" data-replace="x:6">6<span class="checkmark"></span></label>
+                        <label class="radio-container"><input type="radio" name="likert_ux" value="7" data-replace="x:7">7<span class="checkmark"></span></label>
+                        <label class="radio-container"><input type="radio" name="likert_ux" value="8" data-replace="x:8">8<span class="checkmark"></span></label>
+                        <label class="radio-container"><input type="radio" name="likert_ux" value="9" data-replace="x:9">9<span class="checkmark"></span></label>
+                        <label class="radio-container"><input type="radio" name="likert_ux" value="10" data-replace="x:10">10<span class="checkmark"></span></label>
+                    </p>
+                    <p> Select one of the options above </p>
+                    <br> 
+                    <br>
+                    <button type="button" style="margin:50px" class="btn-navigate" onclick="recordResp('likert_ux','true');" data-next="ex2">Submit</button>
+              </div>
+
+              <!-- Exit Question 2: Text box with numeric value/Radio Buttons from 0-10 -->
+              <div id="ex2" class="survey-box">
+                    <h1 data-animated class="hidden"> How many times did you try to guess the answer to the questions presented? ^run(animations/Stand/BodyTalk/Speaking/BodyTalk_1) </h1>
+                    <h1 data-ignore> How many questions did you try to guess the answer? </h1>
+                    <br>
+                    <br>
+                    <!-- Display text box (Ensure that whatever data written in it is saved to the .csv file) -->
+                    <div class="input_centre">
+                        <input style="text-align:center;" type="text" id="guessingbox" name="guesses" maxlength="1"> <!-- maxlength to set the maximum number of characters that can be written in the box -->
+                    </div>
+                    <p style="text-align:center">Type a number</p>
+                    <br>
+                    <button style="margin:20px" type="button" class="btn-navigate" data-next="ex3">Submit</button>
+              </div>
+
+              <!-- Exit Question 3 -->
+              <div id="ex3" class="survey-box">
+                <h1 data-animated class="hidden"> Did you change any of your answers? ^run(animations/Stand/Gestures/Thinking_1) </h1>
+                <h1 data-ignore> Did you change any of your answers? </h1>
+                <br>
+                <br>
+                <br>
+                <button style="margin:20px" type="button" class="btn-navigate" onclick="recordResp('Yes','false');" data-next="ex4">Yes</button>
+                <button style="margin:20px" type="button" class="btn-navigate" onclick="recordResp('No','false');" data-next="fn">No</button>
+              </div>
+
+              <!-- Exit Question 4: Text box with numeric value (if prompted by Question 3) -->
+              <div id="ex4" class="survey-box">
+                <h1 data-animated class="hidden"> If so, how many times did you change your answer? ^run(animations/Stand/BodyTalk/Speaking/BodyTalk_1) </h1>
+                <h1 data-ignore> If so, how many times did you change your answer? </h1>
+                <br>
+                <br>
+                <!-- Display text box (Ensure that whatever data written in it is saved to the .csv file) -->
+                <div class="input_centre">
+                    <input style="text-align:center;" type="text" id="ratingbox" name="rating" maxlength="1"> <!-- maxlength to set the maximum number of characters that can be written in the box -->
+                </div>
+                <p style="text-align:center">Type a numeric value</p>
+                <br>
+                <button style="margin:20px" type="button" class="btn-navigate" data-next="fn">Submit</button>
+          </div>
+
+              <!-- Conclusion -->
+              <div id="fn" class="survey-box">
+                    <h1 data-animated class="hidden">Thank you for your time. Enjoy the rest of your day. ^run(animations/Stand/Gestures/Hey_3)</h1>
+                    <h1 data-ignore> Thank you for your interest in completing the quiz. Have a great rest of your day. </h1>
+                    <!-- Fix spacing between question and image -->
+                    <br>
+                    <img src="SlightlySmileFace.gif" alt="Thinking Face" height="300">
+                    <br>
+                    <!-- Restart workflow manually from here -->
+              </div>
+
+
+				<!--Restart flow-->
+              <!-- div id="7" class="survey-box">
+                <p></p>
+                <p></p>
+                <img src="Monash_Logo.jpg" alt="birthday mug cake" height="200">  
+                <h1 data-animated class="hidden">OK. Thanks for taking the time to answer this question. ^run(animations/Stand/Gestures/Hey_3)</h1>
+                  <p></p>
+                  <p></p>
+                  <img src="Monash_Logo.jpg" alt="birthday mug cake" height="200"> 
+                  <p></p>
+                  <button type="button" class="btn-navigate hidden" data-next="1">Restart</button>
+                </div -->
+            <div class="popup">
+                <span class="popuptext" id="invalid-popup"><span style="color: red">&#10071;</span> <span id="invalid-message"></span></span>
+            </div>
+        </form>
+        </div>
+        <footer id="progress-bar" class="progress-bar"></footer>
+        <script src="javascripts/main.js?v=201808300902"></script>
+    </body>
+</html>
