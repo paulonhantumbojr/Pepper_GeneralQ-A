@@ -694,4 +694,6 @@ function showScore(){
     var message = "Your score for the test is " + score + "/100 points";
     // Insert a text style (heading/paragraph) that is centered
     buttonwrite.innerHTML += message;
+    buttonwrite.classList.add("hide");
+    buttonwrite.id = "invisible";
 }

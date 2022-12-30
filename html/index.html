@@ -5,6 +5,7 @@
   <html>
     <head>
         <link rel="stylesheet" type="text/css" href="styles/main.css" />
+        <script src="http://code.jquery.com/jquery-latest.min.js"></script>
         <script src="/libs/qimessaging/2/qimessaging.js"></script>
         <script src="javascripts/polyfill.js"></script>
         <!-- Error message when errors are faced -->
@@ -17,6 +18,13 @@
                 alert("error: "+evt.type+" from element: "+(evt.srcElement || evt.target));
             }
         }
+       
+       <!-- Function to showcase and hide score when button is pressed -->
+        $(function(){
+          $("#visible").click(function(){
+            $("#invisible").toggleClass("show");
+             });
+        });
         </script>
     </head>
     <body>
@@ -285,10 +293,11 @@
                     <h1 data-animated class="hidden"> Thank you for taking your time to complete this quiz. Here is what you scored. Would you mind answering a few short questions before you leave? ^run(animations/Stand/Gestures/Explain_1) </h1>
                     <h1 data-ignore> Your quiz is complete. Press the button below to schowcase your score: </h1>
                     <br>
-                    <button style="margin:20px" onclick="showScore()">Show Score</button>
+                    <button style="margin:20px" id="visible" onclick="showScore()">Show Score</button>
                     <br>
                     <br>
-                    <!-- Ensure that 'Proceed' button is below the text (showing the score) that is displayed on the tablet screen -->
+                    
+                    <!-- Ensure that 'Proceed' button is below the text (showing the score) that is displayed on the tablet screen (to be tested) -->
                     <button style="margin:20px" type="button" class="btn-navigate" data-next="ex1">Proceed</button>
               </div>
 
@@ -308,7 +317,7 @@
                         <label class="radio-container"><input type="radio" name="likert_ux" value="6" data-replace="x:6">6<span class="checkmark"></span></label>
                         <label class="radio-container"><input type="radio" name="likert_ux" value="7" data-replace="x:7">7<span class="checkmark"></span></label>
                         <label class="radio-container"><input type="radio" name="likert_ux" value="8" data-replace="x:8">8<span class="checkmark"></span></label>
-                        <label class="radio-container"><input type="radio" name="likert_ux" value="9" data-replace="x:9">9<span class="checkmark"></span></label>
+                        <label class="radio-container"><input type="radio" name="likert_ux" valuinvise="9" data-replace="x:9">9<span class="checkmark"></span></label>
                         <label class="radio-container"><input type="radio" name="likert_ux" value="10" data-replace="x:10">10<span class="checkmark"></span></label>
                     </p>
                     <p> Select one of the options </p>

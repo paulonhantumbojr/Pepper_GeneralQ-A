@@ -126,6 +126,17 @@ select:focus {
     background: white;
 }
 
+/* Class to show and hide text after button press */
+.hide{
+    display:none;
+    text-align: center;
+}
+
+.show{
+    text-align: center;
+    display:block;
+}
+
 /* Sliders*/
 datalist {
     display: flex;
