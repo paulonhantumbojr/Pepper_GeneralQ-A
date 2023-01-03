@@ -655,12 +655,10 @@ function showScore(){
     if (qcorrect1.checked){ //Q1
         score++; 
     } 
-    score = score * 10;
 
     if (qcorrect2.checked){ //Q2
         score++; 
     } 
-    score = score * 10;
 
     if (qcorrect3.checked){ //Q3
         score++; 
