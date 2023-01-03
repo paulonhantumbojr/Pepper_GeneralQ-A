@@ -55,9 +55,10 @@
             <translation type="obsolete">Hello, it’s nice to see you on the Monash campus today. Would you like to take a short quiz based on general knowledge topics? The quiz will be scored and you will receive that score at the end. Feel free to say no. If you complete the test, you will be asked a few questions based on your experience.</translation>
         </message>
         <message>
+            <location filename="behavior_1/behavior.xar" line="0"/>
             <source>Hello</source>
             <comment>Text</comment>
-            <translation type="obsolete">Hello</translation>
+            <translation type="unfinished">Hello</translation>
         </message>
         <message>
             <source>Hello, it’s nice to see you on the Monash Campus today. Would you like to take a short quiz based on general knowledge topics? The quiz contains 10 questions and each will be scored. You will receive the final score for all the questions at the end. If you complete the test, you will be asked a few quick questions based on your experience.It is OK if you do not wish to participate.</source>
@@ -65,10 +66,14 @@
             <translation type="obsolete">Hello, it’s nice to see you on the Monash Campus today. Would you like to take a short quiz based on general knowledge topics? The quiz contains 10 questions and each will be scored. You will receive the final score for all the questions at the end. If you complete the test, you will be asked a few quick questions based on your experience.It is OK if you do not wish to participate.</translation>
         </message>
         <message>
-            <location filename="behavior_1/behavior.xar" line="0"/>
             <source>Hello, it’s nice to see you on the Monash Campus today. Would you like to take a short quiz based on general knowledge topics? The quiz contains 10 questions and each will be scored. You will receive the final score for all the questions at the end. If you complete the test, you will be asked a few quick questions based on your experience. It is OK if you do not wish to participate.</source>
             <comment>Text</comment>
-            <translation type="unfinished">Hello, it’s nice to see you on the Monash Campus today. Would you like to take a short quiz based on general knowledge topics? The quiz contains 10 questions and each will be scored. You will receive the final score for all the questions at the end. If you complete the test, you will be asked a few quick questions based on your experience. It is OK if you do not wish to participate.</translation>
+            <translation type="obsolete">Hello, it’s nice to see you on the Monash Campus today. Would you like to take a short quiz based on general knowledge topics? The quiz contains 10 questions and each will be scored. You will receive the final score for all the questions at the end. If you complete the test, you will be asked a few quick questions based on your experience. It is OK if you do not wish to participate.</translation>
+        </message>
+        <message>
+            <source>Hello, it’s nice to see you on the Monash Campus today. Would you like to take a short quiz based on general knowledge topics? The quiz contains 10 questions and each will be scored. It may take 5 minutes, and you will receive the final score for all the questions at the end. If you complete the test, you will be asked a few quick questions based on your experience. It is OK if you do not wish to participate.</source>
+            <comment>Text</comment>
+            <translation type="obsolete">Hello, it’s nice to see you on the Monash Campus today. Would you like to take a short quiz based on general knowledge topics? The quiz contains 10 questions and each will be scored. It may take 5 minutes, and you will receive the final score for all the questions at the end. If you complete the test, you will be asked a few quick questions based on your experience. It is OK if you do not wish to participate.</translation>
         </message>
     </context>
     <context>

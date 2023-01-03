@@ -16,7 +16,7 @@ body {
 
 h1 {
     font-family: Raleway;
-    font-size: 1.8em;
+    font-size: 1.4em; /* 1.8em originally */
     text-align: center;
 }
 
@@ -126,15 +126,21 @@ select:focus {
     background: white;
 }
 
-/* Class to show and hide text after button press */
+/* Class to show and hide text after button press (same styles as h1) */
 .hide{
     display:none;
     text-align: center;
+  /*  font-size: 1.8em;
+    font-family: Raleway;
+    font-weight: 700;  Bold */
 }
 
 .show{
-    text-align: center;
     display:block;
+    text-align: center;
+  /*   font-size: 1.8em;
+    font-family: Raleway;
+   font-weight: 700;  Bold */
 }
 
 /* Sliders*/

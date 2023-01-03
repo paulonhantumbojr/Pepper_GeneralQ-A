@@ -630,7 +630,7 @@ try {
 
 // To calculate result
 function showScore(){
-    var score = 0;
+    var score = 0; // let the initial score be 0;
     var buttonwrite = document.getElementById("scr");
     //Q1 & Q2
     var qcorrect1 = document.getElementById('correct1'), qcorrect2 = document.getElementById('correct2');
@@ -638,7 +638,7 @@ function showScore(){
     var qcorrect3 = document.getElementById('correct3'), qcorrect4 = document.getElementById('correct4');
     //Q5 
     var qcorrect5 = document.getElementById('correct5');
-    //Q6 (Recommendation & Answer)
+    //Q6 (recyes and recno used for button detection)
     var qcorrect6r = document.getElementById('correct6r'), rec6yes = document.getElementById('yes6r'), rec6no = document.getElementById('no6r'), qcorrect6 = document.getElementById('correct6');
     //Q7
     var qcorrect7 = document.getElementById('correct7');
@@ -647,53 +647,64 @@ function showScore(){
     //Q9 (Recommendation & Answer)
     var qcorrect9r = document.getElementById('correct9r'), rec9yes = document.getElementById('yes9r'), rec9no = document.getElementById('no9r'), qcorrect9 = document.getElementById('correct9');
     //Q10 (Recommendation & Answer)
-    var qcorrect10r = document.getElementById('correct10r'), rec9yes = document.getElementById('yes10r'), rec9no = document.getElementById('no10r'), qcorrect9 = document.getElementById('correct10');
-    
-    //Score Calculation
+    var qcorrect10r = document.getElementById('correct10r'), rec10yes = document.getElementById('yes10r'), rec10no = document.getElementById('no10r'), qcorrect10 = document.getElementById('correct10');
+                    
+    //Score Calculation (Use addEventListener as .clicked and .checked don't work)
     if (qcorrect1.checked){ //Q1
         score++; 
     } 
+    score = score * 10;
+
     if (qcorrect2.checked){ //Q2
         score++; 
     } 
-    if (qcorrect3.checked){ //Q3 
+    score = score * 10;
+
+    if (qcorrect3.checked){ //Q3
         score++; 
     } 
+
     if (qcorrect4.checked){ //Q4
         score++; 
     } 
+
     if (qcorrect5.checked){ //Q5
         score++; 
     } 
-    // Only award the score for the cases where the correct answer is selected and ignore the rest (Whether a user decides to change their answer to an incorrect one even after getting it right at first, no half score is ultimately awarded)
-    if (qcorrect6r.checked && rec6no.checked){ // Correct answer and 'No' selected after recommendation
+
+    if (qcorrect6r.checked || qcorrect6.checked){ //Q6
         score++; 
-    } else if (rec6yes && qcorrect6.checked){ // 'Yes' after recommendation and Correct answer
-        score++;
-    }                       
+    }
+
     if (qcorrect7.checked){ //Q7
         score++; 
     } 
-    if (qcorrect8r.checked && rec8no.checked){ // Correct answer and 'No' selected after recommendation (Q8)
-        score++; 
-    } else if (rec8yes && qcorrect8.checked){ // 'Yes' after recommendation and Correct answer
-        score++;
-    }
-    if (qcorrect9r.checked && rec9no.checked){ // Correct answer and 'No' selected after recommendation (Q9)
-        score++; 
-    } else if (rec9yes && qcorrect9.checked){ // 'Yes' after recommendation and Correct answer
-        score++;
-    } 
-    if (qcorrect10r.checked && rec10no.checked){ // Correct answer and 'No' selected after recommendation (Q10)
-        score++; 
-    } else if (rec10yes && qcorrect10.checked){ // 'Yes' after recommendation and Correct answer
-        score++;
-    }
 
-    score = score*10; // each correct answer is worth 10pts
+    if (qcorrect8r.checked || qcorrect8.checked){ //Q8
+        score++; 
+    } 
+
+    if (qcorrect9r.checked || qcorrect9.checked){ //Q8
+        score++; 
+    } 
+
+    if (qcorrect10r.checked || qcorrect10.checked){ //Q8
+        score++; 
+    } 
+
+    score = score * 10; // each correct answer is worth 10pts
     var message = "Your score for the test is " + score + "/100 points";
     // Insert a text style (heading/paragraph) that is centered
     buttonwrite.innerHTML += message;
-    buttonwrite.classList.add("hide");
-    buttonwrite.id = "invisible";
+//                    buttonwrite.classList.add("heading1");
+   //                 buttonwrite.id = "invisible";
+
+                       // For Button Clicks
+ //                   qcorrect1.addEventListener('click', function(){
+   //                     score.value = score.value + 1;
+     //               });
+
+      //              qcorrect2.addEventListener("click", function(){
+        //                score++;
+          //          })
 }
