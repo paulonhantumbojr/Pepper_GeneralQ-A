@@ -97,7 +97,7 @@
                         <label class="radio-container"><input type="radio" name="likert_ux" value="5" data-replace="x:5">5<span class="checkmark"></span></label>
                         <label class="radio-container"><input type="radio" name="likert_ux" value="6" data-replace="x:6">6<span class="checkmark"></span></label>
                     </p>
-                    <button type="button" style="margin:5px" class="btn-navigate" onclick="recordResp('likert_ux','true');" data-next="scr">Next</button>
+                    <button type="button" style="margin:5px" class="btn-navigate" onclick="recordResp('likert_ux','true');" data-next="q4">Next</button>
                 </div>
 
                 <!-- Question 4 -->
@@ -148,8 +148,11 @@
               <!-- Recommendation for Question 6 -->
               <div id="r1" class="survey-box"> 
                   <h1 data-animated class="hidden"> Are you sure? I think the correct answer might be the fourteenth. ^run(animations/Stand/Gestures/Thinking_1) </h1>
+                  <br>
+                  <br>
+                  <br>
+                  <br>
                   <h1 data-ignore> Do you want to change your answer? </h1>
-                  <img src="ThinkingFace.gif" alt="Thinking Face" height="300">
                   <br>
                   <br>
                   <button style="margin:20px" id="yes8r" type="button" class="btn-navigate" onclick="recordResp('Yes','false');" data-next="q6">Yes</button>
@@ -203,8 +206,11 @@
               <!-- Recommendation for Question 8 -->
               <div id="r2" class="survey-box">
                   <h1 data-animated class="hidden"> Are you sure? My guess on the correct answer is the Southern Cross. ^run(animations/Stand/Gestures/Thinking_1) </h1>
+                  <br>
+                  <br>
+                  <br>
+                  <br>
                   <h1 data-ignore> Do you want to change your answer? </h1>
-                  <img src="ThinkingFace.gif" alt="Thinking Face" height="300">
                   <br>
                   <br>
                   <button style="margin:20px" id="yes8r" type="button" class="btn-navigate" onclick="recordResp('Yes','false');" data-next="q8">Yes</button>
@@ -243,8 +249,11 @@
               <!-- Recommendation for Question 9 -->
               <div id="r3" class="survey-box">
                   <h1 data-animated class="hidden"> Are you sure? I think the correct answer might be eight. ^run(animations/Stand/Gestures/Thinking_1) </h1>
+                  <br>
+                  <br>
+                  <br>
+                  <br>
                   <h1 data-ignore> Do you want to change your answer? </h1>
-                  <img src="ThinkingFace.gif" alt="Thinking Face" height="300">
                   <br>
                   <br>
                   <button style="margin:20px" id="yes9r" type="button" class="btn-navigate" onclick="recordResp('Yes','false');" data-next="q9">Yes</button>
@@ -283,8 +292,11 @@
               <!-- Recommendation for Question 10 -->
               <div id="r4" class="survey-box">
                   <h1 data-animated class="hidden"> Are you sure? I think the correct answer might be the Golden Wattle. ^run(animations/Stand/Gestures/Thinking_1) </h1>
+                  <br>
+                  <br>
+                  <br>
+                  <br>
                   <h1 data-ignore> Do you want to change your answer? </h1>
-                  <img src="ThinkingFace.gif" alt="Thinking Face" height="300">
                   <br>
                   <br>
                   <button style="margin:20px" id="yes10r" type="button" class="btn-navigate" onclick="recordResp('Yes','false');" data-next="q10">Yes</button>
@@ -307,7 +319,8 @@
 
               <!-- Score Page -->
               <div id="scr" class="survey-box">
-                    <h1 data-animated data-auto-transition class="hidden"> Thank you for taking your time to complete this quiz. Here is what you scored. ^run(animations/Stand/Gestures/Explain_1) </h1>
+                <!-- Hidden button class must be paired with a heading with a data-auto-transition -->
+                    <h1 data-animated class="hidden"> Thank you for taking your time to complete this quiz. Here is what you scored. ^run(animations/Stand/Gestures/Explain_1) </h1>
                     <!--h1 data-ignore> Your quiz is complete. Press the button below to display your score: </h1 -->
                     <br>
                     <!-- Scores must be prompted straight away without any buttons -->
@@ -329,7 +342,7 @@
                         <label class="radio-container"><input type="radio" name="likert_ux" value="2" data-replace="x:2">2<span class="checkmark"></span></label>
                         <label class="radio-container"><input type="radio" name="likert_ux" value="3" data-replace="x:3">3<span class="checkmark"></span></label>
                         <label class="radio-container"><input type="radio" name="likert_ux" value="4" data-replace="x:4">4<span class="checkmark"></span></label>
-                        <label class="radio-container"><input type="radio" name="likert_ux" value="5" data-replace="x:5">5<span class="checkmark"></span></label>
+                        <label class="radio-container"><input type="radio" name="likert_ux" value="5" data-replace="x:5">5 (Average)<span class="checkmark"></span></label>
                         <label class="radio-container"><input type="radio" name="likert_ux" value="6" data-replace="x:6">6<span class="checkmark"></span></label>
                         <label class="radio-container"><input type="radio" name="likert_ux" value="7" data-replace="x:7">7<span class="checkmark"></span></label>
                         <label class="radio-container"><input type="radio" name="likert_ux" value="8" data-replace="x:8">8<span class="checkmark"></span></label>
@@ -369,6 +382,10 @@
               <!-- Exit Question 3 -->
               <div id="ex3" class="survey-box">
                 <h1 data-animated class="hidden"> Did you change any of your answers? ^run(animations/Stand/Gestures/Thinking_1) </h1>
+                <br>
+                <br>
+                <br>
+                <br>
                 <h1 data-ignore> Did you change any of your answers? </h1>
                 <br>
                 <br>
