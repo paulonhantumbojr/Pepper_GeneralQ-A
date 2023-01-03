@@ -632,6 +632,8 @@ try {
 function showScore(){
     var score = 0; // let the initial score be 0;
     var buttonwrite = document.getElementById("scr");
+
+    // Do each question separately
     //Q1 & Q2
     var qcorrect1 = document.getElementById('correct1'), qcorrect2 = document.getElementById('correct2');
     //Q3 & Q4
@@ -639,17 +641,17 @@ function showScore(){
     //Q5 
     var qcorrect5 = document.getElementById('correct5');
     //Q6 (recyes and recno used for button detection)
-    var qcorrect6r = document.getElementById('correct6r'), rec6yes = document.getElementById('yes6r'), rec6no = document.getElementById('no6r'), qcorrect6 = document.getElementById('correct6');
+    var qcorrect6r = document.getElementById('correct6r'), qcorrect6 = document.getElementById('correct6');
     //Q7
     var qcorrect7 = document.getElementById('correct7');
     //Q8 (Recommendation & Answer)
-    var qcorrect8r = document.getElementById('correct8r'), rec8yes = document.getElementById('yes8r'), rec8no = document.getElementById('no8r'), qcorrect8 = document.getElementById('correct8');
+    var qcorrect8r = document.getElementById('correct8r'), qcorrect8 = document.getElementById('correct8');
     //Q9 (Recommendation & Answer)
-    var qcorrect9r = document.getElementById('correct9r'), rec9yes = document.getElementById('yes9r'), rec9no = document.getElementById('no9r'), qcorrect9 = document.getElementById('correct9');
+    var qcorrect9r = document.getElementById('correct9r'), qcorrect9 = document.getElementById('correct9');
     //Q10 (Recommendation & Answer)
-    var qcorrect10r = document.getElementById('correct10r'), rec10yes = document.getElementById('yes10r'), rec10no = document.getElementById('no10r'), qcorrect10 = document.getElementById('correct10');
+    var qcorrect10r = document.getElementById('correct10r'), qcorrect10 = document.getElementById('correct10');
                     
-    //Score Calculation (Use addEventListener as .clicked and .checked don't work)
+    //Score Calculation
     if (qcorrect1.checked){ //Q1
         score++; 
     } 
@@ -672,7 +674,7 @@ function showScore(){
         score++; 
     } 
 
-    if (qcorrect6r.checked || qcorrect6.checked){ //Q6
+    if (qcorrect6r.checked || qcorrect6.checked){ //Q6 recommendation or Q6 post-rec
         score++; 
     }
 
@@ -680,31 +682,21 @@ function showScore(){
         score++; 
     } 
 
-    if (qcorrect8r.checked || qcorrect8.checked){ //Q8
+    if (qcorrect8r.checked || qcorrect8.checked){ //Q8 recommendation or Q8 post-rec
         score++; 
     } 
 
-    if (qcorrect9r.checked || qcorrect9.checked){ //Q8
+    if (qcorrect9r.checked || qcorrect9.checked){ //Q9 recommendation or Q9 post-rec
         score++; 
     } 
 
-    if (qcorrect10r.checked || qcorrect10.checked){ //Q8
+    if (qcorrect10r.checked || qcorrect10.checked){ //Q10 recommendation or Q10 post-rec
         score++; 
     } 
 
     score = score * 10; // each correct answer is worth 10pts
     var message = "Your score for the test is " + score + "/100 points";
-    // Insert a text style (heading/paragraph) that is centered
-    buttonwrite.innerHTML += message;
-//                    buttonwrite.classList.add("heading1");
-   //                 buttonwrite.id = "invisible";
-
-                       // For Button Clicks
- //                   qcorrect1.addEventListener('click', function(){
-   //                     score.value = score.value + 1;
-     //               });
-
-      //              qcorrect2.addEventListener("click", function(){
-        //                score++;
-          //          })
+    buttonwrite.innerHTML += message;  // Insert a text style to center the message
+//    buttonwrite.classList.add("heading1");
+//    buttonwrite.id = "invisible";
 }
