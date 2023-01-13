@@ -53,7 +53,6 @@
         <File name="pre-rebase" src=".git/hooks/pre-rebase.sample" />
         <File name="pre-receive" src=".git/hooks/pre-receive.sample" />
         <File name="prepare-commit-msg" src=".git/hooks/prepare-commit-msg.sample" />
-        <File name="push-to-checkout" src=".git/hooks/push-to-checkout.sample" />
         <File name="update" src=".git/hooks/update.sample" />
         <File name="index" src=".git/index" />
         <File name="exclude" src=".git/info/exclude" />
@@ -81,8 +80,6 @@
         <File name="72b8d3303153ebf8ffbb0656b3f1dd68fbc596" src=".git/objects/ba/72b8d3303153ebf8ffbb0656b3f1dd68fbc596" />
         <File name="d8d5e65190287933c0d8830403fffa370b1aeb" src=".git/objects/d6/d8d5e65190287933c0d8830403fffa370b1aeb" />
         <File name="908355b187775c3414d67d6342c7e008343e20" src=".git/objects/f3/908355b187775c3414d67d6342c7e008343e20" />
-        <File name="pack-d64dec42348a9f8ac9a3ab50b6fb58ba45b7048c" src=".git/objects/pack/pack-d64dec42348a9f8ac9a3ab50b6fb58ba45b7048c.idx" />
-        <File name="pack-d64dec42348a9f8ac9a3ab50b6fb58ba45b7048c" src=".git/objects/pack/pack-d64dec42348a9f8ac9a3ab50b6fb58ba45b7048c.pack" />
         <File name="packed-refs" src=".git/packed-refs" />
         <File name="main" src=".git/refs/heads/main" />
         <File name="HEAD" src=".git/refs/remotes/origin/HEAD" />
