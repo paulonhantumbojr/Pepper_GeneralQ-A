@@ -4,7 +4,9 @@
 -->
 <html>
   <head>
-      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" type="text/css" href="styles/jquery-ui.min.css" />
+      <link rel="stylesheet" type="text/css" href="styles/bootstrap.min.css" />
       <link rel="stylesheet" type="text/css" href="styles/main.css" />
       <script src="http://code.jquery.com/jquery-latest.min.js"></script>
       <script src="/libs/qimessaging/2/qimessaging.js"></script>
@@ -23,9 +25,20 @@
   <body>
       <div class="content">
       <form method="post" autocomplete="off" novalidate>
-          <!-- Starting screen -->
-          <div class="survey-group">
-              <div id="start" class="survey-box">
+
+              <!-- Introduction -->
+              <div class="survey-group">
+                <div id="start" class="survey-box">
+                  <h1 data-ignore>Welcome</h1>
+                    <h2>My name is Pepper. It's nice to meet you.</h2>
+                    <p style="width: 80%; margin: 0 auto;">Please use my touchscreen to enter your responses.</p>
+                    <p style="width: 80%; margin: 0 auto;">There is a progress bar at the bottom.</p>
+                    <p>Please press <b>Begin</b> when you are ready.</p>
+                <button type="button" class="btn-navigate" data-next="pre-consent">Begin</button>
+              </div>
+
+              <!-- Starting Screen -->
+              <div id="startscr" class="survey-box">
                   <img src="Monash_Logo.jpg" alt="Monash Logo" height="100">
                   <br>
                   <br>
@@ -366,70 +379,7 @@
                   <p> Select one of the options </p>
                   <br> 
                   <br>
-                  <button type="button" style="margin:50px" class="btn-navigate" onclick="recordResp('likert_ux','true');" data-next="ex2"><b>Submit</b></button>
-            </div>
-
-            <!-- Exit Question 2 -->
-            <div id="ex2" class="survey-box">
-                  <h1 data-animated class="hidden"> How many times did you try to guess the answer to the questions presented? ^run(animations/Stand/BodyTalk/Speaking/BodyTalk_1) </h1>
-                  <h1 data-ignore> How many questions did you try to guess the answer? </h1>
-                  <br>
-                  <br>
-                  <p class="button_centre">
-                      <label class="radio-container"><input type="radio" name="likert_ux" value="0" data-replace="x:0">0<span class="checkmark"></span></label>
-                      <label class="radio-container"><input type="radio" name="likert_ux" value="1" data-replace="x:1">1<span class="checkmark"></span></label>
-                      <label class="radio-container"><input type="radio" name="likert_ux" value="2" data-replace="x:2">2<span class="checkmark"></span></label>
-                      <label class="radio-container"><input type="radio" name="likert_ux" value="3" data-replace="x:3">3<span class="checkmark"></span></label>
-                      <label class="radio-container"><input type="radio" name="likert_ux" value="4" data-replace="x:4">4<span class="checkmark"></span></label>
-                      <label class="radio-container"><input type="radio" name="likert_ux" value="5" data-replace="x:5">5<span class="checkmark"></span></label>
-                      <label class="radio-container"><input type="radio" name="likert_ux" value="6" data-replace="x:6">6<span class="checkmark"></span></label>
-                      <label class="radio-container"><input type="radio" name="likert_ux" value="7" data-replace="x:7">7<span class="checkmark"></span></label>
-                      <label class="radio-container"><input type="radio" name="likert_ux" value="8" data-replace="x:8">8<span class="checkmark"></span></label>
-                      <label class="radio-container"><input type="radio" name="likert_ux" value="9" data-replace="x:9">9<span class="checkmark"></span></label>
-                      <label class="radio-container"><input type="radio" name="likert_ux" value="10" data-replace="x:10">10<span class="checkmark"></span></label>
-                  </p>
-                  <p> Select a number </p>
-                  <br>
-                  <button style="margin:50px" type="button" class="btn-navigate" onclick="recordResp('likert_ux','true');" data-next="ex3">Submit</button>
-            </div>
-
-            <!-- Exit Question 3 -->
-            <div id="ex3" class="survey-box">
-              <h1 data-animated class="hidden"> Did you change any of your answers? ^run(animations/Stand/Gestures/Thinking_1) </h1>
-              <br>
-              <br>
-              <br>
-              <br>
-              <h1 data-ignore> Did you change any of your answers? </h1>
-              <br>
-              <br>
-              <br>
-              <button style="margin:20px" type="button" class="btn-navigate" onclick="recordResp('Yes','false');" data-next="ex4">Yes</button>
-              <button style="margin:20px" type="button" class="btn-navigate" onclick="recordResp('No','false');" data-next="fn">No</button>
-            </div>
-
-            <!-- Exit Question 4 -->
-            <div id="ex4" class="survey-box">
-              <h1 data-animated class="hidden"> If so, how many times did you change your answer? ^run(animations/Stand/BodyTalk/Speaking/BodyTalk_1) </h1>
-              <h1 data-ignore> If so, how many times did you change your answer? </h1>
-              <br>
-              <br>
-              <p class="button_centre">
-                  <label class="radio-container"><input type="radio" name="likert_ux" value="0" data-replace="x:0">0<span class="checkmark"></span></label>
-                  <label class="radio-container"><input type="radio" name="likert_ux" value="1" data-replace="x:1">1<span class="checkmark"></span></label>
-                  <label class="radio-container"><input type="radio" name="likert_ux" value="2" data-replace="x:2">2<span class="checkmark"></span></label>
-                  <label class="radio-container"><input type="radio" name="likert_ux" value="3" data-replace="x:3">3<span class="checkmark"></span></label>
-                  <label class="radio-container"><input type="radio" name="likert_ux" value="4" data-replace="x:4">4<span class="checkmark"></span></label>
-                  <label class="radio-container"><input type="radio" name="likert_ux" value="5" data-replace="x:5">5<span class="checkmark"></span></label>
-                  <label class="radio-container"><input type="radio" name="likert_ux" value="6" data-replace="x:6">6<span class="checkmark"></span></label>
-                  <label class="radio-container"><input type="radio" name="likert_ux" value="7" data-replace="x:7">7<span class="checkmark"></span></label>
-                  <label class="radio-container"><input type="radio" name="likert_ux" value="8" data-replace="x:8">8<span class="checkmark"></span></label>
-                  <label class="radio-container"><input type="radio" name="likert_ux" value="9" data-replace="x:9">9<span class="checkmark"></span></label>
-                  <label class="radio-container"><input type="radio" name="likert_ux" value="10" data-replace="x:10">10<span class="checkmark"></span></label>
-              </p>
-              <p> Select a number </p>
-              <br>
-              <button style="margin:50px" type="button" class="btn-navigate" onclick="recordResp('likert_ux','true');" data-next="fn">Submit</button>
+                  <button type="button" style="margin:50px" class="btn-navigate" onclick="recordResp('likert_ux','true');" data-next="scr"><b>Submit</b></button>
             </div>
 
             <!-- Conclusion Screen (Restart workflow manually from here with a hidden button) -->
