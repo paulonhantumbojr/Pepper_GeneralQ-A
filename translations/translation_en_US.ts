@@ -2,6 +2,15 @@
 <!DOCTYPE TS>
 <TS version="2.1" language="en_US">
     <context>
+        <name>Quiz_FailSafe/Quiz_1/behavior_1/behavior.xar:/Nice day!</name>
+        <message>
+            <location filename="Quiz_FailSafe/Quiz_1/behavior_1/behavior.xar" line="0"/>
+            <source>Hello</source>
+            <comment>Text</comment>
+            <translation type="unfinished">Hello</translation>
+        </message>
+    </context>
+    <context>
         <name>behavior_1/behavior.xar:/Animated Say</name>
         <message>
             <source>Hello</source>

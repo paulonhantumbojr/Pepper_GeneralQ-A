@@ -2,6 +2,7 @@
     - To avoid errors that disrupt the workflow with the Java elements make sure no special characters are used in the html text. Characters such as underscores(_) and quotation marks - single and double ('',"")
     - Only one class per element (two classes in one break the starting workflow). Two 'onclick()' are plausible and work. 
 -->
+<!DOCTYPE html>
 <html>
   <head>
       <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -25,16 +26,15 @@
   <body>
       <div class="content">
       <form method="post" autocomplete="off" novalidate>
-
               <!-- Introduction -->
               <div class="survey-group">
                 <div id="start" class="survey-box">
-                  <h1 data-ignore>Welcome</h1>
-                    <h2>My name is Pepper. It's nice to meet you.</h2>
+                  <h1 data-ignore> Welcome </h1>
+                    <h2> My name is Pepper. It's nice to meet you. </h2>
                     <p style="width: 80%; margin: 0 auto;">Please use my touchscreen to enter your responses.</p>
                     <p style="width: 80%; margin: 0 auto;">There is a progress bar at the bottom.</p>
                     <p>Please press <b>Begin</b> when you are ready.</p>
-                <button type="button" class="btn-navigate" data-next="pre-consent">Begin</button>
+                <button type="button" class="btn-navigate" data-next="startscr"> <b>Begin</b> </button>
               </div>
 
               <!-- Starting Screen -->
@@ -67,12 +67,12 @@
                   <br>
                   <br>
                   <br>
-                  <button style="margin:60px" type="button" class="btn-navigate" data-next="q1"><b>Start &raquo;</b></button>
+                  <button style="margin:60px" type="button" class="btn-navigate" data-next="q1"><b>Start Quiz &raquo;</b></button>
               </div>
 
               <!--Question 1 -->
               <div id="q1" class="survey-box">
-                <h1 data-animated class="hidden"> Great. Here is your first question. How many campuses does Monash University have across Melbourne? ^run(animations/Stand/BodyTalk/Speaking/BodyTalk_1) </h1> 
+                <h1 data-animated class="hidden"> ^start(animations/Stand/BodyTalk/Speaking/BodyTalk_1) Great. Here is your first question. How many campuses does Monash University have across Melbourne? </h1> 
                 <h1 data-ignore> How many campuses does Monash University have across Melbourne? </h1> 
                 <img src="MonashCampus.png" alt="Monash Building" height="275">
                 <br>
