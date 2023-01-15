@@ -121,6 +121,16 @@
         <File name="service" src="Quiz_FailSafe/Quiz_1/service.py" />
         <File name="bootstrap.min" src="html/styles/bootstrap.min.css" />
         <File name="jquery-ui.min" src="html/styles/jquery-ui.min.css" />
+        <File name="COMMIT_EDITMSG" src=".git/COMMIT_EDITMSG" />
+        <File name="23bb8fb39baffe7c5d5992fe95df039d4d7a9d" src=".git/objects/22/23bb8fb39baffe7c5d5992fe95df039d4d7a9d" />
+        <File name="943b07a701d27c188db80b87ba6d23ac77f317" src=".git/objects/47/943b07a701d27c188db80b87ba6d23ac77f317" />
+        <File name="871271b02495ee5a0cd35f2e42cd0657df305b" src=".git/objects/7c/871271b02495ee5a0cd35f2e42cd0657df305b" />
+        <File name="d9b64ee227baa0e8aeaee710ecb0d2cdbfb35d" src=".git/objects/b2/d9b64ee227baa0e8aeaee710ecb0d2cdbfb35d" />
+        <File name="de9e7293bdd3d81e92480cccd4eaf600e1b8de" src=".git/objects/bc/de9e7293bdd3d81e92480cccd4eaf600e1b8de" />
+        <File name="c9e165fc8862524041f0e0b0c9d5cf093d934e" src=".git/objects/dc/c9e165fc8862524041f0e0b0c9d5cf093d934e" />
+        <File name="0298dcedcc0cf390e2bc001394ad2ac64d6553" src=".git/objects/e5/0298dcedcc0cf390e2bc001394ad2ac64d6553" />
+        <File name="1f1464a6675f8f533595c5fcdf0e59d1ff693a" src=".git/objects/e8/1f1464a6675f8f533595c5fcdf0e59d1ff693a" />
+        <File name="cff8a940b1570e415b9de57d37460e1f4c1d43" src=".git/objects/f4/cff8a940b1570e415b9de57d37460e1f4c1d43" />
     </Resources>
     <Topics />
     <IgnoredPaths />
