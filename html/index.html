@@ -1,4 +1,3 @@
-<!-- Include instructions on how to use the tablet -->
 <!-- Hey_3 gesture toggled when the quiz is finished stops halfway and Pepper's arm stay hanging -->
 <!-- Small issue with the keyboard hovering over the progress-bar in the tutorial screen on how to use the tablet -->
 <html>
@@ -58,7 +57,7 @@
           </div>
         </div>
         
-        <!-- Instructions on how to use tablet -->      
+        <!-- Instructions on how to use tablet (minor bug with the keyboard hovering over the progress bar) -->      
         <div id="tablet" class="survey-box">
           <h1 class="hidden">Before we start, Let's do a tutorial on using my tablet.</h1>
           <h1 data-ignore><b>TUTORIAL</b></h1>
@@ -100,6 +99,7 @@
           <button disabled id="tutorialButton" type="button" class="btn-navigate" data-no-enable data-next="ok"> <b>Next &raquo;</b> </button>
           
           <script type="text/javascript">
+
             function CheckTutorial() {
               var button_active = false;
               var slider = document.getElementById("tutorial_slider");
@@ -118,16 +118,16 @@
           </script>
         </div>
         
-        <!-- OK Screen (To display progress-bar after the tutorial) --> 
+        <!-- Transition Screen --> 
         <div id="ok" class="survey-box">
-          <h1 class="hidden" data-auto-transition> Nicely Done. </h1>
+          <h1 class="hidden" data-auto-transition> Nicely Done. Now onto the quiz. </h1>
           <button type="button" class="btn-navigate hidden" data-next="begin">Next</button>
         </div>
       
         <!-- Begin Screen -->
         <div id="begin" class="survey-box">
-          <h1 data-animated class="hidden"> The quiz contains 10 questions, and each will be scored. It may take 6 to 7 minutes to complete, and you will receive the final score for all the questions at the end. If you complete the test, you will be asked a short question based on your experience. Additionally, a brief interview is conducted at the end to assess your performance related to the questions. ^run(animations/Stand/BodyTalk/Speaking/BodyTalk_1) </h1> 
-          <img src="images/Monash_Blue.png" alt="Monash Logo" height="115">
+          <h1 data-animated class="hidden"> It contains 10 questions, and each will be scored. It may take 6 to 7 minutes to complete, and you will receive the final score for all the questions at the end. If you complete the test, you will be asked a short question based on your experience. Additionally, a brief interview is conducted at the end to assess your performance related to the questions. ^run(animations/Stand/BodyTalk/Speaking/BodyTalk_1) </h1> 
+          <img src="images/Monash_Blue.png" alt="Monash Logo" height="120">
           <br>
           <br>
           <h1 data-ignore> <b>TEST YOUR KNOWLEDGE</b> </h1>

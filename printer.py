@@ -18,6 +18,7 @@ def toHTML(data, pages=None):
     data['q_a9'], #11  
     data['q_a10r'], #12
     data['q_a10'], #13  
+    "", #Initialisation (14)
   ]
 
   answ = [
@@ -40,6 +41,17 @@ def toHTML(data, pages=None):
   s4 = 10 if quest[3] == answ[3] else 0
   s5 = 10 if quest[4] == answ[4] else 0 
   s6 = 10 if quest[5] == answ[5] or quest[6] == answ[5] else 0 
+
+# If user gets the response correct in the first try initialize the recommendation as an empty string
+  if quest[5] == answ[5]: # If the user gets the question correctly
+    quest[6] == quest[14] # Initialise the recommendation
+    s6 = 10 
+    # data['q_a6'] = "" # Initialize data['q_a6'] as an empty variable. The issue is data['q_a6'] intrisically has a value associated to it, that is referenced in the html file. Therefore the value would need to be assigned in this script
+  elif quest[5] != answ[5] and quest[6] == answ[5]: # Else if the user gets the first prompt incorrectly and the recommendation right
+    s6 = 10
+  else:
+    s6 = 0 
+
   s7 = 10 if quest[7] == answ[6] else 0 
   s8 = 10 if quest[8] == answ[7] or quest[9] == answ[7] else 0
   s9 = 10 if quest[10] == answ[8] or quest[11] == answ[8] else 0
@@ -74,8 +86,8 @@ def toHTML(data, pages=None):
     'tick2': '&#9989;' if quest[1] == answ[1] else '&#10060;',
     'tick3': '&#9989;' if quest[2] == answ[2] else '&#10060;',
     'tick4': '&#9989;' if quest[3] == answ[3] else '&#10060;',
-    'tick5': '&#9989;' if quest[4] == answ[4] else '&#10060;',    
-    'tick6': '&#9989;' if quest[5] == answ[5] or quest[6] == answ[5] else '&#10060;',  
+    'tick5': '&#9989;' if quest[4] == answ[4] else '&#10060;',   
+    # 'tick6': '&#9989;' if quest[5] == answ[5] or quest[6] == answ[5] else '&#10060;',  # Account for initialisation
     'tick7': '&#9989;' if quest[7] == answ[6] else '&#10060;', 
     'tick8': '&#9989;' if quest[8] == answ[7] or quest[9] == answ[7] else '&#10060;',  
     'tick9': '&#9989;' if quest[10] == answ[8] or quest[11] == answ[8] else '&#10060;',  
@@ -104,7 +116,7 @@ if __name__ == '__main__':
     "q_a4": "A Mechanic",
     "q_a5": "Brisbane", 
     "q_a6r": "14th", 
-    "q_a6": "11th",              
+    "q_a6": "11th",          
     "q_a7": "Lachlan River", 
     "q_a8r": "Fear of needles", 
     "q_a8": "Fear of heights",
@@ -112,6 +124,7 @@ if __name__ == '__main__':
     "q_a9": "An apple",
     "q_a10r": "8", 
     "q_a10": "10",
+    "":"", # Initialisation term
   })
   
   with open('out.html', 'w') as f:
