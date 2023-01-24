@@ -1,0 +1,217 @@
+<html>
+  <head>
+    <style>
+      body {
+        font-family: Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif;
+        font-size: 12pt;
+      }
+      p {
+        margin-bottom: 15px;
+        margin-top: 20px;
+      }
+      hr {
+        margin-top: 1cm;
+        margin-bottom: 1cm;
+      }
+      .A4 {
+        background: white;
+        width: 21cm;
+        height: 29.7cm;
+        display: block;
+        margin: 0 auto;
+        padding: 10px 25px;
+        margin-bottom: 0.5cm;
+        box-shadow: 0 0 0.5cm rgba(0, 0, 0, 0.5);
+        overflow-y: scroll;
+        box-sizing: border-box;
+      }
+      .page-break {
+        display: block;
+        page-break-before: always;
+      } 
+      body {
+        margin: 0;
+        padding: 0;
+      }
+      .break {
+        -webkit-print-color-adjust: exact;
+      }
+      .A4 {
+        box-shadow: none;
+        margin: 0;
+        width: auto;
+        height: auto;
+      }
+      .noprint {
+        display: none;
+      }
+      .enable-print {
+        display: block;
+      }
+      .content {
+        padding: 5px;
+        margin-top: 1cm;
+      }
+      .title {
+        margin-top: 0.2cm;
+        text-align: center;
+        font-size: 16pt;
+        margin-bottom: 0.5cm;
+      }
+      .title h1 {
+        margin: 0;
+      }
+      .break {
+        margin: 0 auto;
+        height: 0.2cm;
+        width: 100%;
+        background: #4472c4;
+        border: 1px solid #325490;
+        margin-top: 0.1cm;
+        margin-bottom: 1cm;
+      }
+      .header {
+        display: flex;
+        font-weight: bold;
+        font-size: 16pt;
+      }
+      .header-title {
+        display: inline-block;
+        border: 2px solid #4472c4;
+        padding: 0.1cm;
+      }
+      .header-caption {
+        display: inline-block;
+        text-align: right;
+        flex-grow: 0.7;
+        padding: 0.1cm;
+      }
+      .advisory {
+        font-size: 14pt;
+        color: #073b96;
+        font-weight: bold;
+      }
+      .recommendation {
+        font-style: italic;
+      }
+      .highlight {
+        font-weight: bold;
+      }
+      .row {
+        margin-top: 20px;
+        margin-bottom: 10px;
+        display: flex;
+      }
+      .column {
+        flex-grow: 0.5;
+        width: 50%;
+      }
+      .footer {
+        padding: 2px;
+        border: 1px solid #aaa;
+        margin: 0 auto;
+        width: 80%;
+        margin-top: 2cm;
+        font-weight: bold;
+        font-size: 14pt;
+        text-align: center;
+      }
+      .tick::after {
+        content: "";
+      }
+      .cross::after {
+        content: "";
+      }
+      .section-content {
+        padding-left: 20px;
+      }
+      .wide {
+        width: 100%;
+      }
+      td {
+        padding: 10px;
+      }
+      h3 {
+        margin-bottom: 0;
+      }
+    </style>
+  </head>
+  <body class="A4">
+    <div class="content"> 
+      <div class="title">
+        <h1>Quiz Feedback Sheet</h1>
+      </div>
+      <div class="break"></div>
+      <div class="section"> 
+        <div class="header">
+        </div>
+        <div class="section-content">
+          <p style="font-size: 20px">
+            <b>Q1:</b> What is the most popular sport in Australia? {tick1} <br />
+            Selected answer: {select1} <br />
+            Correct answer: {correct1} <br />
+          </p>
+
+          <p style="font-size: 20px">
+            <b>Q2:</b> What is the motto of Monash University? {tick2} <br />
+            Selected answer: {select2} <br />
+            Correct answer: {correct2} <br />
+          </p>
+
+          <p style="font-size: 20px">
+            <b>Q3:</b> What is a group of koalas called? {tick3} <br />
+            Selected answer: {select3} <br />
+            Correct answer: {correct3} <br />
+          </p>
+
+          <p style="font-size: 20px">
+            <b>Q5:</b> Who was sir John Monash? {tick4} <br />
+            Selected answer: {select4} <br />
+            Correct answer: {correct4} <br />
+          </p>
+
+          <p style="font-size: 20px">
+            <b>Q5:</b> What is the capital city of Australia? {tick5} <br />
+            Selected answer: {select5} <br />
+            Correct answer: {correct5} <br />
+          </p>
+
+          <p style="font-size: 20px">
+            <b>Q6:</b> Where does the Australian economy rank compared to the rest of the world? {tick6} <br />
+            Selected answer: {select6} <br />
+            Correct answer: {correct6} <br />
+          </p>
+
+          <p style="font-size: 20px">
+            <b>Q7:</b> What is the longest river in Australia? {tick7} <br />
+            Selected answer: {select7} <br />
+            Correct answer: {correct7} <br />
+          </p>
+
+          <p style="font-size: 20px">
+            <b>Q8:</b> What is <b>cynophobia</b>? {tick8} <br />
+            Selected answer: {select8} <br />
+            Correct answer: {correct8} <br />
+          </p>
+        
+          <p style="font-size: 20px">
+            <b>Q9:</b> What inspired the design of the Sydney Opera House? {tick9} <br />
+            Selected answer: {select9} <br />
+            Correct answer: {correct9} <br />
+          </p>
+
+          <p style="font-size: 20px">
+            <b>Q10:</b> How many ships were in the historic <b>First Fleet</b> convoy that reached Australia in 1787? {tick10} <br />
+            Selected answer: {select10} <br />
+            Correct answer: {correct10} <br />
+          </p>
+          <hr />
+          <p style="font-size: 20px; font-size: 30px; text-align: center; font-weight: bold;">
+            Score: {finsc}/100 points
+          </p>
+        </div>
+        <hr />
+      </div>
+    </div>
+  </body>
+</html>
