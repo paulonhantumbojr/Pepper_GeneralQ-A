@@ -80,14 +80,6 @@ def toHTML(data, pages=None):
     'tick8': '&#9989;' if quest[8] == answ[7] or quest[9] == answ[7] else '&#10060;',  
     'tick9': '&#9989;' if quest[10] == answ[8] or quest[11] == answ[8] else '&#10060;',  
     'tick10': '&#9989;' if quest[12] == answ[9] or quest[13] == answ[9] else '&#10060;',  
-
-    # 'Section1': 'display:block' if not pages or 1 in pages else 'display: none;',
-    # 'Section2': 'display:block' if not pages or 2 in pages else 'display: none;',
-    # 'Section3': 'display:block' if not pages or 3 in pages else 'display: none;',
-    # 'Section4': 'display:block' if not pages or 4 in pages else 'display: none;',
-    # 'Page1': 'display:block' if not pages or 1 in pages or 2 in pages else 'display: none;',
-    # 'Page2': 'display:block' if not pages or 3 in pages or 4 in pages else 'display: none;',
-    # 'Footer': 'display:block' if not pages else 'display: none;'
   }
 
   with open('template.html', 'U') as f:
