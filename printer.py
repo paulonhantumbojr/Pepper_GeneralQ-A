@@ -1,4 +1,3 @@
-# Exception catcher
 import io
 import requests
 from datetime import datetime
@@ -166,7 +165,6 @@ def send(html):
 
 if __name__ == '__main__':
   html = toHTML({
-    # Initialise the variables of the recommended questions
     "q_a1": "Basketball",
     "q_a2": "Shaping leaders",
     "q_a3": "A troop",
