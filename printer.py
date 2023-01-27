@@ -17,7 +17,7 @@ def toHTML(data, pages=None): #data variable represents the 'name' elements in i
     data['q_a9'], #11 (Question 9 after-rec)
     data['q_a10r'], #12 (Question 10 prior-rec)
     data['q_a10'], #13 (Question 10 after-rec)
-    "", #14 (Y/N rec screen)
+    "", #14 data['r_6'] (Y/N rec screen)
   ]
 
   answ = [
@@ -49,31 +49,48 @@ def toHTML(data, pages=None): #data variable represents the 'name' elements in i
 
   # NESTED IFs implementation
   # First use case: User gets the first answer correct
+  # if quest[5] == answ[5]:
+  #   s6 = 10
+  #   tick6 = True
+  #   select6r = True
+  # # Second use case: User gets the first answer incorrect (subcases below)
+  # elif quest[5] != answ[5]: 
+  #   quest[14] = data['r_6']
+  #   # Subcase 1: User denies to change it
+  #   if quest[14] == rec[1]: # If the empty placeholders equals to 'No'
+  #     s6 = 0
+  #     tick6 = False
+  #     select6r = False
+  #   # Subcase 2: User accepts to change it (further subcases below)
+  #   elif quest[14] == rec[0]: # If the empty placeholders equals to 'Yes'
+  #     quest[6] = data['q_a6']
+  #     # Subcase 3: User gets it correct
+  #     if quest[6] == answ[5]:
+  #       s6 = 10    
+  #       tick6 = True
+  #     # Subcase 4: User gets it incorrect
+  #     else:
+  #       s6 = 0
+
+  # Separate 'if' cases, as information is processed in different pages (Refer to NESTED IFs for subcase description)
   if quest[5] == answ[5]:
     s6 = 10
     tick6 = True
     select6r = True
-  # Second use case: User gets the first answer incorrect (subcases below)
-  elif quest[5] != answ[5]: 
-    quest[14] = data['r_6']
-    # Subcase 1: User denies to change it
-    if quest[14] == rec[1]: # If the empty placeholders equals to 'No'
-      s6 = 0
-      tick6 = False
-      select6r = False
-    # Subcase 2: User accepts to change it (further subcases below)
-    elif quest[14] == rec[0]: # If the empty placeholders equals to 'Yes'
-      quest[6] = data['q_a6']
-      # Subcase 3: User gets it correct
-      if quest[6] == answ[5]:
-        s6 = 10    
-        tick6 = True
-      # Subcase 4: User gets it incorrect
-      else:
-        s6 = 0
+  else:
+    s6 = 0
 
-    # Separate 'if' cases, as information is processed in different pages
-    
+  if quest[5] != answ[5]:
+    quest[14] = data['r_6']
+    if quest[14] == rec[1]: #if empty placeholder equals to 'No'
+      s6r = 0
+    elif quest[14] == rec[0]: # or maybe just use 'else'
+      quest[6] = data['q_a6']
+      if quest[6] == answ[5]:
+        s6r = 10    
+        tick6 = True
+      else:
+        s6r = 0
 
   s7 = 10 if quest[7] == answ[6] else 0 
 
@@ -116,7 +133,7 @@ def toHTML(data, pages=None): #data variable represents the 'name' elements in i
   # else:
   #   s10 = 0
 
-  finsc = s1 + s2 + s3 + s4 + s5 + s6 + s7 + s8 + s9 + s10
+  finsc = s1 + s2 + s3 + s4 + s5 + s6 + s6r + s7 + s8 + s9 + s10
 
   replacements = {
     'finsc': finsc,
@@ -199,7 +216,7 @@ if __name__ == '__main__':
     "q_a9": "An apple", # "q_a9": "An apple",
     "q_a10r": "8", 
     "q_a10": "10", # "q_a10": "10"
-    "":"",
+    "":"", # Declare the Y/N variable
   })
   
   with open('out.html', 'w') as f:
