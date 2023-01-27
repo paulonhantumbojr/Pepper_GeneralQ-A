@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<package uuid="quiz-based-task" version="0.0.0">
+<package version="0.0.0" uuid="quiz-based-task">
  <names>
   <name lang="en_US">Quiz Based Task</name>
  </names>
@@ -21,6 +21,6 @@
   <robotRequirement model="JULIETTE"/>
  </requirements>
  <services>
-  <service autorun="true" execStart="./python service.py" name="service"/>
+  <service name="service" execStart="./python service.py" autorun="true"/>
  </services>
 </package>

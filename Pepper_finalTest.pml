@@ -56,10 +56,10 @@
         <File name="sports" src="html/images/sports.jpg" />
         <File name="waving-hand_hello" src="html/images/waving-hand_hello.gif" />
         <File name="braingear" src="html/images/braingear.png" />
-        <File name="green_arrow2" src="html/green_arrow2.PNG" />
         <File name="settings" src=".vscode/settings.json" />
         <File name="launch" src="html/.vscode/launch.json" />
         <File name="green_arrow2" src="html/images/green_arrow2.PNG" />
+        <File name="README" src="README.md" />
     </Resources>
     <Topics />
     <IgnoredPaths />

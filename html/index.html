@@ -91,12 +91,12 @@
           </p>
           
           <br />
-          <p class="padded">Please select <b>Yes</b> &emsp;&emsp;
+          <p class="padded">Please select <b> &lsquo; Yes &lsquo;</b> &emsp;&emsp;
             <label class="radio-container"><input type="radio" name="tutorial" value="0" onchange="CheckTutorial()">No<span class="checkmark"></span></label>
             <label class="radio-container"><input type="radio" name="tutorial" id="tutorial_radio" value="1" onchange="CheckTutorial()">Yes<span class="checkmark"></span></label>
           </p>
           
-          <button disabled id="tutorialButton" type="button" class="btn-navigate" data-no-enable data-next="ok"> <b>Next &raquo;</b> </button>
+          <button disabled id="tutorialButton" type="button" class="btn-navigate" data-no-enable data-next="ok"> <b>Next &raquo;</b> </button> <!-- Add margin -->
           
           <script type="text/javascript">
 
@@ -258,7 +258,6 @@
         <button type="button" class="btn-navigate" onclick="recordResp('q_a6r','true');" data-next="correct6r=q7;r1s"><b>Next &raquo;</b></button>
       </div> 
       
-      <!-- Question 6 Recommendation (speech only) -->
       <div id="r1s" class="survey-box">
         <h1 class="hidden" data-animated data-auto-transition> Are you sure? I think the correct answer might be the fourteenth. ^run(animations/Stand/Gestures/Thinking_1) </h1>
         <button type="button" class="btn-navigate hidden" data-next="r1">Next</button>
@@ -273,8 +272,8 @@
         <h1 data-ignore> Do you want to change your answer? </h1>
         <br>
         <br>
-        <button style="margin:20px" type="button" class="btn-navigate" onclick="recordResp('Yes','false');" data-next="q6"> <b>Yes</b> </button>
-        <button style="margin:20px" type="button" class="btn-navigate" onclick="recordResp('No','false')" data-next="q7"> <b>No</b> </button>
+        <button style="margin:20px" type="button" class="btn-navigate" name="r_6" value="Yes" onclick="recordResp('Yes','false');" data-next="q6"> <b>Yes</b> </button>
+        <button style="margin:20px" type="button" class="btn-navigate" name="r_6" value="No" onclick="recordResp('No','false')" data-next="q7"> <b>No</b> </button>
       </div>
       
       <!-- Question 6 Post-Recommendation without Pepper's speech -->
@@ -326,7 +325,6 @@
         <button type="button" class="btn-navigate" onclick="recordResp('q_a8r','true');" data-next="correct8r=q9r;r2s"><b>Next &raquo;</b></button>
       </div>
       
-      <!-- Question 8 Recommendation (speech only) -->
       <div id="r2s" class="survey-box">
         <h1 class="hidden" data-animated data-auto-transition> I sense it is the fear of dogs. What is your take? ^run(animations/Stand/Gestures/Thinking_1) </h1>
         <button type="button" class="btn-navigate hidden" data-next="r2">Next</button>
@@ -341,8 +339,8 @@
         <h1 data-ignore> Do you want to change your answer? </h1>
         <br>
         <br>
-        <button style="margin:20px" type="button" class="btn-navigate" onclick="recordResp('Yes','false');" data-next="q8"> <b>Yes</b> </button>
-        <button style="margin:20px" type="button" class="btn-navigate" onclick="recordResp('No','false');" data-next="q9r"> <b>No</b> </button>
+        <button style="margin:20px" type="button" class="btn-navigate" name="r_8" value="Yes" onclick="recordResp('Yes','false');" data-next="q8"> <b>Yes</b> </button>
+        <button style="margin:20px" type="button" class="btn-navigate" name="r_8" value="No" onclick="recordResp('No','false');" data-next="q9r"> <b>No</b> </button>
       </div>
       
       <!-- Question 8 Post-Recommendation without Pepper's speech -->
@@ -378,7 +376,6 @@
         <button type="button" class="btn-navigate" onclick="recordResp('q_a9r','true');" data-next="correct9r=q10r;r3s"><b>Next &raquo;</b></button>
       </div>
       
-      <!-- Question 9 Recommendation (speech only) -->
       <div id="r3s" class="survey-box">
         <h1 class="hidden" data-animated data-auto-transition> My guess on the correct answer is an orange. What do you think? ^run(animations/Stand/Gestures/Thinking_1) </h1>
         <button type="button" class="btn-navigate hidden" data-next="r3">Next</button>
@@ -393,8 +390,8 @@
         <h1 data-ignore> Do you want to change your answer? </h1>
         <br>
         <br>
-        <button style="margin:20px" type="button" class="btn-navigate" onclick="recordResp('Yes','false');" data-next="q9"> <b>Yes</b> </button>
-        <button style="margin:20px" type="button" class="btn-navigate" onclick="recordResp('No','false');" data-next="q10r"> <b>No</b> </button>
+        <button style="margin:20px" type="button" class="btn-navigate" name="r_9" value="Yes" onclick="recordResp('Yes','false');" data-next="q9"> <b>Yes</b> </button>
+        <button style="margin:20px" type="button" class="btn-navigate" name="r_9" value="No" onclick="recordResp('No','false');" data-next="q10r"> <b>No</b> </button>
       </div>              
       
       <!-- Question 9 Post-Recommendation without Pepper's speech -->
@@ -429,7 +426,6 @@
         <button type="button" class="btn-navigate" onclick="recordResp('q_a10r','true');" data-next="correct10r=6;r4s"><b>Next &raquo;</b></button>
       </div>
       
-      <!-- Question 10 Recommendation (speech only) -->
       <div id="r4s" class="survey-box">
         <h1 class="hidden" data-animated data-auto-transition> Are you sure? My guess on the correct answer is eleven. ^run(animations/Stand/Gestures/Thinking_1) </h1>
         <button type="button" class="btn-navigate hidden" data-next="r4">Next</button>
@@ -444,8 +440,8 @@
         <h1 data-ignore> Do you want to change your answer? </h1>
         <br>
         <br>
-        <button style="margin:20px" type="button" class="btn-navigate" onclick="recordResp('Yes','false');" data-next="q10"> <b>Yes</b> </button>
-        <button style="margin:20px" type="button" class="btn-navigate" onclick="recordResp('No','false');" data-next="6"> <b>No</b> </button>
+        <button style="margin:20px" type="button" class="btn-navigate" name="r_10" value="Yes" onclick="recordResp('Yes','false');" data-next="q10"> <b>Yes</b> </button>
+        <button style="margin:20px" type="button" class="btn-navigate" name="r_10" value="No" onclick="recordResp('No','false');" data-next="6"> <b>No</b> </button>
       </div>
       
       <!-- Question 10 Post-Recommendation without Pepper's speech -->
@@ -460,8 +456,8 @@
           <label class="radio-container"><input type="radio" name="q_a10" value="14" data-replace="x:14">14<span class="checkmark"></span></label>
           <label class="radio-container"><input type="radio" name="q_a10" value="11" data-replace="x:11">11<span class="checkmark"></span></label>
         </p>
-        <button type="button" class="btn-results">Next</button>
-        <button type="button" class="btn-navigate hidden" onclick="recordResp('q_a10','true');" data-next="results-1">Next</button>  
+        <button type="button" class="btn-results"><b>Next &raquo;</b></button>
+        <button type="button" class="btn-navigate hidden" onclick="recordResp('q_a10','true');" data-next="results-1"><b>Next &raquo;</b></button>  
       </div>
       
       <!-- Quiz Feedback Worksheet -->
