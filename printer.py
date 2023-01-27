@@ -20,6 +20,7 @@ def toHTML(data, pages=None): #data variable represents the 'name' elements in i
     "", #14 data['r_6'] (Y/N rec screen)
   ]
 
+  # answ list holds the 'value' elements in the index.html file
   answ = [
     "Footy", #0 (Answer to Q1)
     "I am still learning", #1 (Answer to Q2)
@@ -158,7 +159,7 @@ if __name__ == '__main__':
     "q_a4": "A Mechanic",
     "q_a5": "Brisbane", 
     "q_a6r": "14th", 
-    "": "", # "q_a6": "11th",       
+    "": "", # "q_a6": "11th", # Declare the empty response for the recommendation if user gets the question right on the first attempt     
     "q_a7": "Lachlan River", 
     "q_a8r": "Fear of needles", 
     "q_a8": "Fear of heights", 
