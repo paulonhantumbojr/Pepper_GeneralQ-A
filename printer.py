@@ -44,96 +44,46 @@ def toHTML(data, pages=None): #data variable represents the 'name' elements in i
   s3 = 10 if quest[2] == answ[2] else 0 
   s4 = 10 if quest[3] == answ[3] else 0
   s5 = 10 if quest[4] == answ[4] else 0 
-
-  # s6 = 10 if quest[5] == answ[5] or quest[6] == answ[5] else 0 
+  # s6 = 10 if quest[5] == answ[5] or quest[6] == answ[5] else 0 (Original implementation)
 
   # NESTED IFs implementation
-  # First use case: User gets the first answer correct
-  # if quest[5] == answ[5]:
-  #   s6 = 10
-  #   tick6 = True
-  #   select6r = True
-  # # Second use case: User gets the first answer incorrect (subcases below)
-  # elif quest[5] != answ[5]: 
-  #   quest[14] = data['r_6']
-  #   # Subcase 1: User denies to change it
-  #   if quest[14] == rec[1]: # If the empty placeholders equals to 'No'
-  #     s6 = 0
-  #     tick6 = False
-  #     select6r = False
-  #   # Subcase 2: User accepts to change it (further subcases below)
-  #   elif quest[14] == rec[0]: # If the empty placeholders equals to 'Yes'
-  #     quest[6] = data['q_a6']
-  #     # Subcase 3: User gets it correct
-  #     if quest[6] == answ[5]:
-  #       s6 = 10    
-  #       tick6 = True
-  #     # Subcase 4: User gets it incorrect
-  #     else:
-  #       s6 = 0
+  # First Use Case: User gets the first answer correct
+  if quest[5] == answ[5]: # If the chosen answer is correct (in the first attempt)
+    s6 = 10  # Add 10pts to the score
+    select6r = True # Trigger the selected answer (Line 97)
+    tick6 = True # Trigger the tick (Line 122)
 
-  # Separate 'if' cases, as information is processed in different pages (Refer to NESTED IFs for subcase description)
-  if quest[5] == answ[5]:
-    s6 = 10
-    tick6 = True
-    select6r = True
-  else:
-    s6 = 0
+  # Second Use Case: User gets the first answer incorrect (subcases below)
+  elif quest[5] != answ[5]: # Else if the chosen answer is incorrect in the first attempt
+    quest[14] = data['r_6'] # Initialise the empty string (at line 20) to hold Y/N user prompts
 
-  if quest[5] != answ[5]:
-    quest[14] = data['r_6']
-    if quest[14] == rec[1]: #if empty placeholder equals to 'No'
-      s6r = 0
-    elif quest[14] == rec[0]: # or maybe just use 'else'
-      quest[6] = data['q_a6']
-      if quest[6] == answ[5]:
-        s6r = 10    
-        tick6 = True
-      else:
-        s6r = 0
+    # Subcase 1: User denies the recommendation
+    if quest[14] == rec[1]: # When the user selects 'No'
+      s6 = 0 # Add 0pts to the score
+
+    # Subcase 2: User accepts the recommendation (further subcases below)
+    elif quest[14] == rec[0]: # When the user selects 'Yes'
+      quest[6] = data['q_a6'] # Initialise the empty string (at line 12) to hold the answer to Question 6
+
+      # Subcase 3: User gets the recommendation correct
+      if quest[6] == answ[5]: # When the user selects the right answer (from the recommended)
+        s6 = 10 # Add 10pts to the score
+        select6r = True # Trigger the selected answer (Line 97)
+        tick6 = True # Trigger the tick (Line 122)
+
+      # Subcase 4: User gets the recommendation incorrect
+      else: # When the user selects the wrong answer (from the recommended)
+        s6 = 0 # Award no points
 
   s7 = 10 if quest[7] == answ[6] else 0 
 
   s8 = 10 if quest[8] == answ[7] or quest[9] == answ[7] else 0
-  # if quest[8] == answ[7]:
-  #   s8 = 10
-  #   # tick8 = True
-  #   # select8r = True
-  #   if quest[8] != answ[7]:
-  #     quest[9] = data['q_a8']
-  #   elif quest[9] == answ[7]:
-  #     s8 = 10 
-  #     # tick8 = True   
-  # else:
-  #   s8 = 0
 
   s9 = 10 if quest[10] == answ[8] or quest[11] == answ[8] else 0
-  # if quest[10] == answ[8]:
-  #   s9 = 10
-  #   # tick9 = True
-  #   # select9r = True
-  #   if quest[10] != answ[8]:
-  #     quest[11] = data['q_a9']
-  #   elif quest[11] == answ[8]:
-  #     s9 = 10    
-  #     # tick9 = True
-  # else:
-  #   s9 = 0
 
   s10 = 10 if quest[12] == answ[9] or quest[13] == answ[9] else 0
-  # if quest[12] == answ[9]:
-  #   s10 = 10
-  #   # tick10 = True
-  #   # select10r = True
-  #   if quest[12] != answ[9]:
-  #     quest[13] = data['q_a10']
-  #   elif quest[13] == answ[9]:
-  #     s10 = 10    
-  #     # tick10 = True
-  # else:
-  #   s10 = 0
 
-  finsc = s1 + s2 + s3 + s4 + s5 + s6 + s6r + s7 + s8 + s9 + s10
+  finsc = s1 + s2 + s3 + s4 + s5 + s6 + s7 + s8 + s9 + s10
 
   replacements = {
     'finsc': finsc,
@@ -149,7 +99,7 @@ def toHTML(data, pages=None): #data variable represents the 'name' elements in i
     'correct5': answ[4],
 
     # 'select6': quest[5] if quest[5] == answ[5] else quest[6],
-    # 'select6': quest[5] if select6r == True else data['q_a6'],
+    'select6': quest[5] if select6r == True else data['q_a6'],
     'correct6': answ[5],  
 
     'select7': quest[7], 
@@ -174,7 +124,7 @@ def toHTML(data, pages=None): #data variable represents the 'name' elements in i
     'tick5': '&#9989;' if quest[4] == answ[4] else '&#10060;',   
 
     # 'tick6': '&#9989;' if quest[5] == answ[5] or quest[6] == answ[5] else '&#10060;',  
-    # 'tick6': '&#9989;' if tick6 == True else '&#10060;',
+    'tick6': '&#9989;' if tick6 == True else '&#10060;',
 
     'tick7': '&#9989;' if quest[7] == answ[6] else '&#10060;', 
 
@@ -211,11 +161,11 @@ if __name__ == '__main__':
     "": "", # "q_a6": "11th",       
     "q_a7": "Lachlan River", 
     "q_a8r": "Fear of needles", 
-    "q_a8": "Fear of heights", # "q_a8": "Fear of heights"
+    "q_a8": "Fear of heights", 
     "q_a9r": "A banana", 
-    "q_a9": "An apple", # "q_a9": "An apple",
+    "q_a9": "An apple", 
     "q_a10r": "8", 
-    "q_a10": "10", # "q_a10": "10"
+    "q_a10": "10",
     "":"", # Declare the Y/N variable
   })
   
