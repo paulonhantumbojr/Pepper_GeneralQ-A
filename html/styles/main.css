@@ -110,6 +110,12 @@ input[type="radio"] {
     width: 5px;
 }
 
+/* Class to test the sizing of the radio buttons by changing the text  */
+.example {
+  font-weight: normal;
+  font-size: 25px;
+}
+
 input[type="date"] {
     /* font-family: Raleway; */
     text-align: right;

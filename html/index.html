@@ -1,4 +1,4 @@
-<!-- Small issue with the keyboard hovering over the progress-bar in the tutorial screen on how to use the tablet -->
+<!-- Small issue with the keyboard hovering over the progress-bar in the tutorial screen on how to use the tablet (Possibly remove the tutorial screen) -->
 <html>
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -68,7 +68,7 @@
             </div>
             
             <div style="width: 40%; float: left">
-              <p align="left"><img src="images/green_arrow2.PNG" align="left" width="60px" style="margin-right: 10px;"><b>Hint:</b> To hide the keyboard, press the green button.</p>
+              <p align="left"><img src="images/green_arrow2.PNG" align="left" width="60px" style="margin-right: 10px;"><b>Hint (for text box):</b>To hide the keyboard, press the green button. If the black horizontal ribbon in the footer still displays after inputting the number, prompt the box to enter the number again and exit.</p>
             </div>
           </div>
           
@@ -98,7 +98,7 @@
           <button disabled id="tutorialButton" style="margin:10px" type="button" class="btn-navigate" data-no-enable data-next="ok"> <b>Next &raquo;</b> </button> <!-- Add margin -->
           
           <script type="text/javascript">
-
+            
             function CheckTutorial() {
               var button_active = false;
               var slider = document.getElementById("tutorial_slider");
@@ -122,7 +122,7 @@
           <h1 class="hidden" data-auto-transition> Nicely Done. Now onto the quiz. </h1>
           <button type="button" class="btn-navigate hidden" data-next="begin">Next</button>
         </div>
-      
+        
         <!-- Begin Screen -->
         <div id="begin" class="survey-box">
           <h1 data-animated class="hidden"> It contains 10 questions, and each will be scored. It may take 6 to 7 minutes to complete, and you will receive the final score for all the questions at the end. If you complete the test, you will be asked a short question based on your experience. Additionally, a brief interview is conducted at the end to assess your performance related to the questions. ^run(animations/Stand/BodyTalk/Speaking/BodyTalk_1) </h1> 
@@ -262,17 +262,22 @@
         <button type="button" class="btn-navigate hidden" data-next="r1">Next</button>
       </div>
       
-      <!-- Question 6 Recommendation selection -->
+      <!-- Question 6 recommendation selection -->
       <div id="r1" class="survey-box"> 
-        <br>
         <br>
         <br>
         <br>
         <h1 data-ignore> Do you want to change your answer? </h1>
         <br>
         <br>
-        <button style="margin:20px" type="button" class="btn-navigate" name="r_6" value="Yes" onclick="recordResp('Yes','false');" data-next="q6"> <b>Yes</b> </button>
-        <button style="margin:20px" type="button" class="btn-navigate" name="r_6" value="No" onclick="recordResp('No','false')" data-next="q7"> <b>No</b> </button>
+        <p class="example"> <!-- example class to enlarge the text and see if the radio buttons match the size -->
+          <label class="radio-container"><input type="radio" id="yes_r6" name="r_6" value="Yes" data-replace="x:Yes"><b>Yes</b><span class="checkmark"></span></label>
+          <br>
+          <label class="radio-container"><input type="radio" name="r_6" value="No" data-replace="x:No"><b>No</b><span class="checkmark"></span></label>
+        </p>
+        <br>
+        <br>
+        <button style="margin:45px" type="button" class="btn-navigate" onclick="recordResp('r_6','true');" data-next="yes_r6=q6;q7"><b>Next &raquo;</b></button>        
       </div>
       
       <!-- Question 6 Post-Recommendation without Pepper's speech -->
@@ -334,12 +339,17 @@
         <br>
         <br>
         <br>
-        <br>
         <h1 data-ignore> Do you want to change your answer? </h1>
         <br>
         <br>
-        <button style="margin:20px" type="button" class="btn-navigate" name="r_8" value="Yes" onclick="recordResp('Yes','false');" data-next="q8"> <b>Yes</b> </button>
-        <button style="margin:20px" type="button" class="btn-navigate" name="r_8" value="No" onclick="recordResp('No','false');" data-next="q9r"> <b>No</b> </button>
+        <p class="example"> <!-- example class to enlarge the text and see if the radio buttons match the size -->
+          <label class="radio-container"><input type="radio" id="yes_r8" name="r_8" value="Yes" data-replace="x:Yes"><b>Yes</b><span class="checkmark"></span></label>
+          <br>
+          <label class="radio-container"><input type="radio" name="r_8" value="No" data-replace="x:No"><b>No</b><span class="checkmark"></span></label>
+        </p>
+        <br>
+        <br>
+        <button style="margin:45px" type="button" class="btn-navigate" onclick="recordResp('r_8','true');" data-next="yes_r8=q8;q9r"><b>Next &raquo;</b></button>     
       </div>
       
       <!-- Question 8 Post-Recommendation without Pepper's speech -->
@@ -385,12 +395,17 @@
         <br>
         <br>
         <br>
-        <br>
         <h1 data-ignore> Do you want to change your answer? </h1>
         <br>
         <br>
-        <button style="margin:20px" type="button" class="btn-navigate" name="r_9" value="Yes" onclick="recordResp('Yes','false');" data-next="q9"> <b>Yes</b> </button>
-        <button style="margin:20px" type="button" class="btn-navigate" name="r_9" value="No" onclick="recordResp('No','false');" data-next="q10r"> <b>No</b> </button>
+        <p class="example"> <!-- example class to enlarge the text and see if the radio buttons match the size -->
+          <label class="radio-container"><input type="radio" id="yes_r9" name="r_9" value="Yes" data-replace="x:Yes"><b>Yes</b><span class="checkmark"></span></label>
+          <br>
+          <label class="radio-container"><input type="radio" name="r_9" value="No" data-replace="x:No"><b>No</b><span class="checkmark"></span></label>
+        </p>
+        <br>
+        <br>
+        <button style="margin:45px" type="button" class="btn-navigate" onclick="recordResp('r_9','true');" data-next="yes_r9=q9;q10r"><b>Next &raquo;</b></button>        
       </div>              
       
       <!-- Question 9 Post-Recommendation without Pepper's speech -->
@@ -435,12 +450,17 @@
         <br>
         <br>
         <br>
-        <br>
         <h1 data-ignore> Do you want to change your answer? </h1>
         <br>
         <br>
-        <button style="margin:20px" type="button" class="btn-navigate" name="r_10" value="Yes" onclick="recordResp('Yes','false');" data-next="q10"> <b>Yes</b> </button>
-        <button style="margin:20px" type="button" class="btn-navigate" name="r_10" value="No" onclick="recordResp('No','false');" data-next="6"> <b>No</b> </button>
+        <p class="example"> <!-- example class to enlarge the text and see if the radio buttons match the size -->
+          <label class="radio-container"><input type="radio" id="yes_r10" name="r_10" value="Yes" data-replace="x:Yes"><b>Yes</b><span class="checkmark"></span></label>
+          <br>
+          <label class="radio-container"><input type="radio" name="r_10" value="No" data-replace="x:No"><b>No</b><span class="checkmark"></span></label>
+        </p>
+        <br>
+        <br>
+        <button style="margin:45px" type="button" class="btn-navigate" onclick="recordResp('r_10','true');" data-next="yes_r10=q10;results-1"><b>Next &raquo;</b></button>        
       </div>
       
       <!-- Question 10 Post-Recommendation without Pepper's speech -->

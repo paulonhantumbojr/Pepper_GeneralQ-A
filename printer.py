@@ -20,7 +20,6 @@ def toHTML(data, pages=None): #data variable represents the 'name' elements in i
     "", #14 data['r_6'] (Y/N rec screen)
   ]
 
-  # answ list holds the 'value' elements in the index.html file
   answ = [
     "Footy", #0 (Answer to Q1)
     "I am still learning", #1 (Answer to Q2)
@@ -45,36 +44,31 @@ def toHTML(data, pages=None): #data variable represents the 'name' elements in i
   s3 = 10 if quest[2] == answ[2] else 0 
   s4 = 10 if quest[3] == answ[3] else 0
   s5 = 10 if quest[4] == answ[4] else 0 
-  # s6 = 10 if quest[5] == answ[5] or quest[6] == answ[5] else 0 (Original implementation)
+  # s6 = 10 if quest[5] == answ[5] or quest[6] == answ[5] else 0 
 
   # NESTED IFs implementation
   # First Use Case: User gets the first answer correct
-  if quest[5] == answ[5]: # If the chosen answer is correct (in the first attempt)
-    s6 = 10  # Add 10pts to the score
-    select6r = True # Trigger the selected answer (Line 97)
-    tick6 = True # Trigger the tick (Line 122)
-
+  if quest[5] == answ[5]:
+    s6 = 10
+    tick6 = True
+    select6r = True
   # Second Use Case: User gets the first answer incorrect (subcases below)
-  elif quest[5] != answ[5]: # Else if the chosen answer is incorrect in the first attempt
-    quest[14] = data['r_6'] # Initialise the empty string (at line 20) to hold Y/N user prompts
-
-    # Subcase 1: User denies the recommendation
-    if quest[14] == rec[1]: # When the user selects 'No'
-      s6 = 0 # Add 0pts to the score
-
-    # Subcase 2: User accepts the recommendation (further subcases below)
-    elif quest[14] == rec[0]: # When the user selects 'Yes'
-      quest[6] = data['q_a6'] # Initialise the empty string (at line 12) to hold the answer to Question 6
-
+  elif quest[5] != answ[5]:
+    quest[14] = data['r_6']
+    # Subcase 1: User denies to change it
+    if quest[14] == rec[1]: # When the empty placeholders equals to 'No'
+      s6 = 0
+    # Subcase 2: User accepts to change it (further subcases below)
+    elif quest[14] == rec[0]: # When the empty placeholders equals to 'Yes'
+      quest[6] = data['q_a6']
       # Subcase 3: User gets the recommendation correct
-      if quest[6] == answ[5]: # When the user selects the right answer (from the recommended)
-        s6 = 10 # Add 10pts to the score
-        select6r = True # Trigger the selected answer (Line 97)
-        tick6 = True # Trigger the tick (Line 122)
-
+      if quest[6] == answ[5]:
+        s6 = 10    
+        select6r = True
+        tick6 = True
       # Subcase 4: User gets the recommendation incorrect
-      else: # When the user selects the wrong answer (from the recommended)
-        s6 = 0 # Award no points
+      else:
+        s6 = 0
 
   s7 = 10 if quest[7] == answ[6] else 0 
 
@@ -159,14 +153,14 @@ if __name__ == '__main__':
     "q_a4": "A Mechanic",
     "q_a5": "Brisbane", 
     "q_a6r": "14th", 
-    "": "", # "q_a6": "11th", # Declare the empty response for the recommendation if user gets the question right on the first attempt     
+    "": "", # "q_a6": "11th",       
     "q_a7": "Lachlan River", 
     "q_a8r": "Fear of needles", 
     "q_a8": "Fear of heights", 
     "q_a9r": "A banana", 
     "q_a9": "An apple", 
     "q_a10r": "8", 
-    "q_a10": "10",
+    "q_a10": "10", 
     "":"", # Declare the Y/N variable
   })
   
