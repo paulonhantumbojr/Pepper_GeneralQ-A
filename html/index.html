@@ -1,4 +1,3 @@
-<!-- Small issue with the keyboard hovering over the progress-bar in the tutorial screen on how to use the tablet (Possibly remove the tutorial screen) -->
 <html>
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -33,9 +32,6 @@
           <br>
           <br>
           <button type="button" class="btn-navigate" data-next="intro"> <b>START</b> </button>
-          <br>
-          <br>
-          <br>
         </div>
         
         <!-- Introduction Screen -->
@@ -56,19 +52,25 @@
           </div>
         </div>
         
-        <!-- Instructions on how to use tablet (minor bug with the keyboard hovering over the progress bar) -->      
+        <!-- Instructions on how to use tablet (Minor bug with the keyboard hovering over the progress bar. To fix it just prompt the keyboard twice and the progress bar should be visible again) -->      
         <div id="tablet" class="survey-box">
           <h1 class="hidden">Before we start, Let's do a tutorial on using my tablet.</h1>
           <h1 data-ignore><b>TUTORIAL</b></h1>
-          <p style="margin-bottom: 0;"><b>The following answers are not recorded towards your quiz.</b></p>
-          
+          <p style="margin-bottom: 0;">
+            <b>The following answers are not recorded towards your quiz.</b> 
+          </p>
+
+          <p style="margin-bottom: 0;">
+            <b>Note:</b> If the black ribbon at the footer still shows up, prompt the keyboard one more time.
+          </p>
+
           <div style="height: 20%; padding: 0px; margin-left: 10%;">
             <div style="width: 60%; float: left;">
               <p align="left"><label>Please enter the number <b>10</b> &emsp;&emsp;<input class="form-control" type="number" name="tutorial_number" id="tutorial_number" value="" class="small-text" onchange="CheckTutorial()"></label></p>
             </div>
             
-            <div style="width: 40%; float: left">
-              <p align="left"><img src="images/green_arrow2.PNG" align="left" width="60px" style="margin-right: 10px;"><b>Hint (for text box):</b>To hide the keyboard, press the green button. If the black horizontal ribbon in the footer still displays after inputting the number, prompt the box to enter the number again and exit.</p>
+            <div style="width: 40%; float: left;">
+              <p align="left"><img src="images/green_arrow2.PNG" align="left" width="60px" style="margin-right: 10px;"><b>Hint:</b> To hide the keyboard, press the green button.</p>
             </div>
           </div>
           
@@ -95,7 +97,7 @@
             <label class="radio-container"><input type="radio" name="tutorial" id="tutorial_radio" value="1" onchange="CheckTutorial()">Yes<span class="checkmark"></span></label>
           </p>
           
-          <button disabled id="tutorialButton" style="margin:10px" type="button" class="btn-navigate" data-no-enable data-next="ok"> <b>Next &raquo;</b> </button> <!-- Add margin -->
+          <button disabled id="tutorialButton" style="margin:10px;" type="button" class="btn-navigate" data-no-enable data-next="ok"> <b>Next &raquo;</b> </button> <!-- Add margin -->
           
           <script type="text/javascript">
             
@@ -262,9 +264,8 @@
         <button type="button" class="btn-navigate hidden" data-next="r1">Next</button>
       </div>
       
-      <!-- Question 6 recommendation selection -->
+      <!-- Question 6 Recommendation selection -->
       <div id="r1" class="survey-box"> 
-        <br>
         <br>
         <br>
         <h1 data-ignore> Do you want to change your answer? </h1>
@@ -437,7 +438,7 @@
           <label class="radio-container"><input type="radio" name="q_a10r" value="14" data-replace="x:14">14<span class="checkmark"></span></label>
           <label class="radio-container"><input type="radio" id="correct10r" name="q_a10r" value="11" data-replace="x:11">11<span class="checkmark"></span></label>
         </p>
-        <button type="button" class="btn-navigate" onclick="recordResp('q_a10r','true');" data-next="correct10r=6;r4s"><b>Next &raquo;</b></button>
+        <button type="button" class="btn-navigate" onclick="recordResp('q_a10r','true');" data-next="correct10r=tores;r4s"><b>Next &raquo;</b></button>
       </div>
       
       <div id="r4s" class="survey-box">
@@ -475,8 +476,19 @@
           <label class="radio-container"><input type="radio" name="q_a10" value="14" data-replace="x:14">14<span class="checkmark"></span></label>
           <label class="radio-container"><input type="radio" name="q_a10" value="11" data-replace="x:11">11<span class="checkmark"></span></label>
         </p>
-        <button type="button" class="btn-results"><b>Next &raquo;</b></button>
-        <button type="button" class="btn-navigate hidden" onclick="recordResp('q_a10','true');" data-next="results-1"><b>Next &raquo;</b></button>  
+        <button type="button" class="btn-navigate" onclick="recordResp('q_a10','true');" data-next="tores"><b>Next &raquo;</b></button>  
+      </div>
+      
+      <!-- Direct page to results (from first question or recommendation) -->
+      <div id="tores" class="survey-box">
+        <h1 class="hidden" data-animated> Your quiz is now complete. Click the button below to check your score. ^run(animations/Stand/Gestures/Thinking_1) </h1>
+        <br>
+        <br>
+        <img src="images/ScoreAplus.png" alt="Score Sheet" height="300">
+        <br>
+        <br>
+        <button type="button" class="btn-results"><b>Check Score</b></button>
+        <button type="button" class="btn-navigate hidden" data-next="results-1"><b>Next &raquo;</b></button>
       </div>
       
       <!-- Quiz Feedback Worksheet -->
