@@ -120,16 +120,16 @@ def toHTML(data, pages=None): #data variable represents the 'name' elements in i
     'tick9': '&#9989;' if tickpts9 == True else '&#10060;', 
     'tick10': '&#9989;' if tickpts10 == True else '&#10060;',
 
-    'pts1': '<span style="color:green;">+10pts</span>' if tickpts1 == True else '<span style="color:red;">0pts</span>',
-    'pts2': '<span style="color:green;">+10pts</span>' if tickpts2 == True else '<span style="color:red;">0pts</span>',
-    'pts3': '<span style="color:green;">+10pts</span>' if tickpts3 == True else '<span style="color:red;">0pts</span>',
-    'pts4': '<span style="color:green;">+10pts</span>' if tickpts4 == True else '<span style="color:red;">0pts</span>',
-    'pts5': '<span style="color:green;">+10pts</span>' if tickpts5 == True else '<span style="color:red;">0pts</span>',
-    'pts6': '<span style="color:green;">+10pts</span>' if tickpts6 == True else '<span style="color:red;">0pts</span>',
-    'pts7': '<span style="color:green;">+10pts</span>' if tickpts7 == True else '<span style="color:red;">0pts</span>',
-    'pts8': '<span style="color:green;">+10pts</span>' if tickpts8 == True else '<span style="color:red;">0pts</span>',
-    'pts9': '<span style="color:green;">+10pts</span>' if tickpts9 == True else '<span style="color:red;">0pts</span>',
-    'pts10': '<span style="color:green;">+10pts</span>' if tickpts10 == True else '<span style="color:red;">0pts</span>',
+    'pts1': '<span style="color:green; font-weight:bold;">+10pts</span>' if tickpts1 == True else '<span style="color:red; font-weight:bold;">0pts</span>',
+    'pts2': '<span style="color:green; font-weight:bold;">+10pts</span>' if tickpts2 == True else '<span style="color:red; font-weight:bold;">0pts</span>',
+    'pts3': '<span style="color:green; font-weight:bold;">+10pts</span>' if tickpts3 == True else '<span style="color:red; font-weight:bold;">0pts</span>',
+    'pts4': '<span style="color:green; font-weight:bold;">+10pts</span>' if tickpts4 == True else '<span style="color:red; font-weight:bold;">0pts</span>',
+    'pts5': '<span style="color:green; font-weight:bold;">+10pts</span>' if tickpts5 == True else '<span style="color:red; font-weight:bold;">0pts</span>',
+    'pts6': '<span style="color:green; font-weight:bold;">+10pts</span>' if tickpts6 == True else '<span style="color:red; font-weight:bold;">0pts</span>',
+    'pts7': '<span style="color:green; font-weight:bold;">+10pts</span>' if tickpts7 == True else '<span style="color:red; font-weight:bold;">0pts</span>',
+    'pts8': '<span style="color:green; font-weight:bold;">+10pts</span>' if tickpts8 == True else '<span style="color:red; font-weight:bold;">0pts</span>',
+    'pts9': '<span style="color:green; font-weight:bold;">+10pts</span>' if tickpts9 == True else '<span style="color:red; font-weight:bold;">0pts</span>',
+    'pts10': '<span style="color:green; font-weight:bold;">+10pts</span>' if tickpts10 == True else '<span style="color:red; font-weight:bold;">0pts</span>',
   }
 
   with open('template.html', 'U') as f:
