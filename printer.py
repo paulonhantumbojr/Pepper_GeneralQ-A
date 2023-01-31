@@ -147,6 +147,7 @@ def send(html):
   requests.post('http://cloudvis.qut.edu.au:8082',files=files)
 
 if __name__ == '__main__':
+  # Same callouts as in the quest[] list
   html = toHTML({
     "q_a1": "Basketball",
     "q_a2": "Shaping leaders",
