@@ -21,6 +21,26 @@ def toHTML(data, pages=None): #data variable represents the 'name' elements in i
     data['q_a10r'], #15 (Question 10 prior-recommendation)
     "", #16 data['r_10'] (Question 10 recommendation)
     "", #17 data['q_a10'] (Question 10 after-recommendation)
+
+    # int(data['q_a11r']), #18 (Question 11 prior-recommendation)
+    # "", #19 data['r_11'] (Question 11 recommendation)
+    # "", #20 data['q_a11'] (Question 11 after-recommendation)
+
+    # int(data['q_a12r']), #21 (Question 12 prior-recommendation)
+    # "", #22 data['r_12'] (Question 12 recommendation)
+    # "", #23 data['q_a12'] (Question 12 after-recommendation)
+
+    # int(data['q_a13r']), #24 (Question 13 prior-recommendation)
+    # "", #25 data['r_13'] (Question 13 recommendation)
+    # "", #26 data['q_a13'] (Question 13 after-recommendation)
+
+    # int(data['q_a14r']), #27 (Question 14 prior-recommendation)
+    # "", #28 data['r_14'] (Question 14 recommendation)
+    # "", #29 data['q_a14'] (Question 14 after-recommendation)
+
+    # int(data['q_a15r']), #30 (Question 15 prior-recommendation)
+    # "", #31 data['r_15'] (Question 15 recommendation)
+    # "", #32 data['q_a15'] (Question 15 after-recommendation)
   ]
 
   answ = [
@@ -34,6 +54,11 @@ def toHTML(data, pages=None): #data variable represents the 'name' elements in i
     "Fear of dogs", #7 (Answer to Q8)
     "An orange", #8 (Answer to Q9)
     "11", #9 (Answer to Q10)
+    # 3, #10 (Answer to Q11)
+    # 4, #11 (Answer to Q12)
+    # 5, #12 (Answer to Q13)
+    # 6, #13 (Answer to Q14)
+    # 7, #14 (Answer to Q15)
   ]
 
   rec = [
@@ -109,6 +134,21 @@ def toHTML(data, pages=None): #data variable represents the 'name' elements in i
     'select10': quest[15] if quest[15] == answ[9] else quest[15] if quest[15] != answ[9] and quest[16] == rec[1] else quest[17] if quest[15] != answ[9] and quest[16] == rec[0] and quest[17] == answ[9] else quest[17], 
     'correct10': answ[9],    
 
+    # 'select11': ,
+    # 'correct11': answ[10],
+
+    # 'select12': ,
+    # 'correct12': answ[11],
+
+    # 'select13': ,
+    # 'correct13': answ[12],
+
+    # 'select14': ,
+    # 'correct14': answ[13],
+
+    # 'select15': ,
+    # 'correct15': answ[14],
+
     'tick1': '&#9989;' if tickpts1 == True else '&#10060;',
     'tick2': '&#9989;' if tickpts2 == True else '&#10060;',
     'tick3': '&#9989;' if tickpts3 == True else '&#10060;',
@@ -119,6 +159,11 @@ def toHTML(data, pages=None): #data variable represents the 'name' elements in i
     'tick8': '&#9989;' if tickpts8 == True else '&#10060;', 
     'tick9': '&#9989;' if tickpts9 == True else '&#10060;', 
     'tick10': '&#9989;' if tickpts10 == True else '&#10060;',
+    # 'tick11': '&#9989;' if tickpts11 == True else '&#10060;',
+    # 'tick12': '&#9989;' if tickpts12 == True else '&#10060;',
+    # 'tick13': '&#9989;' if tickpts13 == True else '&#10060;',
+    # 'tick14': '&#9989;' if tickpts14 == True else '&#10060;',
+    # 'tick15': '&#9989;' if tickpts15 == True else '&#10060;',
 
     'pts1': '<span style="color:green; font-weight:bold;">+10pts</span>' if tickpts1 == True else '<span style="color:red; font-weight:bold;">0pts</span>',
     'pts2': '<span style="color:green; font-weight:bold;">+10pts</span>' if tickpts2 == True else '<span style="color:red; font-weight:bold;">0pts</span>',
@@ -130,6 +175,12 @@ def toHTML(data, pages=None): #data variable represents the 'name' elements in i
     'pts8': '<span style="color:green; font-weight:bold;">+10pts</span>' if tickpts8 == True else '<span style="color:red; font-weight:bold;">0pts</span>',
     'pts9': '<span style="color:green; font-weight:bold;">+10pts</span>' if tickpts9 == True else '<span style="color:red; font-weight:bold;">0pts</span>',
     'pts10': '<span style="color:green; font-weight:bold;">+10pts</span>' if tickpts10 == True else '<span style="color:red; font-weight:bold;">0pts</span>',
+    # 'pts11': '<span style="color:green; font-weight:bold;">+10pts</span>' if tickpts11 == True else '<span style="color:red; font-weight:bold;">0pts</span>',
+    # 'pts12': '<span style="color:green; font-weight:bold;">+10pts</span>' if tickpts12 == True else '<span style="color:red; font-weight:bold;">0pts</span>',
+    # 'pts13': '<span style="color:green; font-weight:bold;">+10pts</span>' if tickpts13 == True else '<span style="color:red; font-weight:bold;">0pts</span>',
+    # 'pts14': '<span style="color:green; font-weight:bold;">+10pts</span>' if tickpts14 == True else '<span style="color:red; font-weight:bold;">0pts</span>',
+    # 'pts15': '<span style="color:green; font-weight:bold;">+10pts</span>' if tickpts15 == True else '<span style="color:red; font-weight:bold;">0pts</span>',
+   
   }
 
   with open('template.html', 'U') as f:
@@ -147,7 +198,6 @@ def send(html):
   requests.post('http://cloudvis.qut.edu.au:8082',files=files)
 
 if __name__ == '__main__':
-  # Same callouts as in the quest[] list
   html = toHTML({
     "q_a1": "Basketball",
     "q_a2": "Shaping leaders",
@@ -167,6 +217,26 @@ if __name__ == '__main__':
     "q_a10r": "8", 
     "": "", 
     "": "", 
+
+    # "q_a11r": "8", 
+    # "": "", 
+    # "": "", 
+
+    # "q_a12r": "8", 
+    # "": "", 
+    # "": "", 
+
+    # "q_a13r": "8", 
+    # "": "", 
+    # "": "", 
+
+    # "q_a14r": "8", 
+    # "": "", 
+    # "": "", 
+    
+    # "q_a15r": "8", 
+    # "": "", 
+    # "": "", 
   })
   
   with open('out.html', 'w') as f:

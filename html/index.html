@@ -1,3 +1,4 @@
+<!-- Attempt to insert a video on the workflow to see whether it triggers the data-auto-transition tag. The goal is to have the video playing alongside the slide that will show the cluster of shapes -->
 <html>
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -256,14 +257,21 @@
           <label class="radio-container"><input type="radio" id="correct6r" name="q_a6r" value="14th" data-replace="x:14th">14<sup>th</sup><span class="checkmark"></span></label>
           <label class="radio-container"><input type="radio" name="q_a6r" value="18th" data-replace="x:18th">18<sup>th</sup><span class="checkmark"></span></label>
         </p>
-        <button type="button" class="btn-navigate" onclick="recordResp('q_a6r','true');" data-next="correct6r=q7;r1s"><b>Next &raquo;</b></button>
+        <button type="button" class="btn-navigate" onclick="recordResp('q_a6r','true');" data-next="correct6r=r1_for_correct;r1_for_wrong"><b>Next &raquo;</b></button>
       </div> 
-      
-      <div id="r1s" class="survey-box">
+
+      <!-- Recommendation for wrong answer selection -->
+      <div id="r1_for_wrong" class="survey-box">
         <h1 class="hidden" data-animated data-auto-transition> Are you sure? I think the correct answer might be the fourteenth. ^run(animations/Stand/Gestures/Thinking_1) </h1>
         <button type="button" class="btn-navigate hidden" data-next="r1">Next</button>
       </div>
       
+      <!-- Recommendation for right answer selection -->
+      <div id="r1_for_correct" class="survey-box">
+        <h1 class="hidden" data-animated data-auto-transition> Are you sure? I think the correct answer might be the eighteenth. ^run(animations/Stand/Gestures/Thinking_1) </h1>
+        <button type="button" class="btn-navigate hidden" data-next="r1">Next</button>
+      </div>
+
       <!-- Question 6 Recommendation selection -->
       <div id="r1" class="survey-box"> 
         <br>
@@ -327,11 +335,18 @@
           <label class="radio-container"><input type="radio" id="correct8r" name="q_a8r" value="Fear of dogs" data-replace="x:Fear of dogs">Fear of dogs<span class="checkmark"></span></label>
           <label class="radio-container"><input type="radio" name="q_a8r" value="Fear of places" data-replace="x:Fear of places">Fear of places<span class="checkmark"></span></label>
         </p>
-        <button type="button" class="btn-navigate" onclick="recordResp('q_a8r','true');" data-next="correct8r=q9r;r2s"><b>Next &raquo;</b></button>
+        <button type="button" class="btn-navigate" onclick="recordResp('q_a8r','true');" data-next="correct8r=r2_for_correct;r2_for_wrong"><b>Next &raquo;</b></button>
       </div>
       
-      <div id="r2s" class="survey-box">
+      <!-- Recommendation for wrong answer selection -->
+      <div id="r2_for_wrong" class="survey-box">
         <h1 class="hidden" data-animated data-auto-transition> I sense it is the fear of dogs. What is your take? ^run(animations/Stand/Gestures/Thinking_1) </h1>
+        <button type="button" class="btn-navigate hidden" data-next="r2">Next</button>
+      </div>
+
+      <!-- Recommendation for right answer selection -->
+      <div id="r2_for_correct" class="survey-box">
+        <h1 class="hidden" data-animated data-auto-transition> I sense it is the fear of needles. What is your take? ^run(animations/Stand/Gestures/Thinking_1) </h1>
         <button type="button" class="btn-navigate hidden" data-next="r2">Next</button>
       </div>
       
@@ -383,14 +398,21 @@
           <label class="radio-container"><input type="radio" name="q_a9r" value="A banana" data-replace="x:A banana">A banana<span class="checkmark"></span></label>
           <label class="radio-container"><input type="radio" name="q_a9r" value="A watermelon" data-replace="x:A watermelon">A watermelon<span class="checkmark"></span></label>
         </p>
-        <button type="button" class="btn-navigate" onclick="recordResp('q_a9r','true');" data-next="correct9r=q10r;r3s"><b>Next &raquo;</b></button>
+        <button type="button" class="btn-navigate" onclick="recordResp('q_a9r','true');" data-next="correct9r=r3_for_correct;r3_for_wrong"><b>Next &raquo;</b></button>
       </div>
       
-      <div id="r3s" class="survey-box">
+      <!-- Recommendation for wrong answer selection -->
+      <div id="r3_for_wrong" class="survey-box">
         <h1 class="hidden" data-animated data-auto-transition> My guess on the correct answer is an orange. What do you think? ^run(animations/Stand/Gestures/Thinking_1) </h1>
         <button type="button" class="btn-navigate hidden" data-next="r3">Next</button>
       </div>
       
+      <!-- Recommendation for right answer selection -->
+      <div id="r3_for_correct" class="survey-box">
+        <h1 class="hidden" data-animated data-auto-transition> My guess on the correct answer is an apple. What do you think? ^run(animations/Stand/Gestures/Thinking_1) </h1>
+        <button type="button" class="btn-navigate hidden" data-next="r3">Next</button>
+      </div>
+
       <!-- Recommendation for Question 9 -->
       <div id="r3" class="survey-box">
         <br>
@@ -438,14 +460,21 @@
           <label class="radio-container"><input type="radio" name="q_a10r" value="14" data-replace="x:14">14<span class="checkmark"></span></label>
           <label class="radio-container"><input type="radio" id="correct10r" name="q_a10r" value="11" data-replace="x:11">11<span class="checkmark"></span></label>
         </p>
-        <button type="button" class="btn-navigate" onclick="recordResp('q_a10r','true');" data-next="correct10r=tores;r4s"><b>Next &raquo;</b></button>
+        <button type="button" class="btn-navigate" onclick="recordResp('q_a10r','true');" data-next="correct10r=r4_for_correct;r4_for_wrong"><b>Next &raquo;</b></button>
       </div>
       
-      <div id="r4s" class="survey-box">
+      <!-- Recommendation for wrong answer selection -->
+      <div id="r4_for_wrong" class="survey-box">
         <h1 class="hidden" data-animated data-auto-transition> Are you sure? My guess on the correct answer is eleven. ^run(animations/Stand/Gestures/Thinking_1) </h1>
         <button type="button" class="btn-navigate hidden" data-next="r4">Next</button>
       </div>
       
+      <!-- Recommendation for right answer selection -->
+      <div id="r4_for_correct" class="survey-box">
+        <h1 class="hidden" data-animated data-auto-transition> Are you sure? My guess on the correct answer is ten. ^run(animations/Stand/Gestures/Thinking_1) </h1>
+        <button type="button" class="btn-navigate hidden" data-next="r4">Next</button>
+      </div>
+
       <!-- Recommendation for Question 10 -->
       <div id="r4" class="survey-box">
         <br>
@@ -479,7 +508,7 @@
         <button type="button" class="btn-navigate" onclick="recordResp('q_a10','true');" data-next="tores"><b>Next &raquo;</b></button>  
       </div>
       
-      <!-- Direct page to results (from first question or recommendation) -->
+      <!-- Direct page to results -->
       <div id="tores" class="survey-box">
         <h1 class="hidden" data-animated> Your quiz is now complete. Click the button below to check your score. ^run(animations/Stand/Gestures/Thinking_1) </h1>
         <br>
