@@ -8,6 +8,53 @@ var survey_service = undefined
 var timeoutId = undefined
 var startTime = undefined
 
+var waitingPage = null
+var focusNode = null
+
+function endSpeech() {
+	if (waitingPage && waitingPage.style.display=='none') {
+		waitingPage.style.display = 'flex';
+		//anim.run("animations/Stand/Gestures/BodyTalk_15");
+		focusNode.focus();
+	} /*else {
+		anim.run("animations/Stand/Gestures/BodyTalk_9");
+	}*/
+}
+
+function startSubscribe(introStr) {
+	session.service("ALMemory").done(function (ALMemory) {https://bitbucket.org/pepper_qut/problem_solver_app/src/master/
+        ALMemory.subscriber("ALAnimatedSpeech/EndOfAnimatedSpeech").done(function(subscriber) {
+            subscriber.signal.connect(endSpeech);
+        });   
+		memory = ALMemory;
+    });
+	session.service('ALBehaviorManager').then(function (service) {
+		behaviourManager = service;
+		note("behaviourManager: "+behaviourManager);
+	});
+	session.service("ALTextToSpeech").done(function (service) {
+		speechService = service;
+		speechService.setParameter("speed",85);
+    });
+	session.service("ALAnimatedSpeech").done(function (service) {
+		tts = service;
+		tts.say(introStr);
+    });
+	session.service("ALTabletService").done(function (service) {
+		tabletService = service;
+    });
+	session.service("ALBasicAwareness").done(function (service) {
+		basicAwareness = service;
+		// Stop Pepper looking down at tablet every time you touch it!
+		basicAwareness.setStimulusDetectionEnabled("TabletTouch", false);
+    });
+	session.service("ALBackgroundMovement").done(function (service) {
+		backgroundMovement = service;
+		// Control background movement
+		// backgroundMovement.setEnabled(false);
+    });
+}
+
 function fadeOut(el){
     el.style.opacity = 1;
 

@@ -1,4 +1,5 @@
 <!-- Attempt to insert a video on the workflow to see whether it triggers the data-auto-transition tag. The goal is to have the video playing alongside the slide that will show the cluster of shapes -->
+<!-- Remove the 'data-animated' tags to stop the animations on the Pepper from running. The goal is to keep the tablet as static as possible, and have minimal hand movement. -->
 <html>
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -32,12 +33,19 @@
           <img src="images/FingerDown.gif" alt="Finger Pointing Down" height="300">
           <br>
           <br>
-          <button type="button" class="btn-navigate" data-next="intro"> <b>START</b> </button>
+          <button type="button" class="btn-navigate" data-next="ilor"> <b>START</b> </button>
         </div>
-        
+
+        <!-- Question 11 Introduction (Shape Display) -->
+        <div id="ilor" class="survey-box">
+          <h1 data-animated class="hidden"> Right. Here is the first shape. Take a brief look at it before proceeding. When you are ready to proceed, press Go. A cluster of shapes will be displayed, and your job is to determine how many shown shape are in that cluster. You will have 7 seconds to look at the image and then make your guess. Get ready. ^run(animations/Stand/BodyTalk/Speaking/BodyTalk_12) </h1>
+          <img src="images/Square.png" alt="Square" class="center" height="480">
+          <button type="button" class="btn-navigate" data-next="intro"><b>Go &raquo;</b></button>
+        </div>
+
         <!-- Introduction Screen -->
         <div id="intro" class="survey-box">
-          <h1 data-animated class="hidden"> Hello. My name is Pepper. It is nice to see you on the Monash Campus today. I would like to talk with you about completing a short quiz with questions that cover different topics. Would you like to participate? It is okay if you do not wish to do so. ^run(animations/Stand/BodyTalk/Speaking/BodyTalk_2) </h1> 
+          <h1 data-animated class="hidden"> Hello. My name is Pepper. It is nice to see you on the Monash Campus today. I would like to talk with you about completing a short quiz with questions that cover different topics. Would you like to participate? It is okay if you do not wish to do so. ^run(animations/Stand/BodyTalk/Speaking/BodyTalk_12) </h1> 
           <h1 data-ignore> <b>WELCOME</b> </h1>
           <br>
           <p> My name is <b>Pepper</b>. It's nice to meet you. </p>
@@ -120,24 +128,21 @@
           </script>
         </div>
         
-        <!-- Transition Screen --> 
+        <!-- Transition Screen (towards start page) --> 
         <div id="ok" class="survey-box">
-          <h1 class="hidden" data-auto-transition> Nicely Done. Now onto the quiz. </h1>
+          <h1 class="hidden" data-auto-transition> Nicely done. Now onto the quiz. </h1>
           <button type="button" class="btn-navigate hidden" data-next="begin">Next</button>
         </div>
         
-        <!-- Begin Screen -->
+        <!-- Start Screen -->
         <div id="begin" class="survey-box">
-          <h1 data-animated class="hidden"> It contains 10 questions, and each will be scored. It may take 6 to 7 minutes to complete, and you will receive the final score for all the questions at the end. If you complete the test, you will be asked a short question based on your experience. Additionally, a brief interview is conducted at the end to assess your performance related to the questions. ^run(animations/Stand/BodyTalk/Speaking/BodyTalk_1) </h1> 
+          <h1 data-animated class="hidden"> It contains two parts. The first part has 10 questions covering general-knowledge topics, and the second part has 5 extra puzzling style questions. All the questions will be scored, where 10 points will be rewarded for a correct answer and no points for incorrect answers. It may take 9 to 10 minutes, and you will receive the final score for all the questions at the end. If you complete the test, you will be asked a short question based on your experience. Additionally, a brief interview is conducted at the end to assess your performance related to the questions. ^run(animations/Stand/BodyTalk/Speaking/BodyTalk_12) </h1> 
           <img src="images/Monash_Blue.png" alt="Monash Logo" height="120">
           <br>
           <br>
           <h1 data-ignore> <b>TEST YOUR KNOWLEDGE</b> </h1>
           <h2 data-ignore> Quiz: Monash Edition </h2>
           <br>
-          <div class="column">
-            <img src="images/musicalscore.png" class="center" alt="Musical Score" height="100">
-          </div>
           <div class="column">
             <img src="images/SoccerBall.png" class="center" alt="Soccer Ball" height="100">
           </div>
@@ -153,6 +158,9 @@
           <div class="column">
             <img src="images/GlobeAsiaAustralia.png" class="center" alt="Asia-Australia Globe" height="100">
           </div>
+          <div class="column">
+            <img src="images/Puzzle_Piece.png" class="center" alt="Puzzle Piece" height="100">
+          </div>
           <br>
           <br>
           <button style="margin:45px" type="button" class="btn-navigate" data-next="1"><b>Start Quiz &raquo;</b></button>
@@ -161,7 +169,7 @@
       
       <!-- Question 1 -->         
       <div id="1" class="survey-box">
-        <h1 data-animated class="hidden"> Great. Here is your first question. What is the most popular sport in Australia? ^run(animations/Stand/BodyTalk/Speaking/BodyTalk_1) </h1> 
+        <h1 data-animated class="hidden"> Great. Here is your first question. What is the most popular sport in Australia? ^run(animations/Stand/BodyTalk/Speaking/BodyTalk_12) </h1> 
         <h1 data-ignore> <b> Q1: What is the most popular sport in Australia? </b> </h1> 
         <br>
         <img src="images/sports.jpg" alt="Aussie Sports" height="250">
@@ -178,7 +186,7 @@
       
       <!-- Question 2 -->
       <div id="2" class="survey-box">
-        <h1 data-animated class="hidden"> OK. Next question. What is the motto of Monash University? ^run(animations/Stand/BodyTalk/Speaking/BodyTalk_1) </h1>
+        <h1 data-animated class="hidden"> OK. Next question. What is the motto of Monash University? ^run(animations/Stand/BodyTalk/Speaking/BodyTalk_12) </h1>
         <h1 data-ignore> <b> Q2: What is the motto of Monash University? </b> </h1>
         <br>
         <img src="images/AncoraImparo_Motto.png" alt="Ancora Imparo" height="200">
@@ -195,7 +203,7 @@
       
       <!-- Question 3 -->
       <div id="3" class="survey-box">
-        <h1 data-animated class="hidden"> All right. Next question. What is a group of koalas called? ^run(animations/Stand/BodyTalk/Speaking/BodyTalk_1) </h1>
+        <h1 data-animated class="hidden"> All right. Next question. What is a group of koalas called? ^run(animations/Stand/BodyTalk/Speaking/BodyTalk_12) </h1>
         <h1 data-ignore> <b> Q3: What is a group of koalas called?</b> </h1>
         <br>
         <img src="images/Koalas.jpg" alt="Koalas" height="250">
@@ -212,7 +220,7 @@
       
       <!-- Question 4 -->
       <div id="4" class="survey-box">
-        <h1 data-animated class="hidden"> OK. Next question. Who was sir John Monash? ^run(animations/Stand/BodyTalk/Speaking/BodyTalk_1) </h1>
+        <h1 data-animated class="hidden"> OK. Next question. Who was sir John Monash? ^run(animations/Stand/BodyTalk/Speaking/BodyTalk_12) </h1>
         <h1 data-ignore> <b>Q4: Who was sir John Monash?</b> </h1>
         <br>
         <img src="images/SirJohnMonash.jpg" alt="Sir John Monash" height="250">
@@ -229,7 +237,7 @@
       
       <!-- Question 5 -->
       <div id="5" class="survey-box">
-        <h1 data-animated class="hidden"> All right. Here is your next question. What is the capital city of Australia? ^run(animations/Stand/BodyTalk/Speaking/BodyTalk_1) </h1>
+        <h1 data-animated class="hidden"> All right. Here is your next question. What is the capital city of Australia? ^run(animations/Stand/BodyTalk/Speaking/BodyTalk_12) </h1>
         <h1 data-ignore> <b>Q5: What is the capital city of Australia?</b> </h1>
         <br>
         <img src="images/AusCapital.jpeg" alt="Australia Capital" height="250">
@@ -246,9 +254,9 @@
       
       <!-- Question 6 before recommendation -->
       <div id="q6r" class="survey-box">
-        <h1 data-animated class="hidden"> OK. Next question. Where does the Australian economy rank compared to the rest of the world? ^run(animations/Stand/BodyTalk/Speaking/BodyTalk_1) </h1>
+        <h1 data-animated class="hidden"> OK. Next question. Where does the Australian economy rank compared to the rest of the world? ^run(animations/Stand/BodyTalk/Speaking/BodyTalk_12) </h1>
         <h1 data-ignore> <b>Q6: Where does the Australian economy rank compared to the rest of the world? </b> </h1>
-        <img src="images/AustralianBill.jpg" alt="Australian Bill" height="225">
+        <img src="images/AustralianBill.jpg" alt="Australian Bill" height="250">
         <br>
         <br>
         <p class="button_centre">
@@ -292,7 +300,7 @@
       <!-- Question 6 Post-Recommendation without Pepper's speech -->
       <div id="q6" class="survey-box">
         <h1 data-ignore> <b>Q6: Where does the Australian economy rank compared to the rest of the world?</b> </h1>
-        <img src="images/AustralianBill.jpg" alt="Australian Bill" height="225">
+        <img src="images/AustralianBill.jpg" alt="Australian Bill" height="250">
         <br>
         <br>
         <p class="button_centre">
@@ -306,7 +314,7 @@
       
       <!-- Question 7 -->
       <div id="q7" class="survey-box">
-        <h1 data-animated class="hidden"> All right. Here is your next question. What is the longest river in Australia? ^run(animations/Stand/BodyTalk/Speaking/BodyTalk_1) </h1>
+        <h1 data-animated class="hidden"> All right. Here is your next question. What is the longest river in Australia? ^run(animations/Stand/BodyTalk/Speaking/BodyTalk_12) </h1>
         <h1 data-ignore> <b> Q7: What is the longest river in Australia?</b> </h1>
         <br>
         <img src="images/river.jpg" alt="River" height="250">
@@ -323,7 +331,7 @@
       
       <!-- Question 8 before recommendation -->
       <div id="q8r" class="survey-box">
-        <h1 data-animated class="hidden"> OK. Here is your next question. What is cynophobia? ^run(animations/Stand/BodyTalk/Speaking/BodyTalk_1) </h1>
+        <h1 data-animated class="hidden"> OK. Here is your next question. What is cynophobia? ^run(animations/Stand/BodyTalk/Speaking/BodyTalk_12) </h1>
         <h1 data-ignore> <b>Q8: What is cynophobia?</b> </h1>
         <br>
         <img src="images/phobia.png" alt="Phobia" height="250">
@@ -386,7 +394,7 @@
       
       <!-- Question 9 before recommendation -->
       <div id="q9r" class="survey-box">
-        <h1 data-animated class="hidden"> All right. Next question. What inspired the design of the Sydney Opera House? ^run(animations/Stand/BodyTalk/Speaking/BodyTalk_1) </h1>
+        <h1 data-animated class="hidden"> All right. Next question. What inspired the design of the Sydney Opera House? ^run(animations/Stand/BodyTalk/Speaking/BodyTalk_12) </h1>
         <h1 data-ignore> <b>Q9: What inspired the design of the Sydney Opera House?</b> </h1>
         <br>
         <img src="images/OperaHouse.jpg" alt="Opera House" height="250">
@@ -449,7 +457,7 @@
       
       <!-- Question 10 before recommendation -->
       <div id="q10r" class="survey-box">
-        <h1 data-animated class="hidden"> OK. Here is the final question. How many ships were in the historic First Fleet convoy that reached Australia in 1787? ^run(animations/Stand/BodyTalk/Speaking/BodyTalk_1) </h1>
+        <h1 data-animated class="hidden"> OK. Here is the final question. How many ships were in the historic First Fleet convoy that reached Australia in 1787? ^run(animations/Stand/BodyTalk/Speaking/BodyTalk_12) </h1>
         <h1 data-ignore> <b>Q10: How many ships were in the historic First Fleet convoy that reached Australia in 1787?</b> </h1>
         <img src="images/FirstFleet.jpg" alt="First Fleet" height="250">
         <br>
@@ -490,7 +498,7 @@
         </p>
         <br>
         <br>
-        <button style="margin:45px" type="button" class="btn-navigate" onclick="recordResp('r_10','true');" data-next="yes_r10=q10;tores"><b>Next &raquo;</b></button>        
+        <button style="margin:45px" type="button" class="btn-navigate" onclick="recordResp('r_10','true');" data-next="yes_r10=q10;part2"><b>Next &raquo;</b></button>        
       </div>
       
       <!-- Question 10 Post-Recommendation without Pepper's speech -->
@@ -505,9 +513,75 @@
           <label class="radio-container"><input type="radio" name="q_a10" value="14" data-replace="x:14">14<span class="checkmark"></span></label>
           <label class="radio-container"><input type="radio" name="q_a10" value="11" data-replace="x:11">11<span class="checkmark"></span></label>
         </p>
-        <button type="button" class="btn-navigate" onclick="recordResp('q_a10','true');" data-next="tores"><b>Next &raquo;</b></button>  
+        <button type="button" class="btn-navigate" onclick="recordResp('q_a10','true');" data-next="part2"><b>Next &raquo;</b></button>  
       </div>
       
+      <!-- Transition towards puzzling questions (Part 2) -->
+      <div id="part2" class="survey-box">
+        <h1 class="hidden" data-animated data-auto-transition> The first part is now complete. Now for this second part, I will present a shape on my screen. The goal is for you to memorise it and ultimately count how many of the same shapes are in a cluster of other shapes. There is a 7-second timer for displaying each shape cluster. ^run(animations/Stand/BodyTalk/Speaking/BodyTalk_12) </h1>
+        <button type="button" class="btn-navigate hidden" data-next="q11shape">Next</button>
+      </div>
+
+      <!-- Question 11 Introduction (Shape Display) -->
+      <div id="q11shape" class="survey-box">
+        <h1 data-animated class="hidden"> Right. Here is the first shape. Take a brief look at it before proceeding. When you are ready to proceed, press Go. A cluster of shapes will be displayed, and your job is to determine how many shown shape are in that cluster. You will have 7 seconds to look at the image and then make your guess. Get ready. ^run(animations/Stand/BodyTalk/Speaking/BodyTalk_12) </h1>
+        <br>
+        <img src="images/Square.png" alt="Square" height="250">
+        <br>
+        <br>
+        <button type="button" class="btn-navigate" data-next="q11cluster"><b>Go &raquo;</b></button>
+      </div>
+      
+      <!-- Question 11 Cluster Display -->
+      <div id="q11cluster" class="survey-box">
+        <video width="920" height="480" autoplay>
+          <source src="videos/Q1 - Shape Cluster.mp4" type="video/mp4">
+        </video>
+        <br>
+        <button type="button" class="btn-navigate" data-next="q11r"><b>Next &raquo;</b></button>
+      </div>
+
+      <!-- Question 11 before suggestion (text box input) -->
+      <div id="q11r" class="survey-box">
+        <br>
+        <h1 class="hidden"> What is your initial guess? I can provide you with a suggestion, and you will have the opportunity to change your answer. </h1>
+        <br>
+        <span><input type="number" min="0" max="50" name="q_a11r" onclick="deleteText()" class="form-control small-text" style="display: inline-block;" value="0"> squares</span>
+        <br>
+        <br>
+        <button type="button" class="btn-navigate" data-next="r5"><b>Next &raquo;</b></button>
+      </div>
+
+      <!-- Recommendation for Q11 -->
+      <div id="r5" class="survey-box">
+        <br>
+        <h1 data-animated class="hidden"> OK. I actually think there are 6 squares. Would you like to confirm your guess? </h1>
+        <br>
+        <br>
+        <h1 data-ignore> Do you want to change your answer? </h1>
+        <br>
+        <br>
+        <p class="example"> 
+          <label class="radio-container"><input type="radio" id="yes_r11" name="r_11" value="Yes" data-replace="x:Yes"><b>Yes</b><span class="checkmark"></span></label>
+          <br>
+          <label class="radio-container"><input type="radio" name="r_11" value="No" data-replace="x:No"><b>No</b><span class="checkmark"></span></label>
+        </p>
+        <br>
+        <br>
+        <button style="margin:45px" type="button" class="btn-navigate" onclick="recordResp('r_11','true');" data-next="yes_r10=q11;tores"><b>Next &raquo;</b></button>        
+      </div>
+
+      <!-- Question 11 Post-Recommendation without Pepper's speech -->
+      <div id="q11" class="survey-box">
+        <br>
+        <h1 class="hidden"> What is your initial guess? I can provide you with a suggestion, and you will have the opportunity to change your answer. </h1>
+        <br>
+        <span><input type="number" min="0" max="50" name="q_a11" onclick="deleteText()" class="form-control small-text" style="display: inline-block;" value="0"> squares</span>
+        <br>
+        <br>
+        <button type="button" class="btn-navigate" data-next="tores"><b>Next &raquo;</b></button>
+      </div>
+
       <!-- Direct page to results -->
       <div id="tores" class="survey-box">
         <h1 class="hidden" data-animated> Your quiz is now complete. Click the button below to check your score. ^run(animations/Stand/Gestures/Thinking_1) </h1>
@@ -547,7 +621,7 @@
       
       <!-- Exit Question 1 -->
       <div id="ex1" class="survey-box">
-        <h1 data-animated class="hidden"> Great. It will be quick. How would you rate your knowledge related to the quiz questions? Choose a rating from the scale of 0 to 10. 0 having no knowledge and 10 highly knowledgeable. ^run(animations/Stand/BodyTalk/Speaking/BodyTalk_1) </h1>
+        <h1 data-animated class="hidden"> Great. It will be quick. How would you rate your knowledge related to the quiz questions? Choose a rating from the scale of 0 to 10. 0 having no knowledge and 10 highly knowledgeable. ^run(animations/Stand/BodyTalk/Speaking/BodyTalk_12) </h1>
         <br> 
         <h1 data-ignore> <b>How would you rate your knowledge related to the quiz questions?</b> </h1> 
         <br>
@@ -603,6 +677,18 @@
   document.getElementById('presentation_order').value = randomize() ? 1 : 0;
   function get_presentation_order() {
     return document.getElementById('presentation_order').value == 1;
+  }
+
+  // To delete text once the text box is pressed
+  var cur_ID;
+
+  function deleteText() {
+    var box = document.activeElement;
+    cur_ID = box;
+    
+    if (box.value == "0") {
+      box.value = "";
+    }
   }
 </script>
 </body>

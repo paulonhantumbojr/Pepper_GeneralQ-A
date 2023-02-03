@@ -22,9 +22,9 @@ def toHTML(data, pages=None): #data variable represents the 'name' elements in i
     "", #16 data['r_10'] (Question 10 recommendation)
     "", #17 data['q_a10'] (Question 10 after-recommendation)
 
-    # int(data['q_a11r']), #18 (Question 11 prior-recommendation)
-    # "", #19 data['r_11'] (Question 11 recommendation)
-    # "", #20 data['q_a11'] (Question 11 after-recommendation)
+    int(data['q_a11r']), #18 (Question 11 prior-recommendation)
+    "", #19 data['r_11'] (Question 11 recommendation)
+    "", #20 data['q_a11'] (Question 11 after-recommendation)
 
     # int(data['q_a12r']), #21 (Question 12 prior-recommendation)
     # "", #22 data['r_12'] (Question 12 recommendation)
@@ -54,7 +54,7 @@ def toHTML(data, pages=None): #data variable represents the 'name' elements in i
     "Fear of dogs", #7 (Answer to Q8)
     "An orange", #8 (Answer to Q9)
     "11", #9 (Answer to Q10)
-    # 3, #10 (Answer to Q11)
+    6, #10 (Answer to Q11)
     # 4, #11 (Answer to Q12)
     # 5, #12 (Answer to Q13)
     # 6, #13 (Answer to Q14)
@@ -104,7 +104,12 @@ def toHTML(data, pages=None): #data variable represents the 'name' elements in i
   s10 = 10 if quest[15] == answ[9] else 0 if quest[15] != answ[9] and quest[16] == rec[1] else 10 if quest[15] != answ[9] and quest[16] == rec[0] and quest[17] == answ[9] else 0 
   tickpts10 = True if s10 == 10 else False
 
-  finsc = s1 + s2 + s3 + s4 + s5 + s6 + s7 + s8 + s9 + s10
+  quest[19] = data['r_11'] if quest[18] != answ[10] else quest[19] == ""
+  quest[20] = data['q_a11'] if quest[18] != answ[10] and quest[19] == rec[0] else quest[20] == ""
+  s11 = 10 if quest[18] == answ[10] else 0 if quest[18] != answ[10] and quest[19] == rec[1] else 10 if quest[18] != answ[10] and quest[19] == rec[0] and quest[20] == answ[10] else 0 
+  tickpts11 = True if s11 == 10 else False
+
+  finsc = s1 + s2 + s3 + s4 + s5 + s6 + s7 + s8 + s9 + s10 + s11
 
   replacements = {
     'finsc': finsc,
@@ -134,8 +139,8 @@ def toHTML(data, pages=None): #data variable represents the 'name' elements in i
     'select10': quest[15] if quest[15] == answ[9] else quest[15] if quest[15] != answ[9] and quest[16] == rec[1] else quest[17] if quest[15] != answ[9] and quest[16] == rec[0] and quest[17] == answ[9] else quest[17], 
     'correct10': answ[9],    
 
-    # 'select11': ,
-    # 'correct11': answ[10],
+    'select11': quest[18] if quest[18] == answ[10] else quest[18] if quest[18] != answ[10] and quest[19] == rec[1] else quest[20] if quest[18] != answ[10] and quest[19] == rec[0] and quest[20] == answ[10] else quest[20], 
+    'correct11': answ[10],
 
     # 'select12': ,
     # 'correct12': answ[11],
@@ -159,7 +164,7 @@ def toHTML(data, pages=None): #data variable represents the 'name' elements in i
     'tick8': '&#9989;' if tickpts8 == True else '&#10060;', 
     'tick9': '&#9989;' if tickpts9 == True else '&#10060;', 
     'tick10': '&#9989;' if tickpts10 == True else '&#10060;',
-    # 'tick11': '&#9989;' if tickpts11 == True else '&#10060;',
+    'tick11': '&#9989;' if tickpts11 == True else '&#10060;',
     # 'tick12': '&#9989;' if tickpts12 == True else '&#10060;',
     # 'tick13': '&#9989;' if tickpts13 == True else '&#10060;',
     # 'tick14': '&#9989;' if tickpts14 == True else '&#10060;',
@@ -175,7 +180,7 @@ def toHTML(data, pages=None): #data variable represents the 'name' elements in i
     'pts8': '<span style="color:green; font-weight:bold;">+10pts</span>' if tickpts8 == True else '<span style="color:red; font-weight:bold;">0pts</span>',
     'pts9': '<span style="color:green; font-weight:bold;">+10pts</span>' if tickpts9 == True else '<span style="color:red; font-weight:bold;">0pts</span>',
     'pts10': '<span style="color:green; font-weight:bold;">+10pts</span>' if tickpts10 == True else '<span style="color:red; font-weight:bold;">0pts</span>',
-    # 'pts11': '<span style="color:green; font-weight:bold;">+10pts</span>' if tickpts11 == True else '<span style="color:red; font-weight:bold;">0pts</span>',
+    'pts11': '<span style="color:green; font-weight:bold;">+10pts</span>' if tickpts11 == True else '<span style="color:red; font-weight:bold;">0pts</span>',
     # 'pts12': '<span style="color:green; font-weight:bold;">+10pts</span>' if tickpts12 == True else '<span style="color:red; font-weight:bold;">0pts</span>',
     # 'pts13': '<span style="color:green; font-weight:bold;">+10pts</span>' if tickpts13 == True else '<span style="color:red; font-weight:bold;">0pts</span>',
     # 'pts14': '<span style="color:green; font-weight:bold;">+10pts</span>' if tickpts14 == True else '<span style="color:red; font-weight:bold;">0pts</span>',
@@ -218,9 +223,9 @@ if __name__ == '__main__':
     "": "", 
     "": "", 
 
-    # "q_a11r": "8", 
-    # "": "", 
-    # "": "", 
+    "q_a11r": "4", 
+    "": "", 
+    "": "", 
 
     # "q_a12r": "8", 
     # "": "", 
