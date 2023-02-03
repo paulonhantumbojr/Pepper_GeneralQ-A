@@ -19,9 +19,6 @@
         <File name="icon" src="icon.png" />
         <File name="printer" src="printer.py" />
         <File name="template" src="template.html" />
-        <File name="beer" src="html/images/beer.png" />
-        <File name="spirits" src="html/images/spirits.png" />
-        <File name="wine" src="html/images/wine.png" />
         <File name="bootstrap.bundle.min" src="html/javascripts/bootstrap.bundle.min.js" />
         <File name="jquery-ui.min" src="html/javascripts/jquery-ui.min.js" />
         <File name="jquery.min" src="html/javascripts/jquery.min.js" />
@@ -50,7 +47,6 @@
         <File name="SoccerBall" src="html/images/SoccerBall.png" />
         <File name="ThinkingFace" src="html/images/ThinkingFace.gif" />
         <File name="kangaroo" src="html/images/kangaroo.png" />
-        <File name="musicalscore" src="html/images/musicalscore.png" />
         <File name="phobia" src="html/images/phobia.png" />
         <File name="river" src="html/images/river.jpg" />
         <File name="sports" src="html/images/sports.jpg" />
@@ -60,6 +56,12 @@
         <File name="launch" src="html/.vscode/launch.json" />
         <File name="green_arrow2" src="html/images/green_arrow2.PNG" />
         <File name="README" src="README.md" />
+        <File name="ScoreAplus" src="html/images/ScoreAplus.png" />
+        <File name="Circle" src="html/images/Circle.png" />
+        <File name="Square" src="html/images/Square.png" />
+        <File name="Triangle" src="html/images/Triangle.png" />
+        <File name="Q1 - Shape Cluster" src="html/videos/Q1 - Shape Cluster.mp4" />
+        <File name="Puzzle_Piece" src="html/images/Puzzle_Piece.png" />
     </Resources>
     <Topics />
     <IgnoredPaths />

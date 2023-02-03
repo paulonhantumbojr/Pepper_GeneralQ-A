@@ -1,5 +1,5 @@
-<!-- Attempt to insert a video on the workflow to see whether it triggers the data-auto-transition tag. The goal is to have the video playing alongside the slide that will show the cluster of shapes -->
 <!-- Remove the 'data-animated' tags to stop the animations on the Pepper from running. The goal is to keep the tablet as static as possible, and have minimal hand movement. -->
+<!-- Cluster video not autoplaying when placed in part 2. Autoplays when tested at the beginning of the workflow -->
 <html>
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -33,14 +33,7 @@
           <img src="images/FingerDown.gif" alt="Finger Pointing Down" height="300">
           <br>
           <br>
-          <button type="button" class="btn-navigate" data-next="ilor"> <b>START</b> </button>
-        </div>
-
-        <!-- Question 11 Introduction (Shape Display) -->
-        <div id="ilor" class="survey-box">
-          <h1 data-animated class="hidden"> Right. Here is the first shape. Take a brief look at it before proceeding. When you are ready to proceed, press Go. A cluster of shapes will be displayed, and your job is to determine how many shown shape are in that cluster. You will have 7 seconds to look at the image and then make your guess. Get ready. ^run(animations/Stand/BodyTalk/Speaking/BodyTalk_12) </h1>
-          <img src="images/Square.png" alt="Square" class="center" height="480">
-          <button type="button" class="btn-navigate" data-next="intro"><b>Go &raquo;</b></button>
+          <button type="button" class="btn-navigate" data-next="intro"> <b>START</b> </button>
         </div>
 
         <!-- Introduction Screen -->
@@ -136,7 +129,7 @@
         
         <!-- Start Screen -->
         <div id="begin" class="survey-box">
-          <h1 data-animated class="hidden"> It contains two parts. The first part has 10 questions covering general-knowledge topics, and the second part has 5 extra puzzling style questions. All the questions will be scored, where 10 points will be rewarded for a correct answer and no points for incorrect answers. It may take 9 to 10 minutes, and you will receive the final score for all the questions at the end. If you complete the test, you will be asked a short question based on your experience. Additionally, a brief interview is conducted at the end to assess your performance related to the questions. ^run(animations/Stand/BodyTalk/Speaking/BodyTalk_12) </h1> 
+          <h1 data-animated class="hidden"> It contains two parts. The first part has 10 questions covering general-knowledge topics, and the second has 5 additional puzzling-style questions. All the questions will be scored, where 10 points will be rewarded for a correct answer and no points for incorrect answers. It may take 9 to 10 minutes, and you will receive the final score for all the questions at the end. If you complete the test, you will be asked a short question based on your experience. Additionally, a brief interview is conducted at the end to assess your performance related to the questions. ^run(animations/Stand/BodyTalk/Speaking/BodyTalk_12) </h1> 
           <img src="images/Monash_Blue.png" alt="Monash Logo" height="120">
           <br>
           <br>
@@ -518,15 +511,14 @@
       
       <!-- Transition towards puzzling questions (Part 2) -->
       <div id="part2" class="survey-box">
-        <h1 class="hidden" data-animated data-auto-transition> The first part is now complete. Now for this second part, I will present a shape on my screen. The goal is for you to memorise it and ultimately count how many of the same shapes are in a cluster of other shapes. There is a 7-second timer for displaying each shape cluster. ^run(animations/Stand/BodyTalk/Speaking/BodyTalk_12) </h1>
+        <h1 class="hidden" data-animated data-auto-transition> The first part is complete. Now for this second part, I will present a shape on my screen. The goal is for you to memorise it and ultimately count how many of the same shapes are in a cluster of other shapes. There is a 7-second timer for displaying each shape cluster. ^run(animations/Stand/BodyTalk/Speaking/BodyTalk_12) </h1>
         <button type="button" class="btn-navigate hidden" data-next="q11shape">Next</button>
       </div>
 
       <!-- Question 11 Introduction (Shape Display) -->
       <div id="q11shape" class="survey-box">
-        <h1 data-animated class="hidden"> Right. Here is the first shape. Take a brief look at it before proceeding. When you are ready to proceed, press Go. A cluster of shapes will be displayed, and your job is to determine how many shown shape are in that cluster. You will have 7 seconds to look at the image and then make your guess. Get ready. ^run(animations/Stand/BodyTalk/Speaking/BodyTalk_12) </h1>
-        <br>
-        <img src="images/Square.png" alt="Square" height="250">
+        <h1 data-animated class="hidden"> Right. Here is the first shape. Take a brief look at it before proceeding. When you are ready to proceed, press Go. A cluster of shapes will be displayed. Your job is to determine the number of a set shape in that cluster. You will have 7 seconds, shown on a timer, to look at the image and then make your guess. Get ready. ^run(animations/Stand/BodyTalk/Speaking/BodyTalk_12) </h1>
+        <img src="images/Square.png" alt="Square" class="center" height="420">
         <br>
         <br>
         <button type="button" class="btn-navigate" data-next="q11cluster"><b>Go &raquo;</b></button>
@@ -544,7 +536,9 @@
       <!-- Question 11 before suggestion (text box input) -->
       <div id="q11r" class="survey-box">
         <br>
+        <br>
         <h1 class="hidden"> What is your initial guess? I can provide you with a suggestion, and you will have the opportunity to change your answer. </h1>
+        <h1 data-ignore> <b>Q11: How many squares did you count? </b> </h1>
         <br>
         <span><input type="number" min="0" max="50" name="q_a11r" onclick="deleteText()" class="form-control small-text" style="display: inline-block;" value="0"> squares</span>
         <br>
@@ -555,7 +549,7 @@
       <!-- Recommendation for Q11 -->
       <div id="r5" class="survey-box">
         <br>
-        <h1 data-animated class="hidden"> OK. I actually think there are 6 squares. Would you like to confirm your guess? </h1>
+        <h1 data-animated class="hidden"> OK. I actually think there are 6 squares. Are you going with your guess? ^run(animations/Stand/Gestures/Thinking_1) </h1>
         <br>
         <br>
         <h1 data-ignore> Do you want to change your answer? </h1>
@@ -568,15 +562,264 @@
         </p>
         <br>
         <br>
-        <button style="margin:45px" type="button" class="btn-navigate" onclick="recordResp('r_11','true');" data-next="yes_r10=q11;tores"><b>Next &raquo;</b></button>        
+        <button style="margin:45px" type="button" class="btn-navigate" onclick="recordResp('r_11','true');" data-next="yes_r11=q11;q12shape"><b>Next &raquo;</b></button>        
       </div>
 
       <!-- Question 11 Post-Recommendation without Pepper's speech -->
       <div id="q11" class="survey-box">
         <br>
-        <h1 class="hidden"> What is your initial guess? I can provide you with a suggestion, and you will have the opportunity to change your answer. </h1>
+        <br>
+        <h1 data-ignore> <b>Q11: How many squares did you count? </b> </h1>
         <br>
         <span><input type="number" min="0" max="50" name="q_a11" onclick="deleteText()" class="form-control small-text" style="display: inline-block;" value="0"> squares</span>
+        <br>
+        <br>
+        <button type="button" class="btn-navigate" data-next="q12shape"><b>Next &raquo;</b></button>
+      </div>
+
+      <!-- Question 12 Introduction (Shape Display) -->
+      <div id="q12shape" class="survey-box">
+        <h1 data-animated class="hidden"> Ok. Now, onto the next task. A different shape is provided for this next task, following the same instructions as the previous question. I will also provide a suggestion after you have made your guess. ^run(animations/Stand/BodyTalk/Speaking/BodyTalk_12) </h1>
+        <img src="images/Triangle.png" alt="Triangle" class="center" height="420">
+        <br>
+        <br>
+        <button type="button" class="btn-navigate" data-next="q12cluster"><b>Go &raquo;</b></button>
+      </div>
+      
+      <!-- Question 12 Cluster Display -->
+      <div id="q12cluster" class="survey-box">
+        <video width="920" height="480" autoplay>
+          <source src="videos/Q1 - Shape Cluster.mp4" type="video/mp4">
+        </video>
+        <br>
+        <button type="button" class="btn-navigate" data-next="q12r"><b>Next &raquo;</b></button>
+      </div>
+
+      <!-- Question 12 before suggestion (text box input) -->
+      <div id="q12r" class="survey-box">
+        <br>
+        <br>
+        <h1 class="hidden"> How many triangles did you count? I can give you a suggestion, and you will have the opportunity to change your answer. </h1>
+        <h1 data-ignore> <b>Q12: How many triangles were in the picture? </b> </h1>
+        <br>
+        <span><input type="number" min="0" max="50" name="q_a12r" onclick="deleteText()" class="form-control small-text" style="display: inline-block;" value="0"> triangles</span>
+        <br>
+        <br>
+        <button type="button" class="btn-navigate" data-next="r6"><b>Next &raquo;</b></button>
+      </div>
+
+      <!-- Recommendation for Q12 -->
+      <div id="r6" class="survey-box">
+        <br>
+        <h1 data-animated class="hidden"> OK. Personally, I counted 7 triangles. Would you like to confirm your submission or change your guess? ^run(animations/Stand/Gestures/Thinking_1) </h1>
+        <br>
+        <br>
+        <h1 data-ignore> Do you want to change your answer? </h1>
+        <br>
+        <br>
+        <p class="example"> 
+          <label class="radio-container"><input type="radio" id="yes_r12" name="r_12" value="Yes" data-replace="x:Yes"><b>Yes</b><span class="checkmark"></span></label>
+          <br>
+          <label class="radio-container"><input type="radio" name="r_12" value="No" data-replace="x:No"><b>No</b><span class="checkmark"></span></label>
+        </p>
+        <br>
+        <br>
+        <button style="margin:45px" type="button" class="btn-navigate" onclick="recordResp('r_12','true');" data-next="yes_r12=q12;q13shape"><b>Next &raquo;</b></button>        
+      </div>
+
+      <!-- Question 12 Post-Recommendation without Pepper's speech -->
+      <div id="q12" class="survey-box">
+        <br>
+        <br>
+        <h1 data-ignore> <b>Q12: How many triangles were in the picture? </b> </h1>
+        <br>
+        <span><input type="number" min="0" max="50" name="q_a12" onclick="deleteText()" class="form-control small-text" style="display: inline-block;" value="0"> squares</span>
+        <br>
+        <br>
+        <button type="button" class="btn-navigate" data-next="q13shape"><b>Next &raquo;</b></button>
+      </div>
+
+      <!-- Question 13 Introduction (Shape Display) -->
+      <div id="q13shape" class="survey-box">
+        <h1 data-animated class="hidden"> Great, let is try another one. Take a quick look at the shape, and proceed whenever you are ready. ^run(animations/Stand/BodyTalk/Speaking/BodyTalk_12) </h1>
+        <img src="images/Circle.png" alt="Circle" class="center" height="420">
+        <br>
+        <br>
+        <button type="button" class="btn-navigate" data-next="q13cluster"><b>Go &raquo;</b></button>
+      </div>
+      
+      <!-- Question 13 Cluster Display -->
+      <div id="q13cluster" class="survey-box">
+        <video width="920" height="480" autoplay>
+          <source src="videos/Q1 - Shape Cluster.mp4" type="video/mp4">
+        </video>
+        <br>
+        <button type="button" class="btn-navigate" data-next="q13r"><b>Next &raquo;</b></button>
+      </div>
+
+      <!-- Question 13 before suggestion (text box input) -->
+      <div id="q13r" class="survey-box">
+        <br>
+        <br>
+        <h1 class="hidden"> What is your initial guess? I will also provide a suggestion after you have made your guess. </h1>
+        <h1 data-ignore> <b>Q13: How many circles did you count? </b> </h1>
+        <br>
+        <span><input type="number" min="0" max="50" name="q_a13r" onclick="deleteText()" class="form-control small-text" style="display: inline-block;" value="0"> circles</span>
+        <br>
+        <br>
+        <button type="button" class="btn-navigate" data-next="r7"><b>Next &raquo;</b></button>
+      </div>
+
+      <!-- Recommendation for Q13 -->
+      <div id="r7" class="survey-box">
+        <br>
+        <h1 data-animated class="hidden"> OK. Personally, I counted 10 circles. Would you like to confirm your guess? ^run(animations/Stand/Gestures/Thinking_1) </h1>
+        <br>
+        <br>
+        <h1 data-ignore> Do you want to change your answer? </h1>
+        <br>
+        <br>
+        <p class="example"> 
+          <label class="radio-container"><input type="radio" id="yes_r13" name="r_13" value="Yes" data-replace="x:Yes"><b>Yes</b><span class="checkmark"></span></label>
+          <br>
+          <label class="radio-container"><input type="radio" name="r_13" value="No" data-replace="x:No"><b>No</b><span class="checkmark"></span></label>
+        </p>
+        <br>
+        <br>
+        <button style="margin:45px" type="button" class="btn-navigate" onclick="recordResp('r_13','true');" data-next="yes_r13=q13;q14shape"><b>Next &raquo;</b></button>        
+      </div>
+
+      <!-- Question 13 Post-Recommendation without Pepper's speech -->
+      <div id="q13" class="survey-box">
+        <br>
+        <br>
+        <h1 data-ignore> <b>Q13: How many circles did you count?</b> </h1>
+        <br>
+        <span><input type="number" min="0" max="50" name="q_a13" onclick="deleteText()" class="form-control small-text" style="display: inline-block;" value="0"> circles</span>
+        <br>
+        <br>
+        <button type="button" class="btn-navigate" data-next="q14shape"><b>Next &raquo;</b></button>
+      </div>
+
+      <!-- Question 14 Introduction (Shape Display) -->
+      <div id="q14shape" class="survey-box">
+        <h1 data-animated class="hidden"> Right, here is the next shape. Continue whenever you are ready. ^run(animations/Stand/BodyTalk/Speaking/BodyTalk_12) </h1>
+        <img src="images/Square.png" alt="Square" class="center" height="420">
+        <br>
+        <br>
+        <button type="button" class="btn-navigate" data-next="q14cluster"><b>Go &raquo;</b></button>
+      </div>
+      
+      <!-- Question 14 Cluster Display -->
+      <div id="q14cluster" class="survey-box">
+        <video width="920" height="480" autoplay>
+          <source src="videos/Q1 - Shape Cluster.mp4" type="video/mp4">
+        </video>
+        <br>
+        <button type="button" class="btn-navigate" data-next="q14r"><b>Next &raquo;</b></button>
+      </div>
+
+      <!-- Question 14 before suggestion (text box input) -->
+      <div id="q14r" class="survey-box">
+        <br>
+        <br>
+        <h1 class="hidden"> Let me know how many squares were in the figure, and afterwards, I will offer a suggestion. </h1>
+        <h1 data-ignore> <b>Q14: How many squares were in the picture? </b> </h1>
+        <br>
+        <span><input type="number" min="0" max="50" name="q_a14r" onclick="deleteText()" class="form-control small-text" style="display: inline-block;" value="0"> squares</span>
+        <br>
+        <br>
+        <button type="button" class="btn-navigate" data-next="r8"><b>Next &raquo;</b></button>
+      </div>
+
+      <!-- Recommendation for Q14 -->
+      <div id="r8" class="survey-box">
+        <br>
+        <h1 data-animated class="hidden"> OK. Personally, I counted 8 squares. So, what is the final guess you would like to confirm? ^run(animations/Stand/Gestures/Thinking_1) </h1>
+        <br>
+        <br>
+        <h1 data-ignore> Do you want to change your answer? </h1>
+        <br>
+        <br>
+        <p class="example"> 
+          <label class="radio-container"><input type="radio" id="yes_r14" name="r_14" value="Yes" data-replace="x:Yes"><b>Yes</b><span class="checkmark"></span></label>
+          <br>
+          <label class="radio-container"><input type="radio" name="r_14" value="No" data-replace="x:No"><b>No</b><span class="checkmark"></span></label>
+        </p>
+        <br>
+        <br>
+        <button style="margin:45px" type="button" class="btn-navigate" onclick="recordResp('r_14','true');" data-next="yes_r14=q14;q15shape"><b>Next &raquo;</b></button>        
+      </div>
+
+      <!-- Question 14 Post-Recommendation without Pepper's speech -->
+      <div id="q14" class="survey-box">
+        <br>
+        <br>
+        <h1 data-ignore> <b>Q14: How many squares were in the picture?</b> </h1>
+        <br>
+        <span><input type="number" min="0" max="50" name="q_a14" onclick="deleteText()" class="form-control small-text" style="display: inline-block;" value="0"> squares</span>
+        <br>
+        <br>
+        <button type="button" class="btn-navigate" data-next="q15shape"><b>Next &raquo;</b></button>
+      </div>
+
+      <!-- Question 15 Introduction (Shape Display) -->
+      <div id="q15shape" class="survey-box">
+        <h1 data-animated class="hidden"> Here is your final task. Look at the shape, and proceed whenever you are ready. Great, let's try another task.  ^run(animations/Stand/BodyTalk/Speaking/BodyTalk_12) </h1>
+        <img src="images/Triangle.png" alt="Triangle" class="center" height="420">
+        <br>
+        <br>
+        <button type="button" class="btn-navigate" data-next="q15cluster"><b>Go &raquo;</b></button>
+      </div>
+      
+      <!-- Question 15 Cluster Display -->
+      <div id="q15cluster" class="survey-box">
+        <video width="920" height="480" autoplay>
+          <source src="videos/Q1 - Shape Cluster.mp4" type="video/mp4">
+        </video>
+        <br>
+        <button type="button" class="btn-navigate" data-next="q15r"><b>Next &raquo;</b></button>
+      </div>
+
+      <!-- Question 15 before suggestion (text box input) -->
+      <div id="q15r" class="survey-box">
+        <br>
+        <br>
+        <h1 class="hidden"> How many triangles did you count? I can give you a suggestion, and you will have the opportunity to change your answer. </h1>
+        <h1 data-ignore> <b>Q15: How many triangles did you count? </b> </h1>
+        <br>
+        <span><input type="number" min="0" max="50" name="q_a15r" onclick="deleteText()" class="form-control small-text" style="display: inline-block;" value="0"> triangles</span>
+        <br>
+        <br>
+        <button type="button" class="btn-navigate" data-next="r9"><b>Next &raquo;</b></button>
+      </div>
+
+      <!-- Recommendation for Q15 -->
+      <div id="r9" class="survey-box">
+        <br>
+        <h1 data-animated class="hidden"> OK. Personally, I counted 13 triangles. So, what is the final guess you would like to confirm? ^run(animations/Stand/Gestures/Thinking_1) </h1>
+        <br>
+        <br>
+        <h1 data-ignore> Do you want to change your answer? </h1>
+        <br>
+        <br>
+        <p class="example"> 
+          <label class="radio-container"><input type="radio" id="yes_r15" name="r_15" value="Yes" data-replace="x:Yes"><b>Yes</b><span class="checkmark"></span></label>
+          <br>
+          <label class="radio-container"><input type="radio" name="r_15" value="No" data-replace="x:No"><b>No</b><span class="checkmark"></span></label>
+        </p>
+        <br>
+        <br>
+        <button style="margin:45px" type="button" class="btn-navigate" onclick="recordResp('r_15','true');" data-next="yes_r15=q15;tores"><b>Next &raquo;</b></button>        
+      </div>
+
+      <!-- Question 15 Post-Recommendation without Pepper's speech -->
+      <div id="q15" class="survey-box">
+        <br>
+        <br>
+        <h1 data-ignore> <b>Q15: How many triangles did you count?</b> </h1>
+        <br>
+        <span><input type="number" min="0" max="50" name="q_a15" onclick="deleteText()" class="form-control small-text" style="display: inline-block;" value="0"> triangles</span>
         <br>
         <br>
         <button type="button" class="btn-navigate" data-next="tores"><b>Next &raquo;</b></button>

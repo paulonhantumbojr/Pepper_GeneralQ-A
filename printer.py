@@ -26,21 +26,21 @@ def toHTML(data, pages=None): #data variable represents the 'name' elements in i
     "", #19 data['r_11'] (Question 11 recommendation)
     "", #20 data['q_a11'] (Question 11 after-recommendation)
 
-    # int(data['q_a12r']), #21 (Question 12 prior-recommendation)
-    # "", #22 data['r_12'] (Question 12 recommendation)
-    # "", #23 data['q_a12'] (Question 12 after-recommendation)
+    int(data['q_a12r']), #21 (Question 12 prior-recommendation)
+    "", #22 data['r_12'] (Question 12 recommendation)
+    "", #23 data['q_a12'] (Question 12 after-recommendation)
 
-    # int(data['q_a13r']), #24 (Question 13 prior-recommendation)
-    # "", #25 data['r_13'] (Question 13 recommendation)
-    # "", #26 data['q_a13'] (Question 13 after-recommendation)
+    int(data['q_a13r']), #24 (Question 13 prior-recommendation)
+    "", #25 data['r_13'] (Question 13 recommendation)
+    "", #26 data['q_a13'] (Question 13 after-recommendation)
 
-    # int(data['q_a14r']), #27 (Question 14 prior-recommendation)
-    # "", #28 data['r_14'] (Question 14 recommendation)
-    # "", #29 data['q_a14'] (Question 14 after-recommendation)
+    int(data['q_a14r']), #27 (Question 14 prior-recommendation)
+    "", #28 data['r_14'] (Question 14 recommendation)
+    "", #29 data['q_a14'] (Question 14 after-recommendation)
 
-    # int(data['q_a15r']), #30 (Question 15 prior-recommendation)
-    # "", #31 data['r_15'] (Question 15 recommendation)
-    # "", #32 data['q_a15'] (Question 15 after-recommendation)
+    int(data['q_a15r']), #30 (Question 15 prior-recommendation)
+    "", #31 data['r_15'] (Question 15 recommendation)
+    "", #32 data['q_a15'] (Question 15 after-recommendation)
   ]
 
   answ = [
@@ -55,10 +55,10 @@ def toHTML(data, pages=None): #data variable represents the 'name' elements in i
     "An orange", #8 (Answer to Q9)
     "11", #9 (Answer to Q10)
     6, #10 (Answer to Q11)
-    # 4, #11 (Answer to Q12)
-    # 5, #12 (Answer to Q13)
-    # 6, #13 (Answer to Q14)
-    # 7, #14 (Answer to Q15)
+    7, #11 (Answer to Q12)
+    10, #12 (Answer to Q13)
+    8, #13 (Answer to Q14)
+    13, #14 (Answer to Q15)
   ]
 
   rec = [
@@ -66,50 +66,85 @@ def toHTML(data, pages=None): #data variable represents the 'name' elements in i
     "No", #1
   ]
 
+  # Question 1
   s1 = 10 if quest[0] == answ[0] else 0 
   tickpts1 = True if s1 == 10 else False
 
+  # Question 2
   s2 = 10 if quest[1] == answ[1] else 0 
   tickpts2 = True if s2 == 10 else False
 
+  # Question 3
   s3 = 10 if quest[2] == answ[2] else 0 
   tickpts3 = True if s3 == 10 else False
 
+  # Question 4
   s4 = 10 if quest[3] == answ[3] else 0
   tickpts4 = True if s4 == 10 else False
 
+  # Question 5
   s5 = 10 if quest[4] == answ[4] else 0 
   tickpts5 = True if s5 == 10 else False
 
+  # Question 6
   quest[6] = data['r_6'] if quest[5] != answ[5] else quest[6] == ""
   quest[7] = data['q_a6'] if quest[5] != answ[5] and quest[6] == rec[0] else quest[7] == ""
   s6 = 10 if quest[5] == answ[5] else 0 if quest[5] != answ[5] and quest[6] == rec[1] else 10 if quest[5] != answ[5] and quest[6] == rec[0] and quest[7] == answ[5] else 0 
   tickpts6 = True if s6 == 10 else False
 
+  # Question 7
   s7 = 10 if quest[8] == answ[6] else 0 
   tickpts7 = True if s7 == 10 else False
 
+  # Question 8
   quest[10] = data['r_8'] if quest[9] != answ[7] else quest[10] == ""
   quest[11] = data['q_a8'] if quest[9] != answ[7] and quest[10] == rec[0] else quest[11] == ""
   s8 = 10 if quest[9] == answ[7] else 0 if quest[9] != answ[7] and quest[10] == rec[1] else 10 if quest[9] != answ[7] and quest[10] == rec[0] and quest[11] == answ[7] else 0 
   tickpts8 = True if s8 == 10 else False
 
+  # Question 9
   quest[13] = data['r_9'] if quest[12] != answ[8] else quest[13] == ""
   quest[14] = data['q_a9'] if quest[12] != answ[8] and quest[13] == rec[0] else quest[14] == ""
   s9 = 10 if quest[12] == answ[8] else 0 if quest[12] != answ[8] and quest[13] == rec[1] else 10 if quest[12] != answ[8] and quest[13] == rec[0] and quest[14] == answ[8] else 0 
   tickpts9 = True if s9 == 10 else False
 
+  # Question 10
   quest[16] = data['r_10'] if quest[15] != answ[9] else quest[16] == ""
   quest[17] = data['q_a10'] if quest[15] != answ[9] and quest[16] == rec[0] else quest[17] == ""
   s10 = 10 if quest[15] == answ[9] else 0 if quest[15] != answ[9] and quest[16] == rec[1] else 10 if quest[15] != answ[9] and quest[16] == rec[0] and quest[17] == answ[9] else 0 
   tickpts10 = True if s10 == 10 else False
 
+  # Question 11
   quest[19] = data['r_11'] if quest[18] != answ[10] else quest[19] == ""
   quest[20] = data['q_a11'] if quest[18] != answ[10] and quest[19] == rec[0] else quest[20] == ""
   s11 = 10 if quest[18] == answ[10] else 0 if quest[18] != answ[10] and quest[19] == rec[1] else 10 if quest[18] != answ[10] and quest[19] == rec[0] and quest[20] == answ[10] else 0 
   tickpts11 = True if s11 == 10 else False
 
-  finsc = s1 + s2 + s3 + s4 + s5 + s6 + s7 + s8 + s9 + s10 + s11
+  # Question 12
+  quest[22] = data['r_12'] if quest[21] != answ[11] else quest[22] == ""
+  quest[23] = data['q_a12'] if quest[21] != answ[11] and quest[22] == rec[0] else quest[23] == ""
+  s12 = 10 if quest[21] == answ[11] else 0 if quest[21] != answ[11] and quest[22] == rec[1] else 10 if quest[21] != answ[11] and quest[22] == rec[0] and quest[23] == answ[11] else 0 
+  tickpts12 = True if s12 == 10 else False
+
+  # Question 13
+  quest[25] = data['r_13'] if quest[24] != answ[12] else quest[25] == ""
+  quest[26] = data['q_a13'] if quest[24] != answ[12] and quest[25] == rec[0] else quest[26] == ""
+  s13 = 10 if quest[24] == answ[12] else 0 if quest[24] != answ[12] and quest[25] == rec[1] else 10 if quest[24] != answ[12] and quest[25] == rec[0] and quest[26] == answ[12] else 0 
+  tickpts13 = True if s13 == 10 else False
+
+  # Question 14
+  quest[28] = data['r_14'] if quest[27] != answ[13] else quest[28] == ""
+  quest[29] = data['q_a14'] if quest[27] != answ[13] and quest[28] == rec[0] else quest[29] == ""
+  s14 = 10 if quest[27] == answ[13] else 0 if quest[27] != answ[13] and quest[28] == rec[1] else 10 if quest[27] != answ[13] and quest[28] == rec[0] and quest[29] == answ[13] else 0 
+  tickpts14 = True if s14 == 10 else False
+
+  # Question 15
+  quest[31] = data['r_15'] if quest[30] != answ[14] else quest[31] == ""
+  quest[32] = data['q_a15'] if quest[30] != answ[14] and quest[31] == rec[0] else quest[32] == ""
+  s15 = 10 if quest[30] == answ[14] else 0 if quest[30] != answ[14] and quest[31] == rec[1] else 10 if quest[30] != answ[14] and quest[31] == rec[0] and quest[32] == answ[14] else 0 
+  tickpts15 = True if s15 == 10 else False
+
+  finsc = s1 + s2 + s3 + s4 + s5 + s6 + s7 + s8 + s9 + s10 + s11 + s12 + s13 + s14 + s15
 
   replacements = {
     'finsc': finsc,
@@ -142,17 +177,17 @@ def toHTML(data, pages=None): #data variable represents the 'name' elements in i
     'select11': quest[18] if quest[18] == answ[10] else quest[18] if quest[18] != answ[10] and quest[19] == rec[1] else quest[20] if quest[18] != answ[10] and quest[19] == rec[0] and quest[20] == answ[10] else quest[20], 
     'correct11': answ[10],
 
-    # 'select12': ,
-    # 'correct12': answ[11],
+    'select12': quest[21] if quest[21] == answ[11] else quest[21] if quest[21] != answ[11] and quest[22] == rec[1] else quest[23] if quest[21] != answ[11] and quest[22] == rec[0] and quest[23] == answ[11] else quest[23],
+    'correct12': answ[11],
 
-    # 'select13': ,
-    # 'correct13': answ[12],
+    'select13': quest[24] if quest[24] == answ[12] else quest[24] if quest[24] != answ[12] and quest[25] == rec[1] else quest[26] if quest[24] != answ[12] and quest[25] == rec[0] and quest[26] == answ[12] else quest[26],
+    'correct13': answ[12],
 
-    # 'select14': ,
-    # 'correct14': answ[13],
+    'select14': quest[27] if quest[27] == answ[13] else quest[27] if quest[27] != answ[13] and quest[28] == rec[1] else quest[29] if quest[27] != answ[13] and quest[28] == rec[0] and quest[29] == answ[13] else quest[29],
+    'correct14': answ[13],
 
-    # 'select15': ,
-    # 'correct15': answ[14],
+    'select15': quest[30] if quest[30] == answ[14] else quest[30] if quest[30] != answ[14] and quest[31] == rec[1] else quest[32] if quest[30] != answ[14] and quest[31] == rec[0] and quest[32] == answ[13] else quest[32],
+    'correct15': answ[14],
 
     'tick1': '&#9989;' if tickpts1 == True else '&#10060;',
     'tick2': '&#9989;' if tickpts2 == True else '&#10060;',
@@ -165,10 +200,10 @@ def toHTML(data, pages=None): #data variable represents the 'name' elements in i
     'tick9': '&#9989;' if tickpts9 == True else '&#10060;', 
     'tick10': '&#9989;' if tickpts10 == True else '&#10060;',
     'tick11': '&#9989;' if tickpts11 == True else '&#10060;',
-    # 'tick12': '&#9989;' if tickpts12 == True else '&#10060;',
-    # 'tick13': '&#9989;' if tickpts13 == True else '&#10060;',
-    # 'tick14': '&#9989;' if tickpts14 == True else '&#10060;',
-    # 'tick15': '&#9989;' if tickpts15 == True else '&#10060;',
+    'tick12': '&#9989;' if tickpts12 == True else '&#10060;',
+    'tick13': '&#9989;' if tickpts13 == True else '&#10060;',
+    'tick14': '&#9989;' if tickpts14 == True else '&#10060;',
+    'tick15': '&#9989;' if tickpts15 == True else '&#10060;',
 
     'pts1': '<span style="color:green; font-weight:bold;">+10pts</span>' if tickpts1 == True else '<span style="color:red; font-weight:bold;">0pts</span>',
     'pts2': '<span style="color:green; font-weight:bold;">+10pts</span>' if tickpts2 == True else '<span style="color:red; font-weight:bold;">0pts</span>',
@@ -181,11 +216,10 @@ def toHTML(data, pages=None): #data variable represents the 'name' elements in i
     'pts9': '<span style="color:green; font-weight:bold;">+10pts</span>' if tickpts9 == True else '<span style="color:red; font-weight:bold;">0pts</span>',
     'pts10': '<span style="color:green; font-weight:bold;">+10pts</span>' if tickpts10 == True else '<span style="color:red; font-weight:bold;">0pts</span>',
     'pts11': '<span style="color:green; font-weight:bold;">+10pts</span>' if tickpts11 == True else '<span style="color:red; font-weight:bold;">0pts</span>',
-    # 'pts12': '<span style="color:green; font-weight:bold;">+10pts</span>' if tickpts12 == True else '<span style="color:red; font-weight:bold;">0pts</span>',
-    # 'pts13': '<span style="color:green; font-weight:bold;">+10pts</span>' if tickpts13 == True else '<span style="color:red; font-weight:bold;">0pts</span>',
-    # 'pts14': '<span style="color:green; font-weight:bold;">+10pts</span>' if tickpts14 == True else '<span style="color:red; font-weight:bold;">0pts</span>',
-    # 'pts15': '<span style="color:green; font-weight:bold;">+10pts</span>' if tickpts15 == True else '<span style="color:red; font-weight:bold;">0pts</span>',
-   
+    'pts12': '<span style="color:green; font-weight:bold;">+10pts</span>' if tickpts12 == True else '<span style="color:red; font-weight:bold;">0pts</span>',
+    'pts13': '<span style="color:green; font-weight:bold;">+10pts</span>' if tickpts13 == True else '<span style="color:red; font-weight:bold;">0pts</span>',
+    'pts14': '<span style="color:green; font-weight:bold;">+10pts</span>' if tickpts14 == True else '<span style="color:red; font-weight:bold;">0pts</span>',
+    'pts15': '<span style="color:green; font-weight:bold;">+10pts</span>' if tickpts15 == True else '<span style="color:red; font-weight:bold;">0pts</span>',
   }
 
   with open('template.html', 'U') as f:
@@ -227,21 +261,21 @@ if __name__ == '__main__':
     "": "", 
     "": "", 
 
-    # "q_a12r": "8", 
-    # "": "", 
-    # "": "", 
+    "q_a12r": "6", 
+    "": "", 
+    "": "", 
 
-    # "q_a13r": "8", 
-    # "": "", 
-    # "": "", 
+    "q_a13r": "10", 
+    "": "", 
+    "": "", 
 
-    # "q_a14r": "8", 
-    # "": "", 
-    # "": "", 
+    "q_a14r": "14", 
+    "": "", 
+    "": "", 
     
-    # "q_a15r": "8", 
-    # "": "", 
-    # "": "", 
+    "q_a15r": "12", 
+    "": "", 
+    "": "", 
   })
   
   with open('out.html', 'w') as f:

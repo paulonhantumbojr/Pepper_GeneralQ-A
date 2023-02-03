@@ -6,4 +6,4 @@ During the interaction, Pepper will introduce how the quiz is structured and gui
 
 To install this package on a Pepper robot, open the [Pepper_trialQuiz.pml](https://github.com/paulonhantumbojr/Pepper_GeneralQ-A/blob/main/Pepper_trialQuiz.pml) file in Choregraphe. Then use the upload to robot feature to send the package to the robot. This will add a launcher entry on the robot's tablet, which will start the behaviour when selected.
 
-This project was developed based on the [Pepper Tablet Survey tool](https://github.com/tianleimin/RobotCakeBarWaiterPepper), and part of the workflow was forked from a [health_survey](https://bitbucket.org/pepper_qut/health_assessment/src/master/) and a [problem_solver_app](https://bitbucket.org/pepper_qut/problem_solver_app/src/master/) bitbucket repo.
+This project was developed based on the [Pepper Tablet Survey tool](https://github.com/tianleimin/RobotCakeBarWaiterPepper), and a majority of the workflow was forked from a [health_survey](https://bitbucket.org/pepper_qut/health_assessment/src/master/) bitbucket repo.
