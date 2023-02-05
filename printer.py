@@ -116,31 +116,31 @@ def toHTML(data, pages=None): #data variable represents the 'name' elements in i
 
   # Question 11
   quest[19] = data['r_11'] if quest[18] != answ[10] else quest[19] == ""
-  quest[20] = data['q_a11'] if quest[18] != answ[10] and quest[19] == rec[0] else quest[20] == ""
+  quest[20] = int(data['q_a11']) if quest[18] != answ[10] and quest[19] == rec[0] else quest[20] == ""
   s11 = 10 if quest[18] == answ[10] else 0 if quest[18] != answ[10] and quest[19] == rec[1] else 10 if quest[18] != answ[10] and quest[19] == rec[0] and quest[20] == answ[10] else 0 
   tickpts11 = True if s11 == 10 else False
 
   # Question 12
   quest[22] = data['r_12'] if quest[21] != answ[11] else quest[22] == ""
-  quest[23] = data['q_a12'] if quest[21] != answ[11] and quest[22] == rec[0] else quest[23] == ""
+  quest[23] = int(data['q_a12']) if quest[21] != answ[11] and quest[22] == rec[0] else quest[23] == ""
   s12 = 10 if quest[21] == answ[11] else 0 if quest[21] != answ[11] and quest[22] == rec[1] else 10 if quest[21] != answ[11] and quest[22] == rec[0] and quest[23] == answ[11] else 0 
   tickpts12 = True if s12 == 10 else False
 
   # Question 13
   quest[25] = data['r_13'] if quest[24] != answ[12] else quest[25] == ""
-  quest[26] = data['q_a13'] if quest[24] != answ[12] and quest[25] == rec[0] else quest[26] == ""
+  quest[26] = int(data['q_a13']) if quest[24] != answ[12] and quest[25] == rec[0] else quest[26] == ""
   s13 = 10 if quest[24] == answ[12] else 0 if quest[24] != answ[12] and quest[25] == rec[1] else 10 if quest[24] != answ[12] and quest[25] == rec[0] and quest[26] == answ[12] else 0 
   tickpts13 = True if s13 == 10 else False
 
   # Question 14
   quest[28] = data['r_14'] if quest[27] != answ[13] else quest[28] == ""
-  quest[29] = data['q_a14'] if quest[27] != answ[13] and quest[28] == rec[0] else quest[29] == ""
+  quest[29] = int(data['q_a14']) if quest[27] != answ[13] and quest[28] == rec[0] else quest[29] == ""
   s14 = 10 if quest[27] == answ[13] else 0 if quest[27] != answ[13] and quest[28] == rec[1] else 10 if quest[27] != answ[13] and quest[28] == rec[0] and quest[29] == answ[13] else 0 
   tickpts14 = True if s14 == 10 else False
 
   # Question 15
   quest[31] = data['r_15'] if quest[30] != answ[14] else quest[31] == ""
-  quest[32] = data['q_a15'] if quest[30] != answ[14] and quest[31] == rec[0] else quest[32] == ""
+  quest[32] = int(data['q_a15']) if quest[30] != answ[14] and quest[31] == rec[0] else quest[32] == ""
   s15 = 10 if quest[30] == answ[14] else 0 if quest[30] != answ[14] and quest[31] == rec[1] else 10 if quest[30] != answ[14] and quest[31] == rec[0] and quest[32] == answ[14] else 0 
   tickpts15 = True if s15 == 10 else False
 
