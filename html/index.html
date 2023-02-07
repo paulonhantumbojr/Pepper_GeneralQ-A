@@ -1,4 +1,5 @@
 <!-- Remove the 'data-animated' tags to stop the animations on the Pepper from running. The goal is to keep the tablet as static as possible, and have minimal hand movement. -->
+<!-- Test the 'data-animated' tags from the app.html file in the health_survey repository.  -->
 <html>
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -25,31 +26,8 @@
     <form method="post" autocomplete="off" novalidate>
       <input type="hidden" value="" name="presentation_order" id="presentation_order" />
       <div class="survey-group">
-        <!-- Start screen -->
+        <!-- Start Screen -->
         <div id="start" class="survey-box">
-          <br>
-          <br>
-          <img src="images/FingerDown.gif" alt="Finger Pointing Down" height="300">
-          <br>
-          <br>
-          <button type="button" class="btn-navigate" data-next="intro"> <b>START</b> </button>
-        </div>
-
-        <!-- Video Testing -->
-        <!-- <div id="vidtest" class="survey-box">
-          <video width="920" height="480" autoplay muted playsinline>
-            <source src="videos/Q1 - Cluster Shape Video.mp4" type="video/mp4"; codecs="avc1.42E01E, mp4a.40.2">
-            <source src="videos/Q1 - Cluster Shape Video.ogg" type="video/ogg">
-            <source src="videos/Q1 - Cluster Shape Video.webm" type="video/webm">
-            This browser does not support HTML5
-          </video>
-          <br>
-          <button type="button" class="btn-navigate" data-next="intro"><b>Next &raquo;</b></button>
-        </div> -->
-
-        <!-- Introduction Screen -->
-        <div id="intro" class="survey-box">
-          <h1 data-animated class="hidden"> Hello. My name is Pepper. It is nice to see you on the Monash Campus today. I would like to talk with you about completing a short quiz with questions that cover different topics. Would you like to participate? It is okay if you do not wish to do so. ^run(animations/Stand/BodyTalk/Speaking/BodyTalk_12) </h1> 
           <h1 data-ignore> <b>WELCOME</b> </h1>
           <br>
           <p> My name is <b>Pepper</b>. It's nice to meet you. </p>
@@ -57,12 +35,78 @@
           <p style="width: 80%; margin: 0 auto;">Please use my touchscreen to enter your responses.</p>
           <br>
           <p>Please press <b>Begin</b> when you are ready.</p>
-          <button type="button" class="btn-navigate" data-next="tablet"> <b>Begin</b> </button>
+          <button type="button" class="btn-navigate" data-next="consent"> <b>Begin</b> </button>
           <br>
           <!-- Progress Bar label arrow -->
           <div style="float: left"> 
             <p align="left"> <img src="images/Downward arrow.png" align="left" width="60px" style="margin-right: 10px;"> <b><span style="color:green">Progress Bar Starts Here</span></b> </p>
           </div>
+        </div>
+
+        <!-- Consent Form -->
+        <div id="consent" class="survey-box">
+          <h1 class="hidden" data-animated> ^start(animations/Stand/BodyTalk/BodyTalk_7) Hello, my name is Pepper. Today I would like to talk with you about completing a short quiz task with a set of questions that cover different topics.</h1>
+          <h1 data-ignore><b>CONSENT FORM</b></h1>
+          <p>I agree to participate in this research study and understand the terms of my participation.</p>
+          <p>
+            <label class="radio-container"><input type="radio" name="consent" value="0" id="no_consent">No<span class="checkmark"></span></label>
+            <label class="radio-container"><input type="radio" name="consent" value="1">Yes<span class="checkmark"></span></label>
+          </p>
+          <p>I confirm that I am older than 18.</p>
+          <p>
+            <label class="radio-container"><input type="radio" name="patient" value="0" id="underage">No<span class="checkmark"></span></label>
+            <label class="radio-container"><input type="radio" name="patient" value="1">Yes<span class="checkmark"></span></label>
+          </p>
+          <button type="button" class="btn-navigate" data-next="no_consent=consent-a;underage=consent-b;tablet"> <b>Next &raquo;</b> </button>
+        </div>
+
+        <!-- Contact Information Form -->
+        <div id="consent-a" class="survey-box">
+          <h1>No problem. Thank you for your time.</h1>
+          <p>If you have any questions or require further information, you can contact the project researchers using the information below:</p>
+          <ul style="list-style: none;">
+            <li><b>Dr Nicole Robinson</b></li>
+            <li>[Contact]</li>
+            <li>Nicole.Robinson@monash.edu</li>
+          </ul>
+
+          <ul style="list-style: none;">
+            <li><b>Dr Leimin Tian</b></li>
+            <li>[Contact]</li>
+            <li>Leimin.Tian@monash.edu</li>
+          </ul>
+
+          <ul style="list-style: none;">
+            <li><b>Paulo Nhantumbo Junior</b></li>
+            <li>[Contact]</li>
+            <li>Paulo.NhantumboJunior@monash.edu</li>
+          </ul>
+          <button type="button" class="btn-submit"> <b>Finish</b> </button>
+        </div>
+
+        <!-- Contact Information Form -->
+        <div id="consent-b" class="survey-box">
+          <h1>No problem. Thank you for your time.</h1>
+          <p>To take part in this interaction, you must be at least 17 years of age or over.</p>
+          <p>If you have any questions or require further information, you can contact the project researchers using the information below:</p>
+          <ul style="list-style: none;">
+            <li><b>Dr Nicole Robinson</b></li>
+            <li>[Contact]</li>
+            <li>Nicole.Robinson@monash.edu</li>
+          </ul>
+
+          <ul style="list-style: none;">
+            <li><b>Dr Leimin Tian</b></li>
+            <li>[Contact]</li>
+            <li>Leimin.Tian@monash.edu</li>
+          </ul>
+
+          <ul style="list-style: none;">
+            <li><b>Paulo Nhantumbo Junior</b></li>
+            <li>[Contact]</li>
+            <li>Paulo.NhantumboJunior@monash.edu</li>
+          </ul>
+          <button type="button" class="btn-submit"> <b>Finish</b> </button>
         </div>
         
         <!-- Instructions on how to use tablet (Minor bug with the keyboard hovering over the progress bar. To fix it just prompt the keyboard twice and the progress bar should be visible again) -->      
@@ -291,7 +335,7 @@
         <h1 data-ignore> Do you want to change your answer? </h1>
         <br>
         <br>
-        <p class="example"> <!-- example class to enlarge the text and see if the radio buttons match the size -->
+        <p class="example"> 
           <label class="radio-container"><input type="radio" id="yes_r6" name="r_6" value="Yes" data-replace="x:Yes"><b>Yes</b><span class="checkmark"></span></label>
           <br>
           <label class="radio-container"><input type="radio" name="r_6" value="No" data-replace="x:No"><b>No</b><span class="checkmark"></span></label>
@@ -370,7 +414,7 @@
         <h1 data-ignore> Do you want to change your answer? </h1>
         <br>
         <br>
-        <p class="example"> <!-- example class to enlarge the text and see if the radio buttons match the size -->
+        <p class="example"> 
           <label class="radio-container"><input type="radio" id="yes_r8" name="r_8" value="Yes" data-replace="x:Yes"><b>Yes</b><span class="checkmark"></span></label>
           <br>
           <label class="radio-container"><input type="radio" name="r_8" value="No" data-replace="x:No"><b>No</b><span class="checkmark"></span></label>
@@ -433,7 +477,7 @@
         <h1 data-ignore> Do you want to change your answer? </h1>
         <br>
         <br>
-        <p class="example"> <!-- example class to enlarge the text and see if the radio buttons match the size -->
+        <p class="example"> 
           <label class="radio-container"><input type="radio" id="yes_r9" name="r_9" value="Yes" data-replace="x:Yes"><b>Yes</b><span class="checkmark"></span></label>
           <br>
           <label class="radio-container"><input type="radio" name="r_9" value="No" data-replace="x:No"><b>No</b><span class="checkmark"></span></label>
@@ -495,7 +539,7 @@
         <h1 data-ignore> Do you want to change your answer? </h1>
         <br>
         <br>
-        <p class="example"> <!-- example class to enlarge the text and see if the radio buttons match the size -->
+        <p class="example"> 
           <label class="radio-container"><input type="radio" id="yes_r10" name="r_10" value="Yes" data-replace="x:Yes"><b>Yes</b><span class="checkmark"></span></label>
           <br>
           <label class="radio-container"><input type="radio" name="r_10" value="No" data-replace="x:No"><b>No</b><span class="checkmark"></span></label>
@@ -538,10 +582,7 @@
       <!-- Question 11 Cluster Display -->
       <div id="q11cluster" class="survey-box">
         <video width="920" height="480" autoplay muted playsinline>
-          <source src="videos/Q1 - Cluster Shape Video.mp4" type="video/mp4">
-          <source src="videos/Q1 - Cluster Shape Video.ogg" type="video/ogg">
           <source src="videos/Q1 - Cluster Shape Video.webm" type="video/webm">
-          This browser does not support HTML5
         </video>
         <br>
         <button type="button" class="btn-navigate" data-next="q11r"><b>Next &raquo;</b></button>
@@ -603,10 +644,7 @@
       <!-- Question 12 Cluster Display -->
       <div id="q12cluster" class="survey-box">
         <video width="920" height="480" autoplay muted playsinline>
-          <source src="videos/Q1 - Cluster Shape Video.mp4" type="video/mp4">
-          <source src="videos/Q1 - Cluster Shape Video.ogg" type="video/ogg">
           <source src="videos/Q1 - Cluster Shape Video.webm" type="video/webm">
-          This browser does not support HTML5        
         </video>
         <br>
         <button type="button" class="btn-navigate" data-next="q12r"><b>Next &raquo;</b></button>
@@ -668,10 +706,7 @@
       <!-- Question 13 Cluster Display -->
       <div id="q13cluster" class="survey-box">
         <video width="920" height="480" autoplay muted playsinline>
-          <source src="videos/Q1 - Cluster Shape Video.mp4" type="video/mp4">
-          <source src="videos/Q1 - Cluster Shape Video.ogg" type="video/ogg">
           <source src="videos/Q1 - Cluster Shape Video.webm" type="video/webm">
-          This browser does not support HTML5
         </video>
         <br>
         <button type="button" class="btn-navigate" data-next="q13r"><b>Next &raquo;</b></button>
@@ -733,10 +768,7 @@
       <!-- Question 14 Cluster Display -->
       <div id="q14cluster" class="survey-box">
         <video width="920" height="480" autoplay muted playsinline>
-          <source src="videos/Q1 - Cluster Shape Video.mp4" type="video/mp4">
-          <source src="videos/Q1 - Cluster Shape Video.ogg" type="video/ogg">
           <source src="videos/Q1 - Cluster Shape Video.webm" type="video/webm">
-          This browser does not support HTML5
         </video>
         <br>
         <button type="button" class="btn-navigate" data-next="q14r"><b>Next &raquo;</b></button>
@@ -798,10 +830,7 @@
       <!-- Question 15 Cluster Display -->
       <div id="q15cluster" class="survey-box">
         <video width="920" height="480" autoplay muted playsinline>
-          <source src="videos/Q1 - Cluster Shape Video.mp4" type="video/mp4">
-          <source src="videos/Q1 - Cluster Shape Video.ogg" type="video/ogg">
           <source src="videos/Q1 - Cluster Shape Video.webm" type="video/webm">
-          This browser does not support HTML5
         </video>
         <br>
         <button type="button" class="btn-navigate" data-next="q15r"><b>Next &raquo;</b></button>
@@ -962,4 +991,3 @@
 </script>
 </body>
 </html>
-

@@ -34,7 +34,6 @@
         <File name="AusCapital" src="html/images/AusCapital.jpeg" />
         <File name="AustralianBill" src="html/images/AustralianBill.jpg" />
         <File name="Downward arrow" src="html/images/Downward arrow.png" />
-        <File name="FingerDown" src="html/images/FingerDown.gif" />
         <File name="FirstFleet" src="html/images/FirstFleet.jpg" />
         <File name="GlobeAsiaAustralia" src="html/images/GlobeAsiaAustralia.png" />
         <File name="Koalas" src="html/images/Koalas.jpg" />
@@ -60,8 +59,9 @@
         <File name="Circle" src="html/images/Circle.png" />
         <File name="Square" src="html/images/Square.png" />
         <File name="Triangle" src="html/images/Triangle.png" />
-        <File name="Q1 - Shape Cluster" src="html/videos/Q1 - Shape Cluster.mp4" />
         <File name="Puzzle_Piece" src="html/images/Puzzle_Piece.png" />
+        <File name="Q1 Shape Cluster" src="html/images/Q1 Shape Cluster.png" />
+        <File name="Q1 - Cluster Shape Video" src="html/videos/Q1 - Cluster Shape Video.webm" />
     </Resources>
     <Topics />
     <IgnoredPaths />
