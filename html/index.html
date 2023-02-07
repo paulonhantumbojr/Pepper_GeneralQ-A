@@ -1,5 +1,7 @@
 <!-- Remove the 'data-animated' tags to stop the animations on the Pepper from running. The goal is to keep the tablet as static as possible, and have minimal hand movement. -->
-<!-- Test the 'data-animated' tags from the app.html file in the health_survey repository.  -->
+<!-- Test the 'data-animated' tags from the app.html file in the health_survey repository. -->
+<!-- Workflow is laggy at the beginning. -->
+<!-- Test 'data-delay' -->
 <html>
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -43,6 +45,13 @@
           </div>
         </div>
 
+        <!-- Recommendation for right answer selection -->
+        <!-- <div id="imgtest" class="survey-box">
+          <h1 class="hidden" data-animated data-auto-transition>Go. ^run(animations/Stand/Gestures/Thinking_1) </h1>
+          <img src="images/Q1 Shape Cluster.png" alt="Cluster" height="90"> 
+          <button type="button" class="btn-navigate hidden" data-next="consent" data-delay="100:You must wait 100 seconds before pressing next">Next</button>
+        </div> -->
+
         <!-- Consent Form -->
         <div id="consent" class="survey-box">
           <h1 class="hidden" data-animated> ^start(animations/Stand/BodyTalk/BodyTalk_7) Hello, my name is Pepper. Today I would like to talk with you about completing a short quiz task with a set of questions that cover different topics.</h1>
@@ -66,19 +75,16 @@
           <p>If you have any questions or require further information, you can contact the project researchers using the information below:</p>
           <ul style="list-style: none;">
             <li><b>Dr Nicole Robinson</b></li>
-            <li>[Contact]</li>
             <li>Nicole.Robinson@monash.edu</li>
           </ul>
 
           <ul style="list-style: none;">
             <li><b>Dr Leimin Tian</b></li>
-            <li>[Contact]</li>
             <li>Leimin.Tian@monash.edu</li>
           </ul>
 
           <ul style="list-style: none;">
             <li><b>Paulo Nhantumbo Junior</b></li>
-            <li>[Contact]</li>
             <li>Paulo.NhantumboJunior@monash.edu</li>
           </ul>
           <button type="button" class="btn-submit"> <b>Finish</b> </button>
@@ -91,19 +97,16 @@
           <p>If you have any questions or require further information, you can contact the project researchers using the information below:</p>
           <ul style="list-style: none;">
             <li><b>Dr Nicole Robinson</b></li>
-            <li>[Contact]</li>
             <li>Nicole.Robinson@monash.edu</li>
           </ul>
 
           <ul style="list-style: none;">
             <li><b>Dr Leimin Tian</b></li>
-            <li>[Contact]</li>
             <li>Leimin.Tian@monash.edu</li>
           </ul>
 
           <ul style="list-style: none;">
             <li><b>Paulo Nhantumbo Junior</b></li>
-            <li>[Contact]</li>
             <li>Paulo.NhantumboJunior@monash.edu</li>
           </ul>
           <button type="button" class="btn-submit"> <b>Finish</b> </button>
@@ -229,7 +232,7 @@
           <label class="radio-container"><input type="radio" name="q_a1" value="Soccer" data-replace="x:Soccer">Soccer<span class="checkmark"></span></label>
           <label class="radio-container"><input type="radio" name="q_a1" value="Cricket" data-replace="x:Cricket">Cricket<span class="checkmark"></span></label> 
         </p>
-        <button type="button" class="btn-navigate" onclick="recordResp('q_a1','true');" data-next="2"> <b>Next &raquo;</b> </button> 
+        <button type="button" class="btn-navigate" onclick="recordResp('q_a1','true');" data-next="2" data-delay="3000"> <b>Next &raquo;</b> </button> 
       </div>
       
       <!-- Question 2 -->
