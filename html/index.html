@@ -37,7 +37,7 @@
           <p style="width: 80%; margin: 0 auto;">Please use my touchscreen to enter your responses.</p>
           <br>
           <p>Please press <b>Begin</b> when you are ready.</p>
-          <button type="button" class="btn-navigate" data-next="consent"> <b>Begin</b> </button>
+          <button type="button" class="btn-navigate" data-next="imgtest"> <b>Begin</b> </button>
           <br>
           <!-- Progress Bar label arrow -->
           <div style="float: left"> 
@@ -45,12 +45,14 @@
           </div>
         </div>
 
-        <!-- Recommendation for right answer selection -->
-        <!-- <div id="imgtest" class="survey-box">
-          <h1 class="hidden" data-animated data-auto-transition>Go. ^run(animations/Stand/Gestures/Thinking_1) </h1>
-          <img src="images/Q1 Shape Cluster.png" alt="Cluster" height="90"> 
-          <button type="button" class="btn-navigate hidden" data-next="consent" data-delay="100:You must wait 100 seconds before pressing next">Next</button>
-        </div> -->
+        <!-- Documentation for changing volume during speech (http://doc.aldebaran.com/2-5/naoqi/audio/altexttospeech-tuto.html#changing-the-volume) -->
+        <div id="imgtest" class="survey-box">
+          <!-- The value in the 'Volume' tags span from 0 to 100 -->
+          <h1 class="hidden" data-animated data-auto-transition> \vol=0\ Go. Any amount of time put here will need to correspond to the set period for the timer. ^run(animations/Stand/Gestures/Thinking_1) </h1>
+          <br>
+          <img src="images/Q1 Shape Cluster.png" alt="Cluster Q1" height="200"> 
+          <button type="button" class="btn-navigate hidden" data-next="consent"> <b>Next</b> </button>
+        </div>
 
         <!-- Consent Form -->
         <div id="consent" class="survey-box">
@@ -590,6 +592,14 @@
         <br>
         <button type="button" class="btn-navigate" data-next="q11r"><b>Next &raquo;</b></button>
       </div>
+
+      <!-- Question 11 (Alternate implementation) -->
+      <!-- <div id="q11cluster" class="survey-box">
+        <h1 class="hidden" data-animated data-auto-transition> \vol=0\ Go. Any amount of time put here will need to correspond to the set period for the timer. ^run(animations/Stand/Gestures/Thinking_1) </h1>
+        <br>
+        <img src="images/Q1 Shape Cluster.png" alt="Cluster Q11" height="200"> 
+        <button type="button" class="btn-navigate hidden" data-next="q11r"> <b>Next &raquo;</b> </button>
+      </div> -->
       
       <!-- Question 11 before suggestion (text box input) -->
       <div id="q11r" class="survey-box">
@@ -652,6 +662,14 @@
         <br>
         <button type="button" class="btn-navigate" data-next="q12r"><b>Next &raquo;</b></button>
       </div>
+
+      <!-- Question 12 (Alternate implementation) -->
+      <!-- <div id="q12cluster" class="survey-box">
+        <h1 class="hidden" data-animated data-auto-transition> \vol=0\ Go. Any amount of time put here will need to correspond to the set period for the timer. ^run(animations/Stand/Gestures/Thinking_1) </h1>
+        <br>
+        <img src="images/Q1 Shape Cluster.png" alt="Cluster Q12" height="200"> 
+        <button type="button" class="btn-navigate hidden" data-next="q12r"> <b>Next &raquo;</b> </button>
+      </div> -->
       
       <!-- Question 12 before suggestion (text box input) -->
       <div id="q12r" class="survey-box">
@@ -715,6 +733,14 @@
         <button type="button" class="btn-navigate" data-next="q13r"><b>Next &raquo;</b></button>
       </div>
       
+      <!-- Question 13 (Alternate implementation) -->
+      <!-- <div id="q13cluster" class="survey-box">
+        <h1 class="hidden" data-animated data-auto-transition> \vol=0\ Go. Any amount of time put here will need to correspond to the set period for the timer. ^run(animations/Stand/Gestures/Thinking_1) </h1>
+        <br>
+        <img src="images/Q1 Shape Cluster.png" alt="Cluster Q13" height="200"> 
+        <button type="button" class="btn-navigate hidden" data-next="q13r"> <b>Next &raquo;</b> </button>
+      </div> -->
+
       <!-- Question 13 before suggestion (text box input) -->
       <div id="q13r" class="survey-box">
         <br>
@@ -776,6 +802,14 @@
         <br>
         <button type="button" class="btn-navigate" data-next="q14r"><b>Next &raquo;</b></button>
       </div>
+
+      <!-- Question 14 (Alternate implementation) -->
+      <!-- <div id="q14cluster" class="survey-box">
+        <h1 class="hidden" data-animated data-auto-transition> \vol=0\ Go. Any amount of time put here will need to correspond to the set period for the timer. ^run(animations/Stand/Gestures/Thinking_1) </h1>
+        <br>
+        <img src="images/Q1 Shape Cluster.png" alt="Cluster Q14" height="200"> 
+        <button type="button" class="btn-navigate hidden" data-next="q14r"> <b>Next &raquo;</b> </button>
+      </div> -->
       
       <!-- Question 14 before suggestion (text box input) -->
       <div id="q14r" class="survey-box">
@@ -838,6 +872,14 @@
         <br>
         <button type="button" class="btn-navigate" data-next="q15r"><b>Next &raquo;</b></button>
       </div>
+
+      <!-- Question 15 (Alternate implementation) -->
+      <!-- <div id="q15cluster" class="survey-box">
+        <h1 class="hidden" data-animated data-auto-transition> \vol=0\ Go. Any amount of time put here will need to correspond to the set period for the timer. ^run(animations/Stand/Gestures/Thinking_1) </h1>
+        <br>
+        <img src="images/Q1 Shape Cluster.png" alt="Cluster Q15" height="200"> 
+        <button type="button" class="btn-navigate hidden" data-next="q15r"> <b>Next &raquo;</b> </button>
+      </div> -->
       
       <!-- Question 15 before suggestion (text box input) -->
       <div id="q15r" class="survey-box">
