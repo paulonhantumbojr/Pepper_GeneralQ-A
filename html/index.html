@@ -1,7 +1,4 @@
-<!-- Remove the 'data-animated' tags to stop the animations on the Pepper from running. The goal is to keep the tablet as static as possible, and have minimal hand movement. -->
-<!-- Test the 'data-animated' tags from the app.html file in the health_survey repository. -->
-<!-- Workflow is laggy at the beginning. -->
-<!-- Test 'data-delay' -->
+<!-- Documentation for changing volume during speech (http://doc.aldebaran.com/2-5/naoqi/audio/altexttospeech-tuto.html#changing-the-volume) -->
 <html>
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -37,7 +34,7 @@
           <p style="width: 80%; margin: 0 auto;">Please use my touchscreen to enter your responses.</p>
           <br>
           <p>Please press <b>Begin</b> when you are ready.</p>
-          <button type="button" class="btn-navigate" data-next="imgtest"> <b>Begin</b> </button>
+          <button type="button" class="btn-navigate" data-next="consent"> <b>Begin</b> </button>
           <br>
           <!-- Progress Bar label arrow -->
           <div style="float: left"> 
@@ -45,20 +42,12 @@
           </div>
         </div>
 
-        <!-- Documentation for changing volume during speech (http://doc.aldebaran.com/2-5/naoqi/audio/altexttospeech-tuto.html#changing-the-volume) -->
-        <div id="imgtest" class="survey-box">
-          <!-- The value in the 'Volume' tags span from 0 to 100 -->
-          <h1 class="hidden" data-animated data-auto-transition> \vol=0\ Go. Any amount of time put here will need to correspond to the set period for the timer. ^run(animations/Stand/Gestures/Thinking_1) </h1>
-          <br>
-          <img src="images/Q1 Shape Cluster.png" alt="Cluster Q1" height="200"> 
-          <button type="button" class="btn-navigate hidden" data-next="consent"> <b>Next</b> </button>
-        </div>
-
         <!-- Consent Form -->
         <div id="consent" class="survey-box">
           <h1 class="hidden" data-animated> ^start(animations/Stand/BodyTalk/BodyTalk_7) Hello, my name is Pepper. Today I would like to talk with you about completing a short quiz task with a set of questions that cover different topics.</h1>
           <h1 data-ignore><b>CONSENT FORM</b></h1>
-          <p>I agree to participate in this research study and understand the terms of my participation.</p>
+          <br>
+          <p>I agree to participate in this research study and understand the <a href="#" data-toggle="modal" data-target="#consent-modal">terms</a> of my participation.</p>
           <p>
             <label class="radio-container"><input type="radio" name="consent" value="0" id="no_consent">No<span class="checkmark"></span></label>
             <label class="radio-container"><input type="radio" name="consent" value="1">Yes<span class="checkmark"></span></label>
@@ -69,6 +58,21 @@
             <label class="radio-container"><input type="radio" name="patient" value="1">Yes<span class="checkmark"></span></label>
           </p>
           <button type="button" class="btn-navigate" data-next="no_consent=consent-a;underage=consent-b;tablet"> <b>Next &raquo;</b> </button>
+
+          <!-- Explanatory Statement -->
+          <div id="consent-modal" class="modal">
+            <!-- Modal content -->
+            <div class="modal-content" style="margin-top: 5px;">
+              <div class="modal-header row" style="padding: 0;">
+                <div class="col-sm-9">
+                </div>
+                <div class="col-sm-3">
+                  <span class="close" style="display: inline-block; width:10%;">&times;</span>
+                </div>
+              </div>
+              <iframe style="height: 85%;" src="Explanatory_Statement.html"></iframe>
+            </div>
+          </div>
         </div>
 
         <!-- Contact Information Form -->
@@ -510,7 +514,7 @@
       
       <!-- Question 10 before recommendation -->
       <div id="q10r" class="survey-box">
-        <h1 data-animated class="hidden"> OK. Here is the final question. How many ships were in the historic First Fleet convoy that reached Australia in 1787? ^run(animations/Stand/BodyTalk/Speaking/BodyTalk_12) </h1>
+        <h1 data-animated class="hidden"> OK. Here is the final question for Part 1. How many ships were in the historic First Fleet convoy that reached Australia in 1787? ^run(animations/Stand/BodyTalk/Speaking/BodyTalk_12) </h1>
         <h1 data-ignore> <b>Q10: How many ships were in the historic First Fleet convoy that reached Australia in 1787?</b> </h1>
         <img src="images/FirstFleet.jpg" alt="First Fleet" height="250">
         <br>
@@ -577,41 +581,32 @@
       
       <!-- Question 11 Introduction (Shape Display) -->
       <div id="q11shape" class="survey-box">
-        <h1 data-animated class="hidden"> Here is the first shape. Take a brief look at it before proceeding. When you are ready to proceed, press Go. A cluster of shapes will be displayed. Your job is to determine the number of a set shape in that cluster. You will have 7 seconds, shown on a timer, to look at the image and then make your guess. Get ready. ^run(animations/Stand/BodyTalk/Speaking/BodyTalk_12) </h1>
+        <h1 data-animated class="hidden"> Here is the first shape. Take a brief look at it before proceeding. A cluster of shapes will be displayed. Your job is to determine the number of the current shape that in that cluster. You will have roughly 7 seconds, shown on a timer, to look at the image and then make your guess. When you are ready to proceed, press Go. ^run(animations/Stand/BodyTalk/Speaking/BodyTalk_12) </h1>
         <img src="images/Square.png" alt="Square" class="center" height="420">
         <br>
         <br>
         <button type="button" class="btn-navigate" data-next="q11cluster"><b>Go &raquo;</b></button>
       </div>
-      
+
       <!-- Question 11 Cluster Display -->
       <div id="q11cluster" class="survey-box">
-        <video width="920" height="480" autoplay muted playsinline>
-          <source src="videos/Q1 - Cluster Shape Video.webm" type="video/webm">
-        </video>
+        <h1 class="hidden" data-auto-transition>  \vol=0\ The timer will now start its count. Go. 5, 4, 3, 2, 1. </h1>
         <br>
-        <button type="button" class="btn-navigate" data-next="q11r"><b>Next &raquo;</b></button>
-      </div>
-
-      <!-- Question 11 (Alternate implementation) -->
-      <!-- <div id="q11cluster" class="survey-box">
-        <h1 class="hidden" data-animated data-auto-transition> \vol=0\ Go. Any amount of time put here will need to correspond to the set period for the timer. ^run(animations/Stand/Gestures/Thinking_1) </h1>
-        <br>
-        <img src="images/Q1 Shape Cluster.png" alt="Cluster Q11" height="200"> 
+        <img src="images/Q1 Shape Cluster.png" alt="Cluster Q11" height="510"> 
         <button type="button" class="btn-navigate hidden" data-next="q11r"> <b>Next &raquo;</b> </button>
-      </div> -->
+      </div>
       
       <!-- Question 11 before suggestion (text box input) -->
       <div id="q11r" class="survey-box">
         <br>
         <br>
-        <h1 class="hidden"> What is your initial guess? I can provide you with a suggestion, and you will have the opportunity to change your answer. </h1>
+        <h1 class="hidden"> What is your initial guess on the number of squares? I can provide you with a suggestion, and you will have the opportunity to change your answer. </h1>
         <h1 data-ignore> <b>Q11: How many squares did you count? </b> </h1>
         <br>
         <span><input type="number" min="0" max="100" name="q_a11r" onclick="deleteText()" class="form-control small-text" style="display: inline-block;" value="0"> squares</span>
         <br>
         <br>
-        <button type="button" class="btn-navigate" data-next="r5"><b>Next &raquo;</b></button>
+        <button type="button" class="btn-navigate" onclick="recordResp('q_a11r','true');" data-next="r5"><b>Next &raquo;</b></button>
       </div>
       
       <!-- Recommendation for Q11 -->
@@ -642,34 +637,25 @@
         <span><input type="number" min="0" max="100" name="q_a11" onclick="deleteText()" class="form-control small-text" style="display: inline-block;" value="0"> squares</span>
         <br>
         <br>
-        <button type="button" class="btn-navigate" data-next="q12shape"><b>Next &raquo;</b></button>
+        <button type="button" class="btn-navigate" onclick="recordResp('q_a11','true');" data-next="q12shape"><b>Next &raquo;</b></button>
       </div>
       
       <!-- Question 12 Introduction (Shape Display) -->
       <div id="q12shape" class="survey-box">
-        <h1 data-animated class="hidden"> Ok. Now, onto the next task. A different shape is provided, following the same instructions as the previous question. I will also provide a suggestion after you have made your guess. ^run(animations/Stand/BodyTalk/Speaking/BodyTalk_12) </h1>
+        <h1 data-animated class="hidden"> Ok. Now, onto the next task. This time a different shape is provided. Following the same instructions as the previous question, I will also provide a suggestion after you have made your guess. Whenever you are set, press Go. ^run(animations/Stand/BodyTalk/Speaking/BodyTalk_12) </h1>
         <img src="images/Triangle.png" alt="Triangle" class="center" height="420">
         <br>
         <br>
         <button type="button" class="btn-navigate" data-next="q12cluster"><b>Go &raquo;</b></button>
       </div>
-      
+
       <!-- Question 12 Cluster Display -->
       <div id="q12cluster" class="survey-box">
-        <video width="920" height="480" autoplay muted playsinline>
-          <source src="videos/Q1 - Cluster Shape Video.webm" type="video/webm">
-        </video>
+        <h1 class="hidden" data-auto-transition> \vol=0\ The timer will now start its count. Go. 5, 4, 3, 2, 1. </h1>
         <br>
-        <button type="button" class="btn-navigate" data-next="q12r"><b>Next &raquo;</b></button>
-      </div>
-
-      <!-- Question 12 (Alternate implementation) -->
-      <!-- <div id="q12cluster" class="survey-box">
-        <h1 class="hidden" data-animated data-auto-transition> \vol=0\ Go. Any amount of time put here will need to correspond to the set period for the timer. ^run(animations/Stand/Gestures/Thinking_1) </h1>
-        <br>
-        <img src="images/Q1 Shape Cluster.png" alt="Cluster Q12" height="200"> 
+        <img src="images/Q1 Shape Cluster.png" alt="Cluster Q12" height="510"> 
         <button type="button" class="btn-navigate hidden" data-next="q12r"> <b>Next &raquo;</b> </button>
-      </div> -->
+      </div>
       
       <!-- Question 12 before suggestion (text box input) -->
       <div id="q12r" class="survey-box">
@@ -681,7 +667,7 @@
         <span><input type="number" min="0" max="100" name="q_a12r" onclick="deleteText()" class="form-control small-text" style="display: inline-block;" value="0"> triangles</span>
         <br>
         <br>
-        <button type="button" class="btn-navigate" data-next="r6"><b>Next &raquo;</b></button>
+        <button type="button" class="btn-navigate" onclick="recordResp('q_a12r','true');" data-next="r6"><b>Next &raquo;</b></button>
       </div>
       
       <!-- Recommendation for Q12 -->
@@ -712,12 +698,12 @@
         <span><input type="number" min="0" max="100" name="q_a12" onclick="deleteText()" class="form-control small-text" style="display: inline-block;" value="0"> squares</span>
         <br>
         <br>
-        <button type="button" class="btn-navigate" data-next="q13shape"><b>Next &raquo;</b></button>
+        <button type="button" class="btn-navigate" onclick="recordResp('q_a12','true');" data-next="q13shape"><b>Next &raquo;</b></button>
       </div>
       
       <!-- Question 13 Introduction (Shape Display) -->
       <div id="q13shape" class="survey-box">
-        <h1 data-animated class="hidden"> Great, let's try another task. Take a quick look at the shape, and proceed whenever you are ready. ^run(animations/Stand/BodyTalk/Speaking/BodyTalk_12) </h1>
+        <h1 data-animated class="hidden"> Great, let's try another one. Take a quick look at the shape, and proceed whenever you are ready. ^run(animations/Stand/BodyTalk/Speaking/BodyTalk_12) </h1>
         <img src="images/Circle.png" alt="Circle" class="center" height="420">
         <br>
         <br>
@@ -726,32 +712,23 @@
       
       <!-- Question 13 Cluster Display -->
       <div id="q13cluster" class="survey-box">
-        <video width="920" height="480" autoplay muted playsinline>
-          <source src="videos/Q1 - Cluster Shape Video.webm" type="video/webm">
-        </video>
+        <h1 class="hidden" data-auto-transition> \vol=0\ The timer will now start its count. Go. 5, 4, 3, 2, 1. </h1>
         <br>
-        <button type="button" class="btn-navigate" data-next="q13r"><b>Next &raquo;</b></button>
-      </div>
-      
-      <!-- Question 13 (Alternate implementation) -->
-      <!-- <div id="q13cluster" class="survey-box">
-        <h1 class="hidden" data-animated data-auto-transition> \vol=0\ Go. Any amount of time put here will need to correspond to the set period for the timer. ^run(animations/Stand/Gestures/Thinking_1) </h1>
-        <br>
-        <img src="images/Q1 Shape Cluster.png" alt="Cluster Q13" height="200"> 
+        <img src="images/Q1 Shape Cluster.png" alt="Cluster Q13" height="510"> 
         <button type="button" class="btn-navigate hidden" data-next="q13r"> <b>Next &raquo;</b> </button>
-      </div> -->
+      </div>
 
       <!-- Question 13 before suggestion (text box input) -->
       <div id="q13r" class="survey-box">
         <br>
         <br>
-        <h1 class="hidden"> What is your initial guess? I will also provide a suggestion after you have made your guess. </h1>
-        <h1 data-ignore> <b>Q13: How many circles did you count? </b> </h1>
+        <h1 class="hidden"> What is your initial guess on the number of circles? I will also provide a suggestion after you've made your guess. </h1>
+        <h1 data-ignore> <b>Q13: How many circles did you count? </b> </h1> 
         <br>
         <span><input type="number" min="0" max="100" name="q_a13r" onclick="deleteText()" class="form-control small-text" style="display: inline-block;" value="0"> circles</span>
         <br>
         <br>
-        <button type="button" class="btn-navigate" data-next="r7"><b>Next &raquo;</b></button>
+        <button type="button" class="btn-navigate" onclick="recordResp('q_a13r','true');" data-next="r7"><b>Next &raquo;</b></button>
       </div>
       
       <!-- Recommendation for Q13 -->
@@ -782,7 +759,7 @@
         <span><input type="number" min="0" max="100" name="q_a13" onclick="deleteText()" class="form-control small-text" style="display: inline-block;" value="0"> circles</span>
         <br>
         <br>
-        <button type="button" class="btn-navigate" data-next="q14shape"><b>Next &raquo;</b></button>
+        <button type="button" class="btn-navigate" onclick="recordResp('q_a13','true');" data-next="q14shape"><b>Next &raquo;</b></button>
       </div>
       
       <!-- Question 14 Introduction (Shape Display) -->
@@ -793,23 +770,14 @@
         <br>
         <button type="button" class="btn-navigate" data-next="q14cluster"><b>Go &raquo;</b></button>
       </div>
-      
+
       <!-- Question 14 Cluster Display -->
       <div id="q14cluster" class="survey-box">
-        <video width="920" height="480" autoplay muted playsinline>
-          <source src="videos/Q1 - Cluster Shape Video.webm" type="video/webm">
-        </video>
+        <h1 class="hidden" data-auto-transition> \vol=0\ The timer will now start its count. Go. 5, 4, 3, 2, 1. </h1>
         <br>
-        <button type="button" class="btn-navigate" data-next="q14r"><b>Next &raquo;</b></button>
-      </div>
-
-      <!-- Question 14 (Alternate implementation) -->
-      <!-- <div id="q14cluster" class="survey-box">
-        <h1 class="hidden" data-animated data-auto-transition> \vol=0\ Go. Any amount of time put here will need to correspond to the set period for the timer. ^run(animations/Stand/Gestures/Thinking_1) </h1>
-        <br>
-        <img src="images/Q1 Shape Cluster.png" alt="Cluster Q14" height="200"> 
+        <img src="images/Q1 Shape Cluster.png" alt="Cluster Q14" height="510"> 
         <button type="button" class="btn-navigate hidden" data-next="q14r"> <b>Next &raquo;</b> </button>
-      </div> -->
+      </div>
       
       <!-- Question 14 before suggestion (text box input) -->
       <div id="q14r" class="survey-box">
@@ -821,7 +789,7 @@
         <span><input type="number" min="0" max="100" name="q_a14r" onclick="deleteText()" class="form-control small-text" style="display: inline-block;" value="0"> squares</span>
         <br>
         <br>
-        <button type="button" class="btn-navigate" data-next="r8"><b>Next &raquo;</b></button>
+        <button type="button" class="btn-navigate" onclick="recordResp('q_a14r','true');" data-next="r8"><b>Next &raquo;</b></button>
       </div>
       
       <!-- Recommendation for Q14 -->
@@ -852,7 +820,7 @@
         <span><input type="number" min="0" max="100" name="q_a14" onclick="deleteText()" class="form-control small-text" style="display: inline-block;" value="0"> squares</span>
         <br>
         <br>
-        <button type="button" class="btn-navigate" data-next="q15shape"><b>Next &raquo;</b></button>
+        <button type="button" class="btn-navigate" onclick="recordResp('q_a14','true');" data-next="q15shape"><b>Next &raquo;</b></button>
       </div>
       
       <!-- Question 15 Introduction (Shape Display) -->
@@ -863,23 +831,14 @@
         <br>
         <button type="button" class="btn-navigate" data-next="q15cluster"><b>Go &raquo;</b></button>
       </div>
-      
+
       <!-- Question 15 Cluster Display -->
       <div id="q15cluster" class="survey-box">
-        <video width="920" height="480" autoplay muted playsinline>
-          <source src="videos/Q1 - Cluster Shape Video.webm" type="video/webm">
-        </video>
+        <h1 class="hidden" data-auto-transition> \vol=0\ The timer will now start its count. Go. 5, 4, 3, 2, 1. </h1>
         <br>
-        <button type="button" class="btn-navigate" data-next="q15r"><b>Next &raquo;</b></button>
-      </div>
-
-      <!-- Question 15 (Alternate implementation) -->
-      <!-- <div id="q15cluster" class="survey-box">
-        <h1 class="hidden" data-animated data-auto-transition> \vol=0\ Go. Any amount of time put here will need to correspond to the set period for the timer. ^run(animations/Stand/Gestures/Thinking_1) </h1>
-        <br>
-        <img src="images/Q1 Shape Cluster.png" alt="Cluster Q15" height="200"> 
+        <img src="images/Q1 Shape Cluster.png" alt="Cluster Q15" height="510"> 
         <button type="button" class="btn-navigate hidden" data-next="q15r"> <b>Next &raquo;</b> </button>
-      </div> -->
+      </div>
       
       <!-- Question 15 before suggestion (text box input) -->
       <div id="q15r" class="survey-box">
@@ -891,7 +850,7 @@
         <span><input type="number" min="0" max="100" name="q_a15r" onclick="deleteText()" class="form-control small-text" style="display: inline-block;" value="0"> triangles</span>
         <br>
         <br>
-        <button type="button" class="btn-navigate" data-next="r9"><b>Next &raquo;</b></button>
+        <button type="button" class="btn-navigate" onclick="recordResp('q_a15r','true');" data-next="r9"><b>Next &raquo;</b></button>
       </div>
       
       <!-- Recommendation for Q15 -->
@@ -922,7 +881,7 @@
         <span><input type="number" min="0" max="100" name="q_a15" onclick="deleteText()" class="form-control small-text" style="display: inline-block;" value="0"> triangles</span>
         <br>
         <br>
-        <button type="button" class="btn-navigate" data-next="tores"><b>Next &raquo;</b></button>
+        <button type="button" class="btn-navigate" onclick="recordResp('q_a15','true');" data-next="tores"><b>Next &raquo;</b></button>
       </div>
       
       <!-- Direct page to results -->

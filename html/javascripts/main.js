@@ -28,26 +28,32 @@ function startSubscribe(introStr) {
         });   
 		memory = ALMemory;
     });
+
 	session.service('ALBehaviorManager').then(function (service) {
 		behaviourManager = service;
 		note("behaviourManager: "+behaviourManager);
 	});
+
 	session.service("ALTextToSpeech").done(function (service) {
 		speechService = service;
 		speechService.setParameter("speed",85);
     });
+
 	session.service("ALAnimatedSpeech").done(function (service) {
 		tts = service;
 		tts.say(introStr);
     });
+
 	session.service("ALTabletService").done(function (service) {
 		tabletService = service;
     });
+    
 	session.service("ALBasicAwareness").done(function (service) {
 		basicAwareness = service;
 		// Stop Pepper looking down at tablet every time you touch it!
 		basicAwareness.setStimulusDetectionEnabled("TabletTouch", false);
     });
+
 	session.service("ALBackgroundMovement").done(function (service) {
 		backgroundMovement = service;
 		// Control background movement

@@ -61,7 +61,8 @@
         <File name="Triangle" src="html/images/Triangle.png" />
         <File name="Puzzle_Piece" src="html/images/Puzzle_Piece.png" />
         <File name="Q1 Shape Cluster" src="html/images/Q1 Shape Cluster.png" />
-        <File name="Q1 - Cluster Shape Video" src="html/videos/Q1 - Cluster Shape Video.webm" />
+        <File name="Explanatory_Statement" src="html/Explanatory_Statement.html" />
+        <File name="Monash_statement" src="html/images/Monash_statement.png" />
     </Resources>
     <Topics />
     <IgnoredPaths />

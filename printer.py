@@ -4,20 +4,29 @@ import requests
 def toHTML(data, pages=None): #data variable represents the 'name' elements in index.html 
   quest = [
     data['q_a1'], #0 (Question 1)
+
     data['q_a2'], #1 (Question 2)
+
     data['q_a3'], #2 (Question 3)
+
     data['q_a4'], #3 (Question 4)
+
     data['q_a5'], #4 (Question 5)
+
     data['q_a6r'], #5 (Question 6 prior-recommendation)
     "", #6 data['r_6'] (Question 6 recommendation)
     "", #7 data['q_a6'] (Question 6 after-recommendation)
+
     data['q_a7'], #8 (Question 7)
+
     data['q_a8r'], #9 (Question 8 prior-recommendation)
     "", #10 data['r_8'] (Question 8 recommendation)
     "", #11 data['q_a8'] (Question 8 after-recommendation)
+
     data['q_a9r'], #12 (Question 9 prior-recommendation)
     "", #13 data['r_9'] (Question 9 recommendation)
     "", #14 data['q_a9'] (Question 9 after-recommendation)
+
     data['q_a10r'], #15 (Question 10 prior-recommendation)
     "", #16 data['r_10'] (Question 10 recommendation)
     "", #17 data['q_a10'] (Question 10 after-recommendation)
@@ -239,20 +248,29 @@ def send(html):
 if __name__ == '__main__':
   html = toHTML({
     "q_a1": "Basketball",
+    
     "q_a2": "Shaping leaders",
+
     "q_a3": "A troop",
+
     "q_a4": "A Mechanic",
+
     "q_a5": "Brisbane", 
+
     "q_a6r": "14th", 
     "": "",      
     "": "",
+
     "q_a7": "Lachlan River", 
+
     "q_a8r": "Fear of needles", 
     "": "", 
     "": "",
+
     "q_a9r": "A banana", 
     "": "", 
     "": "",
+
     "q_a10r": "8", 
     "": "", 
     "": "", 
