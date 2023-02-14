@@ -36,7 +36,6 @@
         <File name="Downward arrow" src="html/images/Downward arrow.png" />
         <File name="FirstFleet" src="html/images/FirstFleet.jpg" />
         <File name="GlobeAsiaAustralia" src="html/images/GlobeAsiaAustralia.png" />
-        <File name="Koalas" src="html/images/Koalas.jpg" />
         <File name="Monash_Blue" src="html/images/Monash_Blue.png" />
         <File name="OperaHouse" src="html/images/OperaHouse.jpg" />
         <File name="Scroll" src="html/images/Scroll.png" />
@@ -47,8 +46,6 @@
         <File name="ThinkingFace" src="html/images/ThinkingFace.gif" />
         <File name="kangaroo" src="html/images/kangaroo.png" />
         <File name="phobia" src="html/images/phobia.png" />
-        <File name="river" src="html/images/river.jpg" />
-        <File name="sports" src="html/images/sports.jpg" />
         <File name="braingear" src="html/images/braingear.png" />
         <File name="settings" src=".vscode/settings.json" />
         <File name="launch" src="html/.vscode/launch.json" />
@@ -59,17 +56,22 @@
         <File name="Triangle" src="html/images/Triangle.png" />
         <File name="Puzzle_Piece" src="html/images/Puzzle_Piece.png" />
         <File name="Explanatory_Statement" src="html/Explanatory_Statement.html" />
-        <File name="Monash_statement" src="html/images/Monash_statement.png" />
         <File name="scroll" src="scroll.png" />
         <File name="Green_arrow" src="html/images/Green_arrow.PNG" />
         <File name="Interview" src="html/images/Interview.png" />
-        <File name="Q1_Shape_Cluster" src="html/images/Q1_Shape_Cluster.png" />
         <File name="QuizExplanation" src="html/images/QuizExplanation.png" />
         <File name="ScoreAward" src="html/images/ScoreAward.png" />
         <File name="Thinking_Person" src="html/images/Thinking_Person.png" />
         <File name="Waving_hand_hello" src="html/images/Waving_hand_hello.gif" />
         <File name="Monash_Logo" src="html/Monash_Logo.png" />
         <File name="Part2Explanation" src="html/images/Part2Explanation.png" />
+        <File name="Ocean" src="html/images/Ocean.jpg" />
+        <File name="Q11" src="html/images/Q11.png" />
+        <File name="Q12" src="html/images/Q12.png" />
+        <File name="Q13" src="html/images/Q13.png" />
+        <File name="Q14_Q15" src="html/images/Q14_Q15.png" />
+        <File name="Ruby" src="html/images/Ruby.jpg" />
+        <File name="STOP" src="html/images/STOP.jpg" />
     </Resources>
     <Topics />
     <IgnoredPaths />

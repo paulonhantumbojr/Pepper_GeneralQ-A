@@ -54,11 +54,11 @@ def toHTML(data, pages=None): #data variable represents the inline 'name' elemen
     "Fear of dogs", #7 (Answer to Q8)
     "An orange", #8 (Answer to Q9)
     "11", #9 (Answer to Q10)
-    6, #10 (Answer to Q11)
-    7, #11 (Answer to Q12)
-    10, #12 (Answer to Q13)
-    8, #13 (Answer to Q14)
-    13, #14 (Answer to Q15)
+    16, #10 (Answer to Q11)
+    15, #11 (Answer to Q12)
+    15, #12 (Answer to Q13)
+    9, #13 (Answer to Q14)
+    9, #14 (Answer to Q15)
   ]
 
   rec = [

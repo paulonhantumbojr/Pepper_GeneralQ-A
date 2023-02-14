@@ -444,12 +444,12 @@ function recordResp(nameStr,isElement) {
     if(isElement == 'true'){
         var options = document.getElementsByName(nameStr);
         for (var i=0; options[i]; ++i){
-            if(options[i].checked){
+            if(options[i].checked){ 
                 recordData(options[i].value);
             }
         }
     } else {
-        recordData(nameStr);
+        recordData(nameStr); // or recordData(nameStr.value);
     }
     return;
 }

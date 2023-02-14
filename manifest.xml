@@ -17,10 +17,10 @@
   </behaviorContent>
  </contents>
  <requirements>
-  <naoqiRequirement maxVersion="2.5" minVersion="2.5"/>
+  <naoqiRequirement minVersion="2.5" maxVersion="2.5"/>
   <robotRequirement model="JULIETTE"/>
  </requirements>
  <services>
-  <service execStart="./python service.py" name="service" autorun="true"/>
+  <service autorun="true" execStart="./python service.py" name="service"/>
  </services>
 </package>

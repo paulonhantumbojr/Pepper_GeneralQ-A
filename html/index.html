@@ -1,6 +1,6 @@
 <!-- Documentation for speech configuration on the Pepper (http://doc.aldebaran.com/2-5/naoqi/audio/altexttospeech-tuto.html#changing-the-volume) -->
-<!-- Add the Qualtrics questionnaire to the workflow. Is there any way to do such thing without having to rely on a QR Code. -->
 <!-- For the recommendation screens add the specific answer the user selected and the one the robot recommended (using Javascript). Refer to the the health_assessment implementation where the hours of exercise inputted were converted to minutes -->
+<!-- Test whether 'false' statements in recordResp record the values in the input boxes. -->
 
 <html>
 <head>
@@ -50,7 +50,7 @@
         <div id="consent" class="survey-box">
           <h1 class="hidden" data-animated> ^start(animations/Stand/BodyTalk/BodyTalk_7) Hello, my name is Pepper. Today I would like to talk with you about completing a short quiz task with a set of questions that cover different topics.</h1>
           <h1 data-ignore><b>CONSENT FORM</b></h1>
-          <br>
+          <!-- <br> -->
           <p>I have read the information in the <a href="#" data-toggle="modal" data-target="#consent-modal">Explanatory Statement</a>.</p>
           <p>
             <label class="radio-container"><input type="radio" name="consent" value="0" id="no_consent">No<span class="checkmark"></span></label>
@@ -253,7 +253,7 @@
         <h1 data-animated class="hidden"> Great. Here is your first question. What geometric shape is generally used for STOP signs? ^run(animations/Stand/BodyTalk/Speaking/BodyTalk_12) </h1> 
         <h1 data-ignore> <b> Q1: What geometric shape is generally used for STOP signs? </b> </h1> 
         <br>
-        <img src="images/STOP.jpg" alt="Brake Lights" height="250">
+        <img src="images/STOP.jpg" alt="Brake Lights" height="200">
         <br>
         <br>
         <p class="button_centre">
@@ -287,7 +287,7 @@
         <h1 data-animated class="hidden"> All right. Next question. What is the capital city of Australia? ^run(animations/Stand/BodyTalk/Speaking/BodyTalk_12) </h1>
         <h1 data-ignore> <b> Q3: What is the capital city of Australia? </b> </h1>
         <br>
-        <img src="images/Koalas.jpg" alt="Koalas" height="250">
+        <img src="images/AusCapital.jpeg" alt="Australian Capital City" height="250">
         <br>
         <br>
         <p class="button_centre">
@@ -301,8 +301,8 @@
       
       <!-- Question 4 -->
       <div id="4" class="survey-box">
-        <h1 data-animated class="hidden"> OK. Next question. What colour is ruby? ^run(animations/Stand/BodyTalk/Speaking/BodyTalk_12) </h1>
-        <h1 data-ignore> <b>Q4: What colour is ruby?</b> </h1>
+        <h1 data-animated class="hidden"> OK. Next question. What colour is a ruby? ^run(animations/Stand/BodyTalk/Speaking/BodyTalk_12) </h1>
+        <h1 data-ignore> <b>Q4: What colour is a ruby?</b> </h1>
         <br>
         <img src="images/Ruby.jpg" alt="Ruby" height="250">
         <br>
@@ -537,7 +537,7 @@
       
       <!-- Transition towards puzzling questions (Part 2) -->
       <div id="part2" class="survey-box">
-        <h1 class="hidden" data-animated data-auto-transition> The first part is complete. Now for the second part. I will present a shape on my screen. The goal is for you to memorise it and ultimately count how many of that same shape are in a collection of different shapes. \vol=0\ An extra 3 seconds to let the user see the instructions. ^run(animations/Stand/BodyTalk/Speaking/BodyTalk_12) </h1>
+        <h1 class="hidden" data-animated data-auto-transition> The first part is complete. Now for the second part. I will present a shape on my screen. The goal is for you to memorise it and ultimately count how many of that same shape are in a collection of different shapes. ^run(animations/Stand/BodyTalk/Speaking/BodyTalk_12) \vol=0\ An extra 3 seconds for instructions.  </h1>
         <img src="images/Part2Explanation.png" alt="Explanation for Part 2" height="510">
         <button type="button" class="btn-navigate hidden" data-next="q11shape">Next</button>
       </div>
@@ -570,7 +570,7 @@
         <span><input type="number" id="q11number" min="0" max="100" name="q_a11r" onclick="deleteText()" class="form-control small-text" style="display: inline-block;"> squares</span>
         <br>
         <br>
-        <button type="button" class="btn-navigate" onclick="recordResp('q_a11r','true');" data-next="r5_for_wrong_selection"><b>Next &raquo;</b></button>
+        <button type="button" class="btn-navigate" onclick="recordResp('q_a11r','false');" data-next="r5_for_wrong_selection"><b>Next &raquo;</b></button>
       </div>
       
       <!-- Trigger the id based on the user input, to toggle them towards the right recommendation -->
@@ -584,7 +584,7 @@
       
       <!-- Recommendation for wrong answer selection -->
       <div id="r5_for_wrong_selection" class="survey-box">
-        <h1 class="hidden" data-animated data-auto-transition> OK. I actually think there are 6 squares. ^run(animations/Stand/Gestures/Thinking_1) </h1>
+        <h1 class="hidden" data-animated data-auto-transition> OK. I actually think there are 16 squares. ^run(animations/Stand/Gestures/Thinking_1) </h1>
         <button type="button" class="btn-navigate hidden" data-next="r5">Next</button>
       </div>
       
@@ -635,12 +635,12 @@
         <span><input type="number" min="0" max="100" name="q_a12r" onclick="deleteText()" class="form-control small-text" style="display: inline-block;"> triangles</span>
         <br>
         <br>
-        <button type="button" class="btn-navigate" onclick="recordResp('q_a12r','true');" data-next="r6_for_wrong_selection"><b>Next &raquo;</b></button>
+        <button type="button" class="btn-navigate" onclick="recordResp('q_a12r','false');" data-next="r6_for_wrong_selection"><b>Next &raquo;</b></button>
       </div>
       
       <!-- Recommendation for wrong answer selection -->
       <div id="r6_for_wrong_selection" class="survey-box">
-        <h1 class="hidden" data-animated data-auto-transition> OK. Personally, I counted 7 triangles. ^run(animations/Stand/Gestures/Thinking_1) </h1>
+        <h1 class="hidden" data-animated data-auto-transition> OK. Personally, I counted 15 triangles. ^run(animations/Stand/Gestures/Thinking_1) </h1>
         <button type="button" class="btn-navigate hidden" data-next="r6">Next</button>
       </div>
 
@@ -691,12 +691,12 @@
         <span><input type="number" min="0" max="100" name="q_a13r" onclick="deleteText()" class="form-control small-text" style="display: inline-block;"> circles</span>
         <br>
         <br>
-        <button type="button" class="btn-navigate" onclick="recordResp('q_a13r','true');" data-next="r7_for_wrong_selection"><b>Next &raquo;</b></button>
+        <button type="button" class="btn-navigate" onclick="recordResp('q_a13r','false');" data-next="r7_for_wrong_selection"><b>Next &raquo;</b></button>
       </div>
 
       <!-- Recommendation for wrong answer selection -->
       <div id="r7_for_wrong_selection" class="survey-box">
-        <h1 class="hidden" data-animated data-auto-transition> OK. Personally, I counted 10 circles. ^run(animations/Stand/Gestures/Thinking_1) </h1>
+        <h1 class="hidden" data-animated data-auto-transition> OK. Personally, I counted 15 circles. ^run(animations/Stand/Gestures/Thinking_1) </h1>
         <button type="button" class="btn-navigate hidden" data-next="r7">Next</button>
       </div>
       
@@ -747,12 +747,12 @@
         <span><input type="number" min="0" max="100" name="q_a14r" onclick="deleteText()" class="form-control small-text" style="display: inline-block;"> squares</span>
         <br>
         <br>
-        <button type="button" class="btn-navigate" onclick="recordResp('q_a14r','true');" data-next="r8_for_wrong_selection"><b>Next &raquo;</b></button>
+        <button type="button" class="btn-navigate" onclick="recordResp('q_a14r','false');" data-next="r8_for_wrong_selection"><b>Next &raquo;</b></button>
       </div>
       
       <!-- Recommendation for wrong answer selection -->
       <div id="r8_for_wrong_selection" class="survey-box">
-        <h1 class="hidden" data-animated data-auto-transition> OK. Personally, I counted 8 squares. ^run(animations/Stand/Gestures/Thinking_1) </h1>
+        <h1 class="hidden" data-animated data-auto-transition> OK. Personally, I counted 9 squares. ^run(animations/Stand/Gestures/Thinking_1) </h1>
         <button type="button" class="btn-navigate hidden" data-next="r8">Next</button>
       </div>
 
@@ -803,12 +803,12 @@
         <span><input type="number" min="0" max="100" name="q_a15r" onclick="deleteText()" class="form-control small-text" style="display: inline-block;"> triangles</span>
         <br>
         <br>
-        <button type="button" class="btn-navigate" onclick="recordResp('q_a15r','true');" data-next="r9_for_wrong_selection"><b>Next &raquo;</b></button>
+        <button type="button" class="btn-navigate" onclick="recordResp('q_a15r','false');" data-next="r9_for_wrong_selection"><b>Next &raquo;</b></button>
       </div>
       
       <!-- Recommendation for wrong answer selection -->
       <div id="r9_for_wrong_selection" class="survey-box">
-        <h1 class="hidden" data-animated data-auto-transition> OK. Personally, I counted 13 triangles. ^run(animations/Stand/Gestures/Thinking_1) </h1>
+        <h1 class="hidden" data-animated data-auto-transition> OK. Personally, I counted 9 triangles. ^run(animations/Stand/Gestures/Thinking_1) </h1>
         <button type="button" class="btn-navigate hidden" data-next="r9">Next</button>
       </div>
 
@@ -903,7 +903,7 @@
         <img src="images/SlightlySmileFace.gif" alt="Smiling Face" height="250">
         <br>
         <br>
-        <button type="button" class="btn-submit" data-next="start"> <b>FINISH</b> </button>
+        <button type="button" class="btn-submit" data-next="start"> <b>Finish</b> </button>
       </div>
     </div>
     
