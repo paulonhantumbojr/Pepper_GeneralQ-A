@@ -21,6 +21,6 @@
   <robotRequirement model="JULIETTE"/>
  </requirements>
  <services>
-  <service execStart="./python service.py" autorun="true" name="service"/>
+  <service execStart="./python service.py" name="service" autorun="true"/>
  </services>
 </package>

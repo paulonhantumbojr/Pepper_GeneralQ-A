@@ -49,20 +49,27 @@
         <File name="phobia" src="html/images/phobia.png" />
         <File name="river" src="html/images/river.jpg" />
         <File name="sports" src="html/images/sports.jpg" />
-        <File name="waving-hand_hello" src="html/images/waving-hand_hello.gif" />
         <File name="braingear" src="html/images/braingear.png" />
         <File name="settings" src=".vscode/settings.json" />
         <File name="launch" src="html/.vscode/launch.json" />
-        <File name="green_arrow2" src="html/images/green_arrow2.PNG" />
         <File name="README" src="README.md" />
         <File name="ScoreAplus" src="html/images/ScoreAplus.png" />
         <File name="Circle" src="html/images/Circle.png" />
         <File name="Square" src="html/images/Square.png" />
         <File name="Triangle" src="html/images/Triangle.png" />
         <File name="Puzzle_Piece" src="html/images/Puzzle_Piece.png" />
-        <File name="Q1 Shape Cluster" src="html/images/Q1 Shape Cluster.png" />
         <File name="Explanatory_Statement" src="html/Explanatory_Statement.html" />
         <File name="Monash_statement" src="html/images/Monash_statement.png" />
+        <File name="scroll" src="scroll.png" />
+        <File name="Green_arrow" src="html/images/Green_arrow.PNG" />
+        <File name="Interview" src="html/images/Interview.png" />
+        <File name="Q1_Shape_Cluster" src="html/images/Q1_Shape_Cluster.png" />
+        <File name="QuizExplanation" src="html/images/QuizExplanation.png" />
+        <File name="ScoreAward" src="html/images/ScoreAward.png" />
+        <File name="Thinking_Person" src="html/images/Thinking_Person.png" />
+        <File name="Waving_hand_hello" src="html/images/Waving_hand_hello.gif" />
+        <File name="Monash_Logo" src="html/Monash_Logo.png" />
+        <File name="Part2Explanation" src="html/images/Part2Explanation.png" />
     </Resources>
     <Topics />
     <IgnoredPaths />

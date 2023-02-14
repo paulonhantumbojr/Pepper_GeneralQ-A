@@ -1,7 +1,7 @@
 import io
 import requests
 
-def toHTML(data, pages=None): #data variable represents the 'name' elements in index.html 
+def toHTML(data, pages=None): #data variable represents the inline 'name' elements of the different <tags> in index.html 
   quest = [
     data['q_a1'], #0 (Question 1)
 
@@ -13,53 +13,44 @@ def toHTML(data, pages=None): #data variable represents the 'name' elements in i
 
     data['q_a5'], #4 (Question 5)
 
-    data['q_a6r'], #5 (Question 6 prior-recommendation)
-    "", #6 data['r_6'] (Question 6 recommendation)
-    "", #7 data['q_a6'] (Question 6 after-recommendation)
+    data['q_a6r'], #5 (Question 6 prompt)
+    data['r_6'], #6 (Question 6 recommendation) 
 
-    data['q_a7'], #8 (Question 7)
+    data['q_a7'], #7 (Question 7)
 
-    data['q_a8r'], #9 (Question 8 prior-recommendation)
-    "", #10 data['r_8'] (Question 8 recommendation)
-    "", #11 data['q_a8'] (Question 8 after-recommendation)
+    data['q_a8r'], #8 (Question 8 prompt)
+    data['r_8'], #9 (Question 8 recommendation)
 
-    data['q_a9r'], #12 (Question 9 prior-recommendation)
-    "", #13 data['r_9'] (Question 9 recommendation)
-    "", #14 data['q_a9'] (Question 9 after-recommendation)
+    data['q_a9r'], #10 (Question 9 prompt)
+    data['r_9'], #11 (Question 9 recommendation)
 
-    data['q_a10r'], #15 (Question 10 prior-recommendation)
-    "", #16 data['r_10'] (Question 10 recommendation)
-    "", #17 data['q_a10'] (Question 10 after-recommendation)
+    data['q_a10r'], #12 (Question 10 prompt)
+    data['r_10'], #13 (Question 10 recommendation)
 
-    int(data['q_a11r']), #18 (Question 11 prior-recommendation)
-    "", #19 data['r_11'] (Question 11 recommendation)
-    "", #20 data['q_a11'] (Question 11 after-recommendation)
+    int(data['q_a11r']), #14 (Question 11 prompt)
+    data['r_11'], #15 (Question 11 recommendation)
 
-    int(data['q_a12r']), #21 (Question 12 prior-recommendation)
-    "", #22 data['r_12'] (Question 12 recommendation)
-    "", #23 data['q_a12'] (Question 12 after-recommendation)
+    int(data['q_a12r']), #16 (Question 12 prompt)
+    data['r_12'] , #17 (Question 12 recommendation)
 
-    int(data['q_a13r']), #24 (Question 13 prior-recommendation)
-    "", #25 data['r_13'] (Question 13 recommendation)
-    "", #26 data['q_a13'] (Question 13 after-recommendation)
+    int(data['q_a13r']), #18 (Question 13 prompt)
+    data['r_13'], #19 (Question 13 recommendation)
 
-    int(data['q_a14r']), #27 (Question 14 prior-recommendation)
-    "", #28 data['r_14'] (Question 14 recommendation)
-    "", #29 data['q_a14'] (Question 14 after-recommendation)
+    int(data['q_a14r']), #20 (Question 14 prompt)
+    data['r_14'], #21 (Question 14 recommendation)
 
-    int(data['q_a15r']), #30 (Question 15 prior-recommendation)
-    "", #31 data['r_15'] (Question 15 recommendation)
-    "", #32 data['q_a15'] (Question 15 after-recommendation)
+    int(data['q_a15r']), #22 (Question 15 prompt)
+    data['r_15'], #23 (Question 15 recommendation)
   ]
 
   answ = [
-    "Footy", #0 (Answer to Q1)
+    "An octagon", #0 (Answer to Q1)
     "I am still learning", #1 (Answer to Q2)
-    "A cling", #2 (Answer to Q3)
-    "A Civil Engineer", #3 (Answer to Q4)
-    "Canberra", #4 (Answer to Q5)
+    "Canberra", #2 (Answer to Q3)
+    "Red", #3 (Answer to Q4)
+    "A Civil Engineer", #4 (Answer to Q5)
     "14th", #5 (Answer to Q6) 
-    "Murray River", #6 (Answer to Q7)
+    "Pacific", #6 (Answer to Q7)
     "Fear of dogs", #7 (Answer to Q8)
     "An orange", #8 (Answer to Q9)
     "11", #9 (Answer to Q10)
@@ -71,8 +62,20 @@ def toHTML(data, pages=None): #data variable represents the 'name' elements in i
   ]
 
   rec = [
-    "Yes", #0
-    "No", #1
+    "Keep my selected response", #0 (Keep user selection)
+    "Change your response to match my recommendation", #1 (Change to robot's recommendation)
+  ]
+
+  suggest = [
+    "18th", #0 (For Question 6)
+    "Fear of needles", #1 (For Question 8)
+    "An apple", #2 (For Question 9)
+    "10", #3 (For Question 10)
+    10, #4 (For Question 11)
+    12, #5 (For Question 12)
+    9, #6 (For Question 13)
+    8, #7 (For Question 14)
+    10, #8 (For Question 15)
   ]
 
   # Question 1
@@ -96,106 +99,110 @@ def toHTML(data, pages=None): #data variable represents the 'name' elements in i
   tickpts5 = True if s5 == 10 else False
 
   # Question 6
-  quest[6] = data['r_6'] if quest[5] != answ[5] else quest[6] == ""
-  quest[7] = data['q_a6'] if quest[5] != answ[5] and quest[6] == rec[0] else quest[7] == ""
-  s6 = 10 if quest[5] == answ[5] else 0 if quest[5] != answ[5] and quest[6] == rec[1] else 10 if quest[5] != answ[5] and quest[6] == rec[0] and quest[7] == answ[5] else 0 
+  s6 = 10 if quest[5] == answ[5] and quest[6] == rec[0] else 0 if quest[5] == answ[5] and quest[6] == rec[1] else 10 if quest[5] != answ[5] and quest[6] == rec[1] else 0 if quest[5] != answ[5] and quest[6] == rec[0] else 0
   tickpts6 = True if s6 == 10 else False
 
   # Question 7
-  s7 = 10 if quest[8] == answ[6] else 0 
+  s7 = 10 if quest[7] == answ[6] else 0 
   tickpts7 = True if s7 == 10 else False
 
   # Question 8
-  quest[10] = data['r_8'] if quest[9] != answ[7] else quest[10] == ""
-  quest[11] = data['q_a8'] if quest[9] != answ[7] and quest[10] == rec[0] else quest[11] == ""
-  s8 = 10 if quest[9] == answ[7] else 0 if quest[9] != answ[7] and quest[10] == rec[1] else 10 if quest[9] != answ[7] and quest[10] == rec[0] and quest[11] == answ[7] else 0 
+  s8 = 10 if quest[8] == answ[7] and quest[9] == rec[0] else 0 if quest[8] == answ[7] and quest[9] == rec[1] else 10 if quest[8] != answ[7] and quest[9] == rec[1] else 0 if quest[8] != answ[7] and quest[9] == rec[0] else 0
   tickpts8 = True if s8 == 10 else False
 
   # Question 9
-  quest[13] = data['r_9'] if quest[12] != answ[8] else quest[13] == ""
-  quest[14] = data['q_a9'] if quest[12] != answ[8] and quest[13] == rec[0] else quest[14] == ""
-  s9 = 10 if quest[12] == answ[8] else 0 if quest[12] != answ[8] and quest[13] == rec[1] else 10 if quest[12] != answ[8] and quest[13] == rec[0] and quest[14] == answ[8] else 0 
+  s9 = 10 if quest[10] == answ[8] and quest[11] == rec[0] else 0 if quest[10] == answ[8] and quest[11] == rec[1] else 10 if quest[10] != answ[8] and quest[11] == rec[1] else 0 if quest[10] != answ[8] and quest[11] == rec[0] else 0 
   tickpts9 = True if s9 == 10 else False
 
   # Question 10
-  quest[16] = data['r_10'] if quest[15] != answ[9] else quest[16] == ""
-  quest[17] = data['q_a10'] if quest[15] != answ[9] and quest[16] == rec[0] else quest[17] == ""
-  s10 = 10 if quest[15] == answ[9] else 0 if quest[15] != answ[9] and quest[16] == rec[1] else 10 if quest[15] != answ[9] and quest[16] == rec[0] and quest[17] == answ[9] else 0 
+  s10 = 10 if quest[12] == answ[9] and quest[13] == rec[0] else 0 if quest[12] == answ[9] and quest[13] == rec[1] else 10 if quest[12] != answ[9] and quest[13] == rec[1] else 0 if quest[12] != answ[9] and quest[13] == rec[0] else 0 
   tickpts10 = True if s10 == 10 else False
 
   # Question 11
-  quest[19] = data['r_11'] if quest[18] != answ[10] else quest[19] == ""
-  quest[20] = int(data['q_a11']) if quest[18] != answ[10] and quest[19] == rec[0] else quest[20] == ""
-  s11 = 10 if quest[18] == answ[10] else 0 if quest[18] != answ[10] and quest[19] == rec[1] else 10 if quest[18] != answ[10] and quest[19] == rec[0] and quest[20] == answ[10] else 0 
+  s11 = 10 if quest[14] == answ[10] and quest[15] == rec[0] else 0 if quest[14] == answ[10] and quest[15] == rec[1] else 10 if quest[14] != answ[10] and quest[15] == rec[1] else 0 if quest[14] != answ[10] and quest[15] == rec[0] else 0
   tickpts11 = True if s11 == 10 else False
 
   # Question 12
-  quest[22] = data['r_12'] if quest[21] != answ[11] else quest[22] == ""
-  quest[23] = int(data['q_a12']) if quest[21] != answ[11] and quest[22] == rec[0] else quest[23] == ""
-  s12 = 10 if quest[21] == answ[11] else 0 if quest[21] != answ[11] and quest[22] == rec[1] else 10 if quest[21] != answ[11] and quest[22] == rec[0] and quest[23] == answ[11] else 0 
+  s12 = 10 if quest[16] == answ[11] and quest[17] == rec[0] else 0 if quest[16] == answ[11] and quest[17] == rec[1] else 10 if quest[16] != answ[11] and quest[17] == rec[1] else 0 if quest[16] != answ[11] and quest[17] == rec[0] else 0 
   tickpts12 = True if s12 == 10 else False
 
   # Question 13
-  quest[25] = data['r_13'] if quest[24] != answ[12] else quest[25] == ""
-  quest[26] = int(data['q_a13']) if quest[24] != answ[12] and quest[25] == rec[0] else quest[26] == ""
-  s13 = 10 if quest[24] == answ[12] else 0 if quest[24] != answ[12] and quest[25] == rec[1] else 10 if quest[24] != answ[12] and quest[25] == rec[0] and quest[26] == answ[12] else 0 
+  s13 = 10 if quest[18] == answ[12] and quest[19] == rec[0] else 0 if quest[18] == answ[12] and quest[19] == rec[1] else 10 if quest[18] != answ[12] and quest[19] == rec[1] else 0 if quest[18] != answ[12] and quest[19] == rec[0] else 0 
   tickpts13 = True if s13 == 10 else False
 
   # Question 14
-  quest[28] = data['r_14'] if quest[27] != answ[13] else quest[28] == ""
-  quest[29] = int(data['q_a14']) if quest[27] != answ[13] and quest[28] == rec[0] else quest[29] == ""
-  s14 = 10 if quest[27] == answ[13] else 0 if quest[27] != answ[13] and quest[28] == rec[1] else 10 if quest[27] != answ[13] and quest[28] == rec[0] and quest[29] == answ[13] else 0 
+  s14 = 10 if quest[20] == answ[13] and quest[21] == rec[0] else 0 if quest[20] == answ[13] and quest[21] == rec[1] else 10 if quest[20] != answ[13] and quest[21] == rec[1] else 0 if quest[20] != answ[13] and quest[21] == rec[0] else 0 
   tickpts14 = True if s14 == 10 else False
 
   # Question 15
-  quest[31] = data['r_15'] if quest[30] != answ[14] else quest[31] == ""
-  quest[32] = int(data['q_a15']) if quest[30] != answ[14] and quest[31] == rec[0] else quest[32] == ""
-  s15 = 10 if quest[30] == answ[14] else 0 if quest[30] != answ[14] and quest[31] == rec[1] else 10 if quest[30] != answ[14] and quest[31] == rec[0] and quest[32] == answ[14] else 0 
+  s15 = 10 if quest[22] == answ[14] and quest[23] == rec[0] else 0 if quest[22] == answ[14] and quest[23] == rec[1] else 10 if quest[22] != answ[14] and quest[23] == rec[1] else 0 if quest[22] != answ[14] and quest[23] == rec[0] else 0 
   tickpts15 = True if s15 == 10 else False
 
   finsc = s1 + s2 + s3 + s4 + s5 + s6 + s7 + s8 + s9 + s10 + s11 + s12 + s13 + s14 + s15
 
   replacements = {
+
+    # Final Score
     'finsc': finsc,
+
+    # Question 1
     'select1': quest[0], 
     'correct1': answ[0],
+
+    # Question 2
     'select2': quest[1], 
     'correct2': answ[1],
+
+    # Question 3
     'select3': quest[2], 
     'correct3': answ[2],
+
+    # Question 4
     'select4': quest[3], 
     'correct4': answ[3],
+
+    # Question 5
     'select5': quest[4], 
     'correct5': answ[4],
 
-    'select6': quest[5] if quest[5] == answ[5] else quest[5] if quest[5] != answ[5] and quest[6] == rec[1] else quest[7] if quest[5] != answ[5] and quest[6] == rec[0] and quest[7] == answ[5] else quest[7],
+    # Question 6
+    'select6': quest[5] if quest[5] == answ[5] and quest[6] == rec[0] else suggest[0] if quest[5] == answ[5] and quest[6] == rec[1] else answ[5] if quest[5] != answ[5] and quest[6] == rec[1] else quest[5] if quest[5] != answ[5] and quest[6] == rec[0] else "undefined",
     'correct6': answ[5],  
 
+    # Question 7
     'select7': quest[7], 
     'correct7': answ[6],  
 
-    'select8': quest[9] if quest[9] == answ[7] else quest[9] if quest[9] != answ[7] and quest[10] == rec[1] else quest[11] if quest[9] != answ[7] and quest[10] == rec[0] and quest[11] == answ[7] else quest[11],
+    # Question 8
+    'select8': quest[8] if quest[8] == answ[7] and quest[9] == rec[0] else suggest[1] if quest[8] == answ[7] and quest[9] == rec[1] else answ[7] if quest[8] != answ[7] and quest[9] == rec[1] else quest[8] if quest[8] != answ[7] and quest[9] == rec[0] else "N/A",
     'correct8': answ[7],    
 
-    'select9': quest[12] if quest[12] == answ[8] else quest[12] if quest[12] != answ[8] and quest[13] == rec[1] else quest[14] if quest[12] != answ[8] and quest[13] == rec[0] and quest[14] == answ[8] else quest[14], 
+    # Question 9
+    'select9': quest[10] if quest[10] == answ[8] and quest[11] == rec[0] else suggest[2] if quest[10] == answ[8] and quest[11] == rec[1] else answ[8] if quest[10] != answ[8] and quest[11] == rec[1] else quest[10] if quest[10] != answ[8] and quest[11] == rec[0] else "N/A", 
     'correct9': answ[8],    
 
-    'select10': quest[15] if quest[15] == answ[9] else quest[15] if quest[15] != answ[9] and quest[16] == rec[1] else quest[17] if quest[15] != answ[9] and quest[16] == rec[0] and quest[17] == answ[9] else quest[17], 
+    # Question 10
+    'select10': quest[12] if quest[12] == answ[9] and quest[13] == rec[0] else suggest[3] if quest[12] == answ[9] and quest[13] == rec[1] else answ[9] if quest[12] != answ[9] and quest[13] == rec[1] else quest[12] if quest[12] != answ[9] and quest[13] == rec[0] else "N/A", 
     'correct10': answ[9],    
 
-    'select11': quest[18] if quest[18] == answ[10] else quest[18] if quest[18] != answ[10] and quest[19] == rec[1] else quest[20] if quest[18] != answ[10] and quest[19] == rec[0] and quest[20] == answ[10] else quest[20], 
+    # Question 11
+    'select11': quest[14] if quest[14] == answ[10] and quest[15] == rec[0] else suggest[4] if quest[14] == answ[10] and quest[15] == rec[1] else answ[10] if quest[14] != answ[10] and quest[15] == rec[1] else quest[14] if quest[14] != answ[10] and quest[15] == rec[0] else "N/A", 
     'correct11': answ[10],
 
-    'select12': quest[21] if quest[21] == answ[11] else quest[21] if quest[21] != answ[11] and quest[22] == rec[1] else quest[23] if quest[21] != answ[11] and quest[22] == rec[0] and quest[23] == answ[11] else quest[23],
+    # Question 12
+    'select12': quest[16] if quest[16] == answ[11] and quest[17] == rec[0] else suggest[5] if quest[16] == answ[11] and quest[17] == rec[1] else answ[11] if quest[16] != answ[11] and quest[17] == rec[1] else quest[16] if quest[16] != answ[11] and quest[17] == rec[0] else "N/A",
     'correct12': answ[11],
 
-    'select13': quest[24] if quest[24] == answ[12] else quest[24] if quest[24] != answ[12] and quest[25] == rec[1] else quest[26] if quest[24] != answ[12] and quest[25] == rec[0] and quest[26] == answ[12] else quest[26],
+    # Question 13
+    'select13': quest[18] if quest[18] == answ[12] and quest[19] == rec[0] else suggest[6] if quest[18] == answ[12] and quest[19] == rec[1] else answ[12] if quest[18] != answ[12] and quest[19] == rec[1] else quest[18] if quest[18] != answ[12] and quest[19] == rec[0] else "N/A",
     'correct13': answ[12],
 
-    'select14': quest[27] if quest[27] == answ[13] else quest[27] if quest[27] != answ[13] and quest[28] == rec[1] else quest[29] if quest[27] != answ[13] and quest[28] == rec[0] and quest[29] == answ[13] else quest[29],
+    # Question 14
+    'select14': quest[20] if quest[20] == answ[13] and quest[21] == rec[0] else suggest[7] if quest[20] == answ[13] and quest[21] == rec[1] else answ[13] if quest[20] != answ[13] and quest[21] == rec[1] else quest[20] if quest[20] != answ[13] and quest[21] == rec[0] else "N/A",
     'correct14': answ[13],
 
-    'select15': quest[30] if quest[30] == answ[14] else quest[30] if quest[30] != answ[14] and quest[31] == rec[1] else quest[32] if quest[30] != answ[14] and quest[31] == rec[0] and quest[32] == answ[13] else quest[32],
+    # Question 15
+    'select15': quest[22] if quest[22] == answ[14] and quest[23] == rec[0] else suggest[8] if quest[22] == answ[14] and quest[23] == rec[1] else answ[14] if quest[22] != answ[14] and quest[23] == rec[1] else quest[22] if quest[22] != answ[14] and quest[23] == rec[0] else "N/A",
     'correct15': answ[14],
 
     'tick1': '&#9989;' if tickpts1 == True else '&#10060;',
@@ -241,59 +248,50 @@ def toHTML(data, pages=None): #data variable represents the 'name' elements in i
 
 def send(html):
   f = io.StringIO(unicode(html, 'UTF-8'))
-  files = { 'file': f }
+  files = {'file': f}
 
   requests.post('http://cloudvis.qut.edu.au:8082',files=files)
 
 if __name__ == '__main__':
   html = toHTML({
-    "q_a1": "Basketball",
+    "q_a1": "A hexagon",
     
     "q_a2": "Shaping leaders",
 
-    "q_a3": "A troop",
+    "q_a3": "Canberra",
 
-    "q_a4": "A Mechanic",
+    "q_a4": "Blue",
 
-    "q_a5": "Brisbane", 
+    "q_a5": "A Mechanic", 
 
     "q_a6r": "14th", 
-    "": "",      
-    "": "",
+    "r_6": "Change your response to match my recommendation",      
 
-    "q_a7": "Lachlan River", 
+    "q_a7": "Atlantic", 
 
     "q_a8r": "Fear of needles", 
-    "": "", 
-    "": "",
+    "r_8": "Keep my selected response", 
 
     "q_a9r": "A banana", 
-    "": "", 
-    "": "",
+    "r_9": "Change your response to match my recommendation", 
 
     "q_a10r": "8", 
-    "": "", 
-    "": "", 
+    "r_10": "Keep my selected response", 
 
     "q_a11r": "4", 
-    "": "", 
-    "": "", 
+    "r_11": "Change your response to match my recommendation", 
 
     "q_a12r": "6", 
-    "": "", 
-    "": "", 
+    "r_12": "Keep my selected response", 
 
     "q_a13r": "10", 
-    "": "", 
-    "": "", 
+    "r_13": "Change your response to match my recommendation", 
 
     "q_a14r": "14", 
-    "": "", 
-    "": "", 
+    "r_14": "Keep my selected response", 
     
     "q_a15r": "12", 
-    "": "", 
-    "": "", 
+    "r_15": "Change your response to match my recommendation", 
   })
   
   with open('out.html', 'w') as f:

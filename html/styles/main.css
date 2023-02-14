@@ -104,8 +104,9 @@ input {
     width: 60%;
 }
 
+/* To change the scale of the radio buttons, and the text that accompanies it */
 input[type="radio"] {
-    transform: scale(2.25);
+    transform: scale(2.5);
     margin-right: 2.0em;
     width: 5px;
 }
@@ -402,7 +403,7 @@ input:checked ~ .checkmark:after {
     max-height: 100px;
     background: white;
   }
-  /* END Container styles */
+/* END Container styles */
 
   /* Colors for the circles and positions for the graphics */
   .html {
@@ -431,8 +432,6 @@ input:checked ~ .checkmark:after {
     /* firefox bug fix - won't rotate at 90deg angles */
     /* -moz-transform: rotate(-89deg) translateX(-190px); */
   }
-  /* END Circle colors and graphic positions */
-
 
   /* Set the initial values for the animation */
   .chart[data-percent='100'] .outer {
@@ -461,9 +460,11 @@ input:checked ~ .checkmark:after {
       stroke-dashoffset: 0;
     }
   }
+
 .form-control {
   font-size: 1.2rem;
 }
+
 /* The Modal (background) */
 .modal {
   display: none; /* Hidden by default */
@@ -510,11 +511,14 @@ select option {
 select.form-control {
   color: rgba(0,0,0,1);
 }
+
 .ui-selectmenu-icon.ui-icon {
   margin-top: 5px!important;
 }
+
 .ui-selectmenu-button.ui-button {
   padding: 5px!important;
   background: white!important;
 }
+
 ul.ui-menu { max-height: 200px !important; }

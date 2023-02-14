@@ -1,13 +1,7 @@
-<!-- Documentation for changing volume during speech (http://doc.aldebaran.com/2-5/naoqi/audio/altexttospeech-tuto.html#changing-the-volume) -->
-<!-- 10 initial Questions should always give a right recommendations, and 5 Final Puzzle-Questions always a wrong recommendation -->
-<!-- Hard Questions (Puzzle) always recommend a wrong answer -->
-<!-- Don't show the second instance of the question (time-consuming) -->
-<!-- Present the instructions as to how the questions (puzzling questions) will be conducted -->
-<!-- Have all shapes in black -->
-<!-- Change the what's your take -->
-<!-- Add the Qualtrics questionnaire to the workflow -->
-<!-- How you found having the quiz with me? -->
-<!-- Segment all of the long clauses into short ones that are accompanied by images to send visual messages to the user. -->
+<!-- Documentation for speech configuration on the Pepper (http://doc.aldebaran.com/2-5/naoqi/audio/altexttospeech-tuto.html#changing-the-volume) -->
+<!-- Add the Qualtrics questionnaire to the workflow. Is there any way to do such thing without having to rely on a QR Code. -->
+<!-- For the recommendation screens add the specific answer the user selected and the one the robot recommended (using Javascript). Refer to the the health_assessment implementation where the hours of exercise inputted were converted to minutes -->
+
 <html>
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -34,15 +28,16 @@
     <form method="post" autocomplete="off" novalidate>
       <input type="hidden" value="" name="presentation_order" id="presentation_order" />
       <div class="survey-group">
+        
         <!-- Start Screen -->
         <div id="start" class="survey-box">
           <h1 data-ignore> <b>WELCOME</b> </h1>
           <br>
           <p> My name is <b>Pepper</b>. It's nice to meet you. </p>
-          <img src="images/waving-hand_hello.gif" alt="Waving Hand" height="90">
+          <img src="images/Waving_hand_hello.gif" alt="Waving Hand" height="90">
           <p style="width: 80%; margin: 0 auto;">Please use my touchscreen to enter your responses.</p>
           <br>
-          <p>Please press <b>Begin</b> when you are ready.</p>
+          <p>Press <b>Begin</b> when you are ready.</p>
           <button type="button" class="btn-navigate" data-next="consent"> <b>Begin</b> </button>
           <br>
           <!-- Progress Bar Label Arrow -->
@@ -50,27 +45,31 @@
             <p align="left"> <img src="images/Downward arrow.png" align="left" width="60px" style="margin-right: 10px;"> <b><span style="color:green">Progress Bar Starts Here</span></b> </p>
           </div>
         </div>
-
+        
         <!-- Consent Form -->
         <div id="consent" class="survey-box">
           <h1 class="hidden" data-animated> ^start(animations/Stand/BodyTalk/BodyTalk_7) Hello, my name is Pepper. Today I would like to talk with you about completing a short quiz task with a set of questions that cover different topics.</h1>
           <h1 data-ignore><b>CONSENT FORM</b></h1>
           <br>
-          <p>I agree to participate in this research study and understand the <a href="#" data-toggle="modal" data-target="#consent-modal">terms</a> of my participation.</p>
+          <p>I have read the information in the <a href="#" data-toggle="modal" data-target="#consent-modal">Explanatory Statement</a>.</p>
           <p>
             <label class="radio-container"><input type="radio" name="consent" value="0" id="no_consent">No<span class="checkmark"></span></label>
             <label class="radio-container"><input type="radio" name="consent" value="1">Yes<span class="checkmark"></span></label>
           </p>
-          <p>I confirm that I am older than 18.</p>
+          <p> I agree to participate in this project. </p>
+          <p>
+            <label class="radio-container"><input type="radio" name="participation" value="0" id="no_participate">No<span class="checkmark"></span></label>
+            <label class="radio-container"><input type="radio" name="participation" value="1">Yes<span class="checkmark"></span></label>
+          </p>
+          <p> I am 18 years of age or older. </p>
           <p>
             <label class="radio-container"><input type="radio" name="patient" value="0" id="underage">No<span class="checkmark"></span></label>
             <label class="radio-container"><input type="radio" name="patient" value="1">Yes<span class="checkmark"></span></label>
           </p>
-          <button type="button" class="btn-navigate" data-next="no_consent=consent-a;underage=consent-b;tablet"> <b>Next &raquo;</b> </button>
-
-          <!-- Explanatory Statement (remove if needed) -->
+          <button type="button" class="btn-navigate" data-next="no_consent=consent-a;no_participate=consent-a;underage=consent-b;tablet"> <b>Next &raquo;</b> </button>
+          
+          <!-- Explanatory Statement -->
           <div id="consent-modal" class="modal">
-            <!-- Modal content -->
             <div class="modal-content" style="margin-top: 5px;">
               <div class="modal-header row" style="padding: 0;">
                 <div class="col-sm-9">
@@ -83,53 +82,53 @@
             </div>
           </div>
         </div>
-
+        
         <!-- Contact Information Form -->
         <div id="consent-a" class="survey-box">
           <h1>No problem. Thank you for your time.</h1>
-          <p>If you have any questions or require further information, you can contact the project researchers using the information below:</p>
+          <p>If you have any questions or require further information, you can contact the project researchers from the addresses below:</p>
           <ul style="list-style: none;">
             <li><b>Dr Nicole Robinson</b></li>
             <li>Nicole.Robinson@monash.edu</li>
           </ul>
-
+          
           <ul style="list-style: none;">
             <li><b>Dr Leimin Tian</b></li>
             <li>Leimin.Tian@monash.edu</li>
           </ul>
-
+          
           <ul style="list-style: none;">
             <li><b>Paulo Nhantumbo Junior</b></li>
             <li>Paulo.NhantumboJunior@monash.edu</li>
           </ul>
-          <button type="button" class="btn-submit"> <b>Finish</b> </button>
+          <button style="margin:45px" type="button" class="btn-submit"> <b>Finish</b> </button>
         </div>
-
+        
         <!-- Contact Information Form -->
         <div id="consent-b" class="survey-box">
           <h1>No problem. Thank you for your time.</h1>
-          <p>To take part in this interaction, you must be at least 17 years of age or over.</p>
-          <p>If you have any questions or require further information, you can contact the project researchers using the information below:</p>
+          <p>To take part in this interaction, you must be at least 18 years of age.</p>
+          <p>If you have any questions or require further information, you can contact the project researchers from the addresses below:</p>
           <ul style="list-style: none;">
             <li><b>Dr Nicole Robinson</b></li>
             <li>Nicole.Robinson@monash.edu</li>
           </ul>
-
+          
           <ul style="list-style: none;">
             <li><b>Dr Leimin Tian</b></li>
             <li>Leimin.Tian@monash.edu</li>
           </ul>
-
+          
           <ul style="list-style: none;">
             <li><b>Paulo Nhantumbo Junior</b></li>
             <li>Paulo.NhantumboJunior@monash.edu</li>
           </ul>
-          <button type="button" class="btn-submit"> <b>Finish</b> </button>
+          <button style="margin:45px" type="button" class="btn-submit"> <b>Finish</b> </button>
         </div>
         
-        <!-- Instructions on how to use tablet (Minor bug with the keyboard hovering over the progress bar. To fix it just prompt the keyboard twice and the progress bar should be visible again) -->      
+        <!-- Tablet Tutorial -->
         <div id="tablet" class="survey-box">
-          <h1 class="hidden"> Before we start, let's do a tutorial on using my tablet. </h1>
+          <h1 class="hidden"> Great. Before we start, let's do a tutorial on using my tablet. </h1>
           <h1 data-ignore><b>TABLET TUTORIAL</b></h1>
           <p style="margin-bottom: 0;">
             <b>The following answers are not recorded towards your quiz.</b> 
@@ -145,7 +144,7 @@
             </div>
             
             <div style="width: 40%; float: left;">
-              <p align="left"><img src="images/green_arrow2.PNG" align="left" width="60px" style="margin-right: 10px;"><b>Hint:</b> To hide the keyboard, press the green button.</p>
+              <p align="left"><img src="images/Green_arrow.PNG" align="left" width="60px" style="margin-right: 10px;"><b>Hint:</b> To hide the keyboard, press the green button.</p>
             </div>
           </div>
           
@@ -175,7 +174,6 @@
           <button disabled id="tutorialButton" style="margin:10px;" type="button" class="btn-navigate" data-no-enable data-next="ok"> <b>Next &raquo;</b> </button> <!-- Add margin -->
           
           <script type="text/javascript">
-            
             function CheckTutorial() {
               var button_active = false;
               var slider = document.getElementById("tutorial_slider");
@@ -194,15 +192,32 @@
           </script>
         </div>
         
-        <!-- Transition Screen (towards start page) --> 
+        <!-- Transition Screen (towards start page with quiz instructions) --> 
         <div id="ok" class="survey-box">
           <h1 class="hidden" data-auto-transition> Nicely done. Now onto the quiz. </h1>
-          <button type="button" class="btn-navigate hidden" data-next="begin">Next</button>
+          <button type="button" class="btn-navigate hidden" data-next="parts">Next</button>
         </div>
+        
+        <div id="parts" class="survey-box">
+          <h1 class="hidden" data-animated data-auto-transition> It contains two parts. The first part contains 10 questions covering general knowledge topics, and the second part has 5 additional memory questions with puzzles.  ^run(animations/Stand/BodyTalk/Speaking/BodyTalk_12)</h1>
+          <img src="images/QuizExplanation.png" alt="Quiz Parts Description" height="510">
+          <button type="button" class="btn-navigate hidden" data-next="scores">Next</button>
+        </div>
+        
+        <div id="scores" class="survey-box">
+          <h1 class="hidden" data-animated data-auto-transition> All the questions will be scored, where 10 points will be awarded for a correct answer and no points for incorrect answers. You will receive the final score for all the questions at the end.  ^run(animations/Stand/BodyTalk/Speaking/BodyTalk_12) </h1>
+          <img src="images/ScoreAward.png" alt="Score Award Description" height="510">
+          <button type="button" class="btn-navigate hidden" data-next="interview">Next</button>
+        </div>  
+        
+        <div id="interview" class="survey-box">
+          <h1 class="hidden" data-animated data-auto-transition> The quiz may take 9 to 10 minutes, and once completed, you will be asked a short question based on your experience. Additionally, a brief interview is conducted at the end to assess your experience with having the quiz with me.  ^run(animations/Stand/BodyTalk/Speaking/BodyTalk_12)</h1>
+          <img src="images/Interview.png" alt="Interview Description" height="510">
+          <button type="button" class="btn-navigate hidden" data-next="begin">Next</button>
+        </div>       
         
         <!-- Start Screen -->
         <div id="begin" class="survey-box">
-          <h1 data-animated class="hidden"> It contains two parts. The first part has 10 questions covering general-knowledge topics, and the second has 5 additional puzzle style questions. All the questions will be scored, where 10 points will be rewarded for a correct answer and no points for incorrect answers. It may take 9 to 10 minutes, and you will receive the final score for all the questions at the end. If you complete the test, you will be asked a short question based on your experience. Additionally, a brief interview is conducted at the end to assess your experience with having the quiz with me? ^run(animations/Stand/BodyTalk/Speaking/BodyTalk_12) </h1> 
           <img src="images/Monash_Blue.png" alt="Monash Logo" height="120">
           <br>
           <br>
@@ -235,17 +250,17 @@
       
       <!-- Question 1 -->         
       <div id="1" class="survey-box">
-        <h1 data-animated class="hidden"> Great. Here is your first question. What is the most popular sport in Australia? ^run(animations/Stand/BodyTalk/Speaking/BodyTalk_12) </h1> 
-        <h1 data-ignore> <b> Q1: What is the most popular sport in Australia? </b> </h1> 
+        <h1 data-animated class="hidden"> Great. Here is your first question. What geometric shape is generally used for STOP signs? ^run(animations/Stand/BodyTalk/Speaking/BodyTalk_12) </h1> 
+        <h1 data-ignore> <b> Q1: What geometric shape is generally used for STOP signs? </b> </h1> 
         <br>
-        <img src="images/sports.jpg" alt="Aussie Sports" height="250">
+        <img src="images/STOP.jpg" alt="Brake Lights" height="250">
         <br>
         <br>
         <p class="button_centre">
-          <label class="radio-container"><input type="radio" name="q_a1" value="Basketball" data-replace="x:Basketball">Basketball<span class="checkmark"></span></label>
-          <label class="radio-container"><input type="radio" name="q_a1" value="Footy" data-replace="x:Footy">Footy<span class="checkmark"></span></label>
-          <label class="radio-container"><input type="radio" name="q_a1" value="Soccer" data-replace="x:Soccer">Soccer<span class="checkmark"></span></label>
-          <label class="radio-container"><input type="radio" name="q_a1" value="Cricket" data-replace="x:Cricket">Cricket<span class="checkmark"></span></label> 
+          <label class="radio-container"><input type="radio" name="q_a1" value="A hexagon" data-replace="x:A hexagon">A hexagon<span class="checkmark"></span></label>
+          <label class="radio-container"><input type="radio" name="q_a1" value="A pentagon" data-replace="x:A pentagon">A pentagon<span class="checkmark"></span></label>
+          <label class="radio-container"><input type="radio" name="q_a1" value="An octagon" data-replace="x:An octagon">An octagon<span class="checkmark"></span></label>
+          <label class="radio-container"><input type="radio" name="q_a1" value="A heptagon" data-replace="x:A heptagon">A heptagon<span class="checkmark"></span></label> 
         </p>
         <button type="button" class="btn-navigate" onclick="recordResp('q_a1','true');" data-next="2" data-delay="3000"> <b>Next &raquo;</b> </button> 
       </div>
@@ -269,56 +284,56 @@
       
       <!-- Question 3 -->
       <div id="3" class="survey-box">
-        <h1 data-animated class="hidden"> All right. Next question. What is a group of koalas called? ^run(animations/Stand/BodyTalk/Speaking/BodyTalk_12) </h1>
-        <h1 data-ignore> <b> Q3: What is a group of koalas called?</b> </h1>
+        <h1 data-animated class="hidden"> All right. Next question. What is the capital city of Australia? ^run(animations/Stand/BodyTalk/Speaking/BodyTalk_12) </h1>
+        <h1 data-ignore> <b> Q3: What is the capital city of Australia? </b> </h1>
         <br>
         <img src="images/Koalas.jpg" alt="Koalas" height="250">
         <br>
         <br>
         <p class="button_centre">
-          <label class="radio-container"><input type="radio" name="q_a3" value="A cling" data-replace="x:A cling">A cling<span class="checkmark"></span></label>
-          <label class="radio-container"><input type="radio" name="q_a3" value="A herd" data-replace="x:A herd">A herd<span class="checkmark"></span></label>
-          <label class="radio-container"><input type="radio" name="q_a3" value="A mob" data-replace="x:A mob">A mob<span class="checkmark"></span></label>
-          <label class="radio-container"><input type="radio" name="q_a3" value="A troop" data-replace="x:A troop">A troop<span class="checkmark"></span></label>
+          <label class="radio-container"><input type="radio" name="q_a3" value="Sydney" data-replace="x:Sydney">Sydney<span class="checkmark"></span></label>
+          <label class="radio-container"><input type="radio" name="q_a3" value="Melbourne" data-replace="x:Melbourne">Melbourne<span class="checkmark"></span></label>
+          <label class="radio-container"><input type="radio" name="q_a3" value="Canberra" data-replace="x:Canberra">Canberra<span class="checkmark"></span></label>
+          <label class="radio-container"><input type="radio" name="q_a3" value="Brisbane" data-replace="x:Brisbane">Brisbane<span class="checkmark"></span></label>
         </p>
         <button type="button" class="btn-navigate" onclick="recordResp('q_a3','true');" data-next="4"><b>Next &raquo;</b></button>              
       </div>
       
       <!-- Question 4 -->
       <div id="4" class="survey-box">
-        <h1 data-animated class="hidden"> OK. Next question. Who was sir John Monash? ^run(animations/Stand/BodyTalk/Speaking/BodyTalk_12) </h1>
-        <h1 data-ignore> <b>Q4: Who was sir John Monash?</b> </h1>
+        <h1 data-animated class="hidden"> OK. Next question. What colour is ruby? ^run(animations/Stand/BodyTalk/Speaking/BodyTalk_12) </h1>
+        <h1 data-ignore> <b>Q4: What colour is ruby?</b> </h1>
         <br>
-        <img src="images/SirJohnMonash.jpg" alt="Sir John Monash" height="250">
+        <img src="images/Ruby.jpg" alt="Ruby" height="250">
         <br>
         <br>
         <p class="button_centre">
-          <label class="radio-container"><input type="radio" name="q_a4" value="A Civil Engineer" data-replace="x:A Civil Engineer">A Civil Engineer<span class="checkmark"></span></label>
-          <label class="radio-container"><input type="radio" name="q_a4" value="A Mechanic" data-replace="x:A Mechanic">A Mechanic<span class="checkmark"></span></label>
-          <label class="radio-container"><input type="radio" name="q_a4" value="A Craftsman" data-replace="x:A Craftsman">A Craftsman<span class="checkmark"></span></label>
-          <label class="radio-container"><input type="radio" name="q_a4" value="A Painter" data-replace="x:A Painter">A Painter<span class="checkmark"></span></label>
+          <label class="radio-container"><input type="radio" name="q_a4" value="Pink" data-replace="x:Pink">Pink<span class="checkmark"></span></label>
+          <label class="radio-container"><input type="radio" name="q_a4" value="Red" data-replace="x:Red">Red<span class="checkmark"></span></label>
+          <label class="radio-container"><input type="radio" name="q_a4" value="Green" data-replace="x:Green">Green<span class="checkmark"></span></label>
+          <label class="radio-container"><input type="radio" name="q_a4" value="Blue" data-replace="x:Blue">Blue<span class="checkmark"></span></label>
         </p>
         <button type="button" class="btn-navigate" onclick="recordResp('q_a4','true');" data-next="5"><b>Next &raquo;</b></button>
       </div>
       
       <!-- Question 5 -->
       <div id="5" class="survey-box">
-        <h1 data-animated class="hidden"> All right. Here is your next question. What is the capital city of Australia? ^run(animations/Stand/BodyTalk/Speaking/BodyTalk_12) </h1>
-        <h1 data-ignore> <b>Q5: What is the capital city of Australia?</b> </h1>
+        <h1 data-animated class="hidden"> All right. Here is your next question. Who was sir John Monash? ^run(animations/Stand/BodyTalk/Speaking/BodyTalk_12) </h1>
+        <h1 data-ignore> <b>Q5: Who was sir John Monash? </b> </h1>
         <br>
-        <img src="images/AusCapital.jpeg" alt="Australia Capital" height="250">
+        <img src="images/SirJohnMonash.jpg" alt="Sir John Monash" height="250">
         <br>
         <br>
         <p class="button_centre">
-          <label class="radio-container"><input type="radio" name="q_a5" value="Sydney" data-replace="x:Sydney">Sydney<span class="checkmark"></span></label>
-          <label class="radio-container"><input type="radio" name="q_a5" value="Melbourne" data-replace="x:Melbourne">Melbourne<span class="checkmark"></span></label>
-          <label class="radio-container"><input type="radio" name="q_a5" value="Canberra" data-replace="x:Canberra">Canberra<span class="checkmark"></span></label>
-          <label class="radio-container"><input type="radio" name="q_a5" value="Brisbane" data-replace="x:Brisbane">Brisbane<span class="checkmark"></span></label>
+          <label class="radio-container"><input type="radio" name="q_a5" value="A Civil Engineer" data-replace="x:A Civil Engineer">A Civil Engineer<span class="checkmark"></span></label>
+          <label class="radio-container"><input type="radio" name="q_a5" value="A Mechanic" data-replace="x:A Mechanic">A Mechanic<span class="checkmark"></span></label>
+          <label class="radio-container"><input type="radio" name="q_a5" value="A Craftsman" data-replace="x:A Craftsman">A Craftsman<span class="checkmark"></span></label>
+          <label class="radio-container"><input type="radio" name="q_a5" value="A Painter" data-replace="x:A Painter">A Painter<span class="checkmark"></span></label>
         </p>
         <button type="button" class="btn-navigate" onclick="recordResp('q_a5','true');" data-next="q6r"><b>Next &raquo;</b></button>
       </div>
       
-      <!-- Question 6 before recommendation -->
+      <!-- Question 6 -->
       <div id="q6r" class="survey-box">
         <h1 data-animated class="hidden"> OK. Next question. Where does the Australian economy rank compared to the rest of the world? ^run(animations/Stand/BodyTalk/Speaking/BodyTalk_12) </h1>
         <h1 data-ignore> <b>Q6: Where does the Australian economy rank compared to the rest of the world? </b> </h1>
@@ -331,66 +346,51 @@
           <label class="radio-container"><input type="radio" id="correct6r" name="q_a6r" value="14th" data-replace="x:14th">14<sup>th</sup><span class="checkmark"></span></label>
           <label class="radio-container"><input type="radio" name="q_a6r" value="18th" data-replace="x:18th">18<sup>th</sup><span class="checkmark"></span></label>
         </p>
-        <button type="button" class="btn-navigate" onclick="recordResp('q_a6r','true');" data-next="correct6r=r1_for_correct;r1_for_wrong"><b>Next &raquo;</b></button>
+        <button type="button" class="btn-navigate" onclick="recordResp('q_a6r','true');" data-next="correct6r=r1_for_correct_selection;r1_for_wrong_selection"><b>Next &raquo;</b></button>
       </div> 
       
       <!-- Recommendation for wrong answer selection -->
-      <div id="r1_for_wrong" class="survey-box">
+      <div id="r1_for_wrong_selection" class="survey-box">
         <h1 class="hidden" data-animated data-auto-transition> Are you sure? I think the correct answer might be the fourteenth. ^run(animations/Stand/Gestures/Thinking_1) </h1>
         <button type="button" class="btn-navigate hidden" data-next="r1">Next</button>
       </div>
       
       <!-- Recommendation for right answer selection -->
-      <div id="r1_for_correct" class="survey-box">
-        <h1 class="hidden" data-animated data-auto-transition> My guess is also the fourtheeth. Would you like to confirm it? ^run(animations/Stand/Gestures/Thinking_1) </h1>
+      <div id="r1_for_correct_selection" class="survey-box">
+        <h1 class="hidden" data-animated data-auto-transition> Are you sure? I think the correct answer might be the eighteenth. ^run(animations/Stand/Gestures/Thinking_1) </h1>
         <button type="button" class="btn-navigate hidden" data-next="r1">Next</button>
       </div>
       
-      <!-- Question 6 Recommendation selection -->
+      <!-- Question 6 Recommendation confirmation (when incorrect answer is selected) -->
       <div id="r1" class="survey-box"> 
         <br>
         <br>
-        <h1 data-ignore> Do you want to change your answer? </h1>
+        <h1 data-ignore> What submission would you like to confirm? </h1>
         <br>
         <br>
         <p class="example"> 
-          <label class="radio-container"><input type="radio" id="yes_r6" name="r_6" value="Yes" data-replace="x:Yes"><b>Yes</b><span class="checkmark"></span></label>
+          <label class="radio-container"><input type="radio" name="r_6" value="Keep my selected response" data-replace="x:Keep my selected response"><b>Keep my selected response</b><span class="checkmark"></span></label>
           <br>
-          <label class="radio-container"><input type="radio" name="r_6" value="No" data-replace="x:No"><b>No</b><span class="checkmark"></span></label>
+          <label class="radio-container"><input type="radio" name="r_6" value="Change your response to match my recommendation" data-replace="x:Change your response to match my recommendation"><b>Change your response to match my recommendation</b><span class="checkmark"></span></label>
         </p>
         <br>
         <br>
-        <button style="margin:45px" type="button" class="btn-navigate" onclick="recordResp('r_6','true');" data-next="yes_r6=q6;q7"><b>Next &raquo;</b></button>        
+        <button style="margin:45px" type="button" class="btn-navigate" onclick="recordResp('r_6','true');" data-next="q7"><b>Next &raquo;</b></button>        
       </div>
-      
-      <!-- Question 6 Post-Recommendation without Pepper's speech -->
-      <div id="q6" class="survey-box">
-        <h1 data-ignore> <b>Q6: Where does the Australian economy rank compared to the rest of the world?</b> </h1>
-        <img src="images/AustralianBill.jpg" alt="Australian Bill" height="250">
-        <br>
-        <br>
-        <p class="button_centre">
-          <label class="radio-container"><input type="radio" name="q_a6" value="9th" data-replace="x:9th">9<sup>th</sup><span class="checkmark"></span></label>
-          <label class="radio-container"><input type="radio" name="q_a6" value="11th" data-replace="x:11th">11<sup>th</sup><span class="checkmark"></span></label>
-          <label class="radio-container"><input type="radio" name="q_a6" value="14th" data-replace="x:14th">14<sup>th</sup><span class="checkmark"></span></label>
-          <label class="radio-container"><input type="radio" name="q_a6" value="18th" data-replace="x:18th">18<sup>th</sup><span class="checkmark"></span></label>
-        </p>
-        <button type="button" class="btn-navigate" onclick="recordResp('q_a6','true');" data-next="q7"><b>Next &raquo;</b></button>
-      </div> 
       
       <!-- Question 7 -->
       <div id="q7" class="survey-box">
-        <h1 data-animated class="hidden"> All right. Here is your next question. What is the longest river in Australia? ^run(animations/Stand/BodyTalk/Speaking/BodyTalk_12) </h1>
-        <h1 data-ignore> <b> Q7: What is the longest river in Australia?</b> </h1>
+        <h1 data-animated class="hidden"> All right. Here is your next question. What is the name of the world's largest ocean? ^run(animations/Stand/BodyTalk/Speaking/BodyTalk_12) </h1>
+        <h1 data-ignore> <b> Q7: What is the name of the world's largest ocean? </b> </h1>
         <br>
-        <img src="images/river.jpg" alt="River" height="250">
+        <img src="images/Ocean.jpg" alt="Ocean" height="250">
         <br>
         <br>
         <p class="button_centre">
-          <label class="radio-container"><input type="radio" name="q_a7" value="Lachlan River" data-replace="x:Lachlan River">Lachlan River<span class="checkmark"></span></label>
-          <label class="radio-container"><input type="radio" name="q_a7" value="Darling River" data-replace="x:Darling River">Darling River<span class="checkmark"></span></label>
-          <label class="radio-container"><input type="radio" name="q_a7" value="Warrego River" data-replace="x:Warrego River">Warrego River<span class="checkmark"></span></label>
-          <label class="radio-container"><input type="radio" name="q_a7" value="Murray River" data-replace="x:Murray River">Murray River<span class="checkmark"></span></label>
+          <label class="radio-container"><input type="radio" name="q_a7" value="Pacific" data-replace="x:Pacific">Pacific<span class="checkmark"></span></label>
+          <label class="radio-container"><input type="radio" name="q_a7" value="Atlantic" data-replace="x:Atlantic">Atlantic<span class="checkmark"></span></label>
+          <label class="radio-container"><input type="radio" name="q_a7" value="Indian" data-replace="x:Indian">Indian<span class="checkmark"></span></label>
+          <label class="radio-container"><input type="radio" name="q_a7" value="Artic" data-replace="x:Artic">Artic<span class="checkmark"></span></label>
         </p>
         <button type="button" class="btn-navigate" onclick="recordResp('q_a7','true');" data-next="q8r"><b>Next &raquo;</b></button>
       </div> 
@@ -409,18 +409,18 @@
           <label class="radio-container"><input type="radio" id="correct8r" name="q_a8r" value="Fear of dogs" data-replace="x:Fear of dogs">Fear of dogs<span class="checkmark"></span></label>
           <label class="radio-container"><input type="radio" name="q_a8r" value="Fear of places" data-replace="x:Fear of places">Fear of places<span class="checkmark"></span></label>
         </p>
-        <button type="button" class="btn-navigate" onclick="recordResp('q_a8r','true');" data-next="correct8r=r2_for_correct;r2_for_wrong"><b>Next &raquo;</b></button>
+        <button type="button" class="btn-navigate" onclick="recordResp('q_a8r','true');" data-next="correct8r=r2_for_correct_selection;r2_for_wrong_selection"><b>Next &raquo;</b></button>
       </div>
       
       <!-- Recommendation for wrong answer selection -->
-      <div id="r2_for_wrong" class="survey-box">
-        <h1 class="hidden" data-animated data-auto-transition> I sense it is the fear of dogs. What is your take? ^run(animations/Stand/Gestures/Thinking_1) </h1>
+      <div id="r2_for_wrong_selection" class="survey-box">
+        <h1 class="hidden" data-animated data-auto-transition> I sense it is the fear of dogs. Would you like to change your guess? ^run(animations/Stand/Gestures/Thinking_1) </h1>
         <button type="button" class="btn-navigate hidden" data-next="r2">Next</button>
       </div>
       
       <!-- Recommendation for right answer selection -->
-      <div id="r2_for_correct" class="survey-box">
-        <h1 class="hidden" data-animated data-auto-transition> I also sense it is the fear of dogs. Would you like to confirm your submission or change your guess? ^run(animations/Stand/Gestures/Thinking_1) </h1>
+      <div id="r2_for_correct_selection" class="survey-box">
+        <h1 class="hidden" data-animated data-auto-transition> I sense it is the fear of needles. Would you like to change your guess? ^run(animations/Stand/Gestures/Thinking_1) </h1>
         <button type="button" class="btn-navigate hidden" data-next="r2">Next</button>
       </div>
       
@@ -429,33 +429,17 @@
         <br>
         <br>
         <br>
-        <h1 data-ignore> Do you want to change your answer? </h1>
+        <h1 data-ignore> What submission would you like to confirm? </h1>
         <br>
         <br>
         <p class="example"> 
-          <label class="radio-container"><input type="radio" id="yes_r8" name="r_8" value="Yes" data-replace="x:Yes"><b>Yes</b><span class="checkmark"></span></label>
+          <label class="radio-container"><input type="radio" name="r_8" value="Keep my selected response" data-replace="x:Keep my selected response"><b>Keep my selected response</b><span class="checkmark"></span></label>
           <br>
-          <label class="radio-container"><input type="radio" name="r_8" value="No" data-replace="x:No"><b>No</b><span class="checkmark"></span></label>
+          <label class="radio-container"><input type="radio" name="r_8" value="Change your response to match my recommendation" data-replace="x:Change your response to match my recommendation"><b>Change your response to match my recommendation</b><span class="checkmark"></span></label>
         </p>
         <br>
         <br>
-        <button style="margin:45px" type="button" class="btn-navigate" onclick="recordResp('r_8','true');" data-next="yes_r8=q8;q9r"><b>Next &raquo;</b></button>     
-      </div>
-      
-      <!-- Question 8 Post-Recommendation without Pepper's speech -->
-      <div id="q8" class="survey-box">
-        <h1 data-ignore> <b>Q8: What is cynophobia?</b> </h1>
-        <br>
-        <img src="images/phobia.png" alt="Phobia" height="250">
-        <br>
-        <br>
-        <p class="button_centre">
-          <label class="radio-container"><input type="radio" name="q_a8" value="Fear of heights" data-replace="x:Fear of heights">Fear of heights<span class="checkmark"></span></label>
-          <label class="radio-container"><input type="radio" name="q_a8" value="Fear of needles" data-replace="x:Fear of needles">Fear of needles<span class="checkmark"></span></label>
-          <label class="radio-container"><input type="radio" name="q_a8" value="Fear of dogs" data-replace="x:Fear of dogs">Fear of dogs<span class="checkmark"></span></label>
-          <label class="radio-container"><input type="radio" name="q_a8" value="Fear of places" data-replace="x:Fear of places">Fear of places<span class="checkmark"></span></label>
-        </p>
-        <button type="button" class="btn-navigate" onclick="recordResp('q_a8','true');" data-next="q9r"><b>Next &raquo;</b></button>
+        <button style="margin:45px" type="button" class="btn-navigate" onclick="recordResp('r_8','true');" data-next="q9r"><b>Next &raquo;</b></button>     
       </div>
       
       <!-- Question 9 before recommendation -->
@@ -472,18 +456,18 @@
           <label class="radio-container"><input type="radio" name="q_a9r" value="A banana" data-replace="x:A banana">A banana<span class="checkmark"></span></label>
           <label class="radio-container"><input type="radio" name="q_a9r" value="A watermelon" data-replace="x:A watermelon">A watermelon<span class="checkmark"></span></label>
         </p>
-        <button type="button" class="btn-navigate" onclick="recordResp('q_a9r','true');" data-next="correct9r=r3_for_correct;r3_for_wrong"><b>Next &raquo;</b></button>
+        <button type="button" class="btn-navigate" onclick="recordResp('q_a9r','true');" data-next="correct9r=r3_for_correct_selection;r3_for_wrong_selection"><b>Next &raquo;</b></button>
       </div>
       
       <!-- Recommendation for wrong answer selection -->
-      <div id="r3_for_wrong" class="survey-box">
+      <div id="r3_for_wrong_selection" class="survey-box">
         <h1 class="hidden" data-animated data-auto-transition> My guess on the correct answer is an orange. What do you think? ^run(animations/Stand/Gestures/Thinking_1) </h1>
         <button type="button" class="btn-navigate hidden" data-next="r3">Next</button>
       </div>
       
       <!-- Recommendation for right answer selection -->
-      <div id="r3_for_correct" class="survey-box">
-        <h1 class="hidden" data-animated data-auto-transition> I agree with the suggestion of an orange. Would you like to confirm it?  ^run(animations/Stand/Gestures/Thinking_1) </h1>
+      <div id="r3_for_correct_selection" class="survey-box">
+        <h1 class="hidden" data-animated data-auto-transition> My guess on the correct answer is an apple. What do you think? ^run(animations/Stand/Gestures/Thinking_1) </h1>
         <button type="button" class="btn-navigate hidden" data-next="r3">Next</button>
       </div>
       
@@ -492,34 +476,18 @@
         <br>
         <br>
         <br>
-        <h1 data-ignore> Do you want to change your answer? </h1>
+        <h1 data-ignore> What submission would you like to confirm? </h1>
         <br>
         <br>
         <p class="example"> 
-          <label class="radio-container"><input type="radio" id="yes_r9" name="r_9" value="Yes" data-replace="x:Yes"><b>Yes</b><span class="checkmark"></span></label>
+          <label class="radio-container"><input type="radio" name="r_9" value="Keep my selected response" data-replace="x:Keep my selected response"><b>Keep my selected response</b><span class="checkmark"></span></label>
           <br>
-          <label class="radio-container"><input type="radio" name="r_9" value="No" data-replace="x:No"><b>No</b><span class="checkmark"></span></label>
+          <label class="radio-container"><input type="radio" name="r_9" value="Change your response to match my recommendation" data-replace="x:Change your response to match my recommendation"><b>Change your response to match my recommendation</b><span class="checkmark"></span></label>
         </p>
         <br>
         <br>
-        <button style="margin:45px" type="button" class="btn-navigate" onclick="recordResp('r_9','true');" data-next="yes_r9=q9;q10r"><b>Next &raquo;</b></button>        
+        <button style="margin:45px" type="button" class="btn-navigate" onclick="recordResp('r_9','true');" data-next="q10r"><b>Next &raquo;</b></button>        
       </div>              
-      
-      <!-- Question 9 Post-Recommendation without Pepper's speech -->
-      <div id="q9" class="survey-box">
-        <h1 data-ignore> <b>Q9: What inspired the design of the Sydney Opera House?</b> </h1>
-        <br>
-        <img src="images/OperaHouse.jpg" alt="Opera House" height="250">
-        <br>
-        <br>
-        <p class="button_centre">
-          <label class="radio-container"><input type="radio" name="q_a9" value="An orange" data-replace="x:An orange">An orange<span class="checkmark"></span></label>
-          <label class="radio-container"><input type="radio" name="q_a9" value="An apple" data-replace="x:An apple">An apple<span class="checkmark"></span></label>
-          <label class="radio-container"><input type="radio" name="q_a9" value="A banana" data-replace="x:A banana">A banana<span class="checkmark"></span></label>
-          <label class="radio-container"><input type="radio" name="q_a9" value="A watermelon" data-replace="x:A watermelon">A watermelon<span class="checkmark"></span></label>
-        </p>
-        <button type="button" class="btn-navigate" onclick="recordResp('q_a9','true');" data-next="q10r"><b>Next &raquo;</b></button>
-      </div>
       
       <!-- Question 10 before recommendation -->
       <div id="q10r" class="survey-box">
@@ -545,7 +513,7 @@
       
       <!-- Recommendation for right answer selection -->
       <div id="r4_for_correct" class="survey-box">
-        <h1 class="hidden" data-animated data-auto-transition> I also guessed eleven. Do you want to take that as your final guess ? ^run(animations/Stand/Gestures/Thinking_1) </h1>
+        <h1 class="hidden" data-animated data-auto-transition> Are you sure? My guess on the correct answer is ten. ^run(animations/Stand/Gestures/Thinking_1) </h1>
         <button type="button" class="btn-navigate hidden" data-next="r4">Next</button>
       </div>
       
@@ -554,54 +522,41 @@
         <br>
         <br>
         <br>
-        <h1 data-ignore> Do you want to change your answer? </h1>
+        <h1 data-ignore> What submission would you like to confirm? </h1>
         <br>
         <br>
         <p class="example"> 
-          <label class="radio-container"><input type="radio" id="yes_r10" name="r_10" value="Yes" data-replace="x:Yes"><b>Yes</b><span class="checkmark"></span></label>
+          <label class="radio-container"><input type="radio" name="r_10" value="Keep my selected response" data-replace="x:Keep my selected response"><b>Keep my selected response</b><span class="checkmark"></span></label>
           <br>
-          <label class="radio-container"><input type="radio" name="r_10" value="No" data-replace="x:No"><b>No</b><span class="checkmark"></span></label>
+          <label class="radio-container"><input type="radio" name="r_10" value="Change your response to match my recommendation" data-replace="x:Change your response to match my recommendation"><b>Change your response to match my recommendation</b><span class="checkmark"></span></label>
         </p>
         <br>
         <br>
-        <button style="margin:45px" type="button" class="btn-navigate" onclick="recordResp('r_10','true');" data-next="yes_r10=q10;part2"><b>Next &raquo;</b></button>        
-      </div>
-      
-      <!-- Question 10 Post-Recommendation without Pepper's speech -->
-      <div id="q10" class="survey-box">
-        <h1 data-ignore> <b>Q10: How many ships were in the historic First Fleet convoy that reached Australia in 1787?</b> </h1>
-        <img src="images/FirstFleet.jpg" alt="First Fleet" height="250">
-        <br>
-        <br>
-        <p class="button_centre">
-          <label class="radio-container"><input type="radio" name="q_a10" value="8" data-replace="x:8">8<span class="checkmark"></span></label>
-          <label class="radio-container"><input type="radio" name="q_a10" value="10" data-replace="x:10">10<span class="checkmark"></span></label>
-          <label class="radio-container"><input type="radio" name="q_a10" value="14" data-replace="x:14">14<span class="checkmark"></span></label>
-          <label class="radio-container"><input type="radio" name="q_a10" value="11" data-replace="x:11">11<span class="checkmark"></span></label>
-        </p>
-        <button type="button" class="btn-navigate" onclick="recordResp('q_a10','true');" data-next="part2"><b>Next &raquo;</b></button>  
+        <button style="margin:45px" type="button" class="btn-navigate" onclick="recordResp('r_10','true');" data-next="part2"><b>Next &raquo;</b></button>        
       </div>
       
       <!-- Transition towards puzzling questions (Part 2) -->
       <div id="part2" class="survey-box">
-        <h1 class="hidden" data-animated data-auto-transition> The first part is complete. Now for this second part, I will present a shape on my screen. The goal is for you to memorise it and ultimately count how many of the same shapes are in a cluster of other shapes. ^run(animations/Stand/BodyTalk/Speaking/BodyTalk_12) </h1>
+        <h1 class="hidden" data-animated data-auto-transition> The first part is complete. Now for the second part. I will present a shape on my screen. The goal is for you to memorise it and ultimately count how many of that same shape are in a collection of different shapes. \vol=0\ An extra 3 seconds to let the user see the instructions. ^run(animations/Stand/BodyTalk/Speaking/BodyTalk_12) </h1>
+        <img src="images/Part2Explanation.png" alt="Explanation for Part 2" height="510">
         <button type="button" class="btn-navigate hidden" data-next="q11shape">Next</button>
       </div>
       
       <!-- Question 11 Introduction (Shape Display) -->
       <div id="q11shape" class="survey-box">
-        <h1 data-animated class="hidden"> Here is the first shape. Take a brief look at it before proceeding. A cluster of shapes will be displayed. Your job is to determine the number of the current shape that in that cluster. You will have roughly 7 seconds, shown on a timer, to look at the image and then make your guess. When you are ready to proceed, press Go. ^run(animations/Stand/BodyTalk/Speaking/BodyTalk_12) </h1>
-        <img src="images/Square.png" alt="Square" class="center" height="420">
+        <h1 data-animated class="hidden"> Here is the first shape. Take a brief look at it before proceeding. You will have 4 seconds to visualise the collection of shapes and then make your guess. When you are ready to proceed, press Go. ^run(animations/Stand/BodyTalk/Speaking/BodyTalk_12) </h1>
+        <br>
+        <img src="images/Square.png" alt="Square" class="center" height="380">
         <br>
         <br>
         <button type="button" class="btn-navigate" data-next="q11cluster"><b>Go &raquo;</b></button>
       </div>
-
-      <!-- Question 11 Cluster Display -->
+      
+      <!-- Question 11 Cluster Display (~4 seconds) -->
       <div id="q11cluster" class="survey-box">
-        <h1 class="hidden" data-auto-transition>  \vol=0\ The timer will now start its count. Go. 5, 4, 3, 2, 1. </h1>
+        <h1 class="hidden" data-auto-transition>\vol=0\ The timer will start. Go. 5, 4, 3, 2, 1. </h1>
         <br>
-        <img src="images/Q1 Shape Cluster.png" alt="Cluster Q11" height="510"> 
+        <img src="images/Q11.png" alt="Cluster Q11" height="510"> 
         <button type="button" class="btn-navigate hidden" data-next="q11r"> <b>Next &raquo;</b> </button>
       </div>
       
@@ -612,57 +567,61 @@
         <h1 class="hidden"> What is your initial guess on the number of squares? I can provide you with a suggestion, and you will have the opportunity to change your answer. </h1>
         <h1 data-ignore> <b>Q11: How many squares did you count? </b> </h1>
         <br>
-        <span><input type="number" min="0" max="100" name="q_a11r" onclick="deleteText()" class="form-control small-text" style="display: inline-block;" value="0"> squares</span>
+        <span><input type="number" id="q11number" min="0" max="100" name="q_a11r" onclick="deleteText()" class="form-control small-text" style="display: inline-block;"> squares</span>
         <br>
         <br>
-        <button type="button" class="btn-navigate" onclick="recordResp('q_a11r','true');" data-next="r5"><b>Next &raquo;</b></button>
+        <button type="button" class="btn-navigate" onclick="recordResp('q_a11r','true');" data-next="r5_for_wrong_selection"><b>Next &raquo;</b></button>
+      </div>
+      
+      <!-- Trigger the id based on the user input, to toggle them towards the right recommendation -->
+      <!-- <script>
+        var c = document.getElementsByName('q_a11r');
+        
+        function detectTextBoxInput (){
+          
+        }
+      </script> -->
+      
+      <!-- Recommendation for wrong answer selection -->
+      <div id="r5_for_wrong_selection" class="survey-box">
+        <h1 class="hidden" data-animated data-auto-transition> OK. I actually think there are 6 squares. ^run(animations/Stand/Gestures/Thinking_1) </h1>
+        <button type="button" class="btn-navigate hidden" data-next="r5">Next</button>
       </div>
       
       <!-- Recommendation for Q11 -->
       <div id="r5" class="survey-box">
         <br>
-        <h1 data-animated class="hidden"> OK. I actually think there are 6 squares. Are you going with your guess? ^run(animations/Stand/Gestures/Thinking_1) </h1>
+        <h1 data-animated class="hidden"> Are you going with your guess? ^run(animations/Stand/Gestures/Thinking_1) </h1>
         <br>
         <br>
-        <h1 data-ignore> Do you want to change your answer? </h1>
+        <h1 data-ignore> What submission would you like to confirm? </h1>
         <br>
         <br>
         <p class="example"> 
-          <label class="radio-container"><input type="radio" id="yes_r11" name="r_11" value="Yes" data-replace="x:Yes"><b>Yes</b><span class="checkmark"></span></label>
+          <label class="radio-container"><input type="radio" name="r_11" value="Keep my selected response" data-replace="x:Keep my selected response"><b>Keep my selected response</b><span class="checkmark"></span></label>
           <br>
-          <label class="radio-container"><input type="radio" name="r_11" value="No" data-replace="x:No"><b>No</b><span class="checkmark"></span></label>
+          <label class="radio-container"><input type="radio" name="r_11" value="Change your response to match my recommendation" data-replace="x:Change your response to match my recommendation"><b>Change your response to match my recommendation</b><span class="checkmark"></span></label>
         </p>
         <br>
         <br>
-        <button style="margin:45px" type="button" class="btn-navigate" onclick="recordResp('r_11','true');" data-next="yes_r11=q11;q12shape"><b>Next &raquo;</b></button>        
-      </div>
-      
-      <!-- Question 11 Post-Recommendation without Pepper's speech -->
-      <div id="q11" class="survey-box">
-        <br>
-        <br>
-        <h1 data-ignore> <b>Q11: How many squares did you count? </b> </h1>
-        <br>
-        <span><input type="number" min="0" max="100" name="q_a11" onclick="deleteText()" class="form-control small-text" style="display: inline-block;" value="0"> squares</span>
-        <br>
-        <br>
-        <button type="button" class="btn-navigate" onclick="recordResp('q_a11','true');" data-next="q12shape"><b>Next &raquo;</b></button>
+        <button style="margin:45px" type="button" class="btn-navigate" onclick="recordResp('r_11','true');" data-next="q12shape"><b>Next &raquo;</b></button>        
       </div>
       
       <!-- Question 12 Introduction (Shape Display) -->
       <div id="q12shape" class="survey-box">
-        <h1 data-animated class="hidden"> Ok. Now, onto the next task. This time a different shape is provided. Following the same instructions as the previous question, I will also provide a suggestion after you have made your guess. Whenever you are set, press Go. ^run(animations/Stand/BodyTalk/Speaking/BodyTalk_12) </h1>
-        <img src="images/Triangle.png" alt="Triangle" class="center" height="420">
+        <h1 data-animated class="hidden"> Ok. Now, onto the next task. Look at the shape provided. Following the same instructions as the previous question, I will also provide a suggestion after you have made your guess, and you will have the opportunity to change your answer. Whenever you are set, press Go. ^run(animations/Stand/BodyTalk/Speaking/BodyTalk_12) </h1>
+        <br> 
+        <img src="images/Triangle.png" alt="Triangle" class="center" height="380">
         <br>
         <br>
         <button type="button" class="btn-navigate" data-next="q12cluster"><b>Go &raquo;</b></button>
       </div>
-
+      
       <!-- Question 12 Cluster Display -->
       <div id="q12cluster" class="survey-box">
-        <h1 class="hidden" data-auto-transition> \vol=0\ The timer will now start its count. Go. 5, 4, 3, 2, 1. </h1>
+        <h1 class="hidden" data-auto-transition>\vol=0\ The timer will start. Go. 5, 4, 3, 2, 1. </h1>
         <br>
-        <img src="images/Q1 Shape Cluster.png" alt="Cluster Q12" height="510"> 
+        <img src="images/Q12.png" alt="Cluster Q12" height="510"> 
         <button type="button" class="btn-navigate hidden" data-next="q12r"> <b>Next &raquo;</b> </button>
       </div>
       
@@ -670,50 +629,45 @@
       <div id="q12r" class="survey-box">
         <br>
         <br>
-        <h1 class="hidden"> How many triangles did you count? I can give you a suggestion, and you will have the opportunity to change your answer. </h1>
+        <h1 class="hidden"> How many triangles did you count? </h1>
         <h1 data-ignore> <b>Q12: How many triangles were in the picture? </b> </h1>
         <br>
-        <span><input type="number" min="0" max="100" name="q_a12r" onclick="deleteText()" class="form-control small-text" style="display: inline-block;" value="0"> triangles</span>
+        <span><input type="number" min="0" max="100" name="q_a12r" onclick="deleteText()" class="form-control small-text" style="display: inline-block;"> triangles</span>
         <br>
         <br>
-        <button type="button" class="btn-navigate" onclick="recordResp('q_a12r','true');" data-next="r6"><b>Next &raquo;</b></button>
+        <button type="button" class="btn-navigate" onclick="recordResp('q_a12r','true');" data-next="r6_for_wrong_selection"><b>Next &raquo;</b></button>
       </div>
       
+      <!-- Recommendation for wrong answer selection -->
+      <div id="r6_for_wrong_selection" class="survey-box">
+        <h1 class="hidden" data-animated data-auto-transition> OK. Personally, I counted 7 triangles. ^run(animations/Stand/Gestures/Thinking_1) </h1>
+        <button type="button" class="btn-navigate hidden" data-next="r6">Next</button>
+      </div>
+
       <!-- Recommendation for Q12 -->
       <div id="r6" class="survey-box">
         <br>
-        <h1 data-animated class="hidden"> OK. Personally, I counted 7 triangles. Would you like to confirm your submission or change your guess? ^run(animations/Stand/Gestures/Thinking_1) </h1>
+        <h1 data-animated class="hidden"> Would you like to confirm your submission or change your guess? ^run(animations/Stand/Gestures/Thinking_1) </h1>
         <br>
         <br>
-        <h1 data-ignore> Do you want to change your answer? </h1>
+        <h1 data-ignore> What submission would you like to confirm? </h1>
         <br>
         <br>
         <p class="example"> 
-          <label class="radio-container"><input type="radio" id="yes_r12" name="r_12" value="Yes" data-replace="x:Yes"><b>Yes</b><span class="checkmark"></span></label>
+          <label class="radio-container"><input type="radio" name="r_12" value="Keep my selected response" data-replace="x:Keep my selected response"><b>Keep my selected response</b><span class="checkmark"></span></label>
           <br>
-          <label class="radio-container"><input type="radio" name="r_12" value="No" data-replace="x:No"><b>No</b><span class="checkmark"></span></label>
+          <label class="radio-container"><input type="radio" name="r_12" value="Change your response to match my recommendation" data-replace="x:Change your response to match my recommendation"><b>Change your response to match my recommendation</b><span class="checkmark"></span></label>
         </p>
         <br>
         <br>
-        <button style="margin:45px" type="button" class="btn-navigate" onclick="recordResp('r_12','true');" data-next="yes_r12=q12;q13shape"><b>Next &raquo;</b></button>        
-      </div>
-      
-      <!-- Question 12 Post-Recommendation without Pepper's speech -->
-      <div id="q12" class="survey-box">
-        <br>
-        <br>
-        <h1 data-ignore> <b>Q12: How many triangles were in the picture? </b> </h1>
-        <br>
-        <span><input type="number" min="0" max="100" name="q_a12" onclick="deleteText()" class="form-control small-text" style="display: inline-block;" value="0"> squares</span>
-        <br>
-        <br>
-        <button type="button" class="btn-navigate" onclick="recordResp('q_a12','true');" data-next="q13shape"><b>Next &raquo;</b></button>
+        <button style="margin:45px" type="button" class="btn-navigate" onclick="recordResp('r_12','true');" data-next="q13shape"><b>Next &raquo;</b></button>        
       </div>
       
       <!-- Question 13 Introduction (Shape Display) -->
       <div id="q13shape" class="survey-box">
         <h1 data-animated class="hidden"> Great, let's try another one. Take a quick look at the shape, and proceed whenever you are ready. ^run(animations/Stand/BodyTalk/Speaking/BodyTalk_12) </h1>
-        <img src="images/Circle.png" alt="Circle" class="center" height="420">
+        <br>
+        <img src="images/Circle.png" alt="Circle" class="center" height="380">
         <br>
         <br>
         <button type="button" class="btn-navigate" data-next="q13cluster"><b>Go &raquo;</b></button>
@@ -721,70 +675,65 @@
       
       <!-- Question 13 Cluster Display -->
       <div id="q13cluster" class="survey-box">
-        <h1 class="hidden" data-auto-transition> \vol=0\ The timer will now start its count. Go. 5, 4, 3, 2, 1. </h1>
+        <h1 class="hidden" data-auto-transition>\vol=0\ The timer will start. Go. 5, 4, 3, 2, 1. </h1>
         <br>
-        <img src="images/Q1 Shape Cluster.png" alt="Cluster Q13" height="510"> 
+        <img src="images/Q13.png" alt="Cluster Q13" height="510"> 
         <button type="button" class="btn-navigate hidden" data-next="q13r"> <b>Next &raquo;</b> </button>
       </div>
-
+      
       <!-- Question 13 before suggestion (text box input) -->
       <div id="q13r" class="survey-box">
         <br>
         <br>
-        <h1 class="hidden"> What is your initial guess on the number of circles? I will also provide a suggestion after you've made your guess. </h1>
+        <h1 class="hidden"> What is your initial guess on the number of circles? </h1>
         <h1 data-ignore> <b>Q13: How many circles did you count? </b> </h1> 
         <br>
-        <span><input type="number" min="0" max="100" name="q_a13r" onclick="deleteText()" class="form-control small-text" style="display: inline-block;" value="0"> circles</span>
+        <span><input type="number" min="0" max="100" name="q_a13r" onclick="deleteText()" class="form-control small-text" style="display: inline-block;"> circles</span>
         <br>
         <br>
-        <button type="button" class="btn-navigate" onclick="recordResp('q_a13r','true');" data-next="r7"><b>Next &raquo;</b></button>
+        <button type="button" class="btn-navigate" onclick="recordResp('q_a13r','true');" data-next="r7_for_wrong_selection"><b>Next &raquo;</b></button>
+      </div>
+
+      <!-- Recommendation for wrong answer selection -->
+      <div id="r7_for_wrong_selection" class="survey-box">
+        <h1 class="hidden" data-animated data-auto-transition> OK. Personally, I counted 10 circles. ^run(animations/Stand/Gestures/Thinking_1) </h1>
+        <button type="button" class="btn-navigate hidden" data-next="r7">Next</button>
       </div>
       
       <!-- Recommendation for Q13 -->
       <div id="r7" class="survey-box">
         <br>
-        <h1 data-animated class="hidden"> OK. Personally, I counted 10 circles. Would you like to confirm your guess? ^run(animations/Stand/Gestures/Thinking_1) </h1>
+        <h1 data-animated class="hidden"> Would you like to confirm your guess? ^run(animations/Stand/Gestures/Thinking_1) </h1>
         <br>
         <br>
-        <h1 data-ignore> Do you want to change your answer? </h1>
+        <h1 data-ignore> What submission would you like to confirm? </h1>
         <br>
         <br>
         <p class="example"> 
-          <label class="radio-container"><input type="radio" id="yes_r13" name="r_13" value="Yes" data-replace="x:Yes"><b>Yes</b><span class="checkmark"></span></label>
+          <label class="radio-container"><input type="radio" name="r_13" value="Keep my selected response" data-replace="x:Keep my selected response"><b>Keep my selected response</b><span class="checkmark"></span></label>
           <br>
-          <label class="radio-container"><input type="radio" name="r_13" value="No" data-replace="x:No"><b>No</b><span class="checkmark"></span></label>
+          <label class="radio-container"><input type="radio" name="r_13" value="Change your response to match my recommendation" data-replace="x:Change your response to match my recommendation"><b>Change your response to match my recommendation</b><span class="checkmark"></span></label>
         </p>
         <br>
         <br>
-        <button style="margin:45px" type="button" class="btn-navigate" onclick="recordResp('r_13','true');" data-next="yes_r13=q13;q14shape"><b>Next &raquo;</b></button>        
-      </div>
-      
-      <!-- Question 13 Post-Recommendation without Pepper's speech -->
-      <div id="q13" class="survey-box">
-        <br>
-        <br>
-        <h1 data-ignore> <b>Q13: How many circles did you count?</b> </h1>
-        <br>
-        <span><input type="number" min="0" max="100" name="q_a13" onclick="deleteText()" class="form-control small-text" style="display: inline-block;" value="0"> circles</span>
-        <br>
-        <br>
-        <button type="button" class="btn-navigate" onclick="recordResp('q_a13','true');" data-next="q14shape"><b>Next &raquo;</b></button>
+        <button style="margin:45px" type="button" class="btn-navigate" onclick="recordResp('r_13','true');" data-next="q14shape"><b>Next &raquo;</b></button>        
       </div>
       
       <!-- Question 14 Introduction (Shape Display) -->
       <div id="q14shape" class="survey-box">
         <h1 data-animated class="hidden"> Right, here is the next shape. Continue whenever you are ready. ^run(animations/Stand/BodyTalk/Speaking/BodyTalk_12) </h1>
-        <img src="images/Square.png" alt="Square" class="center" height="420">
+        <br>
+        <img src="images/Square.png" alt="Square" class="center" height="380">
         <br>
         <br>
         <button type="button" class="btn-navigate" data-next="q14cluster"><b>Go &raquo;</b></button>
       </div>
-
+      
       <!-- Question 14 Cluster Display -->
       <div id="q14cluster" class="survey-box">
-        <h1 class="hidden" data-auto-transition> \vol=0\ The timer will now start its count. Go. 5, 4, 3, 2, 1. </h1>
+        <h1 class="hidden" data-auto-transition>\vol=0\ The timer will start. Go. 5, 4, 3, 2, 1. </h1>
         <br>
-        <img src="images/Q1 Shape Cluster.png" alt="Cluster Q14" height="510"> 
+        <img src="images/Q14_Q15.png" alt="Cluster Q14" height="510"> 
         <button type="button" class="btn-navigate hidden" data-next="q14r"> <b>Next &raquo;</b> </button>
       </div>
       
@@ -795,57 +744,52 @@
         <h1 class="hidden"> Let me know how many squares were in the figure, and afterwards, I will offer a suggestion. </h1>
         <h1 data-ignore> <b>Q14: How many squares were in the picture? </b> </h1>
         <br>
-        <span><input type="number" min="0" max="100" name="q_a14r" onclick="deleteText()" class="form-control small-text" style="display: inline-block;" value="0"> squares</span>
+        <span><input type="number" min="0" max="100" name="q_a14r" onclick="deleteText()" class="form-control small-text" style="display: inline-block;"> squares</span>
         <br>
         <br>
-        <button type="button" class="btn-navigate" onclick="recordResp('q_a14r','true');" data-next="r8"><b>Next &raquo;</b></button>
+        <button type="button" class="btn-navigate" onclick="recordResp('q_a14r','true');" data-next="r8_for_wrong_selection"><b>Next &raquo;</b></button>
       </div>
       
+      <!-- Recommendation for wrong answer selection -->
+      <div id="r8_for_wrong_selection" class="survey-box">
+        <h1 class="hidden" data-animated data-auto-transition> OK. Personally, I counted 8 squares. ^run(animations/Stand/Gestures/Thinking_1) </h1>
+        <button type="button" class="btn-navigate hidden" data-next="r8">Next</button>
+      </div>
+
       <!-- Recommendation for Q14 -->
       <div id="r8" class="survey-box">
         <br>
-        <h1 data-animated class="hidden"> OK. Personally, I counted 8 squares. So, what is the final guess you would like to confirm? ^run(animations/Stand/Gestures/Thinking_1) </h1>
+        <h1 data-animated class="hidden"> So, what is the final guess you would like to confirm? ^run(animations/Stand/Gestures/Thinking_1) </h1>
         <br>
         <br>
-        <h1 data-ignore> Do you want to change your answer? </h1>
+        <h1 data-ignore> What submission would you like to confirm? </h1>
         <br>
         <br>
         <p class="example"> 
-          <label class="radio-container"><input type="radio" id="yes_r14" name="r_14" value="Yes" data-replace="x:Yes"><b>Yes</b><span class="checkmark"></span></label>
+          <label class="radio-container"><input type="radio" name="r_14" value="Keep my selected response" data-replace="x:Keep my selected response"><b>Keep my selected response</b><span class="checkmark"></span></label>
           <br>
-          <label class="radio-container"><input type="radio" name="r_14" value="No" data-replace="x:No"><b>No</b><span class="checkmark"></span></label>
+          <label class="radio-container"><input type="radio" name="r_14" value="Change your response to match my recommendation" data-replace="x:Change your response to match my recommendation"><b>Change your response to match my recommendation</b><span class="checkmark"></span></label>
         </p>
         <br>
         <br>
-        <button style="margin:45px" type="button" class="btn-navigate" onclick="recordResp('r_14','true');" data-next="yes_r14=q14;q15shape"><b>Next &raquo;</b></button>        
-      </div>
-      
-      <!-- Question 14 Post-Recommendation without Pepper's speech -->
-      <div id="q14" class="survey-box">
-        <br>
-        <br>
-        <h1 data-ignore> <b>Q14: How many squares were in the picture?</b> </h1>
-        <br>
-        <span><input type="number" min="0" max="100" name="q_a14" onclick="deleteText()" class="form-control small-text" style="display: inline-block;" value="0"> squares</span>
-        <br>
-        <br>
-        <button type="button" class="btn-navigate" onclick="recordResp('q_a14','true');" data-next="q15shape"><b>Next &raquo;</b></button>
+        <button style="margin:45px" type="button" class="btn-navigate" onclick="recordResp('r_14','true');" data-next="q15shape"><b>Next &raquo;</b></button>        
       </div>
       
       <!-- Question 15 Introduction (Shape Display) -->
       <div id="q15shape" class="survey-box">
         <h1 data-animated class="hidden"> Here is your final task. Look at the shape, and proceed whenever you are ready. ^run(animations/Stand/BodyTalk/Speaking/BodyTalk_12) </h1>
-        <img src="images/Triangle.png" alt="Triangle" class="center" height="420">
+        <br>
+        <img src="images/Triangle.png" alt="Triangle" class="center" height="380">
         <br>
         <br>
         <button type="button" class="btn-navigate" data-next="q15cluster"><b>Go &raquo;</b></button>
       </div>
-
+      
       <!-- Question 15 Cluster Display -->
       <div id="q15cluster" class="survey-box">
-        <h1 class="hidden" data-auto-transition> \vol=0\ The timer will now start its count. Go. 5, 4, 3, 2, 1. </h1>
+        <h1 class="hidden" data-auto-transition>\vol=0\ The timer will start. Go. 5, 4, 3, 2, 1. </h1>
         <br>
-        <img src="images/Q1 Shape Cluster.png" alt="Cluster Q15" height="510"> 
+        <img src="images/Q14_Q15.png" alt="Cluster Q15" height="510"> 
         <button type="button" class="btn-navigate hidden" data-next="q15r"> <b>Next &raquo;</b> </button>
       </div>
       
@@ -853,44 +797,38 @@
       <div id="q15r" class="survey-box">
         <br>
         <br>
-        <h1 class="hidden"> How many triangles did you count? I can give you a suggestion, and you will have the opportunity to change your answer. </h1>
+        <h1 class="hidden"> How many triangles did you count? </h1>
         <h1 data-ignore> <b>Q15: How many triangles did you count? </b> </h1>
         <br>
-        <span><input type="number" min="0" max="100" name="q_a15r" onclick="deleteText()" class="form-control small-text" style="display: inline-block;" value="0"> triangles</span>
+        <span><input type="number" min="0" max="100" name="q_a15r" onclick="deleteText()" class="form-control small-text" style="display: inline-block;"> triangles</span>
         <br>
         <br>
-        <button type="button" class="btn-navigate" onclick="recordResp('q_a15r','true');" data-next="r9"><b>Next &raquo;</b></button>
+        <button type="button" class="btn-navigate" onclick="recordResp('q_a15r','true');" data-next="r9_for_wrong_selection"><b>Next &raquo;</b></button>
       </div>
       
+      <!-- Recommendation for wrong answer selection -->
+      <div id="r9_for_wrong_selection" class="survey-box">
+        <h1 class="hidden" data-animated data-auto-transition> OK. Personally, I counted 13 triangles. ^run(animations/Stand/Gestures/Thinking_1) </h1>
+        <button type="button" class="btn-navigate hidden" data-next="r9">Next</button>
+      </div>
+
       <!-- Recommendation for Q15 -->
       <div id="r9" class="survey-box">
         <br>
-        <h1 data-animated class="hidden"> OK. Personally, I counted 13 triangles. So, what is the final guess you would like to confirm? ^run(animations/Stand/Gestures/Thinking_1) </h1>
+        <h1 data-animated class="hidden"> So, what is the final guess you would like to confirm? ^run(animations/Stand/Gestures/Thinking_1) </h1>
         <br>
         <br>
-        <h1 data-ignore> Do you want to change your answer? </h1>
+        <h1 data-ignore> What submission would you like to confirm? </h1>
         <br>
         <br>
         <p class="example"> 
-          <label class="radio-container"><input type="radio" id="yes_r15" name="r_15" value="Yes" data-replace="x:Yes"><b>Yes</b><span class="checkmark"></span></label>
+          <label class="radio-container"><input type="radio" name="r_15" value="Keep my selected response" data-replace="x:Keep my selected response"><b>Keep my selected response</b><span class="checkmark"></span></label>
           <br>
-          <label class="radio-container"><input type="radio" name="r_15" value="No" data-replace="x:No"><b>No</b><span class="checkmark"></span></label>
+          <label class="radio-container"><input type="radio" name="r_15" value="Change your response to match my recommendation" data-replace="x:Change your response to match my recommendation"><b>Change your response to match my recommendation</b><span class="checkmark"></span></label>
         </p>
         <br>
         <br>
-        <button style="margin:45px" type="button" class="btn-navigate" onclick="recordResp('r_15','true');" data-next="yes_r15=q15;tores"><b>Next &raquo;</b></button>        
-      </div>
-      
-      <!-- Question 15 Post-Recommendation without Pepper's speech -->
-      <div id="q15" class="survey-box">
-        <br>
-        <br>
-        <h1 data-ignore> <b>Q15: How many triangles did you count?</b> </h1>
-        <br>
-        <span><input type="number" min="0" max="100" name="q_a15" onclick="deleteText()" class="form-control small-text" style="display: inline-block;" value="0"> triangles</span>
-        <br>
-        <br>
-        <button type="button" class="btn-navigate" onclick="recordResp('q_a15','true');" data-next="tores"><b>Next &raquo;</b></button>
+        <button style="margin:45px" type="button" class="btn-navigate" onclick="recordResp('r_15','true');" data-next="tores"><b>Next &raquo;</b></button>        
       </div>
       
       <!-- Direct page to results -->
@@ -913,7 +851,7 @@
         <button type="button" class="btn-navigate" data-next="ex1"> <b>Next</b> </button>
       </div>
       
-      <!-- Don't remove these even though they are not displayed -->
+      <!-- Don't remove these even though they are skipped -->
       <div id="results-2" class="survey-box">
         <iframe id="survey-results-2" style="display: block; width: 100%; height: 70%; border: 1px solid #ccc; margin-bottom: 10px;">
         </iframe><br /><br />
