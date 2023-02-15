@@ -56,7 +56,6 @@
         <File name="Triangle" src="html/images/Triangle.png" />
         <File name="Puzzle_Piece" src="html/images/Puzzle_Piece.png" />
         <File name="Explanatory_Statement" src="html/Explanatory_Statement.html" />
-        <File name="scroll" src="scroll.png" />
         <File name="Green_arrow" src="html/images/Green_arrow.PNG" />
         <File name="Interview" src="html/images/Interview.png" />
         <File name="QuizExplanation" src="html/images/QuizExplanation.png" />

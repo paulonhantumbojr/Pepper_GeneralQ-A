@@ -61,11 +61,13 @@ def toHTML(data, pages=None): #data variable represents the inline 'name' elemen
     9, #14 (Answer to Q15)
   ]
 
+# Recommendations provided by the robot
   rec = [
     "Keep my selected response", #0 (Keep user selection)
     "Change your response to match my recommendation", #1 (Change to robot's recommendation)
   ]
 
+# Suggestions to wrong answers
   suggest = [
     "18th", #0 (For Question 6)
     "Fear of needles", #1 (For Question 8)

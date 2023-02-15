@@ -1,6 +1,7 @@
 <!-- Documentation for speech configuration on the Pepper (http://doc.aldebaran.com/2-5/naoqi/audio/altexttospeech-tuto.html#changing-the-volume) -->
 <!-- For the recommendation screens add the specific answer the user selected and the one the robot recommended (using Javascript). Refer to the the health_assessment implementation where the hours of exercise inputted were converted to minutes -->
 <!-- Test whether 'false' statements in recordResp record the values in the input boxes. -->
+<!-- Use inner.HTML with .checked for radio buttons and .value for text boxes -->
 
 <html>
 <head>
@@ -38,19 +39,68 @@
           <p style="width: 80%; margin: 0 auto;">Please use my touchscreen to enter your responses.</p>
           <br>
           <p>Press <b>Begin</b> when you are ready.</p>
-          <button type="button" class="btn-navigate" data-next="consent"> <b>Begin</b> </button>
+          <button type="button" class="btn-navigate" data-next="test0"> <b>Begin</b> </button> <!-- Change ID from 'consent' to 'test' -->
           <br>
           <!-- Progress Bar Label Arrow -->
           <div style="float: left"> 
             <p align="left"> <img src="images/Downward arrow.png" align="left" width="60px" style="margin-right: 10px;"> <b><span style="color:green">Progress Bar Starts Here</span></b> </p>
           </div>
         </div>
+
+        <!-- Test Question -->
+        <div id="test0" class="survey-box">
+          <h1 data-animated class="hidden"> Where does the Australian economy rank compared to the rest of the world? ^run(animations/Stand/BodyTalk/Speaking/BodyTalk_12) </h1>
+          <h1 data-ignore> <b>Q0: Where does the Australian economy rank compared to the rest of the world? </b> </h1>
+          <img src="images/AustralianBill.jpg" alt="Australian Bill" height="200">
+          <br>
+          <br>
+          <p class="button_centre">
+            <label class="radio-container"><input type="radio" name="q_a0r" value="9th" data-replace="x:9th" onblur="userRec('0');">9<sup>th</sup><span class="checkmark"></span></label>
+            <label class="radio-container"><input type="radio" name="q_a0r" value="11th" data-replace="x:11th" onblur="userRec('0');">11<sup>th</sup><span class="checkmark"></span></label>
+            <label class="radio-container"><input type="radio" name="q_a0r" value="14th" data-replace="x:14th" onblur="userRec('0');">14<sup>th</sup><span class="checkmark"></span></label>
+            <label class="radio-container"><input type="radio" name="q_a0r" value="18th" data-replace="x:18th" onblur="userRec('0');">18<sup>th</sup><span class="checkmark"></span></label>
+          </p>
+          <br>
+          <p style="font-size: 12px; font-weight: bold;"><span id="user_selection_0">You selected </span></p>
+          <button type="button" class="btn-navigate" onclick="recordResp('q_a0r','true');" data-next="rt_for_wrong_selection"><b>Next &raquo;</b></button>
+        </div> 
+
+        <!-- Recommendation for wrong answer selection -->
+        <div id="rt_for_wrong_selection" class="survey-box">
+          <h1 class="hidden" data-animated data-auto-transition> OK. I actually think there are 16 squares. ^run(animations/Stand/Gestures/Thinking_1) </h1>
+          <button type="button" class="btn-navigate hidden" data-next="rt">Next</button>
+        </div>
+
+        <!-- Recommendation for right test answer selection -->
+        <div id="rt_for_correct_selection" class="survey-box">
+          <h1 class="hidden" data-animated data-auto-transition> OK. I actually think there are 12 squares. ^run(animations/Stand/Gestures/Thinking_1) </h1>
+          <button type="button" class="btn-navigate hidden" data-next="rt">Next</button>
+        </div>
+
+        <!-- Recommendation for Test -->
+        <div id="rt" class="survey-box">
+          <br>
+          <h1 data-animated class="hidden"> Are you going with your guess? ^run(animations/Stand/Gestures/Thinking_1) </h1>
+          <br>
+          <br>
+          <h1 data-ignore> What submission would you like to confirm? </h1>
+          <br>
+          <br>
+          <p class="example"> 
+            <label class="radio-container"><input type="radio" name="r_0" value="Keep my selected response" data-replace="x:Keep my selected response"><b>Keep my selected response</b><span class="checkmark"></span></label>
+            <br>
+            <label class="radio-container"><input type="radio" name="r_0" value="Change your response to match my recommendation" data-replace="x:Change your response to match my recommendation"><b>Change your response to match my recommendation</b><span class="checkmark"></span></label>
+          </p>
+          <br>
+          <br>
+          <button style="margin:45px" type="button" class="btn-navigate" onclick="recordResp('r_0','true');" data-next="consent"><b>Next &raquo;</b></button>        
+        </div>
+        <!-- --------------------------------------------------------------------------------------------------------------------------------- -->
         
         <!-- Consent Form -->
         <div id="consent" class="survey-box">
           <h1 class="hidden" data-animated> ^start(animations/Stand/BodyTalk/BodyTalk_7) Hello, my name is Pepper. Today I would like to talk with you about completing a short quiz task with a set of questions that cover different topics.</h1>
           <h1 data-ignore><b>CONSENT FORM</b></h1>
-          <!-- <br> -->
           <p>I have read the information in the <a href="#" data-toggle="modal" data-target="#consent-modal">Explanatory Statement</a>.</p>
           <p>
             <label class="radio-container"><input type="radio" name="consent" value="0" id="no_consent">No<span class="checkmark"></span></label>
@@ -63,7 +113,7 @@
           </p>
           <p> I am 18 years of age or older. </p>
           <p>
-            <label class="radio-container"><input type="radio" name="patient" value="0" id="underage">No<span class="checkmark"></span></label>
+            <label class="radio-container"><input typeright="radio" name="patient" value="0" id="underage">No<span class="checkmark"></span></label>
             <label class="radio-container"><input type="radio" name="patient" value="1">Yes<span class="checkmark"></span></label>
           </p>
           <button type="button" class="btn-navigate" data-next="no_consent=consent-a;no_participate=consent-a;underage=consent-b;tablet"> <b>Next &raquo;</b> </button>
@@ -346,7 +396,7 @@
           <label class="radio-container"><input type="radio" id="correct6r" name="q_a6r" value="14th" data-replace="x:14th">14<sup>th</sup><span class="checkmark"></span></label>
           <label class="radio-container"><input type="radio" name="q_a6r" value="18th" data-replace="x:18th">18<sup>th</sup><span class="checkmark"></span></label>
         </p>
-        <button type="button" class="btn-navigate" onclick="recordResp('q_a6r','true');" data-next="correct6r=r1_for_correct_selection;r1_for_wrong_selection"><b>Next &raquo;</b></button>
+        <button type="button" class="btn-navigate" onclick="recordResp('q_a6r','true'); userRec('6');" data-next="correct6r=r1_for_correct_selection;r1_for_wrong_selection"><b>Next &raquo;</b></button>
       </div> 
       
       <!-- Recommendation for wrong answer selection -->
@@ -361,10 +411,11 @@
         <button type="button" class="btn-navigate hidden" data-next="r1">Next</button>
       </div>
       
-      <!-- Question 6 Recommendation confirmation (when incorrect answer is selected) -->
+      <!-- Question 6 Recommendation confirmation -->
       <div id="r1" class="survey-box"> 
         <br>
         <br>
+        <p><span id="user_selection_6"></span></p>
         <h1 data-ignore> What submission would you like to confirm? </h1>
         <br>
         <br>
@@ -409,7 +460,7 @@
           <label class="radio-container"><input type="radio" id="correct8r" name="q_a8r" value="Fear of dogs" data-replace="x:Fear of dogs">Fear of dogs<span class="checkmark"></span></label>
           <label class="radio-container"><input type="radio" name="q_a8r" value="Fear of places" data-replace="x:Fear of places">Fear of places<span class="checkmark"></span></label>
         </p>
-        <button type="button" class="btn-navigate" onclick="recordResp('q_a8r','true');" data-next="correct8r=r2_for_correct_selection;r2_for_wrong_selection"><b>Next &raquo;</b></button>
+        <button type="button" class="btn-navigate" onclick="recordResp('q_a8r','true'); userRec('8');" data-next="correct8r=r2_for_correct_selection;r2_for_wrong_selection"><b>Next &raquo;</b></button>
       </div>
       
       <!-- Recommendation for wrong answer selection -->
@@ -428,7 +479,7 @@
       <div id="r2" class="survey-box">
         <br>
         <br>
-        <br>
+        <p><span id="user_selection_8"></span></p>
         <h1 data-ignore> What submission would you like to confirm? </h1>
         <br>
         <br>
@@ -456,7 +507,7 @@
           <label class="radio-container"><input type="radio" name="q_a9r" value="A banana" data-replace="x:A banana">A banana<span class="checkmark"></span></label>
           <label class="radio-container"><input type="radio" name="q_a9r" value="A watermelon" data-replace="x:A watermelon">A watermelon<span class="checkmark"></span></label>
         </p>
-        <button type="button" class="btn-navigate" onclick="recordResp('q_a9r','true');" data-next="correct9r=r3_for_correct_selection;r3_for_wrong_selection"><b>Next &raquo;</b></button>
+        <button type="button" class="btn-navigate" onclick="recordResp('q_a9r','true'); userRec('9');" data-next="correct9r=r3_for_correct_selection;r3_for_wrong_selection"><b>Next &raquo;</b></button>
       </div>
       
       <!-- Recommendation for wrong answer selection -->
@@ -475,7 +526,7 @@
       <div id="r3" class="survey-box">
         <br>
         <br>
-        <br>
+        <p><span id="user_selection_9"></span></p>
         <h1 data-ignore> What submission would you like to confirm? </h1>
         <br>
         <br>
@@ -502,7 +553,7 @@
           <label class="radio-container"><input type="radio" name="q_a10r" value="14" data-replace="x:14">14<span class="checkmark"></span></label>
           <label class="radio-container"><input type="radio" id="correct10r" name="q_a10r" value="11" data-replace="x:11">11<span class="checkmark"></span></label>
         </p>
-        <button type="button" class="btn-navigate" onclick="recordResp('q_a10r','true');" data-next="correct10r=r4_for_correct;r4_for_wrong"><b>Next &raquo;</b></button>
+        <button type="button" class="btn-navigate" onclick="recordResp('q_a10r','true'); userRec('10');" data-next="correct10r=r4_for_correct;r4_for_wrong"><b>Next &raquo;</b></button>
       </div>
       
       <!-- Recommendation for wrong answer selection -->
@@ -521,7 +572,7 @@
       <div id="r4" class="survey-box">
         <br>
         <br>
-        <br>
+        <p><span id="user_selection_10"></span></p>
         <h1 data-ignore> What submission would you like to confirm? </h1>
         <br>
         <br>
@@ -567,24 +618,21 @@
         <h1 class="hidden"> What is your initial guess on the number of squares? I can provide you with a suggestion, and you will have the opportunity to change your answer. </h1>
         <h1 data-ignore> <b>Q11: How many squares did you count? </b> </h1>
         <br>
-        <span><input type="number" id="q11number" min="0" max="100" name="q_a11r" onclick="deleteText()" class="form-control small-text" style="display: inline-block;"> squares</span>
+        <span><input type="number" min="0" max="100" id="q11num" name="q_a11r" onclick="deleteText()" class="form-control small-text" style="display: inline-block;"> squares</span>
         <br>
         <br>
-        <button type="button" class="btn-navigate" onclick="recordResp('q_a11r','false');" data-next="r5_for_wrong_selection"><b>Next &raquo;</b></button>
+        <button type="button" class="btn-navigate" onclick="recordResp('q_a11r','false'); userRec('11');" data-next="q11num_false=r5_for_wrong_selection; r5_for_correct_selection"><b>Next &raquo;</b></button>
       </div>
-      
-      <!-- Trigger the id based on the user input, to toggle them towards the right recommendation -->
-      <!-- <script>
-        var c = document.getElementsByName('q_a11r');
         
-        function detectTextBoxInput (){
-          
-        }
-      </script> -->
-      
       <!-- Recommendation for wrong answer selection -->
       <div id="r5_for_wrong_selection" class="survey-box">
         <h1 class="hidden" data-animated data-auto-transition> OK. I actually think there are 16 squares. ^run(animations/Stand/Gestures/Thinking_1) </h1>
+        <button type="button" class="btn-navigate hidden" data-next="r5">Next</button>
+      </div>
+
+      <!-- Recommendation for right answer selection -->
+      <div id="r5_for_correct_selection" class="survey-box">
+        <h1 class="hidden" data-animated data-auto-transition> OK. I actually think there are 12 squares. ^run(animations/Stand/Gestures/Thinking_1) </h1>
         <button type="button" class="btn-navigate hidden" data-next="r5">Next</button>
       </div>
       
@@ -593,7 +641,7 @@
         <br>
         <h1 data-animated class="hidden"> Are you going with your guess? ^run(animations/Stand/Gestures/Thinking_1) </h1>
         <br>
-        <br>
+        <p><span id="user_selection_11"></span></p>
         <h1 data-ignore> What submission would you like to confirm? </h1>
         <br>
         <br>
@@ -635,7 +683,7 @@
         <span><input type="number" min="0" max="100" name="q_a12r" onclick="deleteText()" class="form-control small-text" style="display: inline-block;"> triangles</span>
         <br>
         <br>
-        <button type="button" class="btn-navigate" onclick="recordResp('q_a12r','false');" data-next="r6_for_wrong_selection"><b>Next &raquo;</b></button>
+        <button type="button" class="btn-navigate" onclick="recordResp('q_a12r','false'); userRec('12');" data-next="r6_for_wrong_selection"><b>Next &raquo;</b></button>
       </div>
       
       <!-- Recommendation for wrong answer selection -->
@@ -649,7 +697,7 @@
         <br>
         <h1 data-animated class="hidden"> Would you like to confirm your submission or change your guess? ^run(animations/Stand/Gestures/Thinking_1) </h1>
         <br>
-        <br>
+        <p><span id="user_selection_12"></span></p>
         <h1 data-ignore> What submission would you like to confirm? </h1>
         <br>
         <br>
@@ -691,7 +739,7 @@
         <span><input type="number" min="0" max="100" name="q_a13r" onclick="deleteText()" class="form-control small-text" style="display: inline-block;"> circles</span>
         <br>
         <br>
-        <button type="button" class="btn-navigate" onclick="recordResp('q_a13r','false');" data-next="r7_for_wrong_selection"><b>Next &raquo;</b></button>
+        <button type="button" class="btn-navigate" onclick="recordResp('q_a13r','false'); userRec('13');" data-next="r7_for_wrong_selection"><b>Next &raquo;</b></button>
       </div>
 
       <!-- Recommendation for wrong answer selection -->
@@ -747,7 +795,7 @@
         <span><input type="number" min="0" max="100" name="q_a14r" onclick="deleteText()" class="form-control small-text" style="display: inline-block;"> squares</span>
         <br>
         <br>
-        <button type="button" class="btn-navigate" onclick="recordResp('q_a14r','false');" data-next="r8_for_wrong_selection"><b>Next &raquo;</b></button>
+        <button type="button" class="btn-navigate" onclick="recordResp('q_a14r','false'); userRec('14');" data-next="r8_for_wrong_selection"><b>Next &raquo;</b></button>
       </div>
       
       <!-- Recommendation for wrong answer selection -->
@@ -761,7 +809,7 @@
         <br>
         <h1 data-animated class="hidden"> So, what is the final guess you would like to confirm? ^run(animations/Stand/Gestures/Thinking_1) </h1>
         <br>
-        <br>
+        <p><span id="user_selection_14"></span></p>
         <h1 data-ignore> What submission would you like to confirm? </h1>
         <br>
         <br>
@@ -803,7 +851,7 @@
         <span><input type="number" min="0" max="100" name="q_a15r" onclick="deleteText()" class="form-control small-text" style="display: inline-block;"> triangles</span>
         <br>
         <br>
-        <button type="button" class="btn-navigate" onclick="recordResp('q_a15r','false');" data-next="r9_for_wrong_selection"><b>Next &raquo;</b></button>
+        <button type="button" class="btn-navigate" onclick="recordResp('q_a15r','false'); userRec('15');" data-next="r9_for_wrong_selection"><b>Next &raquo;</b></button>
       </div>
       
       <!-- Recommendation for wrong answer selection -->
@@ -817,7 +865,7 @@
         <br>
         <h1 data-animated class="hidden"> So, what is the final guess you would like to confirm? ^run(animations/Stand/Gestures/Thinking_1) </h1>
         <br>
-        <br>
+        <p><span id="user_selection_15"></span></p>
         <h1 data-ignore> What submission would you like to confirm? </h1>
         <br>
         <br>
@@ -939,6 +987,32 @@
       box.value = "";
     }
   }
-</script>
+
+  function userRec(quesNr){
+    var usrQues = "q_a" + quesNr + "r";
+    var select_ID = "user_selection_" + quesNr;
+    var selection = document.getElementById(select_ID);
+    
+    var option = document.getElementsByName(usrQues);
+    
+    if (option.checked == true){
+      selection.innerHTML = "You selected " + option.value; // String(option.value)
+    } else {
+      selection.innerHTML = "You selected " + option.value;
+    }
+  }
+
+  // Trigger the id based on the user input, to toggle them towards the right recommendation 
+  // var c = document.getElementsByName('q_a11r');
+  // var d = document.getElementById('q11num');
+
+  // function detectTextBoxInput (){
+  //   if (c.value == "16"){
+  //     d.id = 'q11num_correct';
+  //   } else {
+  //     d.id = 'q11num_false';
+  //   }
+  // }
+  </script>
 </body>
 </html>
