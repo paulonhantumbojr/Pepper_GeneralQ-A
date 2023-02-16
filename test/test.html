@@ -1,0 +1,244 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+    <title>Radio Button Testing</title>
+    <style>
+        .button_centre {
+            text-align: center;
+        }
+        
+        input[type="radio"] {
+            transform: scale(2.5);
+            margin-right: 2.0em;
+            width: 5px;
+        }
+        
+        /* The container */
+        .radio-container, .checkbox-container {
+            position: relative;
+            padding-left: 35px;
+            margin-left: 2%;
+            margin-bottom: 12px;
+            cursor: pointer;
+            font-size: 22px;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+        
+        .radio-container:first-of-type, .checkbox-container:first-of-type {
+            /* margin-left: 1%; */
+        }
+        
+        /* Three image containers (use 25% for four, and 50% for two, etc) */
+        .column {
+            float: left;
+            width: 16.55%; /* width: 15.5%; */
+            padding: 5px;
+        }
+        
+        /* Hide the browser's default radio button */
+        .radio-container input, .checkbox-container input {
+            position: absolute;
+            opacity: 0;
+            cursor: pointer;
+        }
+        
+        /* Create a custom radio button */
+        .radio-container input ~ .checkmark {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 25px;
+            width: 25px;
+            background-color: #ccc;
+            border-radius: 50%;
+        }
+        
+        /* Create a custom radio button */
+        .checkbox-container input ~ .checkmark {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 25px;
+            width: 25px;
+            background-color: #ccc;
+        }
+        
+        /* On mouse-over, add a grey background color */
+        .radio-container:hover input ~ .checkmark, .checkbox-container:hover input ~ .checkmark {
+            background-color: #aaa;
+        }
+        
+        /* When the radio button is checked, add a blue background */
+        .radio-container input:checked ~ .checkmark, .checkbox-container input:checked ~ .checkmark {
+            background-color: #2196F3;
+        }
+        
+        /* Create the indicator (the dot/circle - hidden when not checked) */
+        .checkmark:after {
+            content: "";
+            position: absolute;
+            display: none;
+        }
+        
+        /* Show the indicator (dot/circle) when checked */
+        input:checked ~ .checkmark:after {
+            display: block;
+        }
+        
+        /* Style the indicator (dot/circle) */
+        .radio-container .checkmark:after {
+            top: 9px;
+            left: 9px;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: white;
+        }
+        
+        .checkbox-container .checkmark:after {
+            left: 9px;
+            top: 5px;
+            width: 5px;
+            height: 10px;
+            border: solid white;
+            border-width: 0 3px 3px 0;
+            -webkit-transform: rotate(45deg);
+            -ms-transform: rotate(45deg);
+            transform: rotate(45deg);
+        }
+        
+        button {
+            font-size: 24pt;
+            background-color: #022793;
+            border: none;
+            color: white;
+            padding: 16px 32px;
+            text-align: center;
+            margin: 4px 2px;
+            opacity: 1;
+            transition: 0.3s;
+            display: inline-block;
+            text-decoration: none;
+            cursor: pointer;
+            min-width: 200px;
+        }
+        
+        #correct input, select, textarea{
+            color:green;
+        }
+        
+        #incorrect input, select, textarea{
+            color:red;
+        }
+        
+        input, select, textarea{
+            color: #4a4646;
+        }
+    </style>
+</head>
+<body lang="en-AU">
+    <p style="text-align: left;">
+        <img src="images/Monash_Logo.png" alt="Monash Logo" height="80">
+    </p>
+    
+    <h1 style="text-align: center;"> Radio Testing </h1>
+    
+    <!-- Question 1 --> 
+    <div style="text-align: center;">        
+        <h2> <b> Q1: What geometric shape is generally used for STOP signs? </b> </h2>
+        <img src="images/STOP.jpg" alt="Brake Lights" height="250"> 
+        <br>
+        <br>
+        <p class="button_centre">
+            <label class="radio-container"><input type="radio" name="q_a1" value="A hexagon" onclick="radioSelection('1');">A hexagon<span class="checkmark"></span></label>
+            <label class="radio-container"><input type="radio" name="q_a1" value="A pentagon" onclick="radioSelection('1');">A pentagon<span class="checkmark"></span></label>
+            <label class="radio-container"><input type="radio" name="q_a1" value="An octagon" onclick="radioSelection('1');">An octagon<span class="checkmark"></span></label>
+            <label class="radio-container"><input type="radio" name="q_a1" value="A heptagon" onclick="radioSelection('1');">A heptagon<span class="checkmark"></span></label> 
+        </p>
+        <br>
+        <p style="font-size: 18px;"><span id="select1_user">You selected: </span></p>
+        <br>
+    </div>
+    
+    <!-- Question 2 --> 
+    <div style="text-align: center;">        
+        <h2> <b>  Q2: What is the motto of Monash University? </b> </h2>
+        <img src="images/AncoraImparo_Motto.png" alt="Ancora Imparo" height="250"> 
+        <br>
+        <br>
+        <p class="button_centre">
+            <label class="radio-container"><input type="radio" name="q_a2" value="I am still learning" onclick="radioSelection('2');">I am still learning<span class="checkmark"></span></label>
+            <label class="radio-container"><input type="radio" name="q_a2" value="Empowering generations" onclick="radioSelection('2');">Empowering generations<span class="checkmark"></span></label>
+            <label class="radio-container"><input type="radio" name="q_a2" value="Towards improvement" onclick="radioSelection('2');">Towards improvement<span class="checkmark"></span></label>
+            <label class="radio-container"><input type="radio" name="q_a2" value="Shaping leaders" onclick="radioSelection('2');">Shaping leaders<span class="checkmark"></span></label>
+        </p>
+        <br>
+        <p style="font-size: 18px;"><span id="select2_user">You selected: </span></p>
+        <br>
+    </div>
+    
+    <!-- Question 3 --> 
+    <div style="text-align: center;">        
+        <h2> <b>  Q3: How many squares are in the figure? </b> </h2>
+        <img src="images/Q11.png" alt="Square Cluster" height="250"> 
+        <br>
+        <br>
+        <span><input type="number" min="0" max="100" id="evaluation" name="q_a3" style="display: inline-block;" onblur="inputSelection('3');" onclick="changeId('3');"> squares</span>
+        <br>
+        <p style="font-size: 18px;"><span id="select3_user">You selected: </span></p>
+        <br>
+    </div>
+    
+    <script>
+        // Display radio button selection
+        function radioSelection(quesNr){
+            let radioBtns = document.querySelectorAll("input[name='q_a" + quesNr + "]");
+            let result = document.getElementById("select" + quesNr + "_user");
+            
+            let findSelected = () => {
+                let selected = document.querySelector("input[name='q_a" + quesNr + "']:checked").value; // Checking radio buttons
+                result.textContent = `You selected: ${selected}`;
+            }
+            
+            radioBtns.forEach(radioBtn => {
+                radioBtn.addEventListener("change", findSelected);
+            });
+            
+            findSelected();
+        }  
+        
+        // Display input box selection
+        function inputSelection(quesNr){
+            let textBoxs = document.querySelectorAll("input[name='q_a" + quesNr + "]");
+            let result = document.getElementById("select" + quesNr + "_user");
+            
+            let findSelected = () => {
+                let selected = document.querySelector("input[name='q_a" + quesNr + "']").value; // Checking number input boxes
+                result.textContent = `You selected: ${selected}`;
+            }
+            
+            textBoxs.forEach(textBox => {
+                textBox.addEventListener("change", findSelected);
+            });
+            
+            findSelected();
+        }       
+        
+        // Method to change the id of a specific element
+        // function changeId(quesNr){
+        //     let selected = document.querySelector("input[name='q_a" + quesNr + "']").value; // Checking number input boxes
+        //     let res = document.getElementById("evaluation");
+            
+        //     if(selected == 3){
+        //         res.id = 'correct';
+        //         // element.setAttribute('id','newId');
+        //     } else {
+        //         res.id = 'incorrect';
+        //     }
+        // }
+    </script>
+</body>
+</html>

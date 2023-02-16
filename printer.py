@@ -47,13 +47,13 @@ def toHTML(data, pages=None): #data variable represents the inline 'name' elemen
     "An octagon", #0 (Answer to Q1)
     "I am still learning", #1 (Answer to Q2)
     "Canberra", #2 (Answer to Q3)
-    "Red", #3 (Answer to Q4)
+    "Footy", #3 (Answer to Q4)
     "A Civil Engineer", #4 (Answer to Q5)
     "14th", #5 (Answer to Q6) 
     "Pacific", #6 (Answer to Q7)
     "Fear of dogs", #7 (Answer to Q8)
     "An orange", #8 (Answer to Q9)
-    "11", #9 (Answer to Q10)
+    "42nd", #9 (Answer to Q10)
     16, #10 (Answer to Q11)
     15, #11 (Answer to Q12)
     15, #12 (Answer to Q13)
@@ -63,8 +63,8 @@ def toHTML(data, pages=None): #data variable represents the inline 'name' elemen
 
 # Recommendations provided by the robot
   rec = [
-    "Keep my selected response", #0 (Keep user selection)
-    "Change your response to match my recommendation", #1 (Change to robot's recommendation)
+    "Keep my first answer", #0 (Keep user selection)
+    "Change my answer to match the recommendation", #1 (Change to robot's recommendation)
   ]
 
 # Suggestions to wrong answers
@@ -72,10 +72,10 @@ def toHTML(data, pages=None): #data variable represents the inline 'name' elemen
     "18th", #0 (For Question 6)
     "Fear of needles", #1 (For Question 8)
     "An apple", #2 (For Question 9)
-    "10", #3 (For Question 10)
+    "10th", #3 (For Question 10)
     10, #4 (For Question 11)
     12, #5 (For Question 12)
-    9, #6 (For Question 13)
+    12, #6 (For Question 13)
     8, #7 (For Question 14)
     10, #8 (For Question 15)
   ]
