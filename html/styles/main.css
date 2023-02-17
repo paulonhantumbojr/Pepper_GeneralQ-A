@@ -106,7 +106,7 @@ input {
 
 /* To change the scale of the radio buttons, and the text that accompanies it */
 input[type="radio"] {
-    transform: scale(2.5);
+    transform: scale(1.75);
     margin-right: 2.0em;
     width: 5px;
 }

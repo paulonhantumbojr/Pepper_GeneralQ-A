@@ -13,33 +13,33 @@ def toHTML(data, pages=None): #data variable represents the inline 'name' elemen
 
     data['q_a5'], #4 (Question 5)
 
-    data['q_a6r'], #5 (Question 6 prompt)
+    data['q_a6'], #5 (Question 6 prompt)
     data['r_6'], #6 (Question 6 recommendation) 
 
     data['q_a7'], #7 (Question 7)
 
-    data['q_a8r'], #8 (Question 8 prompt)
+    data['q_a8'], #8 (Question 8 prompt)
     data['r_8'], #9 (Question 8 recommendation)
 
-    data['q_a9r'], #10 (Question 9 prompt)
+    data['q_a9'], #10 (Question 9 prompt)
     data['r_9'], #11 (Question 9 recommendation)
 
-    data['q_a10r'], #12 (Question 10 prompt)
+    data['q_a10'], #12 (Question 10 prompt)
     data['r_10'], #13 (Question 10 recommendation)
 
-    int(data['q_a11r']), #14 (Question 11 prompt)
+    int(data['q_a11']), #14 (Question 11 prompt)
     data['r_11'], #15 (Question 11 recommendation)
 
-    int(data['q_a12r']), #16 (Question 12 prompt)
+    int(data['q_a12']), #16 (Question 12 prompt)
     data['r_12'] , #17 (Question 12 recommendation)
 
-    int(data['q_a13r']), #18 (Question 13 prompt)
+    int(data['q_a13']), #18 (Question 13 prompt)
     data['r_13'], #19 (Question 13 recommendation)
 
-    int(data['q_a14r']), #20 (Question 14 prompt)
+    int(data['q_a14']), #20 (Question 14 prompt)
     data['r_14'], #21 (Question 14 recommendation)
 
-    int(data['q_a15r']), #22 (Question 15 prompt)
+    int(data['q_a15']), #22 (Question 15 prompt)
     data['r_15'], #23 (Question 15 recommendation)
   ]
 
@@ -266,33 +266,33 @@ if __name__ == '__main__':
 
     "q_a5": "A Mechanic", 
 
-    "q_a6r": "14th", 
+    "q_a6": "14th", 
     "r_6": "Change your response to match my recommendation",      
 
     "q_a7": "Atlantic", 
 
-    "q_a8r": "Fear of needles", 
+    "q_a8": "Fear of needles", 
     "r_8": "Keep my selected response", 
 
-    "q_a9r": "A banana", 
+    "q_a9": "A banana", 
     "r_9": "Change your response to match my recommendation", 
 
-    "q_a10r": "8", 
+    "q_a10": "8", 
     "r_10": "Keep my selected response", 
 
-    "q_a11r": "4", 
+    "q_a11": "4", 
     "r_11": "Change your response to match my recommendation", 
 
-    "q_a12r": "6", 
+    "q_a12": "6", 
     "r_12": "Keep my selected response", 
 
-    "q_a13r": "10", 
+    "q_a13": "10", 
     "r_13": "Change your response to match my recommendation", 
 
-    "q_a14r": "14", 
+    "q_a14": "14", 
     "r_14": "Keep my selected response", 
     
-    "q_a15r": "12", 
+    "q_a15": "12", 
     "r_15": "Change your response to match my recommendation", 
   })
   

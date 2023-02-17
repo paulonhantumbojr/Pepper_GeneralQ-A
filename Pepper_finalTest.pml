@@ -34,7 +34,6 @@
         <File name="AusCapital" src="html/images/AusCapital.jpeg" />
         <File name="AustralianBill" src="html/images/AustralianBill.jpg" />
         <File name="Downward arrow" src="html/images/Downward arrow.png" />
-        <File name="FirstFleet" src="html/images/FirstFleet.jpg" />
         <File name="GlobeAsiaAustralia" src="html/images/GlobeAsiaAustralia.png" />
         <File name="Monash_Blue" src="html/images/Monash_Blue.png" />
         <File name="OperaHouse" src="html/images/OperaHouse.jpg" />
@@ -69,8 +68,15 @@
         <File name="Q12" src="html/images/Q12.png" />
         <File name="Q13" src="html/images/Q13.png" />
         <File name="Q14_Q15" src="html/images/Q14_Q15.png" />
-        <File name="Ruby" src="html/images/Ruby.jpg" />
         <File name="STOP" src="html/images/STOP.jpg" />
+        <File name="Coffee" src="html/images/Coffee.png" />
+        <File name="No_Phones" src="html/images/No_Phones.png" />
+        <File name="sports" src="html/images/sports.jpg" />
+        <File name="AncoraImparo_Motto" src="test/images/AncoraImparo_Motto.png" />
+        <File name="Monash_Logo" src="test/images/Monash_Logo.png" />
+        <File name="Q11" src="test/images/Q11.png" />
+        <File name="STOP" src="test/images/STOP.jpg" />
+        <File name="test" src="test/test.html" />
     </Resources>
     <Topics />
     <IgnoredPaths />

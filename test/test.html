@@ -186,7 +186,7 @@
         <img src="images/Q11.png" alt="Square Cluster" height="250"> 
         <br>
         <br>
-        <span><input type="number" min="0" max="100" id="evaluation" name="q_a3" style="display: inline-block;" onblur="inputSelection('3');" onclick="changeId('3');"> squares</span>
+        <span><input type="number" min="0" max="100" id="evaluation" name="q_a3" style="display: inline-block;" onblur="inputSelection('3');"> squares</span> <!-- onclick="changeId('3');" -->
         <br>
         <p style="font-size: 18px;"><span id="select3_user">You selected: </span></p>
         <br>
@@ -226,7 +226,7 @@
             
             findSelected();
         }       
-        
+
         // Method to change the id of a specific element
         // function changeId(quesNr){
         //     let selected = document.querySelector("input[name='q_a" + quesNr + "']").value; // Checking number input boxes

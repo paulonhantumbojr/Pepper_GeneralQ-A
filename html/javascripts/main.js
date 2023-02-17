@@ -448,9 +448,13 @@ function recordResp(nameStr,isElement) {
                 recordData(options[i].value);
             }
         }
-    } else {
-        recordData(nameStr); // or recordData(nameStr.value);
+    } else if (isElement == 'false'){
+        var options = document.getElementsByName(nameStr)[0];
+        var valuenr = options.value;
+        recordData(valuenr); 
+        // recordData(nameStr); 
     }
+
     return;
 }
 
