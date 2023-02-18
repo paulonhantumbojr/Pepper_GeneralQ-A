@@ -1,7 +1,5 @@
 <!-- Documentation for speech configuration on the Pepper (http://doc.aldebaran.com/2-5/naoqi/audio/altexttospeech-tuto.html#changing-the-volume) -->
-<!-- Test whether 'false' statements in recordResp record the values in the input boxes. -->
-<!-- Add a delay between the phone advice screen, and look at the delay in transitioning to that page -->
-<!-- Look for another 'no phones allowed' icon that is preferably smaller than 150kb -->
+<!-- The Javascript syntax used belongs to the family before ES6. The one after ES6 is not supported on the Pepper  -->
 
 <html>
 <head>
@@ -349,7 +347,7 @@
           <label class="radio-container"><input type="radio" name="q_a6" value="18th" data-replace="x:18th" onclick="radioSelection('6');">18<sup>th</sup><span class="checkmark"></span></label>
         </p>
         <p style="font-size: 20px;"><span id="select6_user"></span></p>
-        <button type="button" class="btn-navigate" onclick="recordResp('q_a6','true');" data-next="correct6r=r1_for_correct_selection;r1_for_wrong_selection"><b>Next &raquo;</b></button>
+        <button type="button" class="btn-navigate" onclick="recordResp('q_a6','true'); collectRadioSelection('6');" data-next="correct6r=r1_for_correct_selection;r1_for_wrong_selection"><b>Next &raquo;</b></button>
       </div> 
       
       <!-- Recommendation for wrong answer selection -->
@@ -367,18 +365,17 @@
       <!-- Question 6 Recommendation -->
       <div id="r1" class="survey-box"> 
         <br>
-        <!-- <p><span id="select6_user"></span></p> -->
-        <!-- <p>Recommendation: [Right or Wrong]</p> -->
         <h1 data-ignore> What answer will you choose? </h1>
         <br>
         <br>
         <p class="example"> 
-          <label class="radio-container"><input type="radio" name="r_6" value="Keep my first answer" data-replace="x:Keep my first answer"><b>Keep my first answer</b><span class="checkmark"></span></label>
+          <label class="radio-container"><input type="radio" name="r_6" value="Keep my first answer" data-replace="x:Keep my first answer" onclick="dispAnsw('6', '14th', '18th');"><b>Keep my first answer</b><span class="checkmark"></span></label>
           <br>
-          <label class="radio-container"><input type="radio" name="r_6" value="Change my answer to match the recommendation" data-replace="x:Change my answer to match the recommendation"><b>Change my answer to match the recommendation</b><span class="checkmark"></span></label>
+          <label class="radio-container"><input type="radio" name="r_6" value="Change my answer to match the recommendation" data-replace="x:Change my answer to match the recommendation" onclick="dispAnsw('6', '14th', '18th');"><b>Change my answer to match the recommendation</b><span class="checkmark"></span></label>
         </p>
         <br>
         <br>
+        <p><span id="user6_selection">Your submission: </span></p>
         <button style="margin:45px" type="button" class="btn-navigate" onclick="recordResp('r_6','true');" data-next="q7"><b>Next &raquo;</b></button>        
       </div>
       
@@ -413,7 +410,7 @@
           <label class="radio-container"><input type="radio" name="q_a8" value="Fear of places" data-replace="x:Fear of places" onclick="radioSelection('8');">Fear of places<span class="checkmark"></span></label>
         </p>
         <p style="font-size: 20px;"><span id="select8_user"></span></p>
-        <button type="button" class="btn-navigate" onclick="recordResp('q_a8','true');" data-next="correct8r=r2_for_correct_selection;r2_for_wrong_selection"><b>Next &raquo;</b></button>
+        <button type="button" class="btn-navigate" onclick="recordResp('q_a8','true'); collectRadioSelection('8');" data-next="correct8r=r2_for_correct_selection;r2_for_wrong_selection"><b>Next &raquo;</b></button>
       </div>
       
       <!-- Recommendation for wrong answer selection -->
@@ -431,18 +428,17 @@
       <!-- Recommendation for Question 8 -->
       <div id="r2" class="survey-box">
         <br>
-        <!-- <p><span id="select8_user"></span></p> -->
-        <!-- <p>Recommendation: [Right or Wrong]</p> -->
         <h1 data-ignore> What answer will you choose? </h1>
         <br>
         <br>
         <p class="example"> 
-          <label class="radio-container"><input type="radio" name="r_8" value="Keep my first answer" data-replace="x:Keep my first answer"><b>Keep my first answer</b><span class="checkmark"></span></label>
+          <label class="radio-container"><input type="radio" name="r_8" value="Keep my first answer" data-replace="x:Keep my first answer" onclick="dispAnsw('8', 'Fear of dogs', 'Fear of needles');"><b>Keep my first answer</b><span class="checkmark"></span></label>
           <br>
-          <label class="radio-container"><input type="radio" name="r_8" value="Change my answer to match the recommendation" data-replace="x:Change my answer to match the recommendation"><b>Change my answer to match the recommendation</b><span class="checkmark"></span></label>
+          <label class="radio-container"><input type="radio" name="r_8" value="Change my answer to match the recommendation" data-replace="x:Change my answer to match the recommendation" onclick="dispAnsw('8', 'Fear of dogs', 'Fear of needles');"><b>Change my answer to match the recommendation</b><span class="checkmark"></span></label>
         </p>
         <br>
         <br>
+        <p><span id="user8_selection">Your submission: </span></p>
         <button style="margin:45px" type="button" class="btn-navigate" onclick="recordResp('r_8','true');" data-next="q9r"><b>Next &raquo;</b></button>     
       </div>
       
@@ -460,7 +456,7 @@
           <label class="radio-container"><input type="radio" name="q_a9" value="A watermelon" data-replace="x:A watermelon" onclick="radioSelection('9');">A watermelon<span class="checkmark"></span></label>
         </p>
         <p style="font-size: 20px;"><span id="select9_user"></span></p>
-        <button type="button" class="btn-navigate" onclick="recordResp('q_a9','true');" data-next="correct9r=r3_for_correct_selection;r3_for_wrong_selection"><b>Next &raquo;</b></button>
+        <button type="button" class="btn-navigate" onclick="recordResp('q_a9','true'); collectRadioSelection('9');" data-next="correct9r=r3_for_correct_selection;r3_for_wrong_selection"><b>Next &raquo;</b></button>
       </div>
       
       <!-- Recommendation for wrong answer selection -->
@@ -478,18 +474,17 @@
       <!-- Recommendation for Question 9 -->
       <div id="r3" class="survey-box">
         <br>
-        <!-- <p><span id="select9_user"></span></p> -->
-        <!-- <p>Recommendation: [Right or Wrong]</p> -->
         <h1 data-ignore> What answer will you choose? </h1>
         <br>
         <br>
         <p class="example"> 
-          <label class="radio-container"><input type="radio" name="r_9" value="Keep my first answer" data-replace="x:Keep my first answer"><b>Keep my first answer</b><span class="checkmark"></span></label>
+          <label class="radio-container"><input type="radio" name="r_9" value="Keep my first answer" data-replace="x:Keep my first answer" onclick="dispAnsw('9', 'An orange', 'An apple');"><b>Keep my first answer</b><span class="checkmark"></span></label>
           <br>
-          <label class="radio-container"><input type="radio" name="r_9" value="Change my answer to match the recommendation" data-replace="x:Change my answer to match the recommendation"><b>Change my answer to match the recommendation</b><span class="checkmark"></span></label>
+          <label class="radio-container"><input type="radio" name="r_9" value="Change my answer to match the recommendation" data-replace="x:Change my answer to match the recommendation" onclick="dispAnsw('9', 'An orange', 'An apple');"><b>Change my answer to match the recommendation</b><span class="checkmark"></span></label>
         </p>
         <br>
         <br>
+        <p><span id="user9_selection">Your submission: </span></p>
         <button style="margin:45px" type="button" class="btn-navigate" onclick="recordResp('r_9','true');" data-next="q10r"><b>Next &raquo;</b></button>        
       </div>              
       
@@ -507,7 +502,7 @@
           <label class="radio-container"><input type="radio" id="correct10r" name="q_a10" value="42nd" data-replace="x:42nd" onclick="radioSelection('10');">42<sup>nd</sup><span class="checkmark"></span></label>
         </p>
         <p style="font-size: 20px;"><span id="select10_user"></span></p>
-        <button type="button" class="btn-navigate" onclick="recordResp('q_a10','true');" data-next="correct10r=r4_for_correct;r4_for_wrong"><b>Next &raquo;</b></button>
+        <button type="button" class="btn-navigate" onclick="recordResp('q_a10','true'); collectRadioSelection('10');" data-next="correct10r=r4_for_correct;r4_for_wrong"><b>Next &raquo;</b></button>
       </div>
       
       <!-- Recommendation for wrong answer selection -->
@@ -525,18 +520,17 @@
       <!-- Recommendation for Question 10 -->
       <div id="r4" class="survey-box">
         <br>
-        <!-- <p><span id="select10_user"></span></p> -->
-        <!-- <p>Recommendation: [Right or Wrong]</p> -->
         <h1 data-ignore> What answer will you choose? </h1>
         <br>
         <br>
         <p class="example"> 
-          <label class="radio-container"><input type="radio" name="r_10" value="Keep my first answer" data-replace="x:Keep my first answer"><b>Keep my first answer</b><span class="checkmark"></span></label>
+          <label class="radio-container"><input type="radio" name="r_10" value="Keep my first answer" data-replace="x:Keep my first answer" onclick="dispAnsw('10', '42nd', '10th');"><b>Keep my first answer</b><span class="checkmark"></span></label>
           <br>
-          <label class="radio-container"><input type="radio" name="r_10" value="Change my answer to match the recommendation" data-replace="x:Change my answer to match the recommendation"><b>Change my answer to match the recommendation</b><span class="checkmark"></span></label>
+          <label class="radio-container"><input type="radio" name="r_10" value="Change my answer to match the recommendation" data-replace="x:Change my answer to match the recommendation" onclick="dispAnsw('10', '42nd', '10th');"><b>Change my answer to match the recommendation</b><span class="checkmark"></span></label>
         </p>
         <br>
         <br>
+        <p><span id="user10_selection">Your submission: </span></p>
         <button style="margin:45px" type="button" class="btn-navigate" onclick="recordResp('r_10','true');" data-next="part2"><b>Next &raquo;</b></button>        
       </div>
       
@@ -557,7 +551,7 @@
         <button type="button" class="btn-navigate" data-next="q11cluster"><b>Go &raquo;</b></button>
       </div>
       
-      <!-- Question 11 Cluster Display (~4 seconds) -->
+      <!-- Question 11 Cluster Display -->
       <div id="q11cluster" class="survey-box">
         <h1 class="hidden" data-auto-transition>\vol=0\ The timer will start. Go. 2, 1. </h1>
         <br>
@@ -572,12 +566,12 @@
         <h1 class="hidden"> What is your initial guess on the number of squares? I can give you a hint. </h1>
         <h1 data-ignore> <b>Q11: How many squares did you count? </b> </h1>
         <br>
-        <span><input type="number" min="0" max="100" id="q11num" name="q_a11" onblur="inputSelection('11');" class="form-control small-text" style="display: inline-block;"> squares</span>
+        <span><input type="number" min="0" max="100" id="wrong_11r" name="q_a11" onblur="inputSelection('11'); changeId('11');" class="form-control small-text" style="display: inline-block;"> squares</span>
         <br>
         <br>
         <br>
         <p style="font-size: 20px;"><span id="select11_user"></span></p>
-        <button type="button" class="btn-navigate" onclick="recordResp('q_a11','false');" data-next="r5_for_wrong_selection;"><b>Next &raquo;</b></button>
+        <button type="button" class="btn-navigate" onclick="recordResp('q_a11','false'); collectInputSelection('11');" data-next="wrong_11r=r5_for_wrong_selection;correct_11r=r5_for_correct_selection"><b>Next &raquo;</b></button>
       </div>
       
       <!-- Recommendation for wrong answer selection -->
@@ -595,18 +589,18 @@
       <!-- Recommendation for Q11 -->
       <div id="r5" class="survey-box">
         <br>
-        <!-- <p><span id="user_selection_11"></span></p> -->
         <h1 data-animated class="hidden"> Are you going with your guess? ^run(animations/Stand/Gestures/Thinking_1) </h1>
         <h1 data-ignore> What answer will you choose? </h1>
         <br>
         <br>
         <p class="example"> 
-          <label class="radio-container"><input type="radio" name="r_11" value="Keep my first answer" data-replace="x:Keep my first answer"><b>Keep my first answer</b><span class="checkmark"></span></label>
+          <label class="radio-container"><input type="radio" name="r_11" value="Keep my first answer" data-replace="x:Keep my first answer" onclick="dispAnsw('11', '16', '10');"><b>Keep my first answer</b><span class="checkmark"></span></label>
           <br>
-          <label class="radio-container"><input type="radio" name="r_11" value="Change my answer to match the recommendation" data-replace="x:Change my answer to match the recommendation"><b>Change my answer to match the recommendation</b><span class="checkmark"></span></label>
+          <label class="radio-container"><input type="radio" name="r_11" value="Change my answer to match the recommendation" data-replace="x:Change my answer to match the recommendation" onclick="dispAnsw('11', '16', '10');"><b>Change my answer to match the recommendation</b><span class="checkmark"></span></label>
         </p>
         <br>
         <br>
+        <p><span id="user11_selection"></span></p>
         <button style="margin:45px" type="button" class="btn-navigate" onclick="recordResp('r_11','true');" data-next="q12shape"><b>Next &raquo;</b></button>        
       </div>
       
@@ -635,12 +629,12 @@
         <h1 class="hidden"> How many triangles did you count? </h1>
         <h1 data-ignore> <b>Q12: How many triangles were in the picture? </b> </h1>
         <br>
-        <span><input type="number" min="0" max="100" name="q_a12" onblur="inputSelection('12');" class="form-control small-text" style="display: inline-block;"> triangles</span>
+        <span><input type="number" min="0" max="100" name="q_a12" id="wrong_12r" onblur="inputSelection('12'); changeId('12');" class="form-control small-text" style="display: inline-block;"> triangles</span>
         <br>
         <br>
         <br>
         <p style="font-size: 20px;"><span id="select12_user"></span></p>
-        <button type="button" class="btn-navigate" onclick="recordResp('q_a12','false');" data-next="r6_for_wrong_selection"><b>Next &raquo;</b></button>
+        <button type="button" class="btn-navigate" onclick="recordResp('q_a12','false'); collectInputSelection('12');" data-next="wrong_12r=r6_for_wrong_selection;correct_12r=r6_for_correct_selection"><b>Next &raquo;</b></button>
       </div>
       
       <!-- Recommendation for wrong answer selection -->
@@ -658,18 +652,18 @@
       <!-- Recommendation for Q12 -->
       <div id="r6" class="survey-box">
         <br>
-        <!-- <p><span id="user_selection_12"></span></p> -->
         <h1 data-animated class="hidden"> Would you like to confirm your submission or change your guess? ^run(animations/Stand/Gestures/Thinking_1) </h1>
         <h1 data-ignore> What answer will you choose? </h1>
         <br>
         <br>
         <p class="example"> 
-          <label class="radio-container"><input type="radio" name="r_12" value="Keep my first answer" data-replace="x:Keep my first answer"><b>Keep my first answer</b><span class="checkmark"></span></label>
+          <label class="radio-container"><input type="radio" name="r_12" value="Keep my first answer" data-replace="x:Keep my first answer" onclick="dispAnsw('12', '15', '12');"><b>Keep my first answer</b><span class="checkmark"></span></label>
           <br>
-          <label class="radio-container"><input type="radio" name="r_12" value="Change my answer to match the recommendation" data-replace="x:Change my answer to match the recommendation"><b>Change my answer to match the recommendation</b><span class="checkmark"></span></label>
+          <label class="radio-container"><input type="radio" name="r_12" value="Change my answer to match the recommendation" data-replace="x:Change my answer to match the recommendation" onclick="dispAnsw('12', '15', '12');"><b>Change my answer to match the recommendation</b><span class="checkmark"></span></label>
         </p>
         <br>
         <br>
+        <p><span id="user12_selection">Your submission: </span></p>
         <button style="margin:45px" type="button" class="btn-navigate" onclick="recordResp('r_12','true');" data-next="q13shape"><b>Next &raquo;</b></button>        
       </div>
       
@@ -698,12 +692,12 @@
         <h1 class="hidden"> What is your initial guess on the number of circles? </h1>
         <h1 data-ignore> <b>Q13: How many circles did you count? </b> </h1> 
         <br>
-        <span><input type="number" min="0" max="100" name="q_a13" onblur="inputSelection('13');" class="form-control small-text" style="display: inline-block;"> circles</span>
+        <span><input type="number" min="0" max="100" name="q_a13" id="wrong_13r" onblur="inputSelection('13'); changeId('13');" class="form-control small-text" style="display: inline-block;"> circles</span>
         <br>
         <br>        
         <br>
         <p style="font-size: 20px;"><span id="select13_user"></span></p>
-        <button type="button" class="btn-navigate" onclick="recordResp('q_a13','false');" data-next="r7_for_wrong_selection"><b>Next &raquo;</b></button>
+        <button type="button" class="btn-navigate" onclick="recordResp('q_a13','false'); collectInputSelection('13');" data-next="wrong_13r=r7_for_wrong_selection;correct_13r=r7_for_correct_selection"><b>Next &raquo;</b></button>
       </div>
       
       <!-- Recommendation for wrong answer selection -->
@@ -726,12 +720,13 @@
         <br>
         <br>
         <p class="example"> 
-          <label class="radio-container"><input type="radio" name="r_13" value="Keep my first answer" data-replace="x:Keep my first answer"><b>Keep my first answer</b><span class="checkmark"></span></label>
+          <label class="radio-container"><input type="radio" name="r_13" value="Keep my first answer" data-replace="x:Keep my first answer" onclick="dispAnsw('13', '15', '12');"><b>Keep my first answer</b><span class="checkmark"></span></label>
           <br>
-          <label class="radio-container"><input type="radio" name="r_13" value="Change my answer to match the recommendation" data-replace="x:Change my answer to match the recommendation"><b>Change my answer to match the recommendation</b><span class="checkmark"></span></label>
+          <label class="radio-container"><input type="radio" name="r_13" value="Change my answer to match the recommendation" data-replace="x:Change my answer to match the recommendation" onclick="dispAnsw('13', '15', '12');"><b>Change my answer to match the recommendation</b><span class="checkmark"></span></label>
         </p>
         <br>
         <br>
+        <p><span id="user13_selection">Your submission: </span></p>
         <button style="margin:45px" type="button" class="btn-navigate" onclick="recordResp('r_13','true');" data-next="q14shape"><b>Next &raquo;</b></button>        
       </div>
       
@@ -760,12 +755,12 @@
         <h1 class="hidden"> Let me know how many squares were in the figure, and afterwards, I will offer a suggestion. </h1>
         <h1 data-ignore> <b>Q14: How many squares were in the picture? </b> </h1>
         <br>
-        <span><input type="number" min="0" max="100" name="q_a14" onblur="inputSelection('14');" class="form-control small-text" style="display: inline-block;"> squares</span>
+        <span><input type="number" min="0" max="100" name="q_a14" id="wrong_14r" onblur="inputSelection('14'); changeId('14');" class="form-control small-text" style="display: inline-block;"> squares</span>
         <br>
         <br>
         <br>
         <p style="font-size: 20px;"><span id="select14_user"></span></p>
-        <button type="button" class="btn-navigate" onclick="recordResp('q_a14','false');" data-next="r8_for_wrong_selection"><b>Next &raquo;</b></button>
+        <button type="button" class="btn-navigate" onclick="recordResp('q_a14','false'); collectInputSelection('14');" data-next="wrong_14r=r8_for_wrong_selection;correct_14r=r8_for_correct_selection"><b>Next &raquo;</b></button>
       </div>
       
       <!-- Recommendation for wrong answer selection -->
@@ -783,18 +778,18 @@
       <!-- Recommendation for Q14 -->
       <div id="r8" class="survey-box">
         <br>
-        <!-- <p><span id="user_selection_14"></span></p> -->
         <h1 data-animated class="hidden"> So, what is the final guess you would like to confirm? ^run(animations/Stand/Gestures/Thinking_1) </h1>
         <h1 data-ignore> What answer will you choose? </h1>
         <br>
         <br>
         <p class="example"> 
-          <label class="radio-container"><input type="radio" name="r_14" value="Keep my first answer" data-replace="x:Keep my first answer"><b>Keep my first answer</b><span class="checkmark"></span></label>
+          <label class="radio-container"><input type="radio" name="r_14" value="Keep my first answer" data-replace="x:Keep my first answer" onclick="dispAnsw('14', '9', '8');"><b>Keep my first answer</b><span class="checkmark"></span></label>
           <br>
-          <label class="radio-container"><input type="radio" name="r_14" value="Change my answer to match the recommendation" data-replace="x:Change my answer to match the recommendation"><b>Change my answer to match the recommendation</b><span class="checkmark"></span></label>
+          <label class="radio-container"><input type="radio" name="r_14" value="Change my answer to match the recommendation" data-replace="x:Change my answer to match the recommendation" onclick="dispAnsw('14', '9', '8');"><b>Change my answer to match the recommendation</b><span class="checkmark"></span></label>
         </p>
         <br>
         <br>
+        <p><span id="user14_selection">Your submission: </span></p>
         <button style="margin:45px" type="button" class="btn-navigate" onclick="recordResp('r_14','true');" data-next="q15shape"><b>Next &raquo;</b></button>        
       </div>
       
@@ -823,12 +818,12 @@
         <h1 class="hidden"> How many triangles did you count? </h1>
         <h1 data-ignore> <b>Q15: How many triangles did you count? </b> </h1>
         <br>
-        <span><input type="number" min="0" max="100" name="q_a15" onblur="inputSelection('15');" class="form-control small-text" style="display: inline-block;"> triangles</span>
+        <span><input type="number" min="0" max="100" name="q_a15" id="wrong_15r" onblur="inputSelection('15'); changeId('15');" class="form-control small-text" style="display: inline-block;"> triangles</span>
         <br>
         <br>
         <br>
         <p style="font-size: 20px;"><span id="select15_user"></span></p>
-        <button type="button" class="btn-navigate" onclick="recordResp('q_a15','false');" data-next="r9_for_wrong_selection"><b>Next &raquo;</b></button>
+        <button type="button" class="btn-navigate" onclick="recordResp('q_a15','false'); collectInputSelection('15');" data-next="wrong_15r=r9_for_wrong_selection;correct_15r=r9_for_correct_selection"><b>Next &raquo;</b></button>
       </div>
       
       <!-- Recommendation for wrong answer selection -->
@@ -846,18 +841,18 @@
       <!-- Recommendation for Q15 -->
       <div id="r9" class="survey-box">
         <br>
-        <!-- <p><span id="user_selection_15"></span></p> -->
         <h1 data-animated class="hidden"> So, what is the final guess you would like to confirm? ^run(animations/Stand/Gestures/Thinking_1) </h1>
         <h1 data-ignore> What answer will you choose? </h1>
         <br>
         <br>
         <p class="example"> 
-          <label class="radio-container"><input type="radio" name="r_15" value="Keep my first answer" data-replace="x:Keep my first answer"><b>Keep my first answer</b><span class="checkmark"></span></label>
+          <label class="radio-container"><input type="radio" name="r_15" value="Keep my first answer" data-replace="x:Keep my first answer" onclick="dispAnsw('15', '9', '10');"><b>Keep my first answer</b><span class="checkmark"></span></label>
           <br>
-          <label class="radio-container"><input type="radio" name="r_15" value="Change my answer to match the recommendation" data-replace="x:Change my answer to match the recommendation"><b>Change my answer to match the recommendation</b><span class="checkmark"></span></label>
+          <label class="radio-container"><input type="radio" name="r_15" value="Change my answer to match the recommendation" data-replace="x:Change my answer to match the recommendation" onclick="dispAnsw('15', '9', '10');"><b>Change my answer to match the recommendation</b><span class="checkmark"></span></label>
         </p>
         <br>
         <br>
+        <p><span id="user15_selection">Your submission: </span></p>
         <button style="margin:45px" type="button" class="btn-navigate" onclick="recordResp('r_15','true');" data-next="tores"><b>Next &raquo;</b></button>        
       </div>
       
@@ -970,17 +965,15 @@
     }
   }
   
-  var selectedRadio = ""; // declare variable in the global scope to access later
-  
   // Display radio button selection
   function radioSelection(quesNr){
     var textBoxs = document.querySelectorAll("input[name='q_a" + quesNr + "]");
     var radioresult = document.getElementById("select" + quesNr + "_user");
     
     var findRadio = function() {
-      var selectedRadio = document.querySelector("input[name='q_a" + quesNr + "']:checked").value; // Checking radio buttons
+      var selectedRadio = document.querySelector("input[name='q_a" + quesNr + "']:checked").value; 
       radioresult.textContent = "You selected: " + selectedRadio;
-      radioresult.style.fontWeight = "bold"; // style declaration to make the text bold
+      radioresult.style.fontWeight = "bold"; 
     }
     
     for (var i = 0; i < textBoxs.length; i++) {
@@ -990,22 +983,15 @@
     findRadio();
   }
   
-  // function showSelection(nr){
-  //   var usedVar = selectedRadio;
-  //   var disp = document.getElementById("selected" + nr + "_rec");
-
-  //   disp.innerHTML = "You selected: " + usedVar;
-  // }
-  
   // Display input box selection
   function inputSelection(quesNr){
     var textBoxs = document.querySelectorAll("input[name='q_a" + quesNr + "]");
     var inputresult = document.getElementById("select" + quesNr + "_user");
     
     var findInput = function() {
-      var selectedInput = document.querySelector("input[name='q_a" + quesNr + "']").value; // Checking number input boxes
+      var selectedInput = document.querySelector("input[name='q_a" + quesNr + "']").value; 
       inputresult.textContent = "You selected: " + selectedInput;
-      inputresult.style.fontWeight = "bold"; // style declaration to make the text bold
+      inputresult.style.fontWeight = "bold"; 
     }
     
     for (var i = 0; i < textBoxs.length; i++) {
@@ -1013,6 +999,85 @@
     }
     
     findInput();
+  }
+  
+  // Collect user selection from radio buttons to localStorage
+  function collectRadioSelection(quesNr){
+    
+    localStorage.clear();
+    var textBoxs = document.querySelectorAll("input[name='q_a" + quesNr + "]");
+    
+    var collectRadioInput = function() {
+      var selectedRadioInput = document.querySelector("input[name='q_a" + quesNr + "']:checked").value; 
+      localStorage.setItem('q_' + quesNr + '_user' , selectedRadioInput);
+    }
+    
+    for (var i = 0; i < textBoxs.length; i++) {
+      textBoxs[i].addEventListener("change", collectRadioInput);
+    }
+    
+    collectRadioInput();
+  }
+  
+  // Collect user selection from input boxes to localStorage
+  function collectInputSelection(quesNr){
+    
+    localStorage.clear();
+    var textBoxs = document.querySelectorAll("input[name='q_a" + quesNr + "]");
+    
+    var collectInput = function() {
+      var selectedInput = document.querySelector("input[name='q_a" + quesNr + "']").value; 
+      localStorage.setItem('q_' + quesNr + '_user' , selectedInput);
+    }
+    
+    for (var i = 0; i < textBoxs.length; i++) {
+      textBoxs[i].addEventListener("change", collectInput);
+    }
+    
+    collectInput();
+  }
+  
+  // Display user radio button selection from localStorage  
+  function dispAnsw(quesNr, answ , rec){
+    
+    var wrongRec = rec;
+    var textBoxs = document.querySelectorAll("input[name='r_" + quesNr + "]"); 
+    var result = document.getElementById("user" + quesNr + "_selection");
+    
+    var dispSelected = () => {
+      var selection = document.querySelector("input[name='r_" + quesNr + "']:checked").value;
+      var userAnswer = localStorage.getItem("q" + quesNr + "_user");
+      if (selection == "Keep my first answer"){
+        result.textContent = `Your submission: ${userAnswer}`;
+        result.style.fontWeight = "bold";   
+      } else if (selection == "Change my answer to match the recommendation" && answ == userAnswer){
+        result.textContent = `Your submission: ${wrongRec}`;
+        result.style.fontWeight = "bold"; 
+      } else if (selection == "Change my answer to match the recommendation" && answ != userAnswer){
+        result.textContent = `Your submission: ${answ}`;
+        result.style.fontWeight = "bold";   
+      }
+    }
+    
+    for (var i = 0; i < textBoxs.length; i++) {
+      textBoxs[i].addEventListener("change", dispSelected);
+    }
+    
+    dispSelected();
+    
+    // Change the id based on the user's input
+    function changeId(quesNr){
+      var initialId = "wrong_" + quesNr + "r";
+      var element = document.getElementById(initialId);
+      var inputValues = document.getElementsByName('q_a' + quesNr);
+      var inputValue = String(inputValues[0].value);
+      
+      if (inputValue == '5'){
+        element.setAttribute('id', 'correct_' + quesNr + 'r');
+      } else {
+        element.setAttribute('id', initialId);
+      }
+    }
   }
 </script>
 </body>

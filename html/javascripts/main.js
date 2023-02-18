@@ -452,7 +452,6 @@ function recordResp(nameStr,isElement) {
         var options = document.getElementsByName(nameStr)[0];
         var valuenr = options.value;
         recordData(valuenr); 
-        // recordData(nameStr); 
     }
 
     return;

@@ -1,7 +1,7 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
 <html>
 <head>
-    <title>Radio Button Testing</title>
+    <title>Answer Submission Testing</title>
     <style>
         .button_centre {
             text-align: center;
@@ -25,10 +25,6 @@
             -moz-user-select: none;
             -ms-user-select: none;
             user-select: none;
-        }
-        
-        .radio-container:first-of-type, .checkbox-container:first-of-type {
-            /* margin-left: 1%; */
         }
         
         /* Three image containers (use 25% for four, and 50% for two, etc) */
@@ -140,59 +136,66 @@
     </style>
 </head>
 <body lang="en-AU">
-    <p style="text-align: left;">
-        <img src="images/Monash_Logo.png" alt="Monash Logo" height="80">
-    </p>
-    
-    <h1 style="text-align: center;"> Radio Testing </h1>
-    
-    <!-- Question 1 --> 
-    <div style="text-align: center;">        
-        <h2> <b> Q1: What geometric shape is generally used for STOP signs? </b> </h2>
-        <img src="images/STOP.jpg" alt="Brake Lights" height="250"> 
-        <br>
-        <br>
-        <p class="button_centre">
-            <label class="radio-container"><input type="radio" name="q_a1" value="A hexagon" onclick="radioSelection('1');">A hexagon<span class="checkmark"></span></label>
-            <label class="radio-container"><input type="radio" name="q_a1" value="A pentagon" onclick="radioSelection('1');">A pentagon<span class="checkmark"></span></label>
-            <label class="radio-container"><input type="radio" name="q_a1" value="An octagon" onclick="radioSelection('1');">An octagon<span class="checkmark"></span></label>
-            <label class="radio-container"><input type="radio" name="q_a1" value="A heptagon" onclick="radioSelection('1');">A heptagon<span class="checkmark"></span></label> 
+    <form id="form">
+        <p style="text-align: left;">
+            <img src="images/Monash_Logo.png" alt="Monash Logo" height="80">
         </p>
-        <br>
-        <p style="font-size: 18px;"><span id="select1_user">You selected: </span></p>
-        <br>
-    </div>
+        
+        <h1 style="text-align: center;"> Radio Testing </h1>
+        
+        <!-- Question 1 --> 
+        <div style="text-align: center;">        
+            <h2> <b> Q1: What geometric shape is generally used for STOP signs? </b> </h2>
+            <img src="images/STOP.jpg" alt="Brake Lights" height="250"> 
+            <br>
+            <br>
+            <p class="button_centre">
+                <label class="radio-container"><input type="radio" name="q_a1" value="A hexagon" onclick="radioSelection('1');">A hexagon<span class="checkmark"></span></label>
+                <label class="radio-container"><input type="radio" name="q_a1" value="A pentagon" onclick="radioSelection('1');">A pentagon<span class="checkmark"></span></label>
+                <label class="radio-container"><input type="radio" name="q_a1" value="An octagon" onclick="radioSelection('1');">An octagon<span class="checkmark"></span></label>
+                <label class="radio-container"><input type="radio" name="q_a1" value="A heptagon" onclick="radioSelection('1');">A heptagon<span class="checkmark"></span></label> 
+            </p>
+            <br>
+            <p style="font-size: 18px;"><span id="select1_user"><b>You selected: </b></span></p>
+            <br>
+        </div>
+        
+        <!-- Question 2 --> 
+        <div style="text-align: center;">        
+            <h2> <b>  Q2: What is the motto of Monash University? </b> </h2>
+            <img src="images/AncoraImparo_Motto.png" alt="Ancora Imparo" height="250"> 
+            <br>
+            <br>
+            <p class="button_centre">
+                <label class="radio-container"><input type="radio" name="q_a2" value="I am still learning" onclick="radioSelection('2');">I am still learning<span class="checkmark"></span></label>
+                <label class="radio-container"><input type="radio" name="q_a2" value="Empowering generations" onclick="radioSelection('2');">Empowering generations<span class="checkmark"></span></label>
+                <label class="radio-container"><input type="radio" name="q_a2" value="Towards improvement" onclick="radioSelection('2');">Towards improvement<span class="checkmark"></span></label>
+                <label class="radio-container"><input type="radio" name="q_a2" value="Shaping leaders" onclick="radioSelection('2');">Shaping leaders<span class="checkmark"></span></label>
+            </p>
+            <br>
+            <p style="font-size: 18px;"><span id="select2_user"><b>You selected: </b></span></p>
+            <br>
+        </div>
+        
+        <!-- Question 3 --> 
+        <div style="text-align: center;">        
+            <h2> <b>  Q3: How many squares are in the figure? </b> </h2>
+            <img src="images/Q11.png" alt="Square Cluster" height="250"> 
+            <br>
+            <br>
+            <span><input type="number" min="0" max="100" id="wrong_3r" name="q_a3" style="display: inline-block;" onblur="inputSelection('3'); changeId('3');"> squares</span> <!-- onclick="changeId('3');" -->
+            <br>
+            <p style="font-size: 18px;"><span id="select3_user"><b>You selected: </b></span></p>
+            <br>
+        </div>
+        
+        <div class="button_centre">
+            <button type="submit"><b>Submit</b></button>
+        </div>
+    </form>
     
-    <!-- Question 2 --> 
-    <div style="text-align: center;">        
-        <h2> <b>  Q2: What is the motto of Monash University? </b> </h2>
-        <img src="images/AncoraImparo_Motto.png" alt="Ancora Imparo" height="250"> 
-        <br>
-        <br>
-        <p class="button_centre">
-            <label class="radio-container"><input type="radio" name="q_a2" value="I am still learning" onclick="radioSelection('2');">I am still learning<span class="checkmark"></span></label>
-            <label class="radio-container"><input type="radio" name="q_a2" value="Empowering generations" onclick="radioSelection('2');">Empowering generations<span class="checkmark"></span></label>
-            <label class="radio-container"><input type="radio" name="q_a2" value="Towards improvement" onclick="radioSelection('2');">Towards improvement<span class="checkmark"></span></label>
-            <label class="radio-container"><input type="radio" name="q_a2" value="Shaping leaders" onclick="radioSelection('2');">Shaping leaders<span class="checkmark"></span></label>
-        </p>
-        <br>
-        <p style="font-size: 18px;"><span id="select2_user">You selected: </span></p>
-        <br>
-    </div>
-    
-    <!-- Question 3 --> 
-    <div style="text-align: center;">        
-        <h2> <b>  Q3: How many squares are in the figure? </b> </h2>
-        <img src="images/Q11.png" alt="Square Cluster" height="250"> 
-        <br>
-        <br>
-        <span><input type="number" min="0" max="100" id="evaluation" name="q_a3" style="display: inline-block;" onblur="inputSelection('3');"> squares</span> <!-- onclick="changeId('3');" -->
-        <br>
-        <p style="font-size: 18px;"><span id="select3_user">You selected: </span></p>
-        <br>
-    </div>
-    
-    <script>
+    <!-- Javascript syntax after ES6 -->
+    <script type="text/javascript">
         // Display radio button selection
         function radioSelection(quesNr){
             let radioBtns = document.querySelectorAll("input[name='q_a" + quesNr + "]");
@@ -201,6 +204,7 @@
             let findSelected = () => {
                 let selected = document.querySelector("input[name='q_a" + quesNr + "']:checked").value; // Checking radio buttons
                 result.textContent = `You selected: ${selected}`;
+                result.style.fontWeight = "bold"; // style declaration to make the text bold
             }
             
             radioBtns.forEach(radioBtn => {
@@ -218,6 +222,7 @@
             let findSelected = () => {
                 let selected = document.querySelector("input[name='q_a" + quesNr + "']").value; // Checking number input boxes
                 result.textContent = `You selected: ${selected}`;
+                result.style.fontWeight = "bold"; // style declaration to make the text bold
             }
             
             textBoxs.forEach(textBox => {
@@ -226,19 +231,49 @@
             
             findSelected();
         }       
-
-        // Method to change the id of a specific element
-        // function changeId(quesNr){
-        //     let selected = document.querySelector("input[name='q_a" + quesNr + "']").value; // Checking number input boxes
-        //     let res = document.getElementById("evaluation");
+        
+        // Change the id based on the user's input 
+        function changeId (quesNr){
+            let initialId = "wrong_" + quesNr + "r";
+            let element = document.getElementById(initialId);
+            let inputValues = document.getElementsByName('q_a3');
+            let inputValue = String(inputValues[0].value);
             
-        //     if(selected == 3){
-        //         res.id = 'correct';
-        //         // element.setAttribute('id','newId');
-        //     } else {
-        //         res.id = 'incorrect';
-        //     }
-        // }
+            // if (inputValue != '5'){
+            //     element.setAttribute('id', 'wrong_' + quesNr + 'r');
+            // } else if (inputValue == '5') {
+            //     element.setAttribute('id', initialId);
+            // }
+
+            if (inputValue == '5'){
+                element.setAttribute('id', 'correct_' + quesNr + 'r');
+            } else {
+                element.setAttribute('id', initialId);
+            }
+        }
+
+        // Save the variables to localStorage and transition onto the next webpage
+        let form = document.getElementById("form");
+        let q1 = document.getElementsByName('q_a1')[0]; 
+        let q2 = document.getElementsByName('q_a2')[0]; 
+        let q3 = document.getElementsByName('q_a3')[0]; 
+        
+        form.addEventListener('submit', function(e){
+            // preventDefault() method cancels the event if it is cancelable, meaning that the default action that belongs to the event will not occur.
+            e.preventDefault(); // In this case, the default action (form submission) will be cancelled, prioritising the transition to the next page
+            
+            localStorage.clear(); // clear local storage values
+            
+            let q1Value = q1.value;
+            let q2Value = q2.value;
+            let q3Value = q3.value;
+            
+            localStorage.setItem('q1-value', q1Value);
+            localStorage.setItem('q2-value', q2Value);
+            localStorage.setItem('q3-value', q3Value);
+            
+            window.location.href = "next.html";
+        })
     </script>
 </body>
 </html>
