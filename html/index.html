@@ -84,6 +84,7 @@
         <!-- Contact Information Form -->
         <div id="consent-a" class="survey-box">
           <h1 class="hidden" data-animated> No problem. Thank you for your time. ^run(animations/Stand/Gestures/Hey_3) </h1>
+          <br>
           <p>If you have any questions or require further information, you can contact the project researchers from the addresses below:</p>
           <ul style="list-style: none;">
             <li><b>Dr Nicole Robinson</b></li>
@@ -105,6 +106,7 @@
         <!-- Contact Information Form -->
         <div id="consent-b" class="survey-box">
           <h1 class="hidden" data-animated> No problem. Thank you for your time. ^run(animations/Stand/Gestures/Hey_3) </h1>
+          <br>
           <p>To take part in this interaction, you must be at least 18 years of age.</p>
           <p>If you have any questions or require further information, you can contact the project researchers from the addresses below:</p>
           <ul style="list-style: none;">
@@ -534,7 +536,7 @@
         <button style="margin:45px" type="button" class="btn-navigate" onclick="recordResp('r_10','true');" data-next="part2"><b>Next &raquo;</b></button>        
       </div>
       
-      <!-- Transition towards puzzling questions (Part 2) -->
+      <!-- Transition towards memory questions (Part 2) -->
       <div id="part2" class="survey-box">
         <h1 class="hidden" data-animated data-auto-transition> The first part is now complete. Now for the second part. I will present a shape on my screen. The goal is for you to memorise it and count how many of that shape are in a collection of different shapes. ^start(animations/Stand/BodyTalk/Speaking/BodyTalk_12) \vol=0\ An extra second.  </h1>
         <img src="images/Part2Explanation.png" alt="Explanation for Part 2" height="510">
@@ -566,7 +568,7 @@
         <h1 class="hidden"> What is your initial guess on the number of squares? I can give you a hint. </h1>
         <h1 data-ignore> <b>Q11: How many squares did you count? </b> </h1>
         <br>
-        <span><input type="number" min="0" max="100" id="wrong_11r" name="q_a11" onblur="inputSelection('11'); changeId('11');" class="form-control small-text" style="display: inline-block;"> squares</span>
+        <span><input type="number" min="0" max="100" id="wrong_11r" name="q_a11" onblur="inputSelection('11'); changeId('11', '16');" class="form-control small-text" style="display: inline-block;"> squares</span>
         <br>
         <br>
         <br>
@@ -629,7 +631,7 @@
         <h1 class="hidden"> How many triangles did you count? </h1>
         <h1 data-ignore> <b>Q12: How many triangles were in the picture? </b> </h1>
         <br>
-        <span><input type="number" min="0" max="100" name="q_a12" id="wrong_12r" onblur="inputSelection('12'); changeId('12');" class="form-control small-text" style="display: inline-block;"> triangles</span>
+        <span><input type="number" min="0" max="100" name="q_a12" id="wrong_12r" onblur="inputSelection('12'); changeId('12', '15');" class="form-control small-text" style="display: inline-block;"> triangles</span>
         <br>
         <br>
         <br>
@@ -692,7 +694,7 @@
         <h1 class="hidden"> What is your guess on the number of circles? </h1>
         <h1 data-ignore> <b>Q13: How many circles did you count? </b> </h1> 
         <br>
-        <span><input type="number" min="0" max="100" name="q_a13" id="wrong_13r" onblur="inputSelection('13'); changeId('13');" class="form-control small-text" style="display: inline-block;"> circles</span>
+        <span><input type="number" min="0" max="100" name="q_a13" id="wrong_13r" onblur="inputSelection('13'); changeId('13', '15');" class="form-control small-text" style="display: inline-block;"> circles</span>
         <br>
         <br>        
         <br>
@@ -755,7 +757,7 @@
         <h1 class="hidden"> Let me know how many squares were in the figure, and afterwards, I will offer a suggestion. </h1>
         <h1 data-ignore> <b>Q14: How many squares were in the picture? </b> </h1>
         <br>
-        <span><input type="number" min="0" max="100" name="q_a14" id="wrong_14r" onblur="inputSelection('14'); changeId('14');" class="form-control small-text" style="display: inline-block;"> squares</span>
+        <span><input type="number" min="0" max="100" name="q_a14" id="wrong_14r" onblur="inputSelection('14'); changeId('14', '9');" class="form-control small-text" style="display: inline-block;"> squares</span>
         <br>
         <br>
         <br>
@@ -818,7 +820,7 @@
         <h1 class="hidden"> How many triangles did you count? </h1>
         <h1 data-ignore> <b>Q15: How many triangles did you count? </b> </h1>
         <br>
-        <span><input type="number" min="0" max="100" name="q_a15" id="wrong_15r" onblur="inputSelection('15'); changeId('15');" class="form-control small-text" style="display: inline-block;"> triangles</span>
+        <span><input type="number" min="0" max="100" name="q_a15" id="wrong_15r" onblur="inputSelection('15'); changeId('15', '9');" class="form-control small-text" style="display: inline-block;"> triangles</span>
         <br>
         <br>
         <br>
@@ -893,7 +895,7 @@
         <button type="button" class="btn-navigate" data-next="printout-1">Next</button>
       </div>
       
-      <!-- Exit Question 1 -->
+      <!-- Exit Question -->
       <div id="ex1" class="survey-box">
         <h1 data-animated class="hidden"> Great. It will be quick. How would you rate your knowledge related to the quiz questions? Choose a rating from the scale of 0 to 10. 0 having no knowledge and 10 highly knowledgeable. ^run(animations/Stand/BodyTalk/Speaking/BodyTalk_12) </h1>
         <br> 
@@ -1044,17 +1046,17 @@
     var textBoxs = document.querySelectorAll("input[name='r_" + quesNr + "]"); 
     var result = document.getElementById("user" + quesNr + "_selection");
     
-    var dispSelected = () => {
+    var dispSelected = function() {
       var selection = document.querySelector("input[name='r_" + quesNr + "']:checked").value;
-      var userAnswer = localStorage.getItem("q" + quesNr + "_user");
+      var userAnswer = localStorage.getItem('q_' + quesNr + '_user');
       if (selection == "Keep my first answer"){
-        result.textContent = `Your submission: ${userAnswer}`;
+        result.textContent = "Your submission: " + userAnswer;
         result.style.fontWeight = "bold";   
       } else if (selection == "Change my answer to match the recommendation" && answ == userAnswer){
-        result.textContent = `Your submission: ${wrongRec}`;
+        result.textContent = "Your submission: " + wrongRec;
         result.style.fontWeight = "bold"; 
       } else if (selection == "Change my answer to match the recommendation" && answ != userAnswer){
-        result.textContent = `Your submission: ${answ}`;
+        result.textContent = "Your submission: " + answ;
         result.style.fontWeight = "bold";   
       }
     }
@@ -1066,14 +1068,14 @@
     dispSelected();
   }
   
-  // Change the id based on the user's input
-  function changeId(quesNr){
+  // Change the id based on the user's input (I possibly swapped the conditions for the memory questions)
+  function changeId(quesNr, answ){
     var initialId = "wrong_" + quesNr + "r";
     var element = document.getElementById(initialId);
     var inputValues = document.getElementsByName('q_a' + quesNr);
     var inputValue = String(inputValues[0].value);
     
-    if (inputValue == '5'){
+    if (inputValue != answ){
       element.setAttribute('id', 'correct_' + quesNr + 'r');
     } else {
       element.setAttribute('id', initialId);
