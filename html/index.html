@@ -47,7 +47,7 @@
         
         <!-- Consent Form -->
         <div id="consent" class="survey-box">
-          <h1 class="hidden" data-animated> ^start(animations/Stand/BodyTalk/BodyTalk_7) Hello, my name is Pepper. Today I would like to talk with you about completing a short quiz task with a set of questions that cover different topics.</h1>
+          <h1 class="hidden" data-animated> ^start(animations/Stand/BodyTalk/BodyTalk_7) Hello, my name is Pepper. Today I would like to talk with you about completing a short quiz task with questions covering different topics. </h1>
           <h1 data-ignore><b>CONSENT FORM</b></h1>
           <p>I have read the information in the <a href="#" data-toggle="modal" data-target="#consent-modal">Explanatory Statement</a>.</p>
           <p>
@@ -83,7 +83,7 @@
         
         <!-- Contact Information Form -->
         <div id="consent-a" class="survey-box">
-          <h1>No problem. Thank you for your time.</h1>
+          <h1 class="hidden" data-animated> No problem. Thank you for your time. ^run(animations/Stand/Gestures/Hey_3) </h1>
           <p>If you have any questions or require further information, you can contact the project researchers from the addresses below:</p>
           <ul style="list-style: none;">
             <li><b>Dr Nicole Robinson</b></li>
@@ -104,7 +104,7 @@
         
         <!-- Contact Information Form -->
         <div id="consent-b" class="survey-box">
-          <h1>No problem. Thank you for your time.</h1>
+          <h1 class="hidden" data-animated> No problem. Thank you for your time. ^run(animations/Stand/Gestures/Hey_3) </h1>
           <p>To take part in this interaction, you must be at least 18 years of age.</p>
           <p>If you have any questions or require further information, you can contact the project researchers from the addresses below:</p>
           <ul style="list-style: none;">
@@ -192,7 +192,7 @@
         
         <!-- Quiz Instructions (look at emphasis tag on the Pepper Documentation to amend some of the intonations with some of the wording) -->  
         <div id="parts" class="survey-box">
-          <h1 class="hidden" data-animated data-auto-transition> Nicely done. Now onto the quiz. It contains two parts. The first part contains 10 questions covering general knowledge topics, and the second part has 5 additional memory questions with puzzles. ^run(animations/Stand/BodyTalk/Speaking/BodyTalk_12)</h1>
+          <h1 class="hidden" data-animated data-auto-transition> Nicely done. Now onto the quiz. It contains two parts. The first part contains 10 questions covering general knowledge topics, and the second has 5 additional memory questions with puzzles. ^run(animations/Stand/BodyTalk/Speaking/BodyTalk_12)</h1>
           <img src="images/QuizExplanation.png" alt="Quiz Parts Description" height="510">
           <button type="button" class="btn-navigate hidden" data-next="scores">Next</button>
         </div>
@@ -375,7 +375,7 @@
         </p>
         <br>
         <br>
-        <p><span id="user6_selection">Your submission: </span></p>
+        <p><span id="user6_selection"><b>Your submission: </b></span></p>
         <button style="margin:45px" type="button" class="btn-navigate" onclick="recordResp('r_6','true');" data-next="q7"><b>Next &raquo;</b></button>        
       </div>
       
@@ -438,7 +438,7 @@
         </p>
         <br>
         <br>
-        <p><span id="user8_selection">Your submission: </span></p>
+        <p><span id="user8_selection"><b>Your submission: </b></span></p>
         <button style="margin:45px" type="button" class="btn-navigate" onclick="recordResp('r_8','true');" data-next="q9r"><b>Next &raquo;</b></button>     
       </div>
       
@@ -484,7 +484,7 @@
         </p>
         <br>
         <br>
-        <p><span id="user9_selection">Your submission: </span></p>
+        <p><span id="user9_selection"><b>Your submission: </b></span></p>
         <button style="margin:45px" type="button" class="btn-navigate" onclick="recordResp('r_9','true');" data-next="q10r"><b>Next &raquo;</b></button>        
       </div>              
       
@@ -530,20 +530,20 @@
         </p>
         <br>
         <br>
-        <p><span id="user10_selection">Your submission: </span></p>
+        <p><span id="user10_selection"><b>Your submission:</b></span></p>
         <button style="margin:45px" type="button" class="btn-navigate" onclick="recordResp('r_10','true');" data-next="part2"><b>Next &raquo;</b></button>        
       </div>
       
       <!-- Transition towards puzzling questions (Part 2) -->
       <div id="part2" class="survey-box">
-        <h1 class="hidden" data-animated data-auto-transition> The first part is complete. Now for the second part. I will present a shape on my screen. The goal is for you to memorise it and ultimately count how many of that same shape are in a collection of different shapes. ^start(animations/Stand/BodyTalk/Speaking/BodyTalk_12) \vol=0\ An extra second.  </h1>
+        <h1 class="hidden" data-animated data-auto-transition> The first part is now complete. Now for the second part. I will present a shape on my screen. The goal is for you to memorise it and count how many of that shape are in a collection of different shapes. ^start(animations/Stand/BodyTalk/Speaking/BodyTalk_12) \vol=0\ An extra second.  </h1>
         <img src="images/Part2Explanation.png" alt="Explanation for Part 2" height="510">
         <button type="button" class="btn-navigate hidden" data-next="q11shape">Next</button>
       </div>
       
       <!-- Question 11 Introduction (Shape Display) -->
       <div id="q11shape" class="survey-box">
-        <h1 data-animated class="hidden"> Here is the first shape. Take a brief look at it before proceeding. You will have 4 seconds to visualise the collection of shapes and then make your guess. When you are ready to proceed, press Go. ^run(animations/Stand/BodyTalk/Speaking/BodyTalk_12) </h1>
+        <h1 data-animated class="hidden"> Here is the first shape. Please take a brief look at it before proceeding. You will have 4 seconds to visualise the collection of shapes and then make your guess. When you are ready to start, press Go. ^run(animations/Stand/BodyTalk/Speaking/BodyTalk_12) </h1>
         <br>
         <img src="images/Square.png" alt="Square" class="center" height="380">
         <br>
@@ -600,7 +600,7 @@
         </p>
         <br>
         <br>
-        <p><span id="user11_selection"></span></p>
+        <p><span id="user11_selection"><b>Your submission: </b></span></p>
         <button style="margin:45px" type="button" class="btn-navigate" onclick="recordResp('r_11','true');" data-next="q12shape"><b>Next &raquo;</b></button>        
       </div>
       
@@ -645,14 +645,14 @@
       
       <!-- Recommendation for right answer selection -->
       <div id="r6_for_correct_selection" class="survey-box">
-        <h1 class="hidden" data-animated data-auto-transition> OK. I actually think there are 12 triangles. ^run(animations/Stand/Gestures/Thinking_1) </h1>
+        <h1 class="hidden" data-animated data-auto-transition> OK. Personally, I counted 12 triangles. ^run(animations/Stand/Gestures/Thinking_1) </h1>
         <button type="button" class="btn-navigate hidden" data-next="r6">Next</button>
       </div>
       
       <!-- Recommendation for Q12 -->
       <div id="r6" class="survey-box">
         <br>
-        <h1 data-animated class="hidden"> Would you like to confirm your submission or change your guess? ^run(animations/Stand/Gestures/Thinking_1) </h1>
+        <h1 data-animated class="hidden"> Would you like to confirm your answer or change your guess? ^run(animations/Stand/Gestures/Thinking_1) </h1>
         <h1 data-ignore> What answer will you choose? </h1>
         <br>
         <br>
@@ -663,7 +663,7 @@
         </p>
         <br>
         <br>
-        <p><span id="user12_selection">Your submission: </span></p>
+        <p><span id="user12_selection"><b>Your submission: </b></span></p>
         <button style="margin:45px" type="button" class="btn-navigate" onclick="recordResp('r_12','true');" data-next="q13shape"><b>Next &raquo;</b></button>        
       </div>
       
@@ -689,7 +689,7 @@
       <div id="q13r" class="survey-box">
         <br>
         <br>
-        <h1 class="hidden"> What is your initial guess on the number of circles? </h1>
+        <h1 class="hidden"> What is your guess on the number of circles? </h1>
         <h1 data-ignore> <b>Q13: How many circles did you count? </b> </h1> 
         <br>
         <span><input type="number" min="0" max="100" name="q_a13" id="wrong_13r" onblur="inputSelection('13'); changeId('13');" class="form-control small-text" style="display: inline-block;"> circles</span>
@@ -702,13 +702,13 @@
       
       <!-- Recommendation for wrong answer selection -->
       <div id="r7_for_wrong_selection" class="survey-box">
-        <h1 class="hidden" data-animated data-auto-transition> OK. Personally, I counted 15 circles. ^run(animations/Stand/Gestures/Thinking_1) </h1>
+        <h1 class="hidden" data-animated data-auto-transition> OK. I actually counted 15 circles. ^run(animations/Stand/Gestures/Thinking_1) </h1>
         <button type="button" class="btn-navigate hidden" data-next="r7">Next</button>
       </div>
       
       <!-- Recommendation for right answer selection -->
       <div id="r7_for_correct_selection" class="survey-box">
-        <h1 class="hidden" data-animated data-auto-transition> OK. I actually think there are 12 circles. ^run(animations/Stand/Gestures/Thinking_1) </h1>
+        <h1 class="hidden" data-animated data-auto-transition> OK. I actually counted 12 circles. ^run(animations/Stand/Gestures/Thinking_1) </h1>
         <button type="button" class="btn-navigate hidden" data-next="r7">Next</button>
       </div>
       
@@ -726,7 +726,7 @@
         </p>
         <br>
         <br>
-        <p><span id="user13_selection">Your submission: </span></p>
+        <p><span id="user13_selection"><b>Your submission: </b></span></p>
         <button style="margin:45px" type="button" class="btn-navigate" onclick="recordResp('r_13','true');" data-next="q14shape"><b>Next &raquo;</b></button>        
       </div>
       
@@ -765,7 +765,7 @@
       
       <!-- Recommendation for wrong answer selection -->
       <div id="r8_for_wrong_selection" class="survey-box">
-        <h1 class="hidden" data-animated data-auto-transition> OK. I actually counted 9 squares. ^run(animations/Stand/Gestures/Thinking_1) </h1>
+        <h1 class="hidden" data-animated data-auto-transition> OK. I actually think there are 9 squares. ^run(animations/Stand/Gestures/Thinking_1) </h1>
         <button type="button" class="btn-navigate hidden" data-next="r8">Next</button>
       </div>
       
@@ -789,7 +789,7 @@
         </p>
         <br>
         <br>
-        <p><span id="user14_selection">Your submission: </span></p>
+        <p><span id="user14_selection"><b>Your submission: </b></span></p>
         <button style="margin:45px" type="button" class="btn-navigate" onclick="recordResp('r_14','true');" data-next="q15shape"><b>Next &raquo;</b></button>        
       </div>
       
@@ -834,7 +834,7 @@
       
       <!-- Recommendation for right answer selection -->
       <div id="r9_for_correct_selection" class="survey-box">
-        <h1 class="hidden" data-animated data-auto-transition> OK. I actually think there are 10 triangles. ^run(animations/Stand/Gestures/Thinking_1) </h1>
+        <h1 class="hidden" data-animated data-auto-transition> OK. Personally, I counted 10 triangles. ^run(animations/Stand/Gestures/Thinking_1) </h1>
         <button type="button" class="btn-navigate hidden" data-next="r9">Next</button>
       </div>
       
@@ -852,7 +852,7 @@
         </p>
         <br>
         <br>
-        <p><span id="user15_selection">Your submission: </span></p>
+        <p><span id="user15_selection"><b>Your submission: </b></span></p>
         <button style="margin:45px" type="button" class="btn-navigate" onclick="recordResp('r_15','true');" data-next="tores"><b>Next &raquo;</b></button>        
       </div>
       
@@ -921,7 +921,7 @@
       
       <!-- Conclusion Screen -->
       <div id="exit" class="survey-box">
-        <h1 class="hidden" data-animated> Thank you for taking your time to complete this quiz. The interview will now be conducted, so please suit yourself and be comfortable. Someone will come and talk to you shortly. ^run(animations/Stand/Gestures/Hey_3) </h1>
+        <h1 class="hidden" data-animated> Thank you for taking your time to complete this quiz. The interview will now be conducted, so please suit yourself and be comfortable. Somebody will come and talk to you shortly. ^run(animations/Stand/Gestures/Hey_3) </h1>
         <br>
         <h1> Thank you for your interest in completing the quiz. Please wait until someone comes to talk to you. </h1>
         <br>
@@ -953,10 +953,10 @@
     return document.getElementById('presentation_order').value == 1;
   }
   
-  // Delete text when input box is selected
+  // Delete text when input box is prompted
   var cur_ID;
   
-  function deleteText() {
+  function deleteText(){
     var box = document.activeElement;
     cur_ID = box;
     
@@ -1064,19 +1064,19 @@
     }
     
     dispSelected();
+  }
+  
+  // Change the id based on the user's input
+  function changeId(quesNr){
+    var initialId = "wrong_" + quesNr + "r";
+    var element = document.getElementById(initialId);
+    var inputValues = document.getElementsByName('q_a' + quesNr);
+    var inputValue = String(inputValues[0].value);
     
-    // Change the id based on the user's input
-    function changeId(quesNr){
-      var initialId = "wrong_" + quesNr + "r";
-      var element = document.getElementById(initialId);
-      var inputValues = document.getElementsByName('q_a' + quesNr);
-      var inputValue = String(inputValues[0].value);
-      
-      if (inputValue == '5'){
-        element.setAttribute('id', 'correct_' + quesNr + 'r');
-      } else {
-        element.setAttribute('id', initialId);
-      }
+    if (inputValue == '5'){
+      element.setAttribute('id', 'correct_' + quesNr + 'r');
+    } else {
+      element.setAttribute('id', initialId);
     }
   }
 </script>
