@@ -13,36 +13,37 @@ def toHTML(data, pages=None): #data variable represents the inline 'name' elemen
 
     data['q_a5'], #4 (Question 5)
 
-    data['q_a6'], #5 (Question 6 prompt)
+    data['q_a6'], #5 (Question 6)
     data['r_6'], #6 (Question 6 recommendation) 
 
     data['q_a7'], #7 (Question 7)
 
-    data['q_a8'], #8 (Question 8 prompt)
+    data['q_a8'], #8 (Question 8)
     data['r_8'], #9 (Question 8 recommendation)
 
-    data['q_a9'], #10 (Question 9 prompt)
+    data['q_a9'], #10 (Question 9)
     data['r_9'], #11 (Question 9 recommendation)
 
-    data['q_a10'], #12 (Question 10 prompt)
+    data['q_a10'], #12 (Question 10)
     data['r_10'], #13 (Question 10 recommendation)
 
-    int(data['q_a11']), #14 (Question 11 prompt)
+    int(data['q_a11']), #14 (Question 11)
     data['r_11'], #15 (Question 11 recommendation)
 
-    int(data['q_a12']), #16 (Question 12 prompt)
+    int(data['q_a12']), #16 (Question 12)
     data['r_12'] , #17 (Question 12 recommendation)
 
-    int(data['q_a13']), #18 (Question 13 prompt)
+    int(data['q_a13']), #18 (Question 13)
     data['r_13'], #19 (Question 13 recommendation)
 
-    int(data['q_a14']), #20 (Question 14 prompt)
+    int(data['q_a14']), #20 (Question 14)
     data['r_14'], #21 (Question 14 recommendation)
 
-    int(data['q_a15']), #22 (Question 15 prompt)
+    int(data['q_a15']), #22 (Question 15)
     data['r_15'], #23 (Question 15 recommendation)
   ]
 
+# Correct answers to quiz questions
   answ = [
     "An octagon", #0 (Answer to Q1)
     "I am still learning", #1 (Answer to Q2)
@@ -144,10 +145,10 @@ def toHTML(data, pages=None): #data variable represents the inline 'name' elemen
 
   replacements = {
 
-    # Final Score
+    # Final Score placeholder
     'finsc': finsc,
 
-    # Question 1
+    # Question 1 
     'select1': quest[0], 
     'correct1': answ[0],
 

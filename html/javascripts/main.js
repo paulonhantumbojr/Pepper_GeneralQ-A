@@ -431,7 +431,7 @@ function say(text, transition, animated) {
             })
         })
     })
-}
+} 
 
 function recordData(valStr) {
     var rec = '"'+valStr.trim()+'"';
